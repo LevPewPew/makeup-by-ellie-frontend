@@ -1,7 +1,7 @@
 {
-  "name": "sushi-frontend",
+  "name": "makeup-by-ellie-frontend",
   "version": "1.0.0",
-  "description": "sushi app frontend in react",
+  "description": "makeup-by-ellie app frontend in react",
   "main": "index.js",
   "author": "Levente Toth",
   "license": "MIT",
