@@ -8,7 +8,7 @@ function Portfolio() {
 
   useEffect(() => {
     dispatch({type: "UPDATE_WORKS_DATA", newWorksData: worksData});
-  });
+  }, [worksData]);
 
   return (
     <div className="Portfolio">
@@ -20,8 +20,8 @@ function Portfolio() {
           worksData.map((work, index) => {
             return (
               <>
-              <div key={index}>{work.category}</div>
-              <img key={index} src={work.image} />
+              <div>{work.category}</div>
+              <img src={work.image} />
               </>
             )
           }) :
