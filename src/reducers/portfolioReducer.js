@@ -34,7 +34,7 @@ function portfolioReducer(state = initialState, action) {
   let newState = {};
 
   switch(action.type) {
-    case "UPDATE_WORKS_DATA":
+    case 'UPDATE_WORKS_DATA':
       newState = {...state, displayName: action.newWorksData};
       break;
     default:
