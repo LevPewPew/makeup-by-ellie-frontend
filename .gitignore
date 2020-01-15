@@ -5,6 +5,13 @@
 /build
 /.netlify
 
+# development
+/src/components/SandboxApp.jsx
+
+# environment
+.env
+.env.development
+
 # logging
 *.log
 
