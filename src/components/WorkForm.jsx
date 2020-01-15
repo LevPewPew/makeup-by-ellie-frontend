@@ -5,20 +5,19 @@ function WorkForm() {
   return (
     <form className="WorkForm" onSubmit={this.props.handleSubmit}>
       <div>
-        <label htmlFor="firstName">First Name</label>
-        <Field name="firstName" component="input" type="text" />
+        <label htmlFor="category">Category</label>
+        <Field name="category" component="input" type="text" />
       </div>
       <div>
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="text" />
+        {/* TODO change this to attachment, refer to class cafe app */}
+        <label htmlFor="image">Image</label>
+        <Field name="image" component="input" type="text" />
       </div>
       <button type="submit">Submit</button>
     </form>
   )
 }
 
-export default reduxForm({form: 'contact'})(WorkForm);
+// TODO once i pull accepted redux store boilerplate, i can change root reducer to be the store also and mimic the my-first-form repo setup
+
+export default reduxForm({form: 'WorkForm'})(WorkForm);
