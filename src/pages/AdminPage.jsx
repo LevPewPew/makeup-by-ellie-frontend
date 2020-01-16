@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import WorkForm from '../components/WorkForm';
 
 function AdminPage() {
   const workForm = useSelector((state) => state.form.WorkForm);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: true});
+
+    return () => dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false});
+  }, [])
 
   async function handleSubmit() {
     let { category, image } = workForm.values;
