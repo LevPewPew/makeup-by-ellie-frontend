@@ -1,9 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-function WorkForm() {
+function WorkForm(props) {
   return (
-    <form className="WorkForm" onSubmit={this.props.handleSubmit}>
+    <form className="WorkForm" onSubmit={props.handleSubmit}>
       <div>
         <label htmlFor="category">Category</label>
         <Field name="category" component="input" type="text" />
@@ -13,7 +13,7 @@ function WorkForm() {
         <label htmlFor="image">Image</label>
         <Field name="image" component="input" type="text" />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={props.submitting || props.pristine}>Submit</button>
     </form>
   )
 }
