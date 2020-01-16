@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
+import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-// import rootReducer from '../reducers/rootReducer';
-import WorkForm from './WorkForm';
+import rootReducer from '../reducers/rootReducer';
+import AdminPage from '../pages/AdminPage';
 
-// const store = createStore(rootReducer);
+const store = createStore(rootReducer);
 
-function App() {
+function SandboxApp() {
   return (
-    // <Provider store={store}>
-      <div className="App">
+    <Provider store={store}>
+      <div className="SandboxApp">
         <h1>Hello World</h1>
         <h2>All Categories</h2>
         <div>
-          <WorkForm />
+          <AdminPage />
         </div>
       </div>
-    // </Provider>
+    </Provider>
   );
 }
 
-export default App;
+export default SandboxApp;

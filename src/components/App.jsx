@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
+import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../reducers/rootReducer';
-import Portfolio from './Portfolio';
 
 const store = createStore(rootReducer);
 
@@ -11,11 +9,13 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <h1>Hello World</h1>
-        <h2>All Categories</h2>
-        <div>
-          <Portfolio />
-        </div>
+        <h1>Makeup by Ellie</h1>
+        <p>PLACEHOLDER</p>
+        <p>PLACEHOLDER</p>
+        <p>PLACEHOLDER</p>
+        <p>PLACEHOLDER</p>
+        <p>PLACEHOLDER</p>
+        <p>PLACEHOLDER</p>
       </div>
     </Provider>
   );
