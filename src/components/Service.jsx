@@ -10,10 +10,16 @@ function Service(props) {
       <h1>{title}</h1>
       <p>{description}</p>
       <img src={imageUrl}/>
-      <div className="crud-per-doc">
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </div>
+        {
+          onAdminDash ?
+          <div className="crud-per-doc">
+            <button className="edit">Edit</button>
+            <button className="delete">Delete</button>
+          </div> :
+          null
+        }
     </div>
   )
 }
+
+export default Service;
