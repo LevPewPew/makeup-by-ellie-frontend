@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Home.css';
 
-export default class Home extends Component {
+export default class HomePage extends Component {
   render() {
     return (
       <div>
