@@ -1,24 +1,33 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import BtnEditDoc from './BtnEditDoc';
+import BtnDeleteDoc from './BtnDeleteDoc';
 
 function Service(props) {
   const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
-  const { title, description, imageUrl } = props;
+  const { _id, title, description, imageUrl } = props;
+  const collection = 'services';
 
   return (
-    <div className="Service">
+    <article className="Service">
       <h1>{title}</h1>
       <p>{description}</p>
-      <img src={imageUrl}/>
+      <img src={imageUrl} alt=""/>
         {
           onAdminDash ?
           <div className="crud-per-doc">
-            <button className="edit">Edit</button>
-            <button className="delete">Delete</button>
+            <BtnEditDoc
+              collection={collection}
+              _id={_id}
+            />
+            <BtnDeleteDoc
+              collection={collection}
+              _id={_id}
+            />
           </div> :
           null
         }
-    </div>
+    </article>
   )
 }
 

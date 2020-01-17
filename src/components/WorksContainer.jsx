@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios';
 
-function Portfolio() {
+function WorksContainer() {
   const worksData = useSelector((state) => state.portfolioReducer.worksData);
   const dispatch = useDispatch();
 
@@ -11,9 +11,8 @@ function Portfolio() {
   }, [worksData]);
 
   return (
-    <div className="Portfolio">
-      <h1>Portfolio</h1>
-      <h2>Some Dynamic Category</h2>
+    <section className="WorksContainer">
+      {/* // TODO change this to a work component after you crete one */}
       <div>
         {
           worksData ?
@@ -28,8 +27,8 @@ function Portfolio() {
           <div>empty, no categories</div>
         }
       </div>
-    </div>
+    </section>
   );
 }
 
-export default Portfolio;
+export default WorksContainer;
