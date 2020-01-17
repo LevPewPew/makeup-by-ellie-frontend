@@ -21,11 +21,12 @@ function ServicesContainer() {
     <section className="ServicesContainer">
       {
         servicesData ?
-        servicesData.map((service) => {
+        servicesData.map((service, index) => {
           const { _id, title, description, imageUrl } = service;
 
           return (
             <Service
+              key={index}
               id={_id}
               title={title}
               description={description}

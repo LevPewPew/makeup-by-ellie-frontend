@@ -3,15 +3,13 @@ import { useSelector } from 'react-redux';
 import BtnEditDoc from './BtnEditDoc';
 import BtnDeleteDoc from './BtnDeleteDoc';
 
-function Service(props) {
+function Work(props) {
   const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
-  const { _id, title, description, imageUrl } = props;
-  const collection = 'services';
+  const { _id, imageUrl } = props;
+  const collection = 'portfolio';
 
   return (
-    <article className="Service">
-      <h1>{title}</h1>
-      <p>{description}</p>
+    <article className="Work">
       <img src={imageUrl} alt=""/>
       {
         onAdminDash ?
@@ -31,4 +29,4 @@ function Service(props) {
   )
 }
 
-export default Service;
+export default Work;
