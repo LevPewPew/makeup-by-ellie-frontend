@@ -1,36 +1,5 @@
-// DUMMY remove later
-const dummyData = [
-  {
-    "_id": "5e1e27590a9dee300d8c85d8",
-    "title": "editorial",
-    "description": "test",
-    "imageUrl": "test",
-    "createdAt": "2020-01-14T20:40:57.092Z",
-    "updatedAt": "2020-01-14T20:40:57.092Z",
-    "__v": 0
-  },
-  {
-    "_id": "5e1e27590a9dee300d8c85d8",
-    "title": "editorial",
-    "description": "test",
-    "imageUrl": "test",
-    "createdAt": "2020-01-14T20:40:57.092Z",
-    "updatedAt": "2020-01-14T20:40:57.092Z",
-    "__v": 0
-  },
-  {
-    "_id": "5e1e27590a9dee300d8c85d8",
-    "title": "editorial",
-    "description": "test",
-    "imageUrl": "test",
-    "createdAt": "2020-01-14T20:40:57.092Z",
-    "updatedAt": "2020-01-14T20:40:57.092Z",
-    "__v": 0
-  }
-]
-
 const initialState = {
-  servicesData: dummyData
+  servicesData: null
 };
 
 function servicesReducer(state = initialState, action) {
