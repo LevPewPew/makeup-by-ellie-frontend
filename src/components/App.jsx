@@ -4,9 +4,15 @@ import { Provider } from 'react-redux';
 import rootReducer from '../reducers/rootReducer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-import HomePage from '../pages/home/HomePage.jsx'
+import HomePage from '../pages/home/HomePage.jsx';
+import ContactForm from '../pages/contact/ContactForm.jsx';
 
 const store = createStore(rootReducer);
+
+function submit(values)
+{
+  console.log(values);
+}
 
 function App() {
   return (
@@ -16,6 +22,7 @@ function App() {
         <BrowserRouter>
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
+                <Route exact path="/contact"><ContactForm onSubmit={submit}/></Route>
               </Switch>
           </BrowserRouter>
       </div>
