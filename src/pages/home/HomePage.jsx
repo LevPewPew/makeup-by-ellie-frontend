@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 import './Home.css';
 
@@ -15,6 +16,8 @@ export default class HomePage extends Component {
         </div>
         <p>Placeholder for Testimonials component</p>
         <p>Placeholder for Instagram API component</p>
+        {/* Just to check the contact component */}
+        <Link to='/contact'>Submit your inquiry</Link>
       </div>
     )
   }
