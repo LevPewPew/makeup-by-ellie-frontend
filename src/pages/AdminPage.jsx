@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import Axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import WorkForm from '../components/WorkForm';
-import TestimonialForm from '../components/TestimonialForm';
-import ServiceForm from '../components/ServiceForm';
 import PortfolioContainer from '../components/PortfolioContainer';
+import WorkForm from '../components/WorkForm';
 import TestimonialsContainer from '../components/TestimonialContainer';
+import TestimonialForm from '../components/TestimonialForm';
 import ServicesContainer from '../components/ServicesContainer';
+import ServiceForm from '../components/ServiceForm';
 
 function AdminPage() {
   const workForm = useSelector((state) => state.form.WorkForm);
@@ -20,7 +20,7 @@ function AdminPage() {
 
   async function handlePortfolioSubmit() {
     let { category, imageUrl } = workForm.values;
-    let params = { category, image };
+    let params = { category, imageUrl };
     try {
       await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/portfolio`, params);
     } catch (err) {
@@ -31,7 +31,7 @@ function AdminPage() {
   async function handleTestimonialSubmit() {
     // TODO replace these with testimonial model fields
     let { name, text } = TestimonialForm.values;
-    let params = { category, image };
+    let params = { name, text };
     try {
       await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/testimonials`, params);
     } catch (err) {
@@ -41,7 +41,7 @@ function AdminPage() {
 
   async function handleServicesSubmit() {
     let { name, description, imageUrl } = ServiceForm.values;
-    let params = { category, image };
+    let params = { name, description, imageUrl };
     try {
       await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/services`, params);
     } catch (err) {
