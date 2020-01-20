@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field,reduxForm} from 'redux-form';
-import './Contact.css';
+import './ContactForm.css';
 
 function validate(values)
 {
