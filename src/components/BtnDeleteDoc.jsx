@@ -4,12 +4,12 @@ import Axios from 'axios';
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function BtnDeleteDoc(props) {
-  const { collection, _id } = props;
+  const { collection, id } = props;
 
   // TODO will this force a rerender of whatever container has the document component in??? we will see...
   async function handleDelete() {
     try {
-      await Axios.delete(`${backendUrl}/${collection}/${_id}`);
+      await Axios.delete(`${backendUrl}/${collection}/${id}`);
     } catch (err) {
       console.log(err.response.data);
     }
