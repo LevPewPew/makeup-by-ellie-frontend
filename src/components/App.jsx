@@ -22,7 +22,7 @@ function App() {
         <BrowserRouter>
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
-                <Route exact path="/contact"><ContactPage onSubmit={submit}/></Route>
+                <Route exact path="/contact"><ContactPage/></Route>
               </Switch>
           </BrowserRouter>
       </div>
