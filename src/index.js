@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SandboxApp from './components/SandboxApp.jsx';
+import App from './components/App.jsx';
 
-ReactDOM.render(<SandboxApp />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
