@@ -1,6 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from './AttachmentField';
+import DropdownListField from './DropdownListField';
+
+const categories = [ { category: 'Bridal', value: 'bridal' },
+  { category: 'Beauty', value: 'beauty' },
+  { category: 'Editorial', value: 'editorial' } ]
 
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting, success } = props;
@@ -8,11 +13,21 @@ function WorkForm(props) {
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="category">Category</label>
-        <Field name="category" component="input" type="text" />
+        <label>Category</label>
+        <Field
+          name="category"
+          component={DropdownListField}
+          data={categories}
+          valueField="value"
+          textField="category"
+        />
       </div>
       <div>
-        <Field name="imageBlob" component={AttachmentField} />
+        <label>Image</label>
+        <Field
+          name="imageBlob"
+          component={AttachmentField}
+        />
       </div>
       {
         success ?
