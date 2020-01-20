@@ -12,7 +12,6 @@ function WorksContainer() {
   useEffect(() => {
     (async () => {
       let res = await Axios.get(`${backendUrl}/portfolio`);
-      console.log(res.data);
       dispatch({type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data})
     })();
   }, []);
