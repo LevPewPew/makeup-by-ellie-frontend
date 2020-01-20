@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field,reduxForm} from 'redux-form';
-import './Contact.css';
+import '../pages/contact/Contact.css';
 
 function validate(values)
 {
@@ -41,7 +41,6 @@ class ContactForm extends React.Component {
   {
     return (   
       <form onSubmit={this.props.handleSubmit} className='contactForm'>
-        <h1>Form Header</h1>
          <Field type='text' component={this.renderField} label='Name' name='username'/>
          <Field type='number' component={this.renderField} label='Mobile' name='mobile'/>
          <Field type='date' component={this.renderField} label='Event Date' name='eventDate'/>
