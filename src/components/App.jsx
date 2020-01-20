@@ -5,7 +5,7 @@ import rootReducer from '../reducers/rootReducer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './navbar/Navbar.jsx';
 import HomePage from '../pages/home/HomePage.jsx';
-import ContactForm from '../pages/contact/ContactForm.jsx';
+import ContactPage from '../pages/contact/ContactPage';
 
 const store = createStore(rootReducer);
 
@@ -22,7 +22,7 @@ function App() {
           <Navbar/>
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
-                <Route exact path="/contact"><ContactForm onSubmit={submit}/></Route>
+                <Route exact path="/contact"><ContactPage/></Route>
               </Switch>
           </BrowserRouter>
       </div>
