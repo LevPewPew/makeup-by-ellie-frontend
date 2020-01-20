@@ -1,6 +1,7 @@
 import React from 'react';
 import {Field,reduxForm} from 'redux-form';
 import './ContactForm.css';
+import axios from 'axios';
 
 function validate(values)
 {
@@ -36,6 +37,11 @@ class ContactForm extends React.Component {
          </div>
       )
    }
+
+  componentDidMount = async () => {
+    const response = await axios.get('http://localhost:8000/services');
+    console.log(response.data)
+  }
 
   render()
   {

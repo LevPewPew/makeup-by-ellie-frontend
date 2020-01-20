@@ -9,11 +9,6 @@ import ContactPage from '../pages/contact/ContactPage';
 
 const store = createStore(rootReducer);
 
-function submit(values)
-{
-  console.log(values);
-}
-
 function App() {
   return (
     <Provider store={store}>
