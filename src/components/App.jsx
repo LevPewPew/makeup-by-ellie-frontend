@@ -9,7 +9,9 @@ import ContactPage from '../pages/contact/ContactPage';
 import Footer from './footer/Footer.jsx';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy.jsx';
 import TermsConditions from '../pages/terms-conditions/TermsConditions.jsx';
-import ContactListPage from '../pages/contactList/ContactListPage';
+// Just for test
+import ContactContainer from './ContactContainer';
+import QuestionPage from '../pages/FAQ/QuestionPage.jsx';
 
 import './App.css';
 
@@ -24,7 +26,9 @@ function App() {
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
                 <Route path="/contact"><ContactPage/></Route>
-                <Route path="/getcontactlist"><ContactListPage/></Route>
+                <Route path="/faq"><QuestionPage/></Route>
+                {/*Below route is just for testing*/}
+                <Route path="/getcontactlist"><ContactContainer/></Route>
                 <Route path="/privacy-policy"><PrivacyPolicy/></Route>
                 <Route path="/terms-and-conditions"><TermsConditions/></Route>
               </Switch>
