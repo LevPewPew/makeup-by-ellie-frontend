@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import './AttachmentField.css';
 
 function AttachmentField(props) {
   const { input, files, setFiles } = props;
-  const portfolioData = useSelector((state) => state.portfolioReducer.portfolioData);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
@@ -25,10 +23,6 @@ function AttachmentField(props) {
       </div>
     </div>
   ));
-
-  useEffect(() => {
-    console.log('worked');
-  }, [portfolioData]);
 
   return (
     <div className="AttachmentField">
