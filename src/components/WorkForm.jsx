@@ -3,6 +3,16 @@ import { Field, reduxForm } from 'redux-form';
 import AttachmentField from './AttachmentField';
 import DropdownListField from './DropdownListField';
 
+function validate(values) {
+  let errors = {};
+
+  if (!values.category) {
+    errors.category = 'Required';
+  }
+
+  return errors;
+}
+
 const categories = [ { category: 'Bridal', value: 'bridal' },
   { category: 'Beauty', value: 'beauty' },
   { category: 'Editorial', value: 'editorial' } ]
@@ -10,16 +20,30 @@ const categories = [ { category: 'Bridal', value: 'bridal' },
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting, success } = props;
 
+  function renderDropdownListField({input, label, meta: {touched, error, warning}}) {
+    return (
+      <div>
+        <label htmlFor="">{label}</label>
+        <div>
+          <DropdownListField
+            input={input}
+            data={categories}
+            valueField="value"
+            textField="category"
+          />
+          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>
       <div>
         <label>Category</label>
         <Field
           name="category"
-          component={DropdownListField}
-          data={categories}
-          valueField="value"
-          textField="category"
+          component={renderDropdownListField}
         />
       </div>
       <div>
@@ -41,4 +65,4 @@ function WorkForm(props) {
   )
 }
 
-export default reduxForm({form: 'WorkForm'})(WorkForm);
+export default reduxForm({form: 'WorkForm', validate})(WorkForm);
