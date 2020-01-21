@@ -10,7 +10,7 @@ export default class HomePage extends Component {
       <div>
         <div className = "heroContainer">
           <div className="homepage-image">
-          <img src={homepageImage} alt="hero image"/>
+          <img src={homepageImage} alt="hero"/>
           </div>
         </div>
         <div className="about">

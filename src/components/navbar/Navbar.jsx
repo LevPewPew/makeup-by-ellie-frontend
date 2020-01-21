@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-import logo_placeholder from '../../media/logo_placeholder.png';
+import logoplaceholder from '../../media/logo-placeholder.png';
 import "./Navbar.css";
 
 
@@ -25,7 +25,7 @@ export default class Navbar extends Component {
         <nav>
           <div className="navbar">
           <div className="navbar-logo">
-            < Link to="/"><img src={logo_placeholder} alt="logo" height="100" width="100"/></Link></div>
+            < Link to="/"><img src={logoplaceholder} alt="logo" height="100" width="100"/></Link></div>
           </div> 
             <div className="navbar-links">
               <div className="navbar-link"><Link to="/services">SERVICES</Link></div>
