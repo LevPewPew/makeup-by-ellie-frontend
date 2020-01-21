@@ -15,12 +15,6 @@ function AdminPage() {
   const dispatch = useDispatch();
   const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: true});
-
-    return () => dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false});
-  }, [])
-
   async function handlePortfolioSubmit() {
     let { category, imageBlob } = workForm.values;
     
@@ -47,14 +41,27 @@ function AdminPage() {
     };
     let params = { category, imageUrl: signedUrl };
     res = await Axios.put(signedRequest, file, options)
-    setSuccess(true);
-
+    
     try {
       await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/portfolio`, params);
+      setSuccess(true);
     } catch (err) {
       console.log(err);
     }
   }
+
+  useEffect(() => {
+    dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: true});
+
+    return () => dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false});
+  }, [])
+
+  useEffect(() => {
+    (async () => {
+      let res = await Axios.get(`${backendUrl}/portfolio`);
+      dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
+    })();
+  }, [success]);
 
   // async function handleTestimonialSubmit() {
   //   // TODO replace these with testimonial model fields
@@ -83,6 +90,7 @@ function AdminPage() {
       <PortfolioContainer />
       <WorkForm
         onSubmit={handlePortfolioSubmit}
+        success={success}
       />
       {/* <TestimonialsContainer />
       <TestimonialForm onSubmit={handleTestimonialSubmit}/>

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import rootReducer from '../reducers/rootReducer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './navbar/Navbar.jsx';
+import AdminPage from '../pages/admin/AdminPage.jsx';
 import HomePage from '../pages/home/HomePage.jsx';
 import ContactPage from '../pages/contact/ContactPage';
 import Footer from './footer/Footer.jsx';
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/contact"><ContactPage/></Route>
                 <Route path="/privacy-policy"><PrivacyPolicy/></Route>
                 <Route path="/terms-and-conditions"><TermsConditions/></Route>
+                <Route path="/admin"><AdminPage/></Route>
               </Switch>
               <Footer/>
           </BrowserRouter>
