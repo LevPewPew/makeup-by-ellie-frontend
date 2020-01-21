@@ -1,5 +1,6 @@
 import React from 'react';
-import {Field,reduxForm} from 'redux-form';
+import {Field, reduxForm, formValueSelector} from 'redux-form';
+import { connect } from 'react-redux'
 import './ContactForm.css';
 import DropdownListField from './DropdownListField';
 
@@ -33,6 +34,8 @@ function warn(values)
 
 class ContactForm extends React.Component {
 
+   
+
    renderField = ({input,type,label,meta:{touched,error,warning,value}}) => {
       return(
          <div>
@@ -63,7 +66,8 @@ class ContactForm extends React.Component {
          <Field type='number' component={this.renderField} label='Number of people for makeup' name='totalPeopleJustMakeup'/>
          <Field type='number' component={this.renderField} label='Number of people for Hair' name='totalPeopleWithHair'/>
          <Field type='date' component={this.renderField} label='Time to be ready by' name='timeToFinish'/>
-         <Field type='text' component={this.renderField} label='Address' name='applicationAddress'/>
+         {(parseInt(this.props.number1)+parseInt(this.props.number2))>3
+         && <Field type='text' component={this.renderField} label='Address' name='applicationAddress'/>}
          <Field type='text' component={this.renderField} label='How did you hear about us' name='howDidYouHear'/>
          <Field type='text' component={this.renderField} label='Any additional questions' name='addedQuestionsOrInfo'/>
         <div>
@@ -76,4 +80,20 @@ class ContactForm extends React.Component {
   
 }
 
-export default reduxForm({form:'contact',validate,warn})(ContactForm);
+ContactForm = reduxForm({
+   form: 'contact'  
+ },validate,warn)(ContactForm)
+ 
+ 
+ const selector = formValueSelector('contact')
+ ContactForm = connect(
+   state => {
+    
+      return {
+         number1: selector(state, 'totalPeopleJustMakeup'),
+         number2: selector(state, 'totalPeopleWithHair'),
+       }
+   }
+ )(ContactForm)
+
+ export default ContactForm
