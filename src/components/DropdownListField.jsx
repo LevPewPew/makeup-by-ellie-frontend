@@ -16,11 +16,13 @@ function DropdownListField(props) {
   }
  
   return (
-    <DropdownList
-      {...props}
-      value={input.value}
-      onChange={handleChange}
-    />
+    <div className="DropdownFieldList">
+      <DropdownList
+        {...props}
+        value={input.value}
+        onChange={handleChange}
+      />
+    </div>
   )
 }
 
