@@ -7,6 +7,8 @@ import Navbar from './navbar/Navbar.jsx';
 import HomePage from '../pages/home/HomePage.jsx';
 import ContactPage from '../pages/contact/ContactPage';
 
+import './App.css';
+
 const store = createStore(rootReducer);
 
 function submit(values)
