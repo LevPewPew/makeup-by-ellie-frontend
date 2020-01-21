@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from './AttachmentField';
 import DropdownListField from './DropdownListField';
+
+function validate(values) {
+  let errors = {};
+
+  if (!values.category) {
+    errors.category = 'Required';
+  }
+
+  if (!values.imageBlob) {
+    errors.imageBlob = 'Required';
+  }
+
+  return errors;
+}
 
 const categories = [ { category: 'Bridal', value: 'bridal' },
   { category: 'Beauty', value: 'beauty' },
@@ -9,6 +23,46 @@ const categories = [ { category: 'Bridal', value: 'bridal' },
 
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting, success } = props;
+  // this state is needed outside of the AttachmentField to avoid component unmounted errors from react-dropzone when using redux-form validations, do not move into AttachmentField
+  const [files, setFiles] = useState([]);
+
+  function renderDropdownListField({input, label, meta: {touched, error, warning}}) {
+    return (
+      <div>
+        <label htmlFor="">{label}</label>
+        <div>
+          <DropdownListField
+            input={input}
+            data={categories}
+            valueField="value"
+            textField="category"
+          />
+          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        </div>
+      </div>
+    )
+  }
+
+  function renderAttachmentField({input, label, meta: {touched, error, warning}}) {
+    return (
+      <div>
+        <label htmlFor="">{label}</label>
+        <div>
+          <AttachmentField
+            input={input}
+            files={files}
+            setFiles={setFiles}
+          />
+          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        </div>
+      </div>
+    )
+  }
+
+  useEffect(() => {
+    // Make sure to revoke the data uris to avoid memory leaks
+    return () => files.forEach(file => URL.revokeObjectURL(file.preview));
+  }, [files]);
 
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>
@@ -16,17 +70,14 @@ function WorkForm(props) {
         <label>Category</label>
         <Field
           name="category"
-          component={DropdownListField}
-          data={categories}
-          valueField="value"
-          textField="category"
+          component={renderDropdownListField}
         />
       </div>
       <div>
         <label>Image</label>
         <Field
           name="imageBlob"
-          component={AttachmentField}
+          component={renderAttachmentField}
         />
       </div>
       {
@@ -41,4 +92,4 @@ function WorkForm(props) {
   )
 }
 
-export default reduxForm({form: 'WorkForm'})(WorkForm);
+export default reduxForm({form: 'WorkForm', validate})(WorkForm);
