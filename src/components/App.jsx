@@ -7,6 +7,8 @@ import Navbar from './navbar/Navbar.jsx';
 import HomePage from '../pages/home/HomePage.jsx';
 import ContactPage from '../pages/contact/ContactPage';
 import Footer from './footer/Footer.jsx';
+import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy.jsx';
+import TermsConditions from '../pages/terms-conditions/TermsConditions.jsx';
 
 import './App.css';
 
@@ -26,6 +28,8 @@ function App() {
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
                 <Route path="/contact"><ContactPage/></Route>
+                <Route path="/privacy-policy"><PrivacyPolicy/></Route>
+                <Route path="/terms-and-conditions"><TermsConditions/></Route>
               </Switch>
               <Footer/>
           </BrowserRouter>
