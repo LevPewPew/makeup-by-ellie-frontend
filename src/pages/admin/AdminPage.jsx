@@ -54,6 +54,8 @@ function AdminPage() {
     } catch (err) {
       console.log(err);
     }
+
+    dispatch({ type: `REFRESH_PORTFOLIO_DATA`, refresh: { refresh: 'yes' } });
   }
 
   // async function handleTestimonialSubmit() {
