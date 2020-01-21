@@ -14,7 +14,7 @@ function AttachmentField(props) {
     }
   });
   
-  const thumbs = files.map(file => (
+  let thumbs = files.map(file => (
     <div className="thumb" key={file.name}>
       <div className="thumb-inner">
         <img

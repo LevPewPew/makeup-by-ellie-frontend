@@ -11,7 +11,10 @@ function BtnDeleteDoc(props) {
   async function handleDelete() {
     try {
       await Axios.delete(`${backendUrl}/${collection}/${id}`);
-      dispatch({ type: `REFRESH_${collection.toUpperCase()}_DATA`, refresh: { refresh: 'yes' } })
+      (async () => {
+        let res = await Axios.get(`${backendUrl}/portfolio`);
+        dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
+      })();
     } catch (err) {
       console.log(err);
     }

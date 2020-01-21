@@ -32,6 +32,9 @@ export default class Navbar extends Component {
               <div className="navbar-link"><Link to="/portfolio">PORTFOLIO</Link></div>
               <div className="navbar-link"><Link to="/faq">FAQ</Link></div>
               <div className="navbar-link"><Link to="/contact">CONTACT</Link></div>
+              {/* temp dev zone */}
+              <div className="navbar-link"><Link to="/admin">ADMIN</Link></div>
+              {/* temp dev zone */}
             </div>
             <div id="button">
               <label>
