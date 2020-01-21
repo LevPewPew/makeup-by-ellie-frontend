@@ -1,9 +1,9 @@
 /* Just some sample styles */
 
 .myInput {
-  width: 200px;
+  width: 250px;
   height: 30px;
-  margin: 10px;
+  margin: 15px;
 }
 
 .contactForm {
@@ -18,13 +18,13 @@
 .contactFormSubmit {
   width: 120px;
   height: 40px;
-  border-radius: 10px;
-  background: blue;
+  color: antiquewhite;
+  background: black;
 }
 
 .contactFormReset {
   width: 120px;
   height: 40px;
-  border-radius: 10px;
+  
   background: white;
 }
