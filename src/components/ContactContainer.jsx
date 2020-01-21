@@ -18,7 +18,6 @@ function ContactContainer() {
   
   return (
     <div className="myContactContainer">
-      <h1>Contact List header</h1>
       {contactList.map((contact,index)=> {
         return <Contact key={index} {...contact}/>
       })}
