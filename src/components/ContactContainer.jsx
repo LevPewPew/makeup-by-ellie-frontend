@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import ContactList from '../../components/ContactList.jsx';
-import './ContactListPage.css'
+import Contact from './Contact';
+import './ContactContainer.css'
 
-function ContactListPage() {
+function ContactContainer() {
 
   const initialState = []
   const [contactList,setContactList] = useState(initialState);
@@ -17,13 +17,13 @@ function ContactListPage() {
 
   
   return (
-    <div className="myContactListPage">
+    <div className="myContactContainer">
       <h1>Contact List header</h1>
-      {contactList.map(contact=> {
-        return <div ><ContactList {...contact}/></div>
+      {contactList.map((contact,index)=> {
+        return <Contact key={index} {...contact}/>
       })}
     </div>
   )
 }
 
-export default ContactListPage
+export default ContactContainer

@@ -1,9 +1,9 @@
 import React from 'react';
-import './ContactList.css';
+import './Contact.css';
 
 import axios from 'axios';
 
-function ContactList(props) {
+function Contact(props) {
 
   const handleClick = ()=>
   {
@@ -12,7 +12,7 @@ function ContactList(props) {
   }
 
   return (
-    <div className="mycontactList">
+    <div className="mycontact">
       <h1>Name:{props.name}</h1>
       <h2>Contact Number:{props.mobile}</h2>
       <h2>Type of Service:{props.serviceType}</h2>
@@ -21,4 +21,4 @@ function ContactList(props) {
   )
 }
 
-export default ContactList
+export default Contact
