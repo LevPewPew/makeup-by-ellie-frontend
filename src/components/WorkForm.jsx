@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from './AttachmentField';
 import DropdownListField from './DropdownListField';
@@ -23,6 +23,7 @@ const categories = [ { category: 'Bridal', value: 'bridal' },
 
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting, success } = props;
+  const [files, setFiles] = useState([]);
 
   function renderDropdownListField({input, label, meta: {touched, error, warning}}) {
     return (
@@ -48,12 +49,19 @@ function WorkForm(props) {
         <div>
           <AttachmentField
             input={input}
+            files={files}
+            setFiles={setFiles}
           />
           {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
         </div>
       </div>
     )
   }
+
+  useEffect(() => {
+    // Make sure to revoke the data uris to avoid memory leaks
+    return () => files.forEach(file => URL.revokeObjectURL(file.preview));
+  }, [files]);
 
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>
@@ -68,7 +76,7 @@ function WorkForm(props) {
         <label>Image</label>
         <Field
           name="imageBlob"
-          component={AttachmentField}
+          component={renderAttachmentField}
         />
       </div>
       {
