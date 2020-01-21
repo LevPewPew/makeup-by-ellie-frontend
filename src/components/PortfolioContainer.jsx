@@ -7,7 +7,6 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function WorksContainer() {
   const portfolioData = useSelector((state) => state.portfolioReducer.portfolioData);
-  const refreshData = useSelector((state) => state.portfolioReducer.refreshData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,7 +14,7 @@ function WorksContainer() {
       let res = await Axios.get(`${backendUrl}/portfolio`);
       dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
     })();
-  }, [refreshData]);
+  }, []);
 
   return (
     <section className="PortfolioContainer">
