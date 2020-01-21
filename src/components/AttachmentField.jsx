@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import './AttachmentField.css';
 
@@ -25,22 +25,16 @@ function AttachmentField(props) {
   ));
 
   return (
-    <section className="container">
-      <div {...getRootProps({ className: "Dropzone" })}>
-        <input {...getInputProps()} />
+    <div className="AttachmentField">
+      <div { ...getRootProps({ className: "Dropzone" }) }>
+        <input { ...getInputProps() } />
         <p>Drag 'n' drop some files here, or click to select files</p>
       </div>
       <aside className="thumbs-container">
         {thumbs}
       </aside>
-    </section>
+    </div>
   );
 }
 
 export default AttachmentField;
-
-// index.js:1 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-//     in AttachmentField (at WorkForm.jsx:49)
-//     in div (at WorkForm.jsx:48)
-//     in div (at WorkForm.jsx:46)
-//     in renderAttachmentField (created by ConnectedField)

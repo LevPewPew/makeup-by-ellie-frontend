@@ -23,6 +23,7 @@ const categories = [ { category: 'Bridal', value: 'bridal' },
 
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting, success } = props;
+  // this state is needed outside of the AttachmentField to avoid component unmounted errors from react-dropzone when using redux-form validations, do not move into AttachmentField
   const [files, setFiles] = useState([]);
 
   function renderDropdownListField({input, label, meta: {touched, error, warning}}) {
