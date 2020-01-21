@@ -10,6 +10,10 @@ function validate(values) {
     errors.category = 'Required';
   }
 
+  if (!values.imageBlob) {
+    errors.imageBlob = 'Required';
+  }
+
   return errors;
 }
 
@@ -30,6 +34,20 @@ function WorkForm(props) {
             data={categories}
             valueField="value"
             textField="category"
+          />
+          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        </div>
+      </div>
+    )
+  }
+
+  function renderAttachmentField({input, label, meta: {touched, error, warning}}) {
+    return (
+      <div>
+        <label htmlFor="">{label}</label>
+        <div>
+          <AttachmentField
+            input={input}
           />
           {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
         </div>
