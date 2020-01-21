@@ -1,7 +1,12 @@
 import React from 'react';
 import {Field,reduxForm} from 'redux-form';
 import './ContactForm.css';
-import axios from 'axios';
+import DropdownListField from './DropdownListField';
+
+const categories = [ { category: 'Bridal', value: 'bridal' },
+  { category: 'Beauty', value: 'beauty' },
+  { category: 'Editorial', value: 'editorial' } ];
+
 
 function validate(values)
 {
@@ -11,6 +16,7 @@ function validate(values)
    {
       errors.username="This is a required field"
    }
+
    return errors;
 }
 
@@ -27,33 +33,36 @@ function warn(values)
 
 class ContactForm extends React.Component {
 
-   renderField = ({input,type,label,meta:{touched,error,warning}}) => {
+   renderField = ({input,type,label,meta:{touched,error,warning,value}}) => {
       return(
          <div>
             <label>{label} *</label>
-            <input {...input} type={type} className='myInput'/>
+            <input {...input} type={type} value={value} className='myInput'/>
             {touched && 
             ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
          </div>
       )
    }
 
-  componentDidMount = async () => {
-    const response = await axios.get('http://localhost:8000/services');
-    console.log(response.data)
-  }
 
   render()
   {
     return (   
       <form onSubmit={this.props.handleSubmit} className='contactForm'>
-         <Field type='text' component={this.renderField} label='Name' name='username'/>
+         <Field type='text' component={this.renderField} label='Name' name='name'/>
          <Field type='number' component={this.renderField} label='Mobile' name='mobile'/>
          <Field type='date' component={this.renderField} label='Event Date' name='eventDate'/>
-         <Field type='text' component={this.renderField} label='Type of Service' name='serviceType'/>
+         <label>Type of Service:</label>
+         <Field
+          name="serviceType"
+          component={DropdownListField}
+          data={categories}
+          valueField="value"
+          textField="category"
+        />
          <Field type='number' component={this.renderField} label='Number of people for makeup' name='totalPeopleJustMakeup'/>
          <Field type='number' component={this.renderField} label='Number of people for Hair' name='totalPeopleWithHair'/>
-         <Field type='text' component={this.renderField} label='Time to be ready by' name='timeToFinish'/>
+         <Field type='date' component={this.renderField} label='Time to be ready by' name='timeToFinish'/>
          <Field type='text' component={this.renderField} label='Address' name='applicationAddress'/>
          <Field type='text' component={this.renderField} label='How did you hear about us' name='howDidYouHear'/>
          <Field type='text' component={this.renderField} label='Any additional questions' name='addedQuestionsOrInfo'/>
