@@ -1,0 +1,36 @@
+.footer {
+  height: 70px;
+  background-color: black;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  margin-left: 10px;
+}
+
+.footer-links {
+  color: white;
+  float: right;
+  font-size: 15px;
+  margin: 27.5px 27.5px;
+  text-decoration: none;
+  width: auto;
+}
+
+#page-link {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
+.heart-logo {
+  color: white;
+  font-size: 15px;
+}
+.heart-logo:hover {
+  transform: scale(1.5);
+}
+
