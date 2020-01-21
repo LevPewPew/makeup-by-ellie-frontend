@@ -1,0 +1,12 @@
+.mycontactList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 8px solid rgb(124, 119, 118);
+  width: 400px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+  background: rgb(231, 105, 83);
+}
