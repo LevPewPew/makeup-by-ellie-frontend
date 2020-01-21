@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from './AttachmentField';
 import DropdownListField from './DropdownListField';
-import Axios from 'axios';
-
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function validate(values) {
   let errors = {};
