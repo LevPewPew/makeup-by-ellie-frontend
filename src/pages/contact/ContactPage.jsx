@@ -1,10 +1,13 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm.jsx'
+import ContactForm from '../../components/ContactForm.jsx';
+import axios from 'axios';
 
 class ContactPage extends React.Component {
 
    submit = (values) => {
-      console.log(values)
+      axios.post('http://localhost:8000/contact',values)
+      .then(res=>alert(res.data))
+      .catch(err=> console.log(err))
    }
 
   render()
@@ -12,6 +15,7 @@ class ContactPage extends React.Component {
     return (   
        <div>
           <h1>Form Header</h1>
+          
           <ContactForm onSubmit={this.submit}/>
        </div>
       
