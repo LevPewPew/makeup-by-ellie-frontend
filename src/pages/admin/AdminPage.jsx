@@ -17,39 +17,41 @@ function AdminPage() {
 
   async function handlePortfolioSubmit() {
     let { category, imageBlobs } = workForm.values;
-    // TODO change this to imageBlobs once all working
-    for (let i = 0; i < imageBlobs.length; i++) {
-      let file = imageBlobs[i];
-      let fileParts = imageBlobs[i].name.split('.');
-      let fileName = fileParts[0];
-      let fileType = fileParts[1];
-  
-      let res = await Axios.post(
-        `${backendUrl}/aws-s3`,
-        {
-          fileName : fileName,
-          fileType : fileType
-        }
-      )
-      let returnData = res.data.data.returnData;
-      let signedRequest = returnData.signedRequest;
-      let signedUrl = returnData.url;
-  
-      let options = {
-        headers: {
-          'Content-Type': fileType
-        }
-      };
-      let params = { category, imageUrl: signedUrl };
-      res = await Axios.put(signedRequest, file, options)
-      
-      try {
+
+    try {
+      for (let i = 0; i < imageBlobs.length; i++) {
+        let file = imageBlobs[i];
+        let fileParts = imageBlobs[i].name.split('.');
+        let fileName = fileParts[0];
+        let fileType = fileParts[1];
+    
+        let res = await Axios.post(
+          `${backendUrl}/aws-s3`,
+          {
+            fileName : fileName,
+            fileType : fileType
+          }
+        )
+        let returnData = res.data.data.returnData;
+        let signedRequest = returnData.signedRequest;
+        let signedUrl = returnData.url;
+    
+        let options = {
+          headers: {
+            'Content-Type': fileType
+          }
+        };
+
+        res = await Axios.put(signedRequest, file, options)
+        
+        let params = { category, imageUrl: signedUrl };
+        
         await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/portfolio`, params);
-      } catch (err) {
-        console.log(err);
       }
+      setSuccess(true);
+    } catch (err) {
+      console.log(err);
     }
-    setSuccess(true);
   }
 
   useEffect(() => {
