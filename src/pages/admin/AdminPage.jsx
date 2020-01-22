@@ -91,6 +91,7 @@ function AdminPage() {
       <WorkForm
         onSubmit={handlePortfolioSubmit}
         success={success}
+        setSuccess={setSuccess}
       />
       {/* <TestimonialsContainer />
       <TestimonialForm onSubmit={handleTestimonialSubmit}/>
