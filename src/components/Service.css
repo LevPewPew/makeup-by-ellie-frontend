@@ -1,0 +1,9 @@
+.Service {
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
+  flex-direction: column;
+  
+  margin: 10px;
+  padding: 10px;
+}

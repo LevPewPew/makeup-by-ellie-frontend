@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import BtnEditDoc from './BtnEditDoc';
 import BtnDeleteDoc from './BtnDeleteDoc';
+import './Service.css';
 
 function Service(props) {
   const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
@@ -10,9 +11,9 @@ function Service(props) {
 
   return (
     <article className="Service">
+      <img style={{width:300,height:300,borderRadius:10,border:"4px solid grey"}} src={imageUrl} alt=""/>
       <h1>{title}</h1>
       <p>{description}</p>
-      <img src={imageUrl} alt=""/>
       {
         onAdminDash ?
         <div className="crud-per-doc">
