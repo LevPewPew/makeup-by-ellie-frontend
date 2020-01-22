@@ -7,7 +7,7 @@ import {useDropzone} from 'react-dropzone';
 function Dropzone() {
 
   const {getRootProps, getInputProps, isDragActive,acceptedFiles,rejectedFiles} = useDropzone({
-    accept:'images/*'
+    accept:'image/*'
   })
 
   
@@ -23,6 +23,7 @@ function Dropzone() {
           <p>Drag 'n' drop some files here, or click to select files</p>
       }
     </div>
+    {acceptedFiles.length>0?<h4>{acceptedFiles[0].name}</h4>:''}
     </div>
   )
 }
