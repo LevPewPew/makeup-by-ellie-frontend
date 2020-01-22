@@ -13,7 +13,7 @@ function Contact(props) {
   }
 
   return (
-    <div className="mycontact">
+    <div className="Contact">
       <h1>Name:{props.name}</h1>
       <h2>Contact Number:{props.mobile}</h2>
       <h2>Type of Service:{props.serviceType}</h2>
