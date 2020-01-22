@@ -3,7 +3,7 @@ import axios from 'axios';
 import Contact from './Contact';
 import './ContactContainer.css'
 
-function ContactContainer() {
+function ContactsContainer() {
 
   const initialState = []
   const [contactList,setContactList] = useState(initialState);
@@ -17,7 +17,7 @@ function ContactContainer() {
 
   
   return (
-    <div className="myContactContainer">
+    <div className="ContactsContainer">
       {contactList.map((contact,index)=> {
         return <Contact key={index} {...contact}/>
       })}
@@ -25,4 +25,4 @@ function ContactContainer() {
   )
 }
 
-export default ContactContainer
+export default ContactsContainer
