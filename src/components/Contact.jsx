@@ -1,18 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 import './Contact.css';
 
-import axios from 'axios';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function Contact(props) {
 
   const handleClick = ()=>
   {
-    axios.get(`http://localhost:8000/contact/${props._id}`)
+    axios.get(`${backendUrl}/contact/${props._id}`)
     .then(response=> {console.log(response.data)})
   }
 
   return (
-    <div className="mycontact">
+    <div className="Contact">
       <h1>Name:{props.name}</h1>
       <h2>Contact Number:{props.mobile}</h2>
       <h2>Type of Service:{props.serviceType}</h2>

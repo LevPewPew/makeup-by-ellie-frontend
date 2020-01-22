@@ -1,7 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import Question from './Question';
-import './QuestionContainer.css'
+import './QuestionsContainer.css'
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function QuestionContainer() {
 
@@ -9,7 +11,7 @@ function QuestionContainer() {
   const [questionList,setQuestionList] = useState(initialState);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/faq')
+    axios.get(`${backendUrl}/faq`)
     .then(response => {
       setQuestionList(response.data)
     })
