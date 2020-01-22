@@ -78,7 +78,7 @@ function WorkForm(props) {
       <div>
         <label>Image</label>
         <Field
-          name="imageBlob"
+          name="imageBlobs"
           component={renderAttachmentField}
         />
       </div>
