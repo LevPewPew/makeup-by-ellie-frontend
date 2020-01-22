@@ -7,6 +7,7 @@ import Navbar from './navbar/Navbar.jsx';
 import AdminPage from '../pages/admin/AdminPage.jsx';
 import HomePage from '../pages/home/HomePage.jsx';
 import ContactPage from '../pages/contact/ContactPage';
+import ServicePage from '../pages/service/ServicePage';
 import Footer from './footer/Footer.jsx';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy.jsx';
 import TermsConditions from '../pages/terms-conditions/TermsConditions.jsx';
@@ -27,6 +28,7 @@ function App() {
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
                 <Route path="/contact"><ContactPage/></Route>
+                <Route path="/services"><ServicePage/></Route>
                 <Route path="/faq"><QuestionPage/></Route>
                 {/*Below route is just for testing*/}
                 <Route path="/getcontactlist"><ContactsContainer/></Route>
