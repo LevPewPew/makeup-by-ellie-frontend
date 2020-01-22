@@ -29,8 +29,6 @@ function App() {
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
                 <Route path="/contact"><ContactPage/></Route>
-
-                
                 <Route path="/portfolio"><Portfolio/></Route>
                 <Route path="/services"><ServicePage/></Route>
                 <Route path="/faq"><QuestionPage/></Route>
