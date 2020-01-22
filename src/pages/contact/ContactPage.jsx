@@ -14,8 +14,7 @@ class ContactPage extends React.Component {
   {
     return (   
        <div>
-          <h1>Form Header</h1>
-          
+          <h1>Form Header</h1>    
           <ContactForm onSubmit={this.submit}/>
        </div>
       
