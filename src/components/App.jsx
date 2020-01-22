@@ -10,7 +10,7 @@ import Footer from './footer/Footer.jsx';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy.jsx';
 import TermsConditions from '../pages/terms-conditions/TermsConditions.jsx';
 // Just for test
-import ContactContainer from './ContactContainer';
+import ContactsContainer from './ContactsContainer';
 import QuestionPage from '../pages/FAQ/QuestionPage.jsx';
 
 import './App.css';
@@ -28,7 +28,7 @@ function App() {
                 <Route path="/contact"><ContactPage/></Route>
                 <Route path="/faq"><QuestionPage/></Route>
                 {/*Below route is just for testing*/}
-                <Route path="/getcontactlist"><ContactContainer/></Route>
+                <Route path="/getcontactlist"><ContactsContainer/></Route>
                 <Route path="/privacy-policy"><PrivacyPolicy/></Route>
                 <Route path="/terms-and-conditions"><TermsConditions/></Route>
               </Switch>
