@@ -64,7 +64,7 @@ function WorkForm(props) {
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks
     return () => files.forEach(file => URL.revokeObjectURL(file.preview));
-  }, [files]);
+  }, [success]);
 
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>

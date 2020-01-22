@@ -7,19 +7,11 @@ function AttachmentField(props) {
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
-      input.onChange(acceptedFiles);
+      input.onChange(acceptedFiles.concat(files));
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })).concat(files));
       setSuccess(false);
-    },
-    rejectStyle: {
-      color: 'red',
-      borderColor: 'red'
-    },
-    acceptStyle: {
-      color: 'green',
-      borderColor: 'green'
     }
   });
   
