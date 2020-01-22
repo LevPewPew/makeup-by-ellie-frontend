@@ -10,8 +10,16 @@ function AttachmentField(props) {
       input.onChange(acceptedFiles);
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
-      })));
+      })).concat(files));
       setSuccess(false);
+    },
+    rejectStyle: {
+      color: 'red',
+      borderColor: 'red'
+    },
+    acceptStyle: {
+      color: 'green',
+      borderColor: 'green'
     }
   });
   
