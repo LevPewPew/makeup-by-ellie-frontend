@@ -5,6 +5,7 @@ import rootReducer from '../reducers/rootReducer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './navbar/Navbar.jsx';
 import HomePage from '../pages/home/HomePage.jsx';
+import Portfolio from '../pages/portfolio/Portfolio.jsx';
 import ContactPage from '../pages/contact/ContactPage';
 import Footer from './footer/Footer.jsx';
 
@@ -26,6 +27,9 @@ function App() {
               <Switch>
                 <Route exact path="/"><HomePage/></Route>
                 <Route path="/contact"><ContactPage/></Route>
+
+                
+                <Route path="/portfolio"><Portfolio/></Route>
               </Switch>
               <Footer/>
           </BrowserRouter>
