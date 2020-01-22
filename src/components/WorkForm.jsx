@@ -63,7 +63,10 @@ function WorkForm(props) {
 
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks
-    return () => files.forEach(file => URL.revokeObjectURL(file.preview));
+    return () => {
+      files.forEach(file => URL.revokeObjectURL(file.preview));
+      setFiles([]);
+    }
   }, [success]);
 
   return (
@@ -82,7 +85,7 @@ function WorkForm(props) {
           component={renderAttachmentField}
         />
       </div>
-      <button type="submit" disabled={submitting || pristine}>Submit</button>
+      <button type="submit" disabled={submitting || pristine} style={{margin: '50px', width: '50px', height: '50px'}}>Submit</button>
     </form>
   )
 }
