@@ -62,10 +62,12 @@ function WorkForm(props) {
   }
 
   useEffect(() => {
+    if (success) {
+      setFiles([]);
+    }
     // Make sure to revoke the data uris to avoid memory leaks
     return () => {
       files.forEach(file => URL.revokeObjectURL(file.preview));
-      setFiles([]);
     }
   }, [success]);
 
