@@ -3,14 +3,6 @@ import '@testing-library/jest-dom';
 import { render, fireEvent } from '@testing-library/react';
 import App from '../App';
 
-test('Clicking the Contact button takes you to the ContactPage', () => {
-  const { getByTestId } = render(<App />);
-
-  fireEvent.click(getByTestId('nb-link-contact'));
-
-  expect(getByTestId('ContactPage')).toBeInTheDocument();
-});
-
 test('Navbar links cause App to render appropriate page', () => {
   const { getByTestId } = render(<App />);
 
