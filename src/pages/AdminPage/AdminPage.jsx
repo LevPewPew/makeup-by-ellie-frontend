@@ -89,7 +89,7 @@ function AdminPage() {
   // }
 
   return (
-    <div className="AdminPage">
+    <div data-testid="AdminPage" className="AdminPage">
       <h1>Admin Dashboard</h1>
       <PortfolioContainer />
       <WorkForm

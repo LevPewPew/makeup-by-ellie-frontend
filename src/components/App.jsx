@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import rootReducer from '../reducers/rootReducer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './navbar/Navbar.jsx';
-import AdminPage from '../pages/admin/AdminPage.jsx';
+import AdminPage from '../pages/AdminPage/AdminPage';
 import HomePage from '../pages/home/HomePage.jsx';
 import ContactPage from '../pages/contact/ContactPage';
 import ServicePage from '../pages/service/ServicePage';

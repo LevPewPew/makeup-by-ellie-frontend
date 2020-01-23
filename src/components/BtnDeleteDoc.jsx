@@ -21,7 +21,7 @@ function BtnDeleteDoc(props) {
   }
 
   return (
-    <button className="BtnDeleteDoc" type="submit" onClick={handleDelete}>Delete</button>
+    <button data-testid="BtnDeleteDoc" className="BtnDeleteDoc" type="submit" onClick={handleDelete}>Delete</button>
   )
 }
 
