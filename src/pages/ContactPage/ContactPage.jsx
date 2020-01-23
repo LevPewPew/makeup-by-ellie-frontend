@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm.jsx';
+import ContactForm from '../../components/ContactForm';
 import axios from 'axios';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
@@ -12,17 +12,14 @@ class ContactPage extends React.Component {
       .catch(err=> console.log(err))
    }
 
-  render()
-  {
-    return (   
-       <div className="ContactPage">
-          <h1>Form Header</h1>    
-          <ContactForm onSubmit={this.submit}/>
-       </div>
-      
-      )
+  render() {
+    return (
+      <div className="ContactPage" data-testid="ContactPage">
+        <h1>Form Header</h1>
+        <ContactForm onSubmit={this.submit}/>
+      </div>
+    )
   }
-  
 }
 
-export default ContactPage
+export default ContactPage;

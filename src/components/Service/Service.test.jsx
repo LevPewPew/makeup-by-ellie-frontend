@@ -1,10 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import Service from './Service';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../../reducers/rootReducer';
+import Service from './Service';
 
 const DUMMY_TITLE = 'DUMMY_TITLE';
 const DUMMY_DESCRIPTION = 'DUMMY_DESCRIPTION';
@@ -69,13 +69,3 @@ test('Service does NOT have a delete button when rendered when onAdminDash state
 
   expect(queryByTestId('BtnDeleteDoc')).toBeNull();
 });
-
-
-// TODO do navbar test
-// test('Service has a delete button when rendered on admin page', () => {
-//   const { getByTestId, getByText } = render(<App />);
-
-//   fireEvent.click(getByText('ADMIN'));
-
-//   expect(getByTestId('AdminPage')).toBeInTheDocument();
-// });

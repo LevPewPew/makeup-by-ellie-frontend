@@ -7,8 +7,8 @@ import './HomePage.css';
 export default class HomePage extends Component {
   render() {
     return (
-      <div>
-        <div className = "heroContainer">
+      <div className="HomePage" data-testid="HomePage">
+        <div className="heroContainer">
           <div className="homepage-image">
           <img src={homepageImage} alt="hero"/>
           </div>
