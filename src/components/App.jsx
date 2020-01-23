@@ -14,7 +14,6 @@ import TermsConditions from '../pages/terms-conditions/TermsConditions.jsx';
 // Just for test
 import ContactsContainer from './ContactsContainer';
 import QuestionPage from '../pages/FAQ/QuestionPage.jsx';
-import UploadImage from '../pages/imageUpload/Upload'
 
 import './App.css';
 
@@ -34,7 +33,6 @@ function App() {
                 <Route path="/contact"><ContactPage/></Route>
                 <Route path="/services"><ServicePage/></Route>
                 <Route path="/faq"><QuestionPage/></Route>
-                <Route path="/upload"><UploadImage/></Route>
                 {/*Below route is just for testing*/}
                 <Route path="/getcontactlist"><ContactsContainer/></Route>
                 <Route path="/privacy-policy"><PrivacyPolicy/></Route>
