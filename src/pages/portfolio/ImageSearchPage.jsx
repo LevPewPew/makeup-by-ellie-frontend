@@ -63,12 +63,12 @@ function ImageSearchPage() {
           <Form noValidate onSubmit={handleSubmit}>
             <Form.Row>
               <Form.Group as={Col} md="12" controlId="keyword">
-                <Form.Label>Keyword</Form.Label>
+                <Form.Label>Categories: </Form.Label>
                 <Form.Control
-                  type="text"
-                  name="keyword"
-                  placeholder="Keyword"
-                  value={values.keyword || ""}
+                  type="select"
+                  name="dogs"
+                  placeholder="Dogs"
+                  value={values?values.category:""}
                   onChange={handleChange}
                   isInvalid={touched.keyword && errors.keyword}
                 />
