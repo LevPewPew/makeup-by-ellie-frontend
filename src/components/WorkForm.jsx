@@ -22,7 +22,7 @@ const categories = [ { category: 'Bridal', value: 'bridal' },
   { category: 'Editorial', value: 'editorial' } ]
 
 function WorkForm(props) {
-  const { handleSubmit, pristine, submitting, success } = props;
+  const { handleSubmit, pristine, submitting, success, setSuccess } = props;
   // this state is needed outside of the AttachmentField to avoid component unmounted errors from react-dropzone when using redux-form validations, do not move into AttachmentField
   const [files, setFiles] = useState([]);
 
@@ -52,6 +52,8 @@ function WorkForm(props) {
             input={input}
             files={files}
             setFiles={setFiles}
+            success={success}
+            setSuccess={setSuccess}
           />
           {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
         </div>
@@ -60,9 +62,14 @@ function WorkForm(props) {
   }
 
   useEffect(() => {
+    if (success) {
+      setFiles([]);
+    }
     // Make sure to revoke the data uris to avoid memory leaks
-    return () => files.forEach(file => URL.revokeObjectURL(file.preview));
-  }, [files]);
+    return () => {
+      files.forEach(file => URL.revokeObjectURL(file.preview));
+    }
+  }, [success]);
 
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>
@@ -76,18 +83,11 @@ function WorkForm(props) {
       <div>
         <label>Image</label>
         <Field
-          name="imageBlob"
+          name="imageBlobs"
           component={renderAttachmentField}
         />
       </div>
-      {
-        success ?
-        <div>
-          {'File Uploaded!'}
-        </div> :
-        null
-      }
-      <button type="submit" disabled={submitting || pristine}>Submit</button>
+      <button type="submit" disabled={submitting || pristine} style={{margin: '50px', width: '50px', height: '50px'}}>Submit</button>
     </form>
   )
 }

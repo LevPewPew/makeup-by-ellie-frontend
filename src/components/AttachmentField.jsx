@@ -3,14 +3,15 @@ import { useDropzone } from 'react-dropzone';
 import './AttachmentField.css';
 
 function AttachmentField(props) {
-  const { input, files, setFiles } = props;
+  const { input, files, setFiles, success, setSuccess } = props;
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
-      input.onChange(acceptedFiles);
+      input.onChange(acceptedFiles.concat(files));
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
-      })));
+      })).concat(files));
+      setSuccess(false);
     }
   });
   
@@ -31,7 +32,13 @@ function AttachmentField(props) {
         <p>Drag 'n' drop some files here, or click to select files</p>
       </div>
       <aside className="thumbs-container">
-        {thumbs}
+        {
+          success ?
+          <div>
+            {'File Uploaded!'}
+          </div> :
+          thumbs
+        }
       </aside>
     </div>
   );
