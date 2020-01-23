@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios';
-import Service from './Service';
+import Service from './Service/Service';
 import './ServicesContainer.css'
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
