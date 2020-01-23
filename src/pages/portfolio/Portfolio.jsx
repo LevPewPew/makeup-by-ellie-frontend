@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-component';
-// import PortfolioContainer from '../../components/PortfolioContainer.jsx'
-// import homepageImage from '../../media/homepage-image.jpg';
+import PortfolioContainer from '../../components/PortfolioContainer.jsx'
+
 import { masonryOptions } from "./Exports";
 import { getImages } from "./Request";
 import InfiniteScroll from "react-infinite-scroller";
-
-// experiment for portfolio page
-import ImageSearchPage from "./ImageSearchPage";
-
+import ImageSearchPage from "./ImageSearchPage"
 
 import './Portfolio.css';
 
@@ -34,6 +31,8 @@ function Portfolio() {
   return (
     <div className="page">
       <h1 className="text-center">PORTFOLIO</h1>
+      <PortfolioContainer/>
+      <div component={ImageSearchPage} > </div>
       <InfiniteScroll
         pageStart={1}
         loadMore={getAllImages}
