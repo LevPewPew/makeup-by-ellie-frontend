@@ -57,7 +57,7 @@ function AdminPage() {
   useEffect(() => {
     dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: true});
 
-    return () => dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false});
+    return () => dispatch({ type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false });
   }, [])
 
   useEffect(() => {
@@ -89,7 +89,7 @@ function AdminPage() {
   // }
 
   return (
-    <div className="AdminPage">
+    <div className="AdminPage" data-testid="AdminPage">
       <h1>Admin Dashboard</h1>
       <PortfolioContainer />
       <WorkForm
