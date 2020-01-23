@@ -17,7 +17,6 @@ function Service(props) {
       {
         onAdminDash ?
         <div className="crud-per-doc">
-        <div>TESTLOL</div>
           <BtnEditDoc
             collection={collection}
             _id={_id}
