@@ -1,62 +1,92 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import Masonry from 'react-masonry-component';
-import PortfolioContainer from '../../components/PortfolioContainer.jsx'
+// import PortfolioContainer from '../../components/PortfolioContainer.jsx'
+import { useSelector, useDispatch } from 'react-redux';
+import Axios from 'axios';
+import Work from '../../components/Work';
+
 
 import { masonryOptions } from "./Exports";
-import { getImages } from "./Request";
+// import { getImages } from "./Request";
 import InfiniteScroll from "react-infinite-scroller";
-import ImageSearchPage from "./ImageSearchPage"
+// import ImageSearchPage from "./ImageSearchPage"
 
 import './Portfolio.css';
 
+const images = {
+  transitionDuration: 0
+};
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 function Portfolio() {
-  const [images, setImages] = React.useState([]);
-  const [page, setPage] = React.useState(1);
-  const [total, setTotal] = React.useState(0);
-  const [initialized, setInitialized] = React.useState(false);
-  const getAllImages = async (pg = 1) => {
-    const response = await getImages(page);
-    let imgs = images.concat(response.data.hits);
-    setImages(imgs);
-    setTotal(response.data.total);
-    pg++;
-    setPage(pg);
-  };
-  React.useEffect(() => {
-    if (!initialized) {
-      getAllImages();
-      setInitialized(true);
-    }
-  });
-  return (
-    <div className="page">
-      <h1 className="text-center">PORTFOLIO</h1>
-      <PortfolioContainer/>
-      <div component={ImageSearchPage} > </div>
-      <InfiniteScroll
-        pageStart={1}
-        loadMore={getAllImages}
-        hasMore={total > images.length}
+  const portfolioData = useSelector((state) => state.portfolioReducer.portfolioData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      let res = await Axios.get(`${backendUrl}/portfolio`);
+      dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
+    })();
+  }, [dispatch]);
+
+  return portfolioData ? (
+    <section className="PortfolioContainer">
+      <Masonry
+        className={'grid'}
+        elementType={'div'}
+        options={masonryOptions}
+        disableImagesLoaded={false}
+        updateOnEachImageLoad={false}
       >
-        <Masonry
-          className={"grid"}
-          elementType={"div"}
-          options={masonryOptions}
-          disableImagesLoaded={false}
-          updateOnEachImageLoad={false}
-        >
-          {images.map((img, i) => {
-            return (
-              <div key={i}>
-                <img src={img.previewURL} style={{ width: 300 }} />
-              </div>
-            );
-          })}
-        </Masonry>
-      </InfiniteScroll>
-    </div>
-  );
+      {portfolioData.map((service, index) => {
+          const { _id, imageUrl, category } = service
+          return (
+            <div key={index}>
+              <img src={imageUrl} style={{width: "300px"}} />
+            </div>
+          )
+      })}
+      </Masonry>
+    </section>
+  ) : null
 }
 
-export default Portfolio;
 
+
+
+
+
+
+
+
+
+//       {
+//         portfolioData ?
+//         portfolioData.map((service, index) => {
+//           const { _id, imageUrl, category } = service;
+
+//           return (
+//             <Masonry
+//             className={'grid'}
+//             elementType={'div'}
+//             options={masonryOptions}
+//             disableImagesLoaded={false} // default false
+//             updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+//         >   
+//             <Work
+//               key={index}
+//               id={_id}
+//               imageUrl={imageUrl}
+//               category={category}
+//             />
+//             </Masonry>
+//           )
+//         }) :
+//         null
+//       }
+//     </section>
+//   );
+// }
+
+export default Portfolio;
