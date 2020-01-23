@@ -1,15 +1,15 @@
 import React from 'react';
 import QuestionsContainer from '../../components/QuestionsContainer';
-import './QuestionPage.css'
+import './FaqPage.css'
 
-function QuestionPage() {
+function FaqPage() {
   
   return (
-    <div>
+    <div className="FaqPage" data-testid="FaqPage">
         <h1>FAQ</h1>
         <QuestionsContainer/>
     </div>
   )
 }
 
-export default QuestionPage
+export default FaqPage

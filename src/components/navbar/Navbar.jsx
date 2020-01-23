@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logoplaceholder from '../../media/logo-placeholder.png';
 import "./Navbar.css";
@@ -25,15 +25,15 @@ export default class Navbar extends Component {
         <nav>
           <div className="navbar">
           <div className="navbar-logo">
-            < Link to="/"><img src={logoplaceholder} alt="logo" height="100" width="100"/></Link></div>
+            < Link to="/"><img src={logoplaceholder} alt="logo" height="100" width="100" data-testid="nb-link-home" /></Link></div>
           </div> 
             <div className="navbar-links">
-              <div className="navbar-link"><Link to="/services">SERVICES</Link></div>
-              <div className="navbar-link"><Link to="/portfolio">PORTFOLIO</Link></div>
-              <div className="navbar-link"><Link to="/faq">FAQ</Link></div>
-              <div className="navbar-link"><Link to="/contact">CONTACT</Link></div>
+              <div className="navbar-link"><Link to="/services" data-testid="nb-link-services">SERVICES</Link></div>
+              <div className="navbar-link"><Link to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link></div>
+              <div className="navbar-link"><Link to="/faq" data-testid="nb-link-faq">FAQ</Link></div>
+              <div className="navbar-link"><Link to="/contact" data-testid="nb-link-contact">CONTACT</Link></div>
               {/* temp dev zone */}
-              <div className="navbar-link"><Link to="/admin">ADMIN</Link></div>
+              <div className="navbar-link"><Link to="/admin" data-testid="nb-link-admin">ADMIN</Link></div>
               {/* temp dev zone */}
               
             </div>
