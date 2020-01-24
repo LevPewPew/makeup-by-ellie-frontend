@@ -8,7 +8,7 @@ function Work(props) {
   const collection = 'portfolio';
 
   return (
-    <article className="Work">
+    <article className="Work" data-testid="Work">
       <img src={imageUrl} alt=""/>
       {
         onAdminDash ?
