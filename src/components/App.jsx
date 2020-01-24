@@ -1,7 +1,6 @@
-import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from '../reducers/rootReducer';
+import React, { useEffect, useState } from 'react';
+import { Provider, useDispatch } from 'react-redux';
+import Axios from 'axios';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import AdminPage from '../pages/AdminPage/AdminPage';
@@ -17,14 +16,28 @@ import ContactsContainer from './ContactsContainer';
 
 import './App.css';
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
-  return (
-    <Provider store={store}>
+  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getData = async () => {
+      let portfolioPromise = Axios.get(`${backendUrl}/portfolio`);
+      let servicesPromise = Axios.get(`${backendUrl}/services`);
+      const [portfolio, services] = await Promise.all([portfolioPromise, servicesPromise])
+      dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: portfolio.data });
+      dispatch({type: 'UPDATE_SERVICES_DATA', newServicesData: services.data})
+      setLoading(false)
+    }
+    getData()
+  }, [dispatch])
+
+  if (loading) {
+    return null
+  } else {
+    return (
       <div className="App">
         <BrowserRouter>
           <Navbar/>
@@ -42,8 +55,8 @@ function App() {
           <Footer/>
         </BrowserRouter>
       </div>
-    </Provider>
-  );
+    );
+  }
 }
 
 export default App;
