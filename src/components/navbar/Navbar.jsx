@@ -31,7 +31,7 @@ export default class Navbar extends Component {
               <div className="navbar-link"><Link to="/services" data-testid="nb-link-services">SERVICES</Link></div>
               <div className="navbar-link"><Link to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link></div>
               <div className="navbar-link"><Link to="/faq" data-testid="nb-link-faq">FAQ</Link></div>
-              <div className="navbar-link"><Link to="/contact" data-testid="nb-link-contact">CONTACT</Link></div>
+              <div className="navbar-link"><Link to="/contact" data-testid="nb-link-contact">Contact  </Link></div>
               {/* temp dev zone */}
               <div className="navbar-link"><Link to="/admin" data-testid="nb-link-admin">ADMIN</Link></div>
               {/* temp dev zone */}
