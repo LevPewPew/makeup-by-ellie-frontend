@@ -10,7 +10,7 @@ const PORTFOLIO_DUMMY_DATA = Array.from(new Array(20), (e) => {
   }
 });
 
-const SERVICES_DUMMY_DATA = Array.from(new Array(20), (e) => {
+const SERVICES_DUMMY_DATA = Array.from(new Array(5), (e) => {
   return {
     title: DUMMY_TITLE,
     description: DUMMY_DESCRIPTION,

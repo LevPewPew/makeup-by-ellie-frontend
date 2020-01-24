@@ -14,7 +14,7 @@ beforeEach(() => {
   mock.onGet(`${backendUrl}/services`).reply(200, SERVICES_DUMMY_DATA);
 });
 
-test('Admin Page document components have CRUD button components rendered', async () => {
+test('ServicePage document components do NOT have CRUD button components rendered', async () => {
   const { queryByTestId, getAllByTestId } = renderWithRedux(
     <ServicesPage />
   );
