@@ -14,7 +14,7 @@ beforeEach(() => {
   mock.onGet(`${backendUrl}/portfolio`).reply(200, PORTFOLIO_DUMMY_DATA);
 });
 
-test('Admin Page document components have CRUD button components rendered', async () => {
+test('AdminPage document components have CRUD button components rendered', async () => {
   const { getAllByTestId } = renderWithRedux(
     <AdminPage />
   );
