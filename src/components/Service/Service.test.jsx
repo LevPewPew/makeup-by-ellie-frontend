@@ -1,24 +1,12 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from '../../reducers/rootReducer';
+import { renderWithRedux } from '../../utils/testing/redux';
 import Service from './Service';
 
 const DUMMY_TITLE = 'DUMMY_TITLE';
 const DUMMY_DESCRIPTION = 'DUMMY_DESCRIPTION';
 const DUMMY_URL = 'DUMMY_URL';
 
-function renderWithRedux(
-  ui,
-  { initialState, store = createStore(rootReducer, initialState) } = {}
-) {
-  return {
-    ...render(<Provider store={store}>{ui}</Provider>),
-    store
-  }
-}
 
 test('Service renders its non-image props', () => {
   const { getByText } = renderWithRedux(
