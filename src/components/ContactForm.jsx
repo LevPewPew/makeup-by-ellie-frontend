@@ -33,20 +33,17 @@ function warn(values)
 }
 
 class ContactForm extends React.Component {
-
    
-
-   renderField = ({input,type,label,meta:{touched,error,warning,value}}) => {
+   renderField = ({input,type,label,meta:{touched,error,warning}}) => {
       return(
          <div>
             <label>{label} *</label>
-            <input {...input} type={type} value={value} className='myInput'/>
+            <input {...input} type={type} className='myInput'/>
             {touched && 
             ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
          </div>
       )
    }
-
 
    renderDropdownListField({input, label, meta: {touched, error, warning}}) {
       return (
@@ -65,15 +62,14 @@ class ContactForm extends React.Component {
       )
     }
 
-
   render()
   {
     return (   
       <form onSubmit={this.props.handleSubmit} className='contactForm'>
          <Field type='text' component={this.renderField} label='Name' name='name'/>
-         <Field type='number' component={this.renderField} label='Mobile' name='mobile'/>
-         <Field type='date' component={this.renderField} label='Event Date' name='eventDate'/>
-         
+         <Field type='text' component={this.renderField} label='Mobile' name='mobile'/>
+         <Field type='text' component={this.renderField} label='Email' name='email'/>
+         <Field type='date' component={this.renderField} label='Event Date' name='eventDate'/> 
          <Field
           name="serviceType"
           component={this.renderDropdownListField}
@@ -99,14 +95,13 @@ class ContactForm extends React.Component {
 }
 
 ContactForm = reduxForm({
-   form: 'contact',validate,warn  
+   form: 'contact',validate,warn
  })(ContactForm)
  
  
  const selector = formValueSelector('contact')
  ContactForm = connect(
    state => {
-    
       return {
          number1: selector(state, 'totalPeopleJustMakeup'),
          number2: selector(state, 'totalPeopleWithHair'),

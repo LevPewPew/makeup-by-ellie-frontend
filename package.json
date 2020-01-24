@@ -9,10 +9,17 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
+    "@testing-library/jest-dom": "^5.0.2",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^8.0.3",
     "axios": "^0.19.1",
+<<<<<<< HEAD
     "bootstrap": "^4.4.1",
     "filterizr": "^2.2.3",
     "formik": "^2.1.2",
+=======
+    "axios-mock-adapter": "^1.17.0",
+>>>>>>> master
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
