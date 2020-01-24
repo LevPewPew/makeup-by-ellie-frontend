@@ -14,4 +14,4 @@ function renderWithRedux(
   }
 }
 
-export { renderWithRedux }
+export { renderWithRedux };
