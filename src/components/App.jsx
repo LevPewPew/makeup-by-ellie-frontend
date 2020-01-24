@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../reducers/rootReducer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Navbar from './navbar/Navbar.jsx';
+import Navbar from './Navbar/Navbar.jsx';
 import AdminPage from '../pages/admin/AdminPage.jsx';
 import HomePage from '../pages/home/HomePage.jsx';
 import Portfolio from '../pages/portfolio/Portfolio.jsx';

@@ -31,7 +31,7 @@ function Portfolio() {
   }, [dispatch]);
 
   return portfolioData ? (
-    <section className="PortfolioContainer">
+    <section className="PortfolioGrid">
       <Masonry
         className={'grid'}
         elementType={'div'}
