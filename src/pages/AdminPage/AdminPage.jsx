@@ -17,6 +17,7 @@ function AdminPage() {
 
   async function handlePortfolioSubmit() {
     let { category, imageBlobs } = workForm.values;
+    console.log('DEBUG: ', imageBlobs);
 
     try {
       for (let i = 0; i < imageBlobs.length; i++) {
