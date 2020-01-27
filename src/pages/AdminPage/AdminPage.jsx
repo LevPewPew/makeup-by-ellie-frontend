@@ -3,10 +3,6 @@ import Axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import PortfolioContainer from '../../components/PortfolioContainer';
 import WorkForm from '../../components/WorkForm';
-// import TestimonialsContainer from '../components/TestimonialContainer';
-// import TestimonialForm from '../components/TestimonialForm';
-// import ServicesContainer from '../components/ServicesContainer';
-// import ServiceForm from '../components/ServiceForm';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -17,7 +13,6 @@ function AdminPage() {
 
   async function handlePortfolioSubmit() {
     let { category, imageBlobs } = workForm.values;
-    console.log('DEBUG: ', imageBlobs);
 
     try {
       for (let i = 0; i < imageBlobs.length; i++) {
@@ -68,27 +63,6 @@ function AdminPage() {
     })();
   }, [success]);
 
-  // async function handleTestimonialSubmit() {
-  //   // TODO replace these with testimonial model fields
-  //   let { name, text } = TestimonialForm.values;
-  //   let params = { name, text };
-  //   try {
-  //     await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/testimonials`, params);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
-  // async function handleServicesSubmit() {
-  //   let { name, description, imageUrl } = ServiceForm.values;
-  //   let params = { name, description, imageUrl };
-  //   try {
-  //     await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/services`, params);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
   return (
     <div className="AdminPage" data-testid="AdminPage">
       <h1>Admin Dashboard</h1>
@@ -98,10 +72,6 @@ function AdminPage() {
         success={success}
         setSuccess={setSuccess}
       />
-      {/* <TestimonialsContainer />
-      <TestimonialForm onSubmit={handleTestimonialSubmit}/>
-      <ServicesContainer />
-      <ServiceForm onSubmit={handleServicesSubmit}/> */}
     </div>
   )
 }
