@@ -1,30 +1,27 @@
-import React,{useState,useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Question from './Question';
 import './QuestionsContainer.css'
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+function QuestionsContainer() {
+  const questionsData = useSelector((state) => state.questionsReducer.questionsData);
 
-function QuestionContainer() {
-
-  const initialState = []
-  const [questionList,setQuestionList] = useState(initialState);
-
-  useEffect(() => {
-    axios.get(`${backendUrl}/faq`)
-    .then(response => {
-      setQuestionList(response.data)
-    })
-  },[])
-
-  
   return (
-    <div>
-      {questionList.map((question,index)=> {
-        return <div ><Question key={index} {...question}/></div>
-      })}
-    </div>
+    <section className="QuestionsContainer">
+      {
+        questionsData ?
+        questionsData.map((question, index) => {
+          return (
+            <Question
+              key={index}
+              {...question}
+            />
+          )
+        }) :
+        null
+      }
+    </section>
   )
 }
 
-export default QuestionContainer
+export default QuestionsContainer

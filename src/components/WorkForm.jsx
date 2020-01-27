@@ -17,16 +17,18 @@ function validate(values) {
   return errors;
 }
 
-const categories = [ { category: 'Bridal', value: 'bridal' },
+const categories = [
+  { category: 'Bridal', value: 'bridal' },
   { category: 'Beauty', value: 'beauty' },
-  { category: 'Editorial', value: 'editorial' } ]
+  { category: 'Editorial', value: 'editorial' }
+]
 
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting, success, setSuccess } = props;
   // this state is needed outside of the AttachmentField to avoid component unmounted errors from react-dropzone when using redux-form validations, do not move into AttachmentField
   const [files, setFiles] = useState([]);
 
-  function renderDropdownListField({input, label, meta: {touched, error, warning}}) {
+  function renderDropdownListField({ input, label, meta: { touched, error, warning } }) {
     return (
       <div>
         <label htmlFor="">{label}</label>
@@ -67,8 +69,9 @@ function WorkForm(props) {
     }
     // Make sure to revoke the data uris to avoid memory leaks
     return () => {
-      files.forEach(file => URL.revokeObjectURL(file.preview));
+      files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
+  // react warning asks to put files as a dependancy, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
   }, [success]);
 
   return (
