@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import './AttachmentField.css';
-const fixRotation = require('fix-image-rotation')
+const fixRotation = require('fix-image-rotation');
+const XXH = require('xxhashjs');
 
+// TODO move to utility
 function blobToFile(theBlob, fileName){
   //A Blob() is almost a File() - it's just missing the two properties below which we will add
   theBlob.lastModifiedDate = new Date();
@@ -22,7 +24,11 @@ function AttachmentField(props) {
         return blobOfArray
       }
       acceptedFiles = await myRotationFunction(ArrayOfFilesToBeRotated);
-      acceptedFiles = acceptedFiles.map((blob, index) => blobToFile(blob, `image-${index}`));
+      acceptedFiles = acceptedFiles.map((blob, index) => {
+        let randHash = XXH.h64(`${Math.random()}`, 0x1A2B3C).toString(16);
+        // ensure uniqueness of filename
+        return blobToFile(blob, `${randHash}${index}-${Date.now()}`);
+      });
 
       input.onChange(acceptedFiles.concat(files));
       setFiles(acceptedFiles.map(file => Object.assign(file, {
