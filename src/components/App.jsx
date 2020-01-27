@@ -1,38 +1,57 @@
 import React, { useEffect, useState } from 'react';
-import { Provider, useDispatch } from 'react-redux';
-import Axios from 'axios';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import AdminPage from '../pages/AdminPage/AdminPage';
 import HomePage from '../pages/HomePage/HomePage';
 import ContactPage from '../pages/ContactPage/ContactPage';
 import ServicePage from '../pages/ServicesPage/ServicesPage';
 import FaqPage from '../pages/FaqPage/FaqPage';
-import Footer from './footer/Footer';
+import Footer from './Footer/Footer';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from '../pages/terms-conditions/TermsConditions';
 import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
-// Just for test
+// TESTING, remove before deployment
 import ContactsContainer from './ContactsContainer';
-
+// TESTING, remove before deployment
 import './App.css';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getData = async () => {
-      let portfolioPromise = Axios.get(`${backendUrl}/portfolio`);
-      let servicesPromise = Axios.get(`${backendUrl}/services`);
-      const [portfolio, services] = await Promise.all([portfolioPromise, servicesPromise])
-      dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: portfolio.data });
-      dispatch({type: 'UPDATE_SERVICES_DATA', newServicesData: services.data})
-      setLoading(false)
+    async function getData() {
+      setLoading(true);
+
+      try {
+        let res = await axios.get(`${backendUrl}/portfolio`);
+        dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
+      } catch (err) {
+        console.log(err);
+      }
+
+      try {
+        let res = await axios.get(`${backendUrl}/services`);
+        dispatch({ type: 'UPDATE_SERVICES_DATA', newServicesData: res.data });
+      } catch (err) {
+        console.log(err);
+      }
+
+      try {
+        let res = await axios.get(`${backendUrl}/FAQ`);
+        dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
+      } catch (err) {
+        console.log(err);
+      }
+
+      setLoading(false);
     }
-    getData()
+
+    getData();
   }, [dispatch])
 
   if (loading) {
@@ -45,15 +64,32 @@ function App() {
         <BrowserRouter>
           <Navbar/>
           <Switch>
-            <Route exact path="/"><HomePage/></Route>
-            <Route path="/contact"><ContactPage/></Route>
-            <Route path="/services"><ServicePage/></Route>
-            <Route path="/faq"><FaqPage/></Route>
-            {/*Below route is just for testing*/}
-            <Route path="/getcontactlist"><ContactsContainer/></Route>
-            <Route path="/privacy-policy"><PrivacyPolicy/></Route>
-            <Route path="/terms-and-conditions"><TermsConditions/></Route>
-            <Route path="/admin"><AdminPage/></Route>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/contact">
+              <ContactPage />
+            </Route>
+            <Route path="/services">
+              <ServicePage />
+            </Route>
+            <Route path="/faq">
+              <FaqPage />
+            </Route>
+            {/* TESTING, remove before deployment*/}
+            <Route path="/getcontactlist">
+              <ContactsContainer />
+            </Route>
+            <Route path="/privacy-policy">
+              <PrivacyPolicy />
+            </Route>
+            <Route path="/terms-and-conditions">
+              <TermsConditions />
+            </Route>
+            <Route path="/admin">
+              <AdminPage />
+            </Route>
+            {/* TESTING, remove before deployment*/}
           </Switch>
           <Footer/>
         </BrowserRouter>

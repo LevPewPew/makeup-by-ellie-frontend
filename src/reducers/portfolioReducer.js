@@ -7,10 +7,10 @@ function portfolioReducer(state = initialState, action) {
 
   switch(action.type) {
     case 'UPDATE_PORTFOLIO_DATA':
-      newState = {...state, portfolioData: action.newPortfolioData};
+      newState = { ...state, portfolioData: action.newPortfolioData };
       break;
     default:
-      newState = {...state};
+      newState = { ...state };
   }
 
   return newState;
