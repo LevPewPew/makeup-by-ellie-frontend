@@ -11,6 +11,7 @@ import FaqPage from '../pages/FaqPage/FaqPage';
 import Footer from './footer/Footer';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from '../pages/terms-conditions/TermsConditions';
+import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 // Just for test
 import ContactsContainer from './ContactsContainer';
 
@@ -35,7 +36,9 @@ function App() {
   }, [dispatch])
 
   if (loading) {
-    return null
+    return (
+      <LoadingAnimation />
+    );
   } else {
     return (
       <div className="App">
