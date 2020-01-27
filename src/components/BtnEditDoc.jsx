@@ -1,8 +1,6 @@
 import React from 'react';
-import Axios from 'axios';
 
-function BtnEditDoc(props) {
-  const { collection, id } = props;
+function BtnEditDoc() {
 
   function handleUpdate() {
     return 'nothing atm';
