@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Axios from 'axios';
+import axios from 'axios';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -10,9 +10,9 @@ function BtnDeleteDoc(props) {
 
   async function handleDelete() {
     try {
-      await Axios.delete(`${backendUrl}/${collection}/${id}`);
+      await axios.delete(`${backendUrl}/${collection}/${id}`);
       (async () => {
-        let res = await Axios.get(`${backendUrl}/portfolio`);
+        let res = await axios.get(`${backendUrl}/portfolio`);
         dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
       })();
     } catch (err) {

@@ -25,6 +25,7 @@ function AttachmentField(props) {
       <div className="thumb-inner">
         <img
           src={file.preview}
+          alt="attachment preview thumbnail"
         />
       </div>
     </div>
