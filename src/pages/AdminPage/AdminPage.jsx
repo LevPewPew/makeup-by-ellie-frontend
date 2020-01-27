@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import PortfolioContainer from '../../components/PortfolioContainer';
 import WorkForm from '../../components/WorkForm';
@@ -21,7 +21,7 @@ function AdminPage() {
         let fileName = fileParts[0];
         let fileType = fileParts[1];
     
-        let res = await Axios.post(
+        let res = await axios.post(
           `${backendUrl}/aws-s3`,
           {
             fileName : fileName,
@@ -38,11 +38,11 @@ function AdminPage() {
           }
         };
 
-        res = await Axios.put(signedRequest, file, options)
+        res = await axios.put(signedRequest, file, options)
         
         let params = { category, imageUrl: signedUrl };
         
-        await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/portfolio`, params);
+        await axios.post(`${process.env.REACT_APP_BACKEND_URL}/portfolio`, params);
       }
       setSuccess(true);
     } catch (err) {
@@ -54,14 +54,14 @@ function AdminPage() {
     dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: true});
 
     return () => dispatch({ type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false });
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     (async () => {
-      let res = await Axios.get(`${backendUrl}/portfolio`);
+      let res = await axios.get(`${backendUrl}/portfolio`);
       dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
     })();
-  }, [success]);
+  }, [success, dispatch]);
 
   return (
     <div className="AdminPage" data-testid="AdminPage">
