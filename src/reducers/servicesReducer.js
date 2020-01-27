@@ -7,10 +7,10 @@ function servicesReducer(state = initialState, action) {
 
   switch(action.type) {
     case 'UPDATE_SERVICES_DATA':
-      newState = {...state, servicesData: action.newServicesData};
+      newState = { ...state, servicesData: action.newServicesData };
       break;
     default:
-      newState = {...state};
+      newState = { ...state };
   }
 
   return newState;

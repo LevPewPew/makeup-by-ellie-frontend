@@ -8,24 +8,25 @@ import './Footer.css';
 function Heart() {
   const heartElement = <FontAwesomeIcon icon={faHeart} />
   return (heartElement);
-  }
+}
 
-
-export default class Footer extends Component {
+class Footer extends Component {
   render() {
     return (
-      <div className="footer">
-      <footer>
+      <footer className="Footer">
         <div className="footer-logo">
-          < Link to="/"><img src={logoplaceholder} alt="logo" height="70" width="70"/></Link>
+          <Link to="/">
+            <img src={logoplaceholder} alt="logo" height="70" width="70"/>
+          </Link>
         </div>
         <div className="footer-links">
-          < Link to="/terms-and-conditions" id="page-link">TERMS AND CONDITIONS  |  </Link>
-          < Link to="/privacy-policy" id="page-link">PRIVACY POLICY  |  </Link>
+          <Link to="/terms-and-conditions" id="page-link">TERMS AND CONDITIONS  |  </Link>
+          <Link to="/privacy-policy" id="page-link">PRIVACY POLICY  |  </Link>
             Made with <Heart className='heart-logo'/> &copy; MAKEUP BY ELLIE 2019
         </div>
       </footer>
-      </div>
     )
   }
 }
+
+export default Footer;

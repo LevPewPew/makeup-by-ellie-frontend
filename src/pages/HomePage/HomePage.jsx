@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import homepageImage from '../../media/homepage-image.jpg';
-
 import './HomePage.css';
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   render() {
     return (
       <div className="HomePage" data-testid="HomePage">
@@ -50,3 +49,5 @@ export default class HomePage extends Component {
     )
   }
 }
+
+export default HomePage;

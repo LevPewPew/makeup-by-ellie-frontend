@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Service from './Service/Service';
 import './ServicesContainer.css'
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
 function ServicesContainer() {
   const servicesData = useSelector((state) => state.servicesReducer.servicesData);
-  const dispatch = useDispatch();
   
   return (
     <section className="ServicesContainer">

@@ -14,6 +14,7 @@
     "@testing-library/user-event": "^8.0.3",
     "axios": "^0.19.1",
     "axios-mock-adapter": "^1.17.0",
+    "fix-image-rotation": "^2.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-dropzone": "^10.2.1",
@@ -22,7 +23,8 @@
     "react-scripts": "^3.3.0",
     "react-widgets": "^4.4.11",
     "redux": "^4.0.5",
-    "redux-form": "^8.2.6"
+    "redux-form": "^8.2.6",
+    "xxhashjs": "^0.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
