@@ -12,10 +12,11 @@ import FaqPage from '../pages/FaqPage/FaqPage';
 import Footer from './Footer/Footer';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from '../pages/terms-conditions/TermsConditions';
+import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 // TESTING, remove before deployment
 import ContactsContainer from './ContactsContainer';
 // TESTING, remove before deployment
-import './App.css';
+import './App.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -55,10 +56,13 @@ function App() {
   }, [dispatch])
 
   if (loading) {
-    return <h1 className="loading">Loading...</h1>;
-  } else {
     return (
-      <div className="App">
+      <LoadingAnimation />
+      );
+    } else {
+      return (
+        <div className="App">
+        <LoadingAnimation />
         <BrowserRouter>
           <Navbar/>
           <Switch>
