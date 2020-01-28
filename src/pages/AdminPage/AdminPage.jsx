@@ -3,11 +3,14 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import PortfolioContainer from '../../components/PortfolioContainer';
 import WorkForm from '../../components/WorkForm';
+import QuestionsContainer from '../../components/QuestionsContainer';
+import QuestionForm from '../../components/QuestionForm/QuestionForm';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function AdminPage() {
   const workForm = useSelector((state) => state.form.WorkForm);
+  const questionForm = useSelector((state) => state.form.QuestionForm);
   const dispatch = useDispatch();
   const [success, setSuccess] = useState(false);
 
@@ -42,9 +45,21 @@ function AdminPage() {
         
         let params = { category, imageUrl: signedUrl };
         
-        await axios.post(`${process.env.REACT_APP_BACKEND_URL}/portfolio`, params);
+        await axios.post(`${backendUrl}/portfolio`, params);
       }
       setSuccess(true);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function handleQuestionsSubmit() {
+    const { question, answer } = questionForm.values;
+
+    let params = { question, answer };
+
+    try {
+      await axios.post(`${backendUrl}/FAQ`, params);
     } catch (err) {
       console.log(err);
     }
@@ -72,6 +87,10 @@ function AdminPage() {
         success={success}
         setSuccess={setSuccess}
       />
+      <QuestionForm
+        onSubmit={handleQuestionsSubmit}
+      />
+      <QuestionsContainer />
     </div>
   )
 }
