@@ -58,10 +58,11 @@ function App() {
   if (loading) {
     return (
       <LoadingAnimation />
-    );
-  } else {
-    return (
-      <div className="App">
+      );
+    } else {
+      return (
+        <div className="App">
+        <LoadingAnimation />
         <BrowserRouter>
           <Navbar/>
           <Switch>
