@@ -62,7 +62,6 @@ function App() {
     } else {
       return (
         <div className="App">
-        <LoadingAnimation />
         <BrowserRouter>
           <Navbar/>
           <Switch>
