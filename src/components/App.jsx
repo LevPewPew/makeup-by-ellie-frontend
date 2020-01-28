@@ -56,7 +56,9 @@ function App() {
 
   if (loading) {
     return (
-      <LoadingAnimation />
+      <LoadingAnimation
+        type={'spinningBubbles'}
+      />
     );
   } else {
     return (

@@ -45,7 +45,7 @@ function WorkForm(props) {
     )
   }
 
-  function renderAttachmentField({input, label, meta: {touched, error, warning}}) {
+  function renderAttachmentField({ input, label, meta: { touched, error, warning } }) {
     return (
       <div>
         <label htmlFor="">{label}</label>
@@ -71,7 +71,7 @@ function WorkForm(props) {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
-  // react warning asks to put files as a dependancy, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
+  // react warning asks to put files as a dependency, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
   }, [success]);
 
   return (
@@ -90,9 +90,9 @@ function WorkForm(props) {
           component={renderAttachmentField}
         />
       </div>
-      <button type="submit" disabled={submitting || pristine} style={{margin: '50px', width: '50px', height: '50px'}}>Submit</button>
+      <button type="submit" disabled={submitting || pristine} style={{ margin: '50px', width: '50px', height: '50px' }}>Submit</button>
     </form>
   )
 }
 
-export default reduxForm({form: 'WorkForm', validate})(WorkForm);
+export default reduxForm({ form: 'WorkForm', validate })(WorkForm);
