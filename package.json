@@ -13,11 +13,12 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^8.0.3",
     "axios": "^0.19.1",
+    "axios-mock-adapter": "^1.17.0",
     "bootstrap": "^4.4.1",
     "filterizr": "^2.2.3",
-    "formik": "^2.1.2",
-    "axios-mock-adapter": "^1.17.0",
     "fix-image-rotation": "^2.0.0",
+    "formik": "^2.1.2",
+    "lodash": "^4.17.15",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
@@ -30,8 +31,8 @@
     "react-widgets": "^4.4.11",
     "redux": "^4.0.5",
     "redux-form": "^8.2.6",
-    "yup": "^0.28.0",
-    "xxhashjs": "^0.2.2"
+    "xxhashjs": "^0.2.2",
+    "yup": "^0.28.0"
   },
   "scripts": {
     "start": "react-scripts start",
