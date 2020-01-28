@@ -9,7 +9,7 @@ function Work(props) {
 
   return (
     <article className="Work" data-testid="Work">
-      <img src={imageUrl} alt=""/>
+      <img src={imageUrl} alt="" style={{width: "300px"}}/>
       {
         onAdminDash ?
         <div className="crud-per-doc">
