@@ -16,7 +16,7 @@ import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 // TESTING, remove before deployment
 import ContactsContainer from './ContactsContainer';
 // TESTING, remove before deployment
-import './App.css';
+import './App.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -57,9 +57,7 @@ function App() {
 
   if (loading) {
     return (
-      <LoadingAnimation
-        type={'spinningBubbles'}
-      />
+      <LoadingAnimation />
     );
   } else {
     return (

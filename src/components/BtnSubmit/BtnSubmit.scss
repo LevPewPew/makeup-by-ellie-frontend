@@ -1,0 +1,17 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+.BtnSubmit {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  
+  button {
+    width: 80.902px;
+    height: 50px;
+    border-radius: 5px;
+    background: $faceBusiness;
+    font-family: $classy;
+    font-size: 62%;
+  }
+}

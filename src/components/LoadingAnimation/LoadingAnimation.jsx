@@ -2,13 +2,12 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 import './LoadingAnimation.css';
 
-function LoadingAnimation(props) {
-  const { type } = props;
+function LoadingAnimation() {
 
   return (
     <div className="LoadingAnimation">
       <ReactLoading
-        type={type}
+        type={'spinningBubbles'}
         color={'#d8cbcb'}
         height={'220px'}
         width={'220px'}

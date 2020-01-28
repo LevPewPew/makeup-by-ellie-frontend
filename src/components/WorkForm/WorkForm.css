@@ -1,0 +1,7 @@
+.WorkForm {
+  border: 1px dashed red;
+}
+
+.WorkForm .BtnSubmit {
+  margin: 20px;
+}
