@@ -10,11 +10,15 @@ function QuestionsContainer() {
     <section className="QuestionsContainer">
       {
         questionsData ?
-        questionsData.map((question, index) => {
+        questionsData.map((qna, index) => {
+          const { _id, question, answer } = qna;
+
           return (
             <Question
               key={index}
-              {...question}
+              id={_id}
+              question={question}
+              answer={answer}
             />
           )
         }) :
