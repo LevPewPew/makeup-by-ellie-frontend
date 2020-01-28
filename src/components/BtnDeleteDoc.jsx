@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import _ from 'lodash';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -12,8 +13,8 @@ function BtnDeleteDoc(props) {
     try {
       await axios.delete(`${backendUrl}/${collection}/${id}`);
       (async () => {
-        let res = await axios.get(`${backendUrl}/portfolio`);
-        dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
+        let res = await axios.get(`${backendUrl}/${collection}`);
+        dispatch({ type: `UPDATE_${collection.toUpperCase()}_DATA`, [`new${_.upperFirst(collection)}Data`]: res.data })
       })();
     } catch (err) {
       console.log(err);
