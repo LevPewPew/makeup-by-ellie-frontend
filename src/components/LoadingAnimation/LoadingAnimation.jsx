@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
+import colors from '../../styles/_colors.scss';
 import './LoadingAnimation.css';
 
 function LoadingAnimation() {
@@ -8,7 +9,7 @@ function LoadingAnimation() {
     <div className="LoadingAnimation">
       <ReactLoading
         type={'spinningBubbles'}
-        color={'#d8cbcb'}
+        color={colors.churchCrab}
         height={'220px'}
         width={'220px'}
       />
