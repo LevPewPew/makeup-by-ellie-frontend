@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import PortfolioContainer from '../../components/PortfolioContainer';
-import WorkForm from '../../components/WorkForm';
+import WorkForm from '../../components/WorkForm/WorkForm';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -44,6 +44,7 @@ function AdminPage() {
         
         await axios.post(`${process.env.REACT_APP_BACKEND_URL}/portfolio`, params);
       }
+
       setSuccess(true);
     } catch (err) {
       console.log(err);
@@ -66,12 +67,12 @@ function AdminPage() {
   return (
     <div className="AdminPage" data-testid="AdminPage">
       <h1>Admin Dashboard</h1>
-      <PortfolioContainer />
       <WorkForm
         onSubmit={handlePortfolioSubmit}
         success={success}
         setSuccess={setSuccess}
       />
+      <PortfolioContainer />
     </div>
   )
 }

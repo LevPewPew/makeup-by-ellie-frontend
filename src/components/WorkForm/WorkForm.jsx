@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import AttachmentField from './AttachmentField';
-import DropdownListField from './DropdownListField';
+import AttachmentField from '../AttachmentField';
+import DropdownListField from '../DropdownListField';
+import './WorkForm.css';
+import BtnSubmit from '../BtnSubmit/BtnSubmit';
 
 function validate(values) {
   let errors = {};
@@ -90,7 +92,11 @@ function WorkForm(props) {
           component={renderAttachmentField}
         />
       </div>
-      <button type="submit" disabled={submitting || pristine} style={{ margin: '50px', width: '50px', height: '50px' }}>Submit</button>
+      <BtnSubmit
+        pristine={pristine}
+        submitting={submitting}
+        text={'Add Photo'}
+      />
     </form>
   )
 }

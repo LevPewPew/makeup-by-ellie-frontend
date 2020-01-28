@@ -1,0 +1,14 @@
+@import '../styles/colors';
+@import '../styles/fonts';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: $boujee;
+  font-weight: lighter;
+}
