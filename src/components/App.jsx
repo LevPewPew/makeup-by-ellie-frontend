@@ -7,6 +7,7 @@ import AdminPage from '../pages/AdminPage/AdminPage';
 import HomePage from '../pages/HomePage/HomePage';
 import ContactPage from '../pages/ContactPage/ContactPage';
 import ServicePage from '../pages/ServicesPage/ServicesPage';
+import PortfolioPage from '../pages/PortfolioPage/PortfolioPage'
 import FaqPage from '../pages/FaqPage/FaqPage';
 import Footer from './Footer/Footer';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
@@ -74,6 +75,9 @@ function App() {
             </Route>
             <Route path="/services">
               <ServicePage />
+            </Route>
+            <Route path="/portfolio">
+              <PortfolioPage />
             </Route>
             <Route path="/faq">
               <FaqPage />
