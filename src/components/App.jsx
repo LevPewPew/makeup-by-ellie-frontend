@@ -9,6 +9,7 @@ import ContactPage from '../pages/ContactPage/ContactPage';
 import ServicePage from '../pages/ServicesPage/ServicesPage';
 import PortfolioPage from '../pages/PortfolioPage/PortfolioPage'
 import FaqPage from '../pages/FaqPage/FaqPage';
+import AdminLoginPage from '../pages/AdminLoginPage/AdminLoginPage';
 import Footer from './Footer/Footer';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from '../pages/terms-conditions/TermsConditions';
@@ -92,6 +93,9 @@ function App() {
             </Route>
             <Route path="/admin">
               <AdminPage />
+            </Route>
+            <Route path="/admin-login">
+              <AdminLoginPage />
             </Route>
             {/* TESTING, remove before deployment*/}
           </Switch>
