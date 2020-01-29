@@ -1,5 +1,5 @@
 import React from 'react';
-import BtnDeleteDoc from './BtnDeleteDoc';
+import BtnDeleteDoc from './BtnDeleteDoc/BtnDeleteDoc';
 
 function Work(props) {
   const { id, imageUrl, category } = props;
