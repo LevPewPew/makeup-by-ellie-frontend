@@ -67,12 +67,6 @@ function AdminPage() {
   }
 
   useEffect(() => {
-    dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: true});
-
-    return () => dispatch({ type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false });
-  }, [dispatch])
-
-  useEffect(() => {
     (async () => {
       let res = await axios.get(`${backendUrl}/portfolio`);
       dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
