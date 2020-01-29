@@ -51,6 +51,7 @@ function AdminPage() {
       let res = await axios.get(`${backendUrl}/portfolio`);
       dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
       dispatch({ type: `${category.toUpperCase()}_PORTFOLIO_DATA` });
+      dispatch({ type: 'SUCCESSFUL_SUBMIT' });
     } catch (err) {
       console.log(err);
     }
