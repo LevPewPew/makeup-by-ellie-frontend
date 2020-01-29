@@ -20,7 +20,7 @@ function Question(props) {
           editing={editing}
           initialValues={existingData}
         /> :
-        <div className="qna">
+        <>
           <h2>Question:{question}</h2>
           <h3>Answer:{answer}</h3>
           <CrudBtnsContainer
@@ -29,23 +29,7 @@ function Question(props) {
             editing={editing}
             setEditing={setEditing}
           />
-        </div>
-        // {
-        //   token ?
-        //   <div className="crud-per-doc">
-        //     <BtnEditDoc
-        //       collection={collection}
-        //       id={id}
-        //       editing={editing}
-        //       setEditing={setEditing}
-        //     />
-        //     <BtnDeleteDoc
-        //       collection={collection}
-        //       id={id}
-        //     />
-        //   </div> :
-        //   null
-        // }
+        </>
       }
     </article>
   )
