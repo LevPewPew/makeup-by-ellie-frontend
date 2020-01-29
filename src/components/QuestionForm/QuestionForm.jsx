@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 
@@ -17,6 +18,11 @@ function validate(values)
   return errors;
 }
 
+const DUMMY_DATA = {
+  question: 'xxxx',
+  answer: 'ddddd'
+}
+
 function renderField({ input, type, label, meta: { touched, error, warning } }) {
   return (
     <div>
@@ -29,7 +35,8 @@ function renderField({ input, type, label, meta: { touched, error, warning } }) 
 }
 
 function QuestionForm(props) {
-  const { handleSubmit, pristine, submitting } = props;
+  const { handleSubmit, pristine, submitting, editing } = props;
+  const text = editing ? 'Edit Question' : 'Add Question';
 
   return (
     <form onSubmit={handleSubmit} className="QuestionForm">
@@ -38,10 +45,14 @@ function QuestionForm(props) {
       <BtnSubmit
         pristine={pristine}
         submitting={submitting}
-        text={'Add Question'}
+        text={text}
       />
     </form>
   )
 }
 
-export default reduxForm({ form: 'QuestionForm', validate })(QuestionForm);
+const initialValues = () => {
+  return { initialValues: DUMMY_DATA }
+}
+
+export default connect(initialValues)(reduxForm({ form: 'QuestionForm', validate })(QuestionForm));
