@@ -4,7 +4,7 @@ import BtnDeleteDoc from './BtnDeleteDoc';
 
 function Work(props) {
   const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
-  const { id, imageUrl } = props;
+  const { id, imageUrl, category } = props;
   const collection = 'portfolio';
 
   return (
@@ -16,6 +16,7 @@ function Work(props) {
           <BtnDeleteDoc
             collection={collection}
             id={id}
+            category={category}
           />
         </div> :
         null

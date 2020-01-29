@@ -50,6 +50,7 @@ function AdminPage() {
 
       let res = await axios.get(`${backendUrl}/portfolio`);
       dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
+      dispatch({ type: `${category.toUpperCase()}_PORTFOLIO_DATA` });
     } catch (err) {
       console.log(err);
     }
@@ -61,8 +62,8 @@ function AdminPage() {
     let params = { question, answer };
 
     try {
-      await axios.post(`${backendUrl}/FAQ`, params);
-      let res = await axios.get(`${backendUrl}/FAQ`);
+      await axios.post(`${backendUrl}/questions`, params);
+      let res = await axios.get(`${backendUrl}/questions`);
       dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
       dispatch(reset('QuestionForm'));
     } catch (err) {
