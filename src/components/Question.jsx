@@ -3,6 +3,7 @@ import BtnDeleteDoc from './BtnDeleteDoc';
 import './Question.css';
 
 function Question(props) {
+  // Using token stored in localstorage to verify admin user
   const token = localStorage.getItem('token');
   const { id, question, answer } = props;
   const collection = 'FAQ';

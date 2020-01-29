@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import AdminLoginForm from '../../components/AdminLoginForm';
-// import {useSelector,useDispatch} from 'react-redux';
 import { Redirect } from 'react-router';
 import axios from 'axios';
 

@@ -10,6 +10,8 @@ function Heart() {
   return (heartElement);
 }
 
+// Changed Footer to functional component
+
 function Footer() {
 
     return (
