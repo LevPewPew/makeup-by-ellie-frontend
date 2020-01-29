@@ -21,13 +21,14 @@ function PortfolioContainer() {
       {
         filteredPortfolioData ?
         filteredPortfolioData.map((service, index) => {
-          const { _id, imageUrl } = service;
+          const { _id, imageUrl, category } = service;
 
           return (
             <Work
               key={index}
               id={_id}
               imageUrl={imageUrl}
+              category={category}
             />
           )
         }) :
