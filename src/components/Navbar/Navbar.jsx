@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import logoplaceholder from '../../media/logo-placeholder.png';
 import './Navbar.css';
 
+// Changed Navbar to functional component
+
 function Navbar()  
 {
   let token = localStorage.getItem('token');
