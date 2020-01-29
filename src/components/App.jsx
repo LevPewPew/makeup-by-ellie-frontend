@@ -49,6 +49,8 @@ function App() {
         console.log(err);
       }
 
+      dispatch({ type: 'BEAUTY_PORTFOLIO_DATA' });
+
       setLoading(false);
     }
 
