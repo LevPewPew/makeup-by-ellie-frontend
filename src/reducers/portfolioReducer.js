@@ -11,22 +11,22 @@ function portfolioReducer(state = initialState, action) {
       newState = { ...state, portfolioData: action.newPortfolioData };
       break;
     case 'BRIDAL_PORTFOLIO_DATA':
-        const filterBridal = state.portfolioData.filter(image => {
-          return image.category === 'bridal';
-        })
-        newState = { ...state, filteredPortfolioData: filterBridal };
+      const filterBridal = state.portfolioData.filter((image) => {
+        return image.category === 'bridal';
+      })
+      newState = { ...state, filteredPortfolioData: filterBridal };
       break;
     case 'BEAUTY_PORTFOLIO_DATA':
-        const filterBeauty = state.portfolioData.filter(image => {
-          return image.category === 'beauty';
-        })
-        newState = { ...state, filteredPortfolioData: filterBeauty };
+      const filterBeauty = state.portfolioData.filter((image) => {
+        return image.category === 'beauty';
+      })
+      newState = { ...state, filteredPortfolioData: filterBeauty };
       break;
     case 'EDITORIAL_PORTFOLIO_DATA':
-        const filterEditorial = state.portfolioData.filter(image => {
-          return image.category === 'editorial';
-        })
-        newState = { ...state, filteredPortfolioData: filterEditorial };
+      const filterEditorial = state.portfolioData.filter((image) => {
+        return image.category === 'editorial';
+      })
+      newState = { ...state, filteredPortfolioData: filterEditorial };
       break;
     default:
       newState = { ...state };

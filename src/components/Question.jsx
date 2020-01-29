@@ -6,7 +6,7 @@ function Question(props) {
   // Using token stored in localstorage to verify admin user
   const token = localStorage.getItem('token');
   const { id, question, answer } = props;
-  const collection = 'FAQ';
+  const collection = 'questions';
 
   return (
     <article className="Question">

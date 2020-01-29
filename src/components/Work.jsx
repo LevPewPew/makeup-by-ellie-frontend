@@ -2,9 +2,9 @@ import React from 'react';
 import BtnDeleteDoc from './BtnDeleteDoc';
 
 function Work(props) {
+  const { id, imageUrl, category } = props;
   // Using token stored in localstorage to verify admin user
   const token = localStorage.getItem('token');
-  const { id, imageUrl } = props;
   const collection = 'portfolio';
 
   return (
@@ -16,6 +16,7 @@ function Work(props) {
           <BtnDeleteDoc
             collection={collection}
             id={id}
+            category={category}
           />
         </div> :
         null

@@ -12,7 +12,7 @@ function questionsReducer(state = initialState, action) {
     default:
       newState = { ...state };
   }
-
+  
   return newState;
 }
 
