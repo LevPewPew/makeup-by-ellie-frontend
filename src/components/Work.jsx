@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import BtnDeleteDoc from './BtnDeleteDoc';
 
 function Work(props) {
-  const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
+  const token = localStorage.getItem('token');
   const { id, imageUrl } = props;
   const collection = 'portfolio';
 
@@ -11,7 +10,7 @@ function Work(props) {
     <article className="Work" data-testid="Work">
       <img src={imageUrl} alt="" style={{width: "300px"}}/>
       {
-        onAdminDash ?
+        token ?
         <div className="crud-per-doc">
           <BtnDeleteDoc
             collection={collection}

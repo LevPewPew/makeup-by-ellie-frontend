@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import {useSelector,useDispatch} from 'react-redux';
+
 import logoplaceholder from '../../media/logo-placeholder.png';
 import './Navbar.css';
 
 function Navbar()  
 {
-  const token = localStorage.getItem('token');
+  let token = localStorage.getItem('token');
 
-  // const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
-  
-  const state = {
-    hamburgerClass: "hamburger-off"
+  const logOut = () => {
+    localStorage.clear();
   }
+  
+  const [hamburgerClass,setHamburgerClass] = useState("hamburger-off");
 
   const animateHamburger = () => {
-    if (this.state.hamburgerClass === "hamburger-off") {
-      this.setState({ hamburgerClass: "hamburger-on" }) 
+    if (hamburgerClass === "hamburger-off") {
+      setHamburgerClass("hamburger-on") 
     } else {
-      this.setState({ hamburgerClass: "hamburger-off" })
+      setHamburgerClass("hamburger-off")
     }
   }
 
@@ -46,23 +46,25 @@ function Navbar()
           {token?
           <div className="navbar-link">
             <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
+            <button onClick={logOut}>Logout</button>
           </div>:null
           }
           {/* temp dev zone */}
         </div>
         <div id="button">
           <label>
-            <div className={`${state.hamburgerClass}-container`} onClick={animateHamburger}>
+            <div className={`${hamburgerClass}-container`} onClick={animateHamburger}>
               <div className="bar1"></div>
               <div className="bar2"></div>
               <div className="bar3"></div>
             </div>
-            <div className={`${state.hamburgerClass}`}> 
+            <div className={`${hamburgerClass}`}> 
               <ul>
                 <Link to="./services" className="navbar-link" onClick={animateHamburger} ><li>SERVICES</li></Link>
                 <Link to="./portfolio" className="navbar-link" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
                 <Link to="./faq" className="navbar-link" onClick={animateHamburger} ><li>FAQ</li></Link>
                 <Link to="./contact" className="navbar-link" onClick={animateHamburger}><li>CONTACT</li></Link>
+                {token?<Link to="./admin" className="navbar-link" onClick={animateHamburger}><li>ADMIN</li></Link>:null}
               </ul>
             </div>
           </label>

@@ -1,6 +1,5 @@
 const initialState = {
-  onAdminDash: false,
-  token: ''
+  onAdminDash: false
 };
 
 function adminDashReducer(state = initialState, action) {
@@ -8,7 +7,7 @@ function adminDashReducer(state = initialState, action) {
 
   switch(action.type) {
     case 'UPDATE_ON_ADMIN_DASH':
-      newState = { ...state, onAdminDash: action.newOnAdminDash, token: action.newToken  };
+      newState = { ...state, onAdminDash: action.newOnAdminDash };
       break;
     default:
       newState = { ...state };
