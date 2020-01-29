@@ -43,7 +43,7 @@ function App() {
       }
 
       try {
-        let res = await axios.get(`${backendUrl}/FAQ`);
+        let res = await axios.get(`${backendUrl}/questions`);
         dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
       } catch (err) {
         console.log(err);

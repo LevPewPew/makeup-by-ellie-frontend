@@ -6,7 +6,7 @@ import './Question.css';
 function Question(props) {
   const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
   const { id, question, answer } = props;
-  const collection = 'FAQ';
+  const collection = 'questions';
 
   return (
     <article className="Question">

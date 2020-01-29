@@ -48,7 +48,8 @@ function AdminPage() {
         await axios.post(`${backendUrl}/portfolio`, params);
       }
 
-      // setSuccess(true);
+      let res = await axios.get(`${backendUrl}/portfolio`);
+      dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
     } catch (err) {
       console.log(err);
     }
@@ -61,7 +62,8 @@ function AdminPage() {
 
     try {
       await axios.post(`${backendUrl}/FAQ`, params);
-      dispatch({ type: 'SUCCESSFUL_SUBMIT' });
+      let res = await axios.get(`${backendUrl}/FAQ`);
+      dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
       dispatch(reset('QuestionForm'));
     } catch (err) {
       console.log(err);
@@ -77,12 +79,10 @@ function AdminPage() {
   return (
     <div className="AdminPage" data-testid="AdminPage">
       <h1>Admin Dashboard</h1>
-      {/* <WorkForm
+      <WorkForm
         onSubmit={handlePortfolioSubmit}
-        success={success}
-        setSuccess={setSuccess}
       />
-      <PortfolioContainer /> */}
+      <PortfolioContainer />
       <QuestionForm
         onSubmit={handleQuestionsSubmit}
       />
