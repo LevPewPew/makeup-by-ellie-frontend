@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -10,8 +10,10 @@ function Heart() {
   return (heartElement);
 }
 
-class Footer extends Component {
-  render() {
+// Changed Footer to functional component
+
+function Footer() {
+
     return (
       <footer className="Footer">
         <div className="footer-logo">
@@ -22,11 +24,11 @@ class Footer extends Component {
         <div className="footer-links">
           <Link to="/terms-and-conditions" id="page-link">TERMS AND CONDITIONS  |  </Link>
           <Link to="/privacy-policy" id="page-link">PRIVACY POLICY  |  </Link>
+          {localStorage.getItem('token')?null:<Link to="/admin-login" id="page-link">ADMIN LOGIN  |  </Link>}
             Made with <Heart className='heart-logo'/> &copy; MAKEUP BY ELLIE 2019
         </div>
       </footer>
     )
-  }
 }
 
 export default Footer;
