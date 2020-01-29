@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useDropzone } from 'react-dropzone';
 import './AttachmentField.css';
 import { blobsToUniqueFiles } from '../utils/files/general';
 import { rotatedImageBlobsWithExif } from '../utils/files/images';
 
 function AttachmentField(props) {
-  const { input, files, setFiles, success, setSuccess } = props;
+  const { input, files, setFiles, /*success, setSuccess*/ } = props;
+  const successfulSubmit = useSelector((state) => state.adminDashReducer.successfulSubmit);
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: async (acceptedFiles) => {
@@ -16,7 +18,7 @@ function AttachmentField(props) {
       setFiles(rotatedUniqueFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })).concat(files));
-      setSuccess(false);
+      // setSuccess(false);
     }
   });
   
@@ -39,7 +41,8 @@ function AttachmentField(props) {
       </div>
       <aside className="thumbs-container">
         {
-          success ?
+          // success ?
+          successfulSubmit ?
           <div>
             {'File Uploaded!'}
           </div> :

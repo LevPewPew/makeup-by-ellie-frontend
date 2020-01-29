@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 function validate(values)
@@ -30,11 +29,6 @@ function renderField({ input, type, label, meta: { touched, error, warning } }) 
 
 function QuestionForm(props) {
   const { handleSubmit, pristine, submitting } = props;
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(reset('QuestionForm'));
-  // }, [successfulSubmit, dispatch]);
 
   return (
     <form onSubmit={handleSubmit} className="QuestionForm">

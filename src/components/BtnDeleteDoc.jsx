@@ -12,7 +12,8 @@ function BtnDeleteDoc(props) {
   async function handleDelete() {
     try {
       await axios.delete(`${backendUrl}/${collection}/${id}`);
-      dispatch({ type: 'SUCCESSFUL_SUBMIT' });
+      let res = await axios.get(`${backendUrl}/${collection}`);
+      dispatch({ type: `UPDATE_${collection.toUpperCase()}_DATA`, [`new${_.upperFirst(collection)}Data`]: res.data });
     } catch (err) {
       console.log(err);
     }
