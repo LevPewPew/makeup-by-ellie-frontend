@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import axios from 'axios';
-
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function validate(values)
 {
@@ -35,15 +32,9 @@ function QuestionForm(props) {
   const { handleSubmit, pristine, submitting } = props;
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // if statement here to prevent double HTTP requests
-    if (!submitting) {
-      (async () => {
-        let res = await axios.get(`${backendUrl}/FAQ`);
-        dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data })
-      })();
-    }
-  }, [submitting, dispatch]);
+  // useEffect(() => {
+  //   dispatch(reset('QuestionForm'));
+  // }, [successfulSubmit, dispatch]);
 
   return (
     <form onSubmit={handleSubmit} className="QuestionForm">

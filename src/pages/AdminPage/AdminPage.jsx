@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
+import { reset } from 'redux-form';
 import PortfolioContainer from '../../components/PortfolioContainer';
 import WorkForm from '../../components/WorkForm/WorkForm';
 import QuestionsContainer from '../../components/QuestionsContainer';
@@ -12,7 +13,6 @@ function AdminPage() {
   const workForm = useSelector((state) => state.form.WorkForm);
   const questionForm = useSelector((state) => state.form.QuestionForm);
   const dispatch = useDispatch();
-  const [success, setSuccess] = useState(false);
 
   async function handlePortfolioSubmit() {
     let { category, imageBlobs } = workForm.values;
@@ -48,7 +48,7 @@ function AdminPage() {
         await axios.post(`${backendUrl}/portfolio`, params);
       }
 
-      setSuccess(true);
+      // setSuccess(true);
     } catch (err) {
       console.log(err);
     }
@@ -61,33 +61,28 @@ function AdminPage() {
 
     try {
       await axios.post(`${backendUrl}/FAQ`, params);
+      dispatch({ type: 'SUCCESSFUL_SUBMIT' });
+      dispatch(reset('QuestionForm'));
     } catch (err) {
       console.log(err);
     }
   }
 
   useEffect(() => {
-    dispatch({type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: true});
+    dispatch({ type: 'UPDATE_ON_ADMIN_DASH', newOnAdminDash: true });
 
-    return () => dispatch({ type: "UPDATE_ON_ADMIN_DASH", newOnAdminDash: false });
-  }, [dispatch])
-
-  useEffect(() => {
-    (async () => {
-      let res = await axios.get(`${backendUrl}/portfolio`);
-      dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data })
-    })();
-  }, [success, dispatch]);
+    return () => dispatch({ type: 'UPDATE_ON_ADMIN_DASH', newOnAdminDash: false });
+  }, [dispatch]);
 
   return (
     <div className="AdminPage" data-testid="AdminPage">
       <h1>Admin Dashboard</h1>
-      <WorkForm
+      {/* <WorkForm
         onSubmit={handlePortfolioSubmit}
         success={success}
         setSuccess={setSuccess}
       />
-      <PortfolioContainer />
+      <PortfolioContainer /> */}
       <QuestionForm
         onSubmit={handleQuestionsSubmit}
       />
