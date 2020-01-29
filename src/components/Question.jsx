@@ -1,10 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import BtnDeleteDoc from './BtnDeleteDoc';
 import './Question.css';
 
 function Question(props) {
-  const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
+  // Using token stored in localstorage to verify admin user
+  const token = localStorage.getItem('token');
   const { id, question, answer } = props;
   const collection = 'FAQ';
 
@@ -13,7 +13,7 @@ function Question(props) {
       <h1>Question:{question}</h1>
       <h2>Answer:{answer}</h2>
       {
-        onAdminDash ?
+        token ?
         <div className="crud-per-doc">
           <BtnDeleteDoc
             collection={collection}
