@@ -74,7 +74,7 @@ function WorkForm(props) {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
   // react warning asks to put files as a dependency, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
-  }, [success]);
+  }, [files,success]);
 
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>
