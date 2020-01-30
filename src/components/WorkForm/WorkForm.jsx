@@ -85,7 +85,7 @@ function WorkForm(props) {
   }, [files, successfulSubmit]);
 
   return (
-    <form className="WorkForm" onSubmit={handleSubmit}>
+    <form className="WorkForm form" onSubmit={handleSubmit}>
       <div>
         <label>Category</label>
         <Field
