@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from '../AttachmentField';
-import './ServiceForm.css';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
+import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
+import './ServiceForm.scss';
 
 function validate(values) {
   let errors = {};
@@ -59,11 +60,11 @@ function ServiceForm(props) {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
-  // react warning asks to put files as a dependency, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
-  }, [files, successfulSubmit]);
+    // DO NOT add the files dependency, even though react warning appears, if you add it then you can create infinite loops and crash the browser
+  }, [successfulSubmit]);
 
   return (
-    <form className="ServiceForm" onSubmit={handleSubmit}>
+    <form className="ServiceForm form" onSubmit={handleSubmit}>
       <Field type="text" component={renderField} label="Title" name="title" />
       <Field type="text" component={renderField} label="Description" name="description" />
       <div>
@@ -76,8 +77,9 @@ function ServiceForm(props) {
       <BtnSubmit
         pristine={pristine}
         submitting={submitting}
-        text={'Add Photo'}
+        text={'Add Service'}
       />
+      <BtnCancelForm />
     </form>
   )
 }
