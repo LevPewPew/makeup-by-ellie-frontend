@@ -35,11 +35,11 @@ function warn(values)
 
 class ContactForm extends React.Component {
    
-   renderField = ({placeholder,input,type,label,meta:{touched,error,warning}}) => {
+   renderField = ({autoFocus,placeholder,input,type,label,meta:{touched,error,warning}}) => {
       return(
          <div>
             <label>{label} *</label>
-            <input {...input} type={type} className='myInput' placeholder={placeholder} />
+            <input {...input} type={type} className='myInput' placeholder={placeholder} autoFocus={autoFocus}/>
             {touched && 
             ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
          </div>
@@ -70,7 +70,7 @@ class ContactForm extends React.Component {
         <Field type="text" component={this.renderField} label="Name" name="name" placeholder=" NAME" tabIndex="1" autoFocus />
         <Field type="text" component={this.renderField} label="Mobile" name="mobile" placeholder=" MOBILE" tabIndex="2"/>
         <Field type="text" component={this.renderField} label="Email" name="email" placeholder=" EMAIL" tabIndex="3"/>
-        <Field type="date" component={this.renderField} label="Event Date" name="eventDate" placeholder=" WHAT DATE IS YOUR EVENT?" tabIndex="4" /> 
+        <Field type="date" component={this.renderField} label="Event Date" name="eventDate" /> 
         <Field
           name="serviceType"
           component={this.renderDropdownListField}
@@ -83,11 +83,11 @@ class ContactForm extends React.Component {
         />
          <Field type="number" component={this.renderField} label="Number of people for makeup" name="totalPeopleJustMakeup" placeholder=" HOW MANY PEOPLE WILL REQUIRE MAKE UP?" tabIndex="6" /> 
          <Field type="number" component={this.renderField} label="Number of people for Hair" name="totalPeopleWithHair" placeholder=" HOW MANY WILL REQUIRE HAIR STYLING?" tabIndex="7"/>
-         <Field type="date" component={this.renderField} label="Time to be ready by" name="timeToFinish" placeholder=" WHAT TIME DO YOU NEED TO BE READY BY?" tabIndex="8"/>
+         <Field type="text" component={this.renderField} label="Time to be ready by" name="timeToFinish" placeholder=" WHAT TIME DO YOU NEED TO BE READY BY?" tabIndex="8"/>
          {(parseInt(this.props.number1)+parseInt(this.props.number2))>3
          && <Field type="text" component={this.renderField} label="Address" name="applicationAddress" placeholder=" AS YOU'RE BOOKING AN ON-LOCATION SERVICE, PLEASE PROVIDE YOUR ADDRESS" tabIndex="9" />}
          <Field type="text" component={this.renderField} label="How did you hear about us" name="howDidYouHear" placeholder=" HOW DID YOU HEAR ABOUT ME?" tabIndex="10" />
-         <Field type="text" component={this.renderField} label="Any additional questions" name="addedQuestionsOrInfo" placeholder=" PLEASE LET ME KNOW IF YOU HAVE ANY QUESTIONS OR WOULD LIKE TO PROVIDE ADDITIONAL INFORMATION" tabIndex="11" />
+         <Field type="textarea" component={this.renderField} label="Any additional questions" name="addedQuestionsOrInfo" placeholder=" PLEASE LET ME KNOW IF YOU HAVE ANY QUESTIONS OR WOULD LIKE TO PROVIDE ADDITIONAL INFORMATION" tabIndex="11" />
         <div style={{marginRight:20}}>
         <button type="submit" className="contactFormSubmit">Send Enquiry</button>
         <button disabled={this.props.pristine||this.props.submitting} onClick={this.props.reset} className="contactFormReset">Reset Form</button> 

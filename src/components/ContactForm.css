@@ -1,15 +1,15 @@
 /* Just some sample styles */
 
 label {
-  /* display: inline;
+  display: inline;
   font-size: 90%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* width: 100%; */
-  /* padding: 5px;
+  width: 100%;
+  padding: 5px;
   padding-left: 17px;
-  height: 30px; */ 
+  height: 30px;
   -webkit-appearance: none;
   appearance: none;
   /* vertical-align: text-bottom; */
