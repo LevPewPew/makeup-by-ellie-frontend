@@ -21,8 +21,6 @@ import './App.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
-//Changed app to functional component
-
 function App() {
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch();
@@ -64,9 +62,9 @@ function App() {
     return (
       <LoadingAnimation />
       );
-    } else {
-      return (
-        <div className="App">
+  } else {
+    return (
+      <div className="App">
         <BrowserRouter>
           <Navbar/>
           <Switch>

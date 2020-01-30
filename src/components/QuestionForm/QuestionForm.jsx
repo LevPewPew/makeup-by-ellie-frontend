@@ -1,5 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import BtnSubmit from '../BtnSubmit/BtnSubmit';
 
 function validate(values)
 {
@@ -30,12 +32,19 @@ function renderField({ input, type, label, meta: { touched, error, warning } }) 
 function QuestionForm(props) {
   const { handleSubmit, pristine, submitting } = props;
 
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+
+  const text = editingForm ? 'Edit Question' : 'Add Question';
+
   return (
     <form onSubmit={handleSubmit} className="QuestionForm">
       <Field type="text" component={renderField} label="Question" name="question" />
       <Field type="text" component={renderField} label="Answer" name="answer" />
-      {/* TODO import BtnSubmit here once it is merged */}
-      <button type="submit" disabled={submitting || pristine} style={{margin: '50px', width: '50px', height: '50px'}}>Submit</button>
+      <BtnSubmit
+        pristine={pristine}
+        submitting={submitting}
+        text={text}
+      />
     </form>
   )
 }
