@@ -1,26 +1,42 @@
 import React from 'react';
-import BtnDeleteDoc from './BtnDeleteDoc';
+import { useSelector } from 'react-redux';
+import QuestionForm from '../components/QuestionForm/QuestionForm';
+import CrudBtnsContainer from '../components/CrudBtnsContainer/CrudBtnsContainer';
+import { questionsSubmitHandler } from '../utils/forms/submitHandlers';
 import './Question.css';
 
 function Question(props) {
-  // Using token stored in localstorage to verify admin user
-  const token = localStorage.getItem('token');
   const { id, question, answer } = props;
+  
+  const questionForm = useSelector((state) => state.form.QuestionForm);
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+  
   const collection = 'questions';
+  const existingData = {
+    question,
+    answer
+  }
+
+  function handleSubmit() {
+    questionsSubmitHandler(questionForm.values, editingForm);
+  }
 
   return (
     <article className="Question">
-      <h1>Question:{question}</h1>
-      <h2>Answer:{answer}</h2>
       {
-        token ?
-        <div className="crud-per-doc">
-          <BtnDeleteDoc
+        editingForm === id ?
+        <QuestionForm
+          initialValues={existingData}
+          onSubmit={handleSubmit}
+        /> :
+        <>
+          <h2>Question:{question}</h2>
+          <h3>Answer:{answer}</h3>
+          <CrudBtnsContainer
             collection={collection}
             id={id}
           />
-        </div> :
-        null
+        </>
       }
     </article>
   )
