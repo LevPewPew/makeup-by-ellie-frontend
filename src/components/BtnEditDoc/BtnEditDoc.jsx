@@ -1,15 +1,22 @@
 import React from 'react';
-import _ from 'lodash';
+import { useSelector, useDispatch } from 'react-redux';
 
 function BtnEditDoc(props) {
-  const { editing, setEditing } = props;
-  
+  const { collection, id } = props;
+
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+  const dispatch = useDispatch();
+
   function handleUpdate() {
-    setEditing(editing ? false : true);
+    if (editingForm) {
+      dispatch({ type: 'NOT_EDITING_FORM' });
+    } else {
+      dispatch({ type: 'EDITING_FORM', documentId: id });
+    }
   }
 
   return (
-    <button className="BtnEditDoc" type="submit" onClick={handleUpdate}>Edit</button>
+    <button className="BtnEditDoc" type="submit" onClick={handleUpdate} disabled={editingForm}>Edit</button>
   )
 }
 

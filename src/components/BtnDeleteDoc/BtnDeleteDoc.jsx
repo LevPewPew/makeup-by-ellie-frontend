@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -7,6 +7,8 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function BtnDeleteDoc(props) {
   const { collection, id, category } = props;
+
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
   const dispatch = useDispatch();
 
   async function handleDelete() {
@@ -23,7 +25,7 @@ function BtnDeleteDoc(props) {
   }
 
   return (
-    <button className="BtnDeleteDoc" type="submit" onClick={handleDelete} data-testid="BtnDeleteDoc">Delete</button>
+    <button className="BtnDeleteDoc" type="submit" onClick={handleDelete} data-testid="BtnDeleteDoc" disabled={editingForm}>Delete</button>
   )
 }
 

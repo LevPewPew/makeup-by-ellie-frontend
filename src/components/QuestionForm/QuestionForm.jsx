@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 
@@ -29,8 +30,11 @@ function renderField({ input, type, label, meta: { touched, error, warning } }) 
 }
 
 function QuestionForm(props) {
-  const { handleSubmit, pristine, submitting, editing } = props;
-  const text = editing ? 'Edit Question' : 'Add Question';
+  const { handleSubmit, pristine, submitting } = props;
+
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+
+  const text = editingForm ? 'Edit Question' : 'Add Question';
 
   return (
     <form onSubmit={handleSubmit} className="QuestionForm">
