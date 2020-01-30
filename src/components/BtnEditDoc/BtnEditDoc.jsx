@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 function BtnEditDoc(props) {
-  const { collection, id } = props;
+  const { id } = props;
 
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
   const dispatch = useDispatch();
