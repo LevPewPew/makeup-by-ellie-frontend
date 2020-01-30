@@ -10,9 +10,9 @@ function BtnEditDoc(props) {
 
   function handleUpdate() {
     if (editingForm) {
-      dispatch({ type: 'NOT_EDITING_FORM' });
+      dispatch({ type: 'DISABLE_EDITING_FORM' });
     } else {
-      dispatch({ type: 'EDITING_FORM', documentId: id });
+      dispatch({ type: 'ENABLE_EDITING_FORM', documentId: id });
     }
   }
 

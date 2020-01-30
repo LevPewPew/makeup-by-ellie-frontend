@@ -6,7 +6,7 @@ function BtnCancelForm() {
 
   function cancelForm() {
     dispatch({ type: 'DISABLE_CREATE_FORM' });
-    dispatch({ type: 'NOT_EDITING_FORM' });
+    dispatch({ type: 'DISABLE_EDITING_FORM' });
   }
 
   return (

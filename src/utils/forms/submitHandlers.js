@@ -42,7 +42,7 @@ async function portfolioSubmitHandler(values, id) {
     store.dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
     store.dispatch({ type: `${category.toUpperCase()}_PORTFOLIO_DATA` });
     store.dispatch({ type: 'DISABLE_CREATE_FORM' });
-    store.dispatch({ type: 'NOT_EDITING_FORM' });
+    store.dispatch({ type: 'DISABLE_EDITING_FORM' });
     store.dispatch({ type: 'SUCCESSFUL_SUBMIT' });
   } catch (err) {
     console.log(err);
@@ -86,7 +86,7 @@ async function servicesSubmitHandler(values, id) {
     let res = await axios.get(`${backendUrl}/services`);
     store.dispatch({ type: 'UPDATE_SERVICES_DATA', newServicesData: res.data });
     store.dispatch({ type: 'DISABLE_CREATE_FORM' });
-    store.dispatch({ type: 'NOT_EDITING_FORM' });
+    store.dispatch({ type: 'DISABLE_EDITING_FORM' });
     store.dispatch({ type: 'SUCCESSFUL_SUBMIT' });
   } catch (err) {
     console.log(err);
@@ -107,7 +107,7 @@ async function questionsSubmitHandler(values, id) {
     let res = await axios.get(`${backendUrl}/questions`);
     store.dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
     store.dispatch({ type: 'DISABLE_CREATE_FORM' });
-    store.dispatch({ type: 'NOT_EDITING_FORM' });
+    store.dispatch({ type: 'DISABLE_EDITING_FORM' });
     store.dispatch({ type: 'SUCCESSFUL_SUBMIT' });
     store.dispatch(reset('QuestionForm'));
   } catch (err) {
