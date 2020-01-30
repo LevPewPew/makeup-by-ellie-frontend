@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { reset } from 'redux-form';
 import PortfolioContainer from '../../components/PortfolioContainer';
 import WorkForm from '../../components/WorkForm/WorkForm';
 import QuestionsContainer from '../../components/QuestionsContainer';
 import QuestionForm from '../../components/QuestionForm/QuestionForm';
+import { questionsSubmitHandler } from '../../utils/forms/submitHandlers';
 
 import ServicesContainer from '../../components/ServicesContainer';
 import ServiceForm from '../../components/ServiceForm/ServiceForm';
@@ -15,6 +15,7 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 function AdminPage() {
   const workForm = useSelector((state) => state.form.WorkForm);
   const questionForm = useSelector((state) => state.form.QuestionForm);
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
   const serviceForm = useSelector((state) => state.form.ServiceForm);
   const dispatch = useDispatch();
 
@@ -61,22 +62,9 @@ function AdminPage() {
     }
   }
 
-  async function handleQuestionsSubmit() {
-    const { question, answer } = questionForm.values;
-
-    let params = { question, answer };
-
-    try {
-      await axios.post(`${backendUrl}/questions`, params);
-      let res = await axios.get(`${backendUrl}/questions`);
-      dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
-      dispatch(reset('QuestionForm'));
-    } catch (err) {
-      console.log(err);
-    }
+  function handleQuestionsSubmit() {
+    questionsSubmitHandler(questionForm.values, editingForm);
   }
-
-  // For uploading service images
 
   async function handleServiceSubmit() {
     let { title, description, imageBlobs } = serviceForm.values;
