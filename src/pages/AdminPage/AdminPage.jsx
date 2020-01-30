@@ -6,9 +6,9 @@ import WorkForm from '../../components/WorkForm/WorkForm';
 import QuestionsContainer from '../../components/QuestionsContainer';
 import QuestionForm from '../../components/QuestionForm/QuestionForm';
 import { questionsSubmitHandler } from '../../utils/forms/submitHandlers';
-
 import ServicesContainer from '../../components/ServicesContainer';
 import ServiceForm from '../../components/ServiceForm/ServiceForm';
+import FormContainer from '../../components/FormContainer/FormContainer';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -116,6 +116,7 @@ function AdminPage() {
   return (
     <div className="AdminPage" data-testid="AdminPage">
       <h1>Admin Dashboard</h1>
+      <FormContainer />
       <WorkForm
         onSubmit={handlePortfolioSubmit}
       />

@@ -5,6 +5,7 @@ import AttachmentField from '../AttachmentField';
 import DropdownListField from '../DropdownListField';
 import './WorkForm.css';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
+import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
 
 function validate(values) {
   let errors = {};
@@ -81,7 +82,6 @@ function WorkForm(props) {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
-  // react warning asks to put files as a dependency, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
   }, [files, successfulSubmit]);
 
   return (
@@ -105,6 +105,7 @@ function WorkForm(props) {
         submitting={submitting}
         text={'Add Photo'}
       />
+      <BtnCancelForm />
     </form>
   )
 }

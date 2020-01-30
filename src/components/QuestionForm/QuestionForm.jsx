@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
+import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
 
 function validate(values)
 {
@@ -33,7 +34,7 @@ function renderField({ input, type, label, meta: { touched, error, warning } }) 
 }
 
 function QuestionForm(props) {
-  const { handleSubmit, pristine, valid, submitting } = props;
+  const { handleSubmit, pristine, submitting } = props;
 
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
 
@@ -45,10 +46,10 @@ function QuestionForm(props) {
       <Field type="text" component={renderField} label="Answer" name="answer" />
       <BtnSubmit
         pristine={pristine}
-        valid={valid}
         submitting={submitting}
         text={text}
       />
+      <BtnCancelForm />
     </form>
   )
 }

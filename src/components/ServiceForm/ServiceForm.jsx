@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import AttachmentField from '../AttachmentField';
 import './ServiceForm.css';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
+import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
 
 function validate(values) {
   let errors = {};
@@ -59,7 +60,6 @@ function ServiceForm(props) {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
-  // react warning asks to put files as a dependency, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
   }, [files, successfulSubmit]);
 
   return (
@@ -76,8 +76,9 @@ function ServiceForm(props) {
       <BtnSubmit
         pristine={pristine}
         submitting={submitting}
-        text={'Add Photo'}
+        text={'Add Service'}
       />
+      <BtnCancelForm />
     </form>
   )
 }
