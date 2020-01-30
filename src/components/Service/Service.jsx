@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import BtnEditDoc from '../BtnEditDoc';
-import BtnDeleteDoc from '../BtnDeleteDoc';
+import BtnEditDoc from '../BtnEditDoc/BtnEditDoc';
+import BtnDeleteDoc from '../BtnDeleteDoc/BtnDeleteDoc';
 import './Service.css';
 
 function Service(props) {
