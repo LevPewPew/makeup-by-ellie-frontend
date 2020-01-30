@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { reset } from 'redux-form';
 import PortfolioContainer from '../../components/PortfolioContainer';
 import WorkForm from '../../components/WorkForm/WorkForm';
 import QuestionsContainer from '../../components/QuestionsContainer';
 import QuestionForm from '../../components/QuestionForm/QuestionForm';
+import { questionsSubmitHandler } from '../../utils/forms/submitHandlers';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -58,25 +58,9 @@ function AdminPage() {
     }
   }
 
-  async function handleQuestionsSubmit() {
-    const { question, answer } = questionForm.values;
 
-    let id = editingForm;
-    let params = { question, answer };
-
-    try {
-      if (editingForm) {
-        await axios.put(`${backendUrl}/questions/${id}`, params);
-      } else {
-        await axios.post(`${backendUrl}/questions`, params);
-      }
-      let res = await axios.get(`${backendUrl}/questions`);
-      dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
-      dispatch({ type: 'NOT_EDITING_FORM' });
-      dispatch(reset('QuestionForm'));
-    } catch (err) {
-      console.log(err);
-    }
+  function handleQuestionsSubmit() {
+    questionsSubmitHandler(questionForm.values, editingForm);
   }
 
   useEffect(() => {
