@@ -60,7 +60,8 @@ function ServiceForm(props) {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
-  }, [files, successfulSubmit]);
+    // DO NOT add the files dependency, even though react warning appears, if you add it then you can create infinite loops and crash the browser
+  }, [successfulSubmit]);
 
   return (
     <form className="ServiceForm form" onSubmit={handleSubmit}>

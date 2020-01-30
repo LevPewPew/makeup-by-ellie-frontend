@@ -126,9 +126,6 @@ function AdminPage() {
         onSubmit={handleServiceSubmit}
       />
       <ServicesContainer />
-      <QuestionForm
-        onSubmit={handleQuestionsSubmit}
-      />
       <QuestionsContainer />
     </div>
   )

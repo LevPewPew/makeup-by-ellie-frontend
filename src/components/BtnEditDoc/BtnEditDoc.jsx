@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 function BtnEditDoc(props) {
   const { id } = props;
 
+  const createForm = useSelector((state) => state.adminDashReducer.createForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
   const dispatch = useDispatch();
 
@@ -16,7 +17,7 @@ function BtnEditDoc(props) {
   }
 
   return (
-    <button className="BtnEditDoc btn" type="submit" onClick={handleUpdate} disabled={editingForm}>Edit</button>
+    <button className="BtnEditDoc btn" type="submit" onClick={handleUpdate} disabled={editingForm || createForm}>Edit</button>
   )
 }
 

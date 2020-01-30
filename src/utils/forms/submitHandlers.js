@@ -17,6 +17,7 @@ async function questionsSubmitHandler(values, id) {
     }
     let res = await axios.get(`${backendUrl}/questions`);
     store.dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
+    store.dispatch({ type: 'DISABLE_CREATE_FORM' });
     store.dispatch({ type: 'NOT_EDITING_FORM' });
     store.dispatch(reset('QuestionForm'));
   } catch (err) {
