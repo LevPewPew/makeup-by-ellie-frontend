@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from '../AttachmentField';
-import DropdownListField from '../DropdownListField';
-import './WorkForm.css';
+import './ServiceForm.css';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 
 function validate(values) {
   let errors = {};
 
-  if (!values.category) {
-    errors.category = 'Required';
+  if (!values.title) {
+    errors.title = 'Required';
   }
 
   if (!values.imageBlob) {
@@ -20,34 +19,21 @@ function validate(values) {
   return errors;
 }
 
-const categories = [
-  { category: 'Beauty', value: 'beauty' },
-  { category: 'Bridal', value: 'bridal' },
-  { category: 'Editorial', value: 'editorial' }
-]
+function renderField({ input, type, label, meta: { touched, error, warning } }) {
+  return (
+    <div>
+      <label>{label}: </label>
+      <input {...input} type={type} />
+      {touched && 
+      ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
+    </div>
+  )
+}
 
-function WorkForm(props) {
+function ServiceForm(props) {
   const { handleSubmit, pristine, submitting } = props;
   const successfulSubmit = useSelector((state) => state.adminDashReducer.successfulSubmit);
-  // this state is needed outside of the AttachmentField to avoid component unmounted errors from react-dropzone when using redux-form validations, do not move into AttachmentField
   const [files, setFiles] = useState([]);
-
-  function renderDropdownListField({ input, label, meta: { touched, error, warning } }) {
-    return (
-      <div>
-        <label htmlFor="">{label}</label>
-        <div>
-          <DropdownListField
-            input={input}
-            data={categories}
-            valueField="value"
-            textField="category"
-          />
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-        </div>
-      </div>
-    )
-  }
 
   function renderAttachmentField({ input, label, meta: { touched, error, warning } }) {
     return (
@@ -77,14 +63,9 @@ function WorkForm(props) {
   }, [files, successfulSubmit]);
 
   return (
-    <form className="WorkForm" onSubmit={handleSubmit}>
-      <div>
-        <label>Category</label>
-        <Field
-          name="category"
-          component={renderDropdownListField}
-        />
-      </div>
+    <form className="ServiceForm" onSubmit={handleSubmit}>
+      <Field type="text" component={renderField} label="Title" name="title" />
+      <Field type="text" component={renderField} label="Description" name="description" />
       <div>
         <label>Image</label>
         <Field
@@ -101,4 +82,4 @@ function WorkForm(props) {
   )
 }
 
-export default reduxForm({ form: 'WorkForm', validate })(WorkForm);
+export default reduxForm({ form: 'ServiceForm', validate })(ServiceForm);

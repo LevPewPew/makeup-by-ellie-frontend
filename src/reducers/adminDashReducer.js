@@ -1,5 +1,6 @@
 const initialState = {
-  onAdminDash: false
+  onAdminDash: false,
+  successfulSubmit: false
 };
 
 function adminDashReducer(state = initialState, action) {
@@ -8,6 +9,12 @@ function adminDashReducer(state = initialState, action) {
   switch(action.type) {
     case 'UPDATE_ON_ADMIN_DASH':
       newState = { ...state, onAdminDash: action.newOnAdminDash };
+      break;
+    case 'SUCCESSFUL_SUBMIT':
+      newState = { ...state, successfulSubmit: true };
+      break;
+    case 'NO_SUCCESSFUL_SUBMIT':
+      newState = { ...state, successfulSubmit: false };
       break;
     default:
       newState = { ...state };

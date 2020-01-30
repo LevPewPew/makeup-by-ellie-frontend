@@ -1,21 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import BtnDeleteDoc from './BtnDeleteDoc';
 
 function Work(props) {
-  const onAdminDash = useSelector((state) => state.adminDashReducer.onAdminDash);
-  const { id, imageUrl } = props;
+  const { id, imageUrl, category } = props;
+  // Using token stored in localstorage to verify admin user
+  const token = localStorage.getItem('token');
   const collection = 'portfolio';
 
   return (
     <article className="Work" data-testid="Work">
       <img src={imageUrl} alt="" style={{width: "300px"}}/>
       {
-        onAdminDash ?
+        token ?
         <div className="crud-per-doc">
           <BtnDeleteDoc
             collection={collection}
             id={id}
+            category={category}
           />
         </div> :
         null

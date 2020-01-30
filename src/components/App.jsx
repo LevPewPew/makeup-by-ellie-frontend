@@ -9,6 +9,7 @@ import ContactPage from '../pages/ContactPage/ContactPage';
 import ServicePage from '../pages/ServicesPage/ServicesPage';
 import PortfolioPage from '../pages/PortfolioPage/PortfolioPage'
 import FaqPage from '../pages/FaqPage/FaqPage';
+import AdminLoginPage from '../pages/AdminLoginPage/AdminLoginPage';
 import Footer from './Footer/Footer';
 import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from '../pages/terms-conditions/TermsConditions';
@@ -19,6 +20,8 @@ import ContactsContainer from './ContactsContainer';
 import './App.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+//Changed app to functional component
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -43,7 +46,7 @@ function App() {
       }
 
       try {
-        let res = await axios.get(`${backendUrl}/FAQ`);
+        let res = await axios.get(`${backendUrl}/questions`);
         dispatch({ type: 'UPDATE_QUESTIONS_DATA', newQuestionsData: res.data });
       } catch (err) {
         console.log(err);
@@ -94,6 +97,9 @@ function App() {
             </Route>
             <Route path="/admin">
               <AdminPage />
+            </Route>
+            <Route path="/admin-login">
+              <AdminLoginPage />
             </Route>
             {/* TESTING, remove before deployment*/}
           </Switch>
