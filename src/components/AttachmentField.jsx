@@ -9,9 +9,19 @@ function AttachmentField(props) {
   const { input, files, setFiles } = props;
   const successfulSubmit = useSelector((state) => state.adminDashReducer.successfulSubmit);
   const dispatch = useDispatch();
-  const { getRootProps, getInputProps } = useDropzone({
+  const maxSizeInMB = 5;
+  const kiloByte = 1024
+  const maxImageSize = maxSizeInMB*(kiloByte**2);
+  const { getRootProps, getInputProps, rejectedFiles } = useDropzone({
     accept: 'image/*',
-    onDrop: async (acceptedFiles) => {
+    maxSize: maxImageSize,
+    onDrop: async (acceptedFiles,rejectedFiles) => {
+      if(rejectedFiles.length>0)
+      {
+        alert(`Maximum file size is ${maxSizeInMB}MB. Please try again`);
+      }
+      else
+      {
       let rotatedBlobs = await rotatedImageBlobsWithExif(acceptedFiles);
       let rotatedUniqueFiles = blobsToUniqueFiles(rotatedBlobs);
 
@@ -21,6 +31,8 @@ function AttachmentField(props) {
       })).concat(files));
       dispatch({ type: 'NO_SUCCESSFUL_SUBMIT' });
     }
+      }
+      
   });
   
   let thumbs = files.map(file => (
@@ -38,7 +50,7 @@ function AttachmentField(props) {
     <div className="AttachmentField">
       <div { ...getRootProps({ className: "Dropzone" }) }>
         <input { ...getInputProps() } />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>{rejectedFiles.length===0?"Drag 'n' drop some files here, or click to select files":`Error: Image size should be less than ${maxSizeInMB}MB`}</p>
       </div>
       <aside className="thumbs-container">
         {
