@@ -56,9 +56,9 @@ function validate(values)
     errors.howDidYouHear='This is a Required Field';
   }
 
-  if(!values.addedQuestionsOrInfo) {
-    errors.addedQuestionsOrInfo='This is a Required Field'; //Should this be a required field though?
-  }
+  // if(!values.addedQuestionsOrInfo) {
+  //   errors.addedQuestionsOrInfo='This is a Required Field'; //Should this be a required field though?
+  // }
 
    return errors;
 }
@@ -67,9 +67,9 @@ function warn(values)
 {
    let warnings = {};
    // Sample warnings - Need to add more later
-  //  if( values.mobile.length > 10 || values.mobile.length < 8) {
-  //     warnings.mobile = 'Are you sure this number is correct?';
-  //   }
+   if( warnings.addedQuestionsOrInfo) {
+      warnings.addedQuestionsOrInfo = 'Are you sure there is nothing else to add?';
+    }
   return warnings;
 }
 

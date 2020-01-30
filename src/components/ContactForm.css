@@ -56,5 +56,6 @@ input[type="date" i] {
 .contactFormReset {
   width: 120px;
   height: 40px;
+  padding-left: 15px;
   background: white;
 }
