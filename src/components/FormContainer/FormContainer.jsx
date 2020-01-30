@@ -4,10 +4,17 @@ import BtnCreateDoc from '../BtnCreateDoc/BtnCreateDoc';
 import WorkForm from '../../components/WorkForm/WorkForm';
 import ServiceForm from '../../components/ServiceForm/ServiceForm';
 import QuestionForm from '../../components/QuestionForm/QuestionForm';
+import { questionsSubmitHandler } from '../../utils/forms/submitHandlers';
 import './FormContainer.scss';
 
 function FormContainer() {
+  const questionForm = useSelector((state) => state.form.QuestionForm);
   const createForm = useSelector((state) => state.adminDashReducer.createForm);
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+
+  function handleQuestionsSubmit() {
+    questionsSubmitHandler(questionForm.values, editingForm);
+  }
 
   return (
     <div className="FormContainer">
@@ -36,7 +43,7 @@ function FormContainer() {
         /> :
         createForm === 'questions' ?
         <QuestionForm
-          // onSubmit={handleQuestionsSubmit}
+          onSubmit={handleQuestionsSubmit}
         /> :
         createForm === 'testimonials' ?
         <div>TESTIMONIALS PLACEHOLDER</div> :
