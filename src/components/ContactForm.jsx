@@ -13,12 +13,20 @@ const categories = [
 function validate(values)
 {
    let errors = {};
-   // Sample validation added - Need to add more later
-   if(!values.name)
-   {
-      errors.name='This is a required field'
+
+   if(!values.name) {
+      errors.name='Required';
    }
 
+   if(!values.mobile) {
+      errors.mobile='Required';
+   } 
+
+  if(!values.email) {
+    errors.email='Required';
+  } else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test( values.email ) ) {
+    errors.email = 'Invalid email address'
+  }
    return errors;
 }
 
@@ -26,12 +34,12 @@ function warn(values)
 {
    let warnings = {};
    // Sample warnings - Need to add more later
-   if(!values.mobile)
-   {
-      warnings.mobile='You have not provided your phone number'
-   }
-   return warnings;
+  //  if( values.mobile.length > 10 || values.mobile.length < 8) {
+  //     warnings.mobile = 'Are you sure this number is correct?';
+  //   }
+  return warnings;
 }
+
 
 class ContactForm extends React.Component {
    
