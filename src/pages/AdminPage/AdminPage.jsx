@@ -15,8 +15,8 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 function AdminPage() {
   const workForm = useSelector((state) => state.form.WorkForm);
   const questionForm = useSelector((state) => state.form.QuestionForm);
-  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
   const serviceForm = useSelector((state) => state.form.ServiceForm);
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
   const dispatch = useDispatch();
 
   async function handlePortfolioSubmit() {
