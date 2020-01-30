@@ -9,7 +9,7 @@ function BtnCancelForm() {
   }
 
   return (
-    <button className="BtnCancelForm" onClick={cancelForm}>Cancel</button>
+    <button className="BtnCancelForm btn" onClick={cancelForm}>Cancel</button>
   )
 }
 

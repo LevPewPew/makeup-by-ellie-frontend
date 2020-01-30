@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from '../AttachmentField';
 import DropdownListField from '../DropdownListField';
-import './WorkForm.css';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
+import './WorkForm.scss';
 
 function validate(values) {
   let errors = {};

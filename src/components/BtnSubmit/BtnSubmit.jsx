@@ -1,12 +1,11 @@
 import React from 'react';
 import SubmittingAnimation from '../SubmittingAnimation/SubmittingAnimation';
-import './BtnSubmit.scss'
 
 function BtnSubmit(props) {
   const { submitting, pristine, text } = props;
 
   return (
-    <div className="BtnSubmit">
+    <div className="BtnSubmit btn--req-animated">
       {
         submitting ?
         <SubmittingAnimation

@@ -16,7 +16,7 @@ function BtnEditDoc(props) {
   }
 
   return (
-    <button className="BtnEditDoc" type="submit" onClick={handleUpdate} disabled={editingForm}>Edit</button>
+    <button className="BtnEditDoc btn" type="submit" onClick={handleUpdate} disabled={editingForm}>Edit</button>
   )
 }
 

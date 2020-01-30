@@ -11,7 +11,7 @@ function BtnCreateDoc(props) {
   }
 
   return (
-    <button className="BtnCreateDoc" onClick={renderCreateForm}>{`New ${collection} Item`}</button>
+    <button className="BtnCreateDoc btn" onClick={renderCreateForm}>{`New ${collection} Item`}</button>
   )
 }
 
