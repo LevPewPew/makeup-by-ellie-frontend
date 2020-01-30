@@ -3,7 +3,7 @@ import DropdownList from 'react-widgets/lib/DropdownList';
 import 'react-widgets/dist/css/react-widgets.css';
 
 function DropdownListField(props) {
-  const { valueField, input, placeHolder } = props;
+  const { valueField, input } = props;
   
   function handleChange(option) {
     let value = option;
@@ -20,7 +20,6 @@ function DropdownListField(props) {
       <DropdownList
         {...props}
         value={input.value}
-        placeHolder={placeHolder} //
         onChange={handleChange}
       />
     </div>
