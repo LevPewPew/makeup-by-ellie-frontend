@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import QuestionForm from '../components/QuestionForm/QuestionForm';
 import CrudBtnsContainer from '../components/CrudBtnsContainer/CrudBtnsContainer';
 import { questionsSubmitHandler } from '../utils/forms/submitHandlers';
