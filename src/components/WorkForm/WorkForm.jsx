@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from '../AttachmentField';
 import DropdownListField from '../DropdownListField';
-import './WorkForm.css';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
+import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
+import './WorkForm.scss';
 
 function validate(values) {
   let errors = {};
@@ -43,7 +44,11 @@ function WorkForm(props) {
             valueField="value"
             textField="category"
           />
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {
+            touched &&
+            ((error && <span style={{ color:"red" }}>{error}</span>) ||
+            (warning && <span style={{ color:"orange" }}>{warning}</span>))
+          }
         </div>
       </div>
     )
@@ -59,7 +64,11 @@ function WorkForm(props) {
             files={files}
             setFiles={setFiles}
           />
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {
+            touched &&
+            ((error && <span style={{ color:"red" }}>{error}</span>) ||
+            (warning && <span style={{ color:"orange" }}>{warning}</span>))
+          }
         </div>
       </div>
     )
@@ -73,11 +82,11 @@ function WorkForm(props) {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     }
-  // react warning asks to put files as a dependency, but this results in the app and browser crashing, so for now ignore that warning. only add files as dependency if a refactoring of files and this useEffect is somehow achieved.
-  }, [files, successfulSubmit]);
+    // DO NOT add the files dependency, even though react warning appears, if you add it then you can create infinite loops and crash the browser
+  }, [successfulSubmit]);
 
   return (
-    <form className="WorkForm" onSubmit={handleSubmit}>
+    <form className="WorkForm form" onSubmit={handleSubmit}>
       <div>
         <label>Category</label>
         <Field
@@ -97,6 +106,7 @@ function WorkForm(props) {
         submitting={submitting}
         text={'Add Photo'}
       />
+      <BtnCancelForm />
     </form>
   )
 }

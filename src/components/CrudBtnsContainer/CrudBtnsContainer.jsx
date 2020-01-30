@@ -1,9 +1,10 @@
 import React from 'react';
 import BtnEditDoc from '../BtnEditDoc/BtnEditDoc';
 import BtnDeleteDoc from '../BtnDeleteDoc/BtnDeleteDoc';
+import './CrudBtnsContainer.scss';
 
 function CrudBtnsContainer(props) {
-  const { collection, id } = props;
+  const { collection, id, category } = props;
 
   const token = localStorage.getItem('token');
 
@@ -19,6 +20,7 @@ function CrudBtnsContainer(props) {
           <BtnDeleteDoc
             collection={collection}
             id={id}
+            category={category}
           />
         </> :
         null

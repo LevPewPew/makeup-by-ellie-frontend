@@ -8,6 +8,7 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 function BtnDeleteDoc(props) {
   const { collection, id, category } = props;
 
+  const createForm = useSelector((state) => state.adminDashReducer.createForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
   const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ function BtnDeleteDoc(props) {
   }
 
   return (
-    <button className="BtnDeleteDoc" type="submit" onClick={handleDelete} data-testid="BtnDeleteDoc" disabled={editingForm}>Delete</button>
+    <button className="BtnDeleteDoc btn" type="submit" onClick={handleDelete} data-testid="BtnDeleteDoc" disabled={editingForm || createForm}>Delete</button>
   )
 }
 
