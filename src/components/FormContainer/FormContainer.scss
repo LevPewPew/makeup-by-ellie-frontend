@@ -1,0 +1,15 @@
+.FormContainer {
+  border: 3px dashed green;
+
+  .select-form-btns {
+    margin: 10px 0px;
+
+    .btn {
+      margin: 0px 10px;
+    }
+  }
+
+  .form {
+    margin: 10px;
+  }
+}
