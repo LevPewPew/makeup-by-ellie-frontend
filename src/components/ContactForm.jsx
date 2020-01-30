@@ -15,18 +15,51 @@ function validate(values)
    let errors = {};
 
    if(!values.name) {
-      errors.name='Required';
+      errors.name='This is a Required Field';
    }
 
    if(!values.mobile) {
-      errors.mobile='Required';
+      errors.mobile='This is a Required Field';
    } 
 
   if(!values.email) {
-    errors.email='Required';
+    errors.email='This is a Required Field';
   } else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test( values.email ) ) {
     errors.email = 'Invalid email address'
   }
+
+  if(!values.eventDate) {
+    errors.eventDate='This is a Required Field';
+  } 
+
+  if(!values.serviceType) {
+    errors.serviceType='This is a Required Field';
+  } 
+  
+  if(!values.totalPeopleJustMakeup) {
+    errors.totalPeopleJustMakeup='This is a Required Field';
+  }
+
+  if(!values.totalPeopleWithHair) {
+    errors.totalPeopleWithHair='This is a Required Field';
+  }
+
+  if(!values.timeToFinish) {
+    errors.timeToFinish='This is a Required Field';
+  }
+
+  if(!values.applicationAddress) {
+    errors.applicationAddress='This is a Required Field';
+  }
+
+  if(!values.howDidYouHear) {
+    errors.howDidYouHear='This is a Required Field';
+  }
+
+  if(!values.addedQuestionsOrInfo) {
+    errors.addedQuestionsOrInfo='This is a Required Field'; //Should this be a required field though?
+  }
+
    return errors;
 }
 
