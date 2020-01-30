@@ -1,5 +1,6 @@
 import React from 'react';
 import CrudBtnsContainer from './CrudBtnsContainer/CrudBtnsContainer';
+import './Work.scss';
 
 function Work(props) {
   const { id, imageUrl, category } = props;
