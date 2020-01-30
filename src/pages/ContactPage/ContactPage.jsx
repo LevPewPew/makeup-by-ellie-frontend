@@ -28,6 +28,7 @@ class ContactPage extends React.Component {
           <h3>Ellie</h3><br />
             <p>
               Ph: xxxx xxx xxx <br /><br />
+              Sample Information <br /><br />
               Please complete the form for more information - I will get back to you as soon as possible. <br /><br />
               Bookings by appointment <br /><br />
               All appointments for less than four people are located at my private studio in Melbourne. If your party exceeds 3 people, such as for weddings or a special event, I will travel to your required location. <br /><br />
