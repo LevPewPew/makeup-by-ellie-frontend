@@ -65,10 +65,6 @@ function AdminPage() {
       <h1>Admin Dashboard</h1>
       <FormContainer />
       <PortfolioContainer />
-      {/* Service Form to add new Service - Available for ADMIN user */}
-      <ServiceForm
-        onSubmit={handleServiceSubmit}
-      />
       <ServicesContainer />
       <QuestionsContainer />
     </div>
