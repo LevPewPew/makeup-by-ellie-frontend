@@ -24,10 +24,10 @@ function adminDashReducer(state = initialState, action) {
     case 'DISABLE_CREATE_FORM':
       newState = { ...state, createForm: false };
       break;
-    case 'EDITING_FORM':
+    case 'ENABLE_EDITING_FORM':
       newState = { ...state, editingForm: action.documentId };
       break;
-    case 'NOT_EDITING_FORM':
+    case 'DISABLE_EDITING_FORM':
       newState = { ...state, editingForm: false };
       break;
     default:
