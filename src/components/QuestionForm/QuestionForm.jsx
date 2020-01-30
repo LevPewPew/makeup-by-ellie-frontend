@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
+import './QuestionForm.scss';
 
 function validate(values)
 {

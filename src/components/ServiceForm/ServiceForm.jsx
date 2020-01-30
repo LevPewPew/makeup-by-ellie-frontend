@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from '../AttachmentField';
-import './ServiceForm.css';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
+import './ServiceForm.scss';
 
 function validate(values) {
   let errors = {};
@@ -63,7 +63,7 @@ function ServiceForm(props) {
   }, [files, successfulSubmit]);
 
   return (
-    <form className="ServiceForm" onSubmit={handleSubmit}>
+    <form className="ServiceForm form" onSubmit={handleSubmit}>
       <Field type="text" component={renderField} label="Title" name="title" />
       <Field type="text" component={renderField} label="Description" name="description" />
       <div>
