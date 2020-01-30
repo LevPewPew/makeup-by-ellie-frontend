@@ -43,7 +43,11 @@ function WorkForm(props) {
             valueField="value"
             textField="category"
           />
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {
+            touched &&
+            ((error && <span style={{ color:"red" }}>{error}</span>) ||
+            (warning && <span style={{ color:"orange" }}>{warning}</span>))
+          }
         </div>
       </div>
     )
@@ -59,7 +63,11 @@ function WorkForm(props) {
             files={files}
             setFiles={setFiles}
           />
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {
+            touched &&
+            ((error && <span style={{ color:"red" }}>{error}</span>) ||
+            (warning && <span style={{ color:"orange" }}>{warning}</span>))
+          }
         </div>
       </div>
     )
