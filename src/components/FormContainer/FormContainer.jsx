@@ -4,13 +4,19 @@ import BtnCreateDoc from '../BtnCreateDoc/BtnCreateDoc';
 import WorkForm from '../../components/WorkForm/WorkForm';
 import ServiceForm from '../../components/ServiceForm/ServiceForm';
 import QuestionForm from '../../components/QuestionForm/QuestionForm';
+import { portfolioSubmitHandler } from '../../utils/forms/submitHandlers';
 import { questionsSubmitHandler } from '../../utils/forms/submitHandlers';
 import './FormContainer.scss';
 
 function FormContainer() {
+  const workForm = useSelector((state) => state.form.WorkForm);
   const questionForm = useSelector((state) => state.form.QuestionForm);
   const createForm = useSelector((state) => state.adminDashReducer.createForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+
+  function handlePortfolioSubmit() {
+    portfolioSubmitHandler(workForm.values, editingForm);
+  }
 
   function handleQuestionsSubmit() {
     questionsSubmitHandler(questionForm.values, editingForm);
@@ -35,7 +41,7 @@ function FormContainer() {
       {
         createForm === 'portfolio' ?
         <WorkForm
-          // onSubmit={handlePortfolioSubmit}
+          onSubmit={handlePortfolioSubmit}
         /> :
         createForm === 'services' ?
         <ServiceForm
