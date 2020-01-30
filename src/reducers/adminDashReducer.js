@@ -1,6 +1,7 @@
 const initialState = {
   onAdminDash: false,
   successfulSubmit: false,
+  createForm: false,
   editingForm: false
 };
 
@@ -16,6 +17,12 @@ function adminDashReducer(state = initialState, action) {
       break;
     case 'NO_SUCCESSFUL_SUBMIT':
       newState = { ...state, successfulSubmit: false };
+      break;
+    case 'ENABLE_CREATE_FORM':
+      newState = { ...state, createForm: action.collection };
+      break;
+    case 'DISABLE_CREATE_FORM':
+      newState = { ...state, createForm: false };
       break;
     case 'EDITING_FORM':
       newState = { ...state, editingForm: action.documentId };

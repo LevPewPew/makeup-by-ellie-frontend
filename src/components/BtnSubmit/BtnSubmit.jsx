@@ -3,7 +3,7 @@ import SubmittingAnimation from '../SubmittingAnimation/SubmittingAnimation';
 import './BtnSubmit.scss'
 
 function BtnSubmit(props) {
-  const { submitting, pristine, valid, text } = props;
+  const { submitting, pristine, text } = props;
 
   return (
     <div className="BtnSubmit">
