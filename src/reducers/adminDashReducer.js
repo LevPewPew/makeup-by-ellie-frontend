@@ -1,6 +1,7 @@
 const initialState = {
   onAdminDash: false,
-  successfulSubmit: false
+  successfulSubmit: false,
+  editingForm: false
 };
 
 function adminDashReducer(state = initialState, action) {
@@ -15,6 +16,12 @@ function adminDashReducer(state = initialState, action) {
       break;
     case 'NO_SUCCESSFUL_SUBMIT':
       newState = { ...state, successfulSubmit: false };
+      break;
+    case 'EDITING_FORM':
+      newState = { ...state, editingForm: action.documentId };
+      break;
+    case 'NOT_EDITING_FORM':
+      newState = { ...state, editingForm: false };
       break;
     default:
       newState = { ...state };
