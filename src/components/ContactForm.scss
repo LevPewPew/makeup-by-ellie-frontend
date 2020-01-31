@@ -1,0 +1,61 @@
+
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: right;
+  width: 600px;
+  font-family: inherit;
+  margin: auto;
+
+  label, .blockInfo {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    float: left;
+    font-size: 13px;
+    color: rgba(88, 87, 87, 0.75);
+    margin: 15px 15px -6px 15px;
+    width: 586px;
+  }
+
+  input[type="date" i] {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: grey !important;
+  }
+  .abc {
+    height: 60px;
+    margin-left: 6px;
+    margin-top: 10px;
+    
+  }
+  .myInput {
+    width: 586px;
+    height: 40px;
+    margin: 7px;
+  }
+  .rw-dropdown-list-input {
+    height: 40px;
+  }
+  .dropdownLabel {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+// .contactFormSubmit {
+//   width: 120px;
+//   height: 40px;
+//   color: antiquewhite;
+//   background: black;
+// }
+
+.contactFormReset {
+  width: 120px;
+  height: 40px;
+  padding-left: 15px;
+  background: white;
+  display: none;
+}
