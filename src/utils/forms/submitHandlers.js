@@ -4,40 +4,51 @@ import { reset } from 'redux-form';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
-async function portfolioSubmitHandler(values, id) {
-  let { category, imageBlobs } = values;
-
+async function portfolioSubmitHandler(workForm, id) {
+  // reduxForm will place values in the workform directly, and in values when initial values are also present. reduxForms is so bad. will try react-hooks-form package in future projects.
+  if (id) {
+    var { category, imageBlobs } = workForm.values;
+  } else {
+    var { category, imageBlobs } = workForm;
+  }
+  
   try {
-    for (let i = 0; i < imageBlobs.length; i++) {
-      let file = imageBlobs[i];
-      let fileParts = imageBlobs[i].name.split('.');
-      let fileName = fileParts[0];
-      let fileType = fileParts[1];
-  
-      let res = await axios.post(
-        `${backendUrl}/aws-s3`,
-        {
-          fileName : fileName,
-          fileType : fileType
-        }
-      )
-      let returnData = res.data.data.returnData;
-      let signedRequest = returnData.signedRequest;
-      let signedUrl = returnData.url;
-  
-      let options = {
-        headers: {
-          'Content-Type': fileType
-        }
-      };
+    if (id) {
+      let { imageUrl } = workForm.initial;
+      let params = { category, imageUrl };
+      await axios.put(`${backendUrl}/portfolio/${id}`, params);
+    } else {
+      for (let i = 0; i < imageBlobs.length; i++) {
+        let file = imageBlobs[i];
+        let fileParts = imageBlobs[i].name.split('.');
+        let fileName = fileParts[0];
+        let fileType = fileParts[1];
+    
+        let res = await axios.post(
+          `${backendUrl}/aws-s3`,
+          {
+            fileName : fileName,
+            fileType : fileType
+          }
+        )
+        let returnData = res.data.data.returnData;
+        let signedRequest = returnData.signedRequest;
+        let signedUrl = returnData.url;
+    
+        let options = {
+          headers: {
+            'Content-Type': fileType
+          }
+        };
 
-      res = await axios.put(signedRequest, file, options)
-      
-      let params = { category, imageUrl: signedUrl };
-      
-      await axios.post(`${backendUrl}/portfolio`, params);
+        res = await axios.put(signedRequest, file, options)
+        
+        let params = { category, imageUrl: signedUrl };
+
+        await axios.post(`${backendUrl}/portfolio`, params);
+      }
+
     }
-
     let res = await axios.get(`${backendUrl}/portfolio`);
     store.dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
     store.dispatch({ type: `${category.toUpperCase()}_PORTFOLIO_DATA` });
