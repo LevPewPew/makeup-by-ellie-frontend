@@ -33,8 +33,14 @@ function renderField({ input, type, label, meta: { touched, error, warning } }) 
 
 function ServiceForm(props) {
   const { handleSubmit, pristine, submitting } = props;
+
   const successfulSubmit = useSelector((state) => state.adminDashReducer.successfulSubmit);
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+
+  // this state is needed outside of the AttachmentField to avoid component unmounted errors from react-dropzone when using redux-form validations, do not move into AttachmentField
   const [files, setFiles] = useState([]);
+
+  const btnText = editingForm ? 'Edit Service' : 'Add Service';
 
   function renderAttachmentField({ input, label, meta: { touched, error, warning } }) {
     return (
@@ -67,17 +73,21 @@ function ServiceForm(props) {
     <form className="ServiceForm form" onSubmit={handleSubmit}>
       <Field type="text" component={renderField} label="Title" name="title" />
       <Field type="text" component={renderField} label="Description" name="description" />
-      <div>
-        <label>Image</label>
-        <Field
-          name="imageBlobs"
-          component={renderAttachmentField}
-        />
-      </div>
+      {
+        editingForm ?
+        null :
+        <div>
+          <label>Image</label>
+          <Field
+            name="imageBlobs"
+            component={renderAttachmentField}
+          />
+        </div>
+      }
       <BtnSubmit
         pristine={pristine}
         submitting={submitting}
-        text={'Add Service'}
+        text={btnText}
       />
       <BtnCancelForm />
     </form>
