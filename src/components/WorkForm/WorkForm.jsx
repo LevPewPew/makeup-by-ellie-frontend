@@ -29,9 +29,14 @@ const categories = [
 
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting } = props;
+  
   const successfulSubmit = useSelector((state) => state.adminDashReducer.successfulSubmit);
+  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+
   // this state is needed outside of the AttachmentField to avoid component unmounted errors from react-dropzone when using redux-form validations, do not move into AttachmentField
   const [files, setFiles] = useState([]);
+
+  const btnText = editingForm ? 'Edit Photo' : 'Add Photo';
 
   function renderDropdownListField({ input, label, meta: { touched, error, warning } }) {
     return (
@@ -94,17 +99,21 @@ function WorkForm(props) {
           component={renderDropdownListField}
         />
       </div>
-      <div>
-        <label>Image</label>
-        <Field
-          name="imageBlobs"
-          component={renderAttachmentField}
-        />
-      </div>
+      {
+        editingForm ?
+        null :
+        <div>
+          <label>Image</label>
+          <Field
+            name="imageBlobs"
+            component={renderAttachmentField}
+          />
+        </div>
+      }
       <BtnSubmit
         pristine={pristine}
         submitting={submitting}
-        text={'Add Photo'}
+        text={btnText}
       />
       <BtnCancelForm />
     </form>

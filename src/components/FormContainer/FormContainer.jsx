@@ -40,9 +40,6 @@ function FormContainer() {
         <BtnCreateDoc
           collection={'questions'}
         />
-        <BtnCreateDoc
-          collection={'testimonials'}
-        />
       </div>
       {
         createForm === 'portfolio' ?
@@ -57,8 +54,6 @@ function FormContainer() {
         <QuestionForm
           onSubmit={handleQuestionsSubmit}
         /> :
-        createForm === 'testimonials' ?
-        <div>TESTIMONIALS PLACEHOLDER</div> :
         null
       }
     </div>

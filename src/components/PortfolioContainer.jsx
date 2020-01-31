@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Work from './Work';
+import Work from './Work/Work';
 import { masonryOptions } from '../components/Portfolio/Exports';
 import Masonry from 'react-masonry-component';
 import FilterButtons from '../components/Portfolio/FilterButtons'
