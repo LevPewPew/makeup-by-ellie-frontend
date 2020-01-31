@@ -106,7 +106,7 @@ class ContactForm extends React.Component {
   return(
       <div>
         <label>{label} *</label>
-        <textarea {...input} type={type} className='abc' placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="96" />
+        <textarea {...input} type={type} className='textBox' placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
         {touched && 
         ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
       </div>
