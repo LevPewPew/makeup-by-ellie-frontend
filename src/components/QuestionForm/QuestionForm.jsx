@@ -39,7 +39,7 @@ function QuestionForm(props) {
 
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
 
-  const text = editingForm ? 'Edit Question' : 'Add Question';
+  const btnText = editingForm ? 'Edit Question' : 'Add Question';
 
   return (
     <form className="QuestionForm form" onSubmit={handleSubmit} >
@@ -48,7 +48,7 @@ function QuestionForm(props) {
       <BtnSubmit
         pristine={pristine}
         submitting={submitting}
-        text={text}
+        text={btnText}
       />
       <BtnCancelForm />
     </form>
