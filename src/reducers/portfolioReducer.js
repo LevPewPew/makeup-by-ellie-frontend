@@ -1,6 +1,6 @@
 const initialState = {
-  portfolioData: null,
-  filteredPortfolioData: null
+  portfolioData: [],
+  filteredPortfolioData: []
 };
 
 function portfolioReducer(state = initialState, action) {

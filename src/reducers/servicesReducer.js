@@ -1,5 +1,5 @@
 const initialState = {
-  servicesData: null
+  servicesData: []
 };
 
 function servicesReducer(state = initialState, action) {
