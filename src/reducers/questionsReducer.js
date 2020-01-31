@@ -1,5 +1,5 @@
 const initialState = {
-  questionsData: null
+  questionsData: []
 };
 
 function questionsReducer(state = initialState, action) {
