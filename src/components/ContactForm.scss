@@ -8,31 +8,24 @@
 }
 
 .ContactForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: right;
-  width: 600px;
-  font-family: inherit;
-  margin: auto;
-  -webkit-appearance: none;
-  appearance: none;
+  
+  margin-right: 12px;
 
-  label, .blockInfo {
+  label {
     display: block;
     float: left;
     color: black;
-    margin: 15px 15px -6px 15px;
-    width: 586px;
+    margin: 15px 15px -4px 15px;
+}
 
     @include bp(tablet) {
-      width: 70%;
+      width: 95%;
     }
 
     @include bp(mobile) {
-      width: 40%;
+      width: 95%;
     }
-  }
+  
 
   //This controls the placeholder colour in the date field
   input[type="date" i] {
@@ -40,6 +33,7 @@
     text-rendering: auto;
     color: grey !important;
   }
+
   .textBox {
     height: 60px;
     margin-left: 6px;
@@ -47,26 +41,12 @@
     width: 100%;
     border-color: #80808059;
 
-    @include bp(tablet) {
-      width: 70%;
-    }
-
-    @include bp(mobile) {
-      width: 40%;
-    }
   }
   .myInput {
     width: 100%;
     height: 40px;
     margin: 7px;
     
-    @include bp(tablet) {
-      width: 70%;
-    }
-
-    @include bp(mobile) {
-      width: 40%;
-    }
   }
 
   .rw-dropdown-list-input {
