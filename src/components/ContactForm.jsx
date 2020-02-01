@@ -64,7 +64,7 @@ function warn(values)
   let warnings = {};
   
   if( !values.addedQuestionsOrInfo) {
-     warnings.addedQuestionsOrInfo = 'Are you sure there is nothing else I need to know?';
+     warnings.addedQuestionsOrInfo = 'Are you sure there is nothing else I might need to know?';
    }
   return warnings;
 }
@@ -132,7 +132,7 @@ class ContactForm extends React.Component {
          <Field type="number" component={this.renderField} label="Note: all bookings under 4 people will be held at my private studio in Melbourne. Please specify below, how many people require makeup service and hair and makeup below:" name="totalPeopleJustMakeup" tabIndex="6" placeholder="MAKEUP ONLY" /> 
          <Field type="number" component={this.renderField} label="How many people will require Hair and Makeup?" name="totalPeopleWithHair" tabIndex="7" placeholder="HAIR AND MAKEUP"/>
          <Field type="text" component={this.renderField} label="What time do you need to be ready by?" name="timeToFinish" tabIndex="8"/>
-         {(parseInt(this.props.number1)+parseInt(this.props.number2))>3
+         {(parseInt(this.props.number1)+parseInt(this.props.number2))>2
          && <Field type="text" component={this.renderField} label="As your booking is for more than 4 people, please enter the location address below, so that I can come to you:" name="applicationAddress" tabIndex="9" />}
          <Field type="text" component={this.renderField} label="How did you hear about me?" name="howDidYouHear" tabIndex="10" />
          <div id="textBox">
@@ -149,11 +149,11 @@ class ContactForm extends React.Component {
 }
 
 ContactForm = reduxForm({
-   form: 'contact',validate,warn
+   form: 'ContactForm',validate,warn
  })(ContactForm)
  
  
- const selector = formValueSelector('contact')
+ const selector = formValueSelector('ContactForm')
  ContactForm = connect(
    state => {
       return {

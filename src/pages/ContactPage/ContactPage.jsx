@@ -2,7 +2,9 @@ import React from 'react';
 import ContactForm from '../../components/ContactForm';
 import axios from 'axios';
 import homepageImage from '../../media/homepage-image.jpg';
-import './ContactPage.css';
+import { reset } from 'redux-form';
+import { store } from '../../index';
+import './ContactPage.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -10,7 +12,10 @@ class ContactPage extends React.Component {
 
    submit = (values) => {
       axios.post(`${backendUrl}/contact`,values)
-      .then(res=>alert(res.data))
+      .then((res) => {
+        alert(res.data)
+        store.dispatch(reset('ContactForm'));
+      })
       .catch(err=> console.log(err))
    }
 
@@ -18,13 +23,13 @@ class ContactPage extends React.Component {
     return (
       <div className="ContactPage" data-testid="ContactPage">
         <h1>CONTACT</h1>
-        <div className='sweg'>
+        <div className='contactContainer'>
         <div className="grid">
           <div className="formContainer">
           <ContactForm onSubmit={this.submit}/>
           </div>
           <div className="infoContainer">
-          <img src={homepageImage} alt="hero" style={{width: "400px"}}/>
+          <img src={homepageImage} alt="hero" style={{width: "100%"}}/>
           <h3>Ellie</h3><br />
             <p>
               Ph: xxxx xxx xxx <br /><br />
