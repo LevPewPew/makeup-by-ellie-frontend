@@ -18,4 +18,7 @@ const SERVICES_DUMMY_DATA = Array.from(new Array(5), (e) => {
   }
 });
 
-export { PORTFOLIO_DUMMY_DATA, SERVICES_DUMMY_DATA };
+export {
+  PORTFOLIO_DUMMY_DATA,
+  SERVICES_DUMMY_DATA
+};

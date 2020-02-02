@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-
 function FilterButtons() {
   const dispatch = useDispatch();
 
@@ -19,11 +18,11 @@ function FilterButtons() {
 
   return (
     <section>
-      <button onClick={filterBeauty} >Beauty</button>
-      <button onClick={filterEditorial} >Editorial</button>
-      <button onClick={filterBridal} >Bridal</button>
+      <button onClick={filterBeauty}>Beauty</button>
+      <button onClick={filterEditorial}>Editorial</button>
+      <button onClick={filterBridal}>Bridal</button>
     </section>
-  )
+  );
 }
 
 export default FilterButtons;

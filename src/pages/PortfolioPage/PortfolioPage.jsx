@@ -6,13 +6,16 @@ import './PortfolioPage.css';
 function PortfolioPage() {
   const portfolioData = useSelector((state) => state.portfolioReducer.portfolioData);
 
-  return portfolioData ? (
-    <section className="portfolioGrid">
+  return (
+    <div className="PortfolioPage">
       <h1>PORTFOLIO</h1>
-      <br />
-      <PortfolioContainer />
-    </section>
-  ) : null
+      {
+        portfolioData ?
+        <PortfolioContainer /> :
+        null
+      }
+    </div>
+  );
 }
 
 export default PortfolioPage;

@@ -56,7 +56,7 @@ function WorkForm(props) {
           }
         </div>
       </div>
-    )
+    );
   }
 
   function renderAttachmentField({ input, label, meta: { touched, error, warning } }) {
@@ -76,17 +76,16 @@ function WorkForm(props) {
           }
         </div>
       </div>
-    )
+    );
   }
 
   useEffect(() => {
     if (successfulSubmit) {
       setFiles([]);
     }
+
     // Make sure to revoke the data uris to avoid memory leaks
-    return () => {
-      files.forEach((file) => URL.revokeObjectURL(file.preview));
-    }
+    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
     // DO NOT add the files dependency, even though react warning appears, if you add it then you can create infinite loops and crash the browser
   }, [successfulSubmit]);
 
@@ -117,7 +116,7 @@ function WorkForm(props) {
       />
       <BtnCancelForm />
     </form>
-  )
+  );
 }
 
 export default reduxForm({ form: 'WorkForm', validate })(WorkForm);

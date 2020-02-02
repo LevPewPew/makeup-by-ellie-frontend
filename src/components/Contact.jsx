@@ -6,20 +6,19 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function Contact(props) {
 
-  const handleClick = () =>
-  {
+  const handleClick = () => {
     axios.get(`${backendUrl}/contact/${props._id}`)
     .then(response=> {console.log(response.data)})
   }
 
   return (
     <article className="Contact">
-      <h1>Name:{props.name}</h1>
-      <h2>Contact Number:{props.mobile}</h2>
-      <h2>Type of Service:{props.serviceType}</h2>
-      <button style={{width:100,height:50,background:"grey",borderRadius:10,fontSize:15}} onClick={handleClick} >View Details</button>
+      <h2>Name:{props.name}</h2>
+      <h3>Contact Number:{props.mobile}</h3>
+      <h3>Type of Service:{props.serviceType}</h3>
+      <button style={{ width: "100px", height: "50px", background: "grey", borderRadius: "10px", fontSize: "15px" }} onClick={handleClick} >View Details</button>
     </article>
-  )
+  );
 }
 
 export default Contact

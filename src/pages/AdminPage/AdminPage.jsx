@@ -22,7 +22,7 @@ function AdminPage() {
       <ServicesContainer />
       <QuestionsContainer />
     </div>
-  )
+  );
 }
 
 export default AdminPage;

@@ -18,7 +18,7 @@ class TermsConditions extends Component {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum nesciunt odio reiciendis numquam, harum repudiandae repellendus fuga cumque dolore maiores beatae. Dolorem doloribus iste corrupti veritatis voluptate provident repellat sequi!
         </p>
       </div>
-    )
+    );
   }
 }
 

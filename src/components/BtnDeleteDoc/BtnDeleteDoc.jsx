@@ -26,8 +26,8 @@ function BtnDeleteDoc(props) {
   }
 
   return (
-    <button className="BtnDeleteDoc btn" type="submit" onClick={handleDelete} data-testid="BtnDeleteDoc" disabled={editingForm || createForm}>Delete</button>
-  )
+    <button className="BtnDeleteDoc btn" type="submit" onClick={handleDelete} disabled={editingForm || createForm} data-testid="BtnDeleteDoc">Delete</button>
+  );
 }
 
 export default BtnDeleteDoc;

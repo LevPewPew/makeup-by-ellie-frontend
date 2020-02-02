@@ -16,7 +16,7 @@ function Service(props) {
     title,
     description,
     imageUrl
-  }
+  };
 
   function handleSubmit() {
     servicesSubmitHandler(serviceForm, editingForm);
@@ -31,7 +31,7 @@ function Service(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-          <img style={{width:300,height:300,borderRadius:10,border:"4px solid grey"}} src={imageUrl} alt="" />
+          <img style={{ width: "300px", height: "300px", borderRadius: "10px", border: "4px solid grey"}} src={imageUrl} alt="" />
           <h1>{title}</h1>
           <p>{description}</p>
           <CrudBtnsContainer
@@ -41,7 +41,7 @@ function Service(props) {
         </>
       }
     </article>
-  )
+  );
 }
 
 export default Service;

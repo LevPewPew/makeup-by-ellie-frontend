@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Question from './Question';
-import './QuestionsContainer.css'
+import './QuestionsContainer.css';
 
 function QuestionsContainer() {
   const questionsData = useSelector((state) => state.questionsReducer.questionsData);
@@ -25,7 +25,7 @@ function QuestionsContainer() {
         null
       }
     </section>
-  )
+  );
 }
 
-export default QuestionsContainer
+export default QuestionsContainer;

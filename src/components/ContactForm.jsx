@@ -10,8 +10,7 @@ const categories = [
   { category: 'Editorial', value: 'editorial' }
 ];
 
-function validate(values)
-{
+function validate(values) {
    let errors = {};
 
    if(!values.name) {

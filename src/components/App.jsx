@@ -22,7 +22,7 @@ import './App.scss';
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -56,12 +56,12 @@ function App() {
     }
 
     getData();
-  }, [dispatch])
+  }, [dispatch]);
 
   if (loading) {
     return (
       <LoadingAnimation />
-      );
+    );
   } else {
     return (
       <div className="App">
