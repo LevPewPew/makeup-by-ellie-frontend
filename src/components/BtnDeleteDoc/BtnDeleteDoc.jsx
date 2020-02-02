@@ -18,7 +18,7 @@ function BtnDeleteDoc(props) {
       let res = await axios.get(`${backendUrl}/${collection}`);
       dispatch({ type: `UPDATE_${collection.toUpperCase()}_DATA`, [`new${_.upperFirst(collection)}Data`]: res.data });
       if (category) {
-        dispatch({ type: `${category.toUpperCase()}_PORTFOLIO_DATA` });
+        dispatch({ type: `FILTER_PORTFOLIO_DATA_${category.toUpperCase()}`});
       }
     } catch (err) {
       console.log(err);

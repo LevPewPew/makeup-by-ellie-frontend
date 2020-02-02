@@ -50,7 +50,7 @@ function App() {
         console.log(err);
       }
 
-      dispatch({ type: 'BEAUTY_PORTFOLIO_DATA' });
+      dispatch({ type: 'FILTER_PORTFOLIO_DATA_BEAUTY' });
 
       setLoading(false);
     }
