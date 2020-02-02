@@ -10,25 +10,26 @@ function Heart() {
   return (heartElement);
 }
 
-// Changed Footer to functional component
-
 function Footer() {
-
-    return (
-      <footer className="Footer">
-        <div className="footer-logo">
-          <Link to="/">
-            <img src={logoplaceholder} alt="logo" height="70" width="70"/>
-          </Link>
-        </div>
-        <div className="footer-links">
-          <Link to="/terms-and-conditions" id="page-link">TERMS AND CONDITIONS  |  </Link>
-          <Link to="/privacy-policy" id="page-link">PRIVACY POLICY  |  </Link>
-          {localStorage.getItem('token')?null:<Link to="/admin-login" id="page-link">ADMIN LOGIN  |  </Link>}
-            Made with <Heart className='heart-logo'/> &copy; MAKEUP BY ELLIE 2019
-        </div>
-      </footer>
-    )
+  return (
+    <footer className="Footer">
+      <div className="footer-logo">
+        <Link to="/">
+          <img src={logoplaceholder} alt="logo" height="70" width="70"/>
+        </Link>
+      </div>
+      <div className="footer-links">
+        <Link to="/terms-and-conditions" id="page-link">TERMS AND CONDITIONS  |  </Link>
+        <Link to="/privacy-policy" id="page-link">PRIVACY POLICY  |  </Link>
+        {
+          localStorage.getItem('token') ?
+          null :
+          <Link to="/admin-login" id="page-link">ADMIN LOGIN  |  </Link>
+        }
+        Made with <Heart className='heart-logo'/> &copy; MAKEUP BY ELLIE 2019
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

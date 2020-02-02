@@ -10,11 +10,11 @@ function validate(values) {
   let errors = {};
 
   if (!values.title) {
-    errors.title = 'Required';
+    errors.title = "Required";
   }
 
   if (!values.imageBlob) {
-    errors.imageBlob = 'Required';
+    errors.imageBlob = "Required";
   }
 
   return errors;
@@ -28,7 +28,7 @@ function renderField({ input, type, label, meta: { touched, error, warning } }) 
       {touched && 
       ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
     </div>
-  )
+  );
 }
 
 function ServiceForm(props) {
@@ -52,20 +52,23 @@ function ServiceForm(props) {
             files={files}
             setFiles={setFiles}
           />
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {
+            touched &&
+            ((error && <span>{error}</span>) ||
+            (warning && <span>{warning}</span>))
+          }
         </div>
       </div>
-    )
+    );
   }
 
   useEffect(() => {
     if (successfulSubmit) {
       setFiles([]);
     }
+
     // Make sure to revoke the data uris to avoid memory leaks
-    return () => {
-      files.forEach((file) => URL.revokeObjectURL(file.preview));
-    }
+    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
     // DO NOT add the files dependency, even though react warning appears, if you add it then you can create infinite loops and crash the browser
   }, [successfulSubmit]);
 
@@ -91,7 +94,7 @@ function ServiceForm(props) {
       />
       <BtnCancelForm />
     </form>
-  )
+  );
 }
 
 export default reduxForm({ form: 'ServiceForm', validate })(ServiceForm);

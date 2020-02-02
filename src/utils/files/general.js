@@ -19,4 +19,7 @@ function blobsToUniqueFiles(blobs) {
   return files;
 }
 
-export { blobToFile, blobsToUniqueFiles }
+export {
+  blobToFile,
+  blobsToUniqueFiles
+};

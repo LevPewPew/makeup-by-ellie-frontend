@@ -4,17 +4,16 @@ import colors from '../../styles/_colors.scss';
 import './LoadingAnimation.css';
 
 function LoadingAnimation() {
-
   return (
     <div className="LoadingAnimation">
       <ReactLoading
-        type={'spinningBubbles'}
+        type={"spinningBubbles"}
         color={colors.churchCrab}
-        height={'220px'}
-        width={'220px'}
+        height={"220px"}
+        width={"220px"}
       />
     </div>
-  )
+  );
 }
 
 export default LoadingAnimation;

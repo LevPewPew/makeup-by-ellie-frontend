@@ -6,7 +6,7 @@ const initialState = {
 function portfolioReducer(state = initialState, action) {
   let newState = {};
 
-  switch(action.type) {
+  switch (action.type) {
     case 'UPDATE_PORTFOLIO_DATA':
       newState = { ...state, portfolioData: action.newPortfolioData };
       break;
@@ -31,9 +31,8 @@ function portfolioReducer(state = initialState, action) {
     default:
       newState = { ...state };
   }
+  
   return newState;
 }
 
 export default portfolioReducer;
-
-

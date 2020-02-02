@@ -15,7 +15,7 @@ function Question(props) {
   const existingData = {
     question,
     answer
-  }
+  };
 
   function handleSubmit() {
     questionsSubmitHandler(questionForm.values, editingForm);
@@ -39,7 +39,7 @@ function Question(props) {
         </>
       }
     </article>
-  )
+  );
 }
 
-export default Question
+export default Question;

@@ -57,8 +57,7 @@ function FormContainer() {
         null
       }
     </div>
-  )
+  );
 }
 
 export default FormContainer;
-

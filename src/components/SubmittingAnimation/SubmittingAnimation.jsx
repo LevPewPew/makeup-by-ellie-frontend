@@ -8,13 +8,13 @@ function SubmittingAnimation() {
   return (
     <div className="SubmittingAnimation">
       <ReactLoading
-        type={'cubes'}
+        type={"cubes"}
         color={colors.churchCrab}
-        height={'100px'}
-        width={'100px'}
+        height={"100px"}
+        width={"100px"}
       />
     </div>
-  )
+  );
 }
 
 export default SubmittingAnimation;

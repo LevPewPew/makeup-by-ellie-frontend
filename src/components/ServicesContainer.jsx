@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Service from './Service/Service';
-import './ServicesContainer.css'
+import './ServicesContainer.css';
 
 function ServicesContainer() {
   const servicesData = useSelector((state) => state.servicesReducer.servicesData);
@@ -26,7 +26,7 @@ function ServicesContainer() {
         null
       }
     </section>
-  )
+  );
 }
 
 export default ServicesContainer;
