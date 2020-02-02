@@ -1,4 +1,4 @@
-const XXH = require('xxhashjs');
+import XXH from 'xxhashjs';
 
 // for a Blob to become a File, it needs the lastModifiedDate and name properties, so this function will add them
 function blobToFile(blob, fileName){
