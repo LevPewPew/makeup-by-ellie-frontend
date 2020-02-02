@@ -15,7 +15,7 @@ function Work(props) {
   const existingData = {
     category,
     imageUrl
-  }
+  };
 
   function handleSubmit() {
     portfolioSubmitHandler(workForm, editingForm);
@@ -39,7 +39,7 @@ function Work(props) {
         </>
       }
     </article>
-  )
+  );
 }
 
 export default Work;

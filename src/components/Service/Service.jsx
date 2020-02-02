@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import ServiceForm from '../ServiceForm/ServiceForm';
 import CrudBtnsContainer from '../CrudBtnsContainer/CrudBtnsContainer';
 import { servicesSubmitHandler } from '../../utils/forms/submitHandlers';
-import './Service.css';
+import './Service.scss';
 
 function Service(props) {
   const { id, title, description, imageUrl } = props;
@@ -16,7 +16,7 @@ function Service(props) {
     title,
     description,
     imageUrl
-  }
+  };
 
   function handleSubmit() {
     servicesSubmitHandler(serviceForm, editingForm);
@@ -31,7 +31,7 @@ function Service(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-          <img style={{width:300,height:300,borderRadius:10,border:"4px solid grey"}} src={imageUrl} alt="" />
+          <img style={{ width: "300px", height: "300px", borderRadius: "10px", border: "4px solid grey"}} src={imageUrl} alt="" />
           <h1>{title}</h1>
           <p>{description}</p>
           <CrudBtnsContainer
@@ -41,7 +41,7 @@ function Service(props) {
         </>
       }
     </article>
-  )
+  );
 }
 
 export default Service;

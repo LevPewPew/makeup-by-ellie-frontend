@@ -9,12 +9,12 @@ function BtnSubmit(props) {
       {
         submitting ?
         <SubmittingAnimation
-          type={'cubes'}
+          type={"cubes"}
         /> :
         <button type="submit" disabled={pristine}>{text || 'Submit'}</button>
       }
     </div>
-  )
+  );
 }
 
 export default BtnSubmit;

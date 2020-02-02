@@ -13,7 +13,7 @@ function BtnCreateDoc(props) {
 
   return (
     <button className="BtnCreateDoc btn" onClick={renderCreateForm}>{`New ${_.upperFirst(collection)} Item`}</button>
-  )
+  );
 }
 
 export default BtnCreateDoc;
