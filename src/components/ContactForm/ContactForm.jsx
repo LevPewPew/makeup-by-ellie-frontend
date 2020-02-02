@@ -5,9 +5,9 @@ import DropdownListField from '../DropdownListField/DropdownListField';
 import './ContactForm.scss';
 
 const categories = [
-  { category: 'Bridal', value: 'bridal' },
   { category: 'Beauty', value: 'beauty' },
-  { category: 'Editorial', value: 'editorial' }
+  { category: 'Editorial', value: 'editorial' },
+  { category: 'Bridal', value: 'bridal' }
 ];
 
 function validate(values) {

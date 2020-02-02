@@ -4,16 +4,16 @@ import { useDispatch } from 'react-redux';
 function FilterButtons() {
   const dispatch = useDispatch();
 
-  function filterBridal() {
-    dispatch({ type: 'BRIDAL_PORTFOLIO_DATA' })
-  }
-
   function filterBeauty() {
-    dispatch({ type: 'BEAUTY_PORTFOLIO_DATA' })
+    dispatch({ type: 'FILTER_PORTFOLIO_DATA_BEAUTY' });
   }
 
   function filterEditorial() {
-    dispatch({ type: 'EDITORIAL_PORTFOLIO_DATA' })
+    dispatch({ type: 'FILTER_PORTFOLIO_DATA_EDITORIAL' });
+  }
+
+  function filterBridal() {
+    dispatch({ type: 'FILTER_PORTFOLIO_DATA_BRIDAL' });
   }
 
   return (
