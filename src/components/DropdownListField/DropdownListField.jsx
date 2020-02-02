@@ -9,7 +9,7 @@ function DropdownListField(props) {
     let value = option;
 
     if (valueField) {
-      value = option[valueField]
+      value = option[valueField];
     }
 
     input.onChange(value);
@@ -23,7 +23,7 @@ function DropdownListField(props) {
         onChange={handleChange}
       />
     </div>
-  )
+  );
 }
 
 export default DropdownListField;

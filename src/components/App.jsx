@@ -15,14 +15,15 @@ import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from '../pages/terms-conditions/TermsConditions';
 import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 // TESTING, remove before deployment
-import ContactsContainer from './ContactsContainer';
+import ContactsContainer from './ContactsContainer/ContactsContainer';
+import ContactById from '../components/Contact/ContactById';
 // TESTING, remove before deployment
 import './App.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,18 +51,25 @@ function App() {
         console.log(err);
       }
 
-      dispatch({ type: 'BEAUTY_PORTFOLIO_DATA' });
+      try {
+        let res = await axios.get(`${backendUrl}/contact`);
+        dispatch({ type: 'UPDATE_CONTACTS_DATA', newContactsData: res.data });
+      } catch (err) {
+        console.log(err);
+      }
+
+      dispatch({ type: 'FILTER_PORTFOLIO_DATA_BEAUTY' });
 
       setLoading(false);
     }
 
     getData();
-  }, [dispatch])
+  }, [dispatch]);
 
   if (loading) {
     return (
       <LoadingAnimation />
-      );
+    );
   } else {
     return (
       <div className="App">
@@ -86,6 +94,9 @@ function App() {
             {/* TESTING, remove before deployment*/}
             <Route path="/getcontactlist">
               <ContactsContainer />
+            </Route>
+            <Route path="/getcontactlist/:id">
+              <ContactById />
             </Route>
             <Route path="/privacy-policy">
               <PrivacyPolicy />
