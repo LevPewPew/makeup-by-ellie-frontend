@@ -48,7 +48,7 @@ async function portfolioSubmitHandler(workForm, id) {
 
     let res = await axios.get(`${backendUrl}/portfolio`);
     store.dispatch({ type: 'UPDATE_PORTFOLIO_DATA', newPortfolioData: res.data });
-    store.dispatch({ type: `FILTER_PORTFOLIO_DATA_${category.toUpperCase()}`});
+    store.dispatch({ type: `FILTER_PORTFOLIO_DATA_${category.toUpperCase()}` });
     store.dispatch({ type: 'DISABLE_CREATE_FORM' });
     store.dispatch({ type: 'DISABLE_EDITING_FORM' });
     store.dispatch({ type: 'SUCCESSFUL_SUBMIT' });
