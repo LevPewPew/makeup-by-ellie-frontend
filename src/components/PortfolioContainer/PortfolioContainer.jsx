@@ -1,12 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Work from './Work';
-import { masonryOptions } from '../components/Portfolio/Exports';
 import Masonry from 'react-masonry-component';
-import FilterButtons from '../components/Portfolio/FilterButtons'
+import Work from '../Work/Work';
+import FilterButtons from '../FilterButtons/FilterButtons';
 
 function PortfolioContainer() {
   const filteredPortfolioData = useSelector((state) => state.portfolioReducer.filteredPortfolioData);
+
+  const masonryOptions = {
+    fitWidth: true,
+    columnWidth: 300,
+    gutter: 5
+  };
 
   return (
     <section className="PortfolioContainer">

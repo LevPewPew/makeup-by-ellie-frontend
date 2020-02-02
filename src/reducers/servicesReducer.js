@@ -1,11 +1,11 @@
 const initialState = {
-  servicesData: null
+  servicesData: []
 };
 
 function servicesReducer(state = initialState, action) {
   let newState = {};
 
-  switch(action.type) {
+  switch (action.type) {
     case 'UPDATE_SERVICES_DATA':
       newState = { ...state, servicesData: action.newServicesData };
       break;
