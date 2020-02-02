@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import AdminLoginForm from '../../components/AdminLoginForm';
+import React, { useState } from 'react';
+import AdminLoginForm from '../../components/AdminLoginForm/AdminLoginForm';
 import { Redirect } from 'react-router';
 import axios from 'axios';
 
@@ -8,7 +8,7 @@ function AdminLoginPage() {
 
   const submit = async (values) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/admin-login`,{ username: values.username, password: values.password });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/admin-login`, { username: values.username, password: values.password });
       localStorage.setItem('token', response.data.token);
       setRedirect(true)
     } catch {
@@ -29,4 +29,4 @@ function AdminLoginPage() {
   );
 }
 
-export default AdminLoginPage
+export default AdminLoginPage;

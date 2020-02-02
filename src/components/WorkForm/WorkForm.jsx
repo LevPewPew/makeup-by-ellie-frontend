@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import AttachmentField from '../AttachmentField';
-import DropdownListField from '../DropdownListField';
+import AttachmentField from '../AttachmentField/AttachmentField';
+import DropdownListField from '../DropdownListField/DropdownListField';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
 import './WorkForm.scss';

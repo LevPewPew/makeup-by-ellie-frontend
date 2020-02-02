@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
 import colors from '../../styles/_colors.scss';
-import './LoadingAnimation.css';
+import './LoadingAnimation.scss';
 
 function LoadingAnimation() {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Contact from './Contact';
-import './ContactsContainer.css';
+import Contact from '../Contact/Contact';
+import './ContactsContainer.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 

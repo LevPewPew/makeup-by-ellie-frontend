@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import homepageImage from '../../media/homepage-image.jpg';
-import './HomePage.css';
+import './HomePage.scss';
 
 class HomePage extends Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import ServicesContainer from '../../components/ServicesContainer';
-import './ServicesPage.css';
+import ServicesContainer from '../../components/ServicesContainer/ServicesContainer';
+import './ServicesPage.scss';
 
 function ServicesPage() {
   return (

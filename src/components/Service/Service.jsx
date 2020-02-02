@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import ServiceForm from '../ServiceForm/ServiceForm';
 import CrudBtnsContainer from '../CrudBtnsContainer/CrudBtnsContainer';
 import { servicesSubmitHandler } from '../../utils/forms/submitHandlers';
-import './Service.css';
+import './Service.scss';
 
 function Service(props) {
   const { id, title, description, imageUrl } = props;

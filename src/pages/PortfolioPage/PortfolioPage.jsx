@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import PortfolioContainer from '../../components/PortfolioContainer';
-import './PortfolioPage.css';
+import PortfolioContainer from '../../components/PortfolioContainer/PortfolioContainer';
+import './PortfolioPage.scss';
 
 function PortfolioPage() {
   const portfolioData = useSelector((state) => state.portfolioReducer.portfolioData);

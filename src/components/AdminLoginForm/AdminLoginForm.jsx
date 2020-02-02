@@ -51,4 +51,4 @@ AdminLoginForm = reduxForm({
   form: 'adminlogin', validate, warn
 })(AdminLoginForm);
  
- export default AdminLoginForm;
+export default AdminLoginForm;

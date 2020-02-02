@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useDropzone } from 'react-dropzone';
-import { blobsToUniqueFiles } from '../utils/files/general';
-import { rotatedImageBlobsWithExif } from '../utils/files/images';
-import './AttachmentField.css';
+import { blobsToUniqueFiles } from '../../utils/files/general';
+import { rotatedImageBlobsWithExif } from '../../utils/files/images';
+import './AttachmentField.scss';
 
 const maxSizeInMB = 5;
 const kiloByte = 1024;

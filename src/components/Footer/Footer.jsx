@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import logoplaceholder from '../../media/logo-placeholder.png';
-import './Footer.css';
+import './Footer.scss';
 
 function Heart() {
   const heartElement = <FontAwesomeIcon icon={faHeart} />

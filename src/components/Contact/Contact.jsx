@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './Contact.css';
+import './Contact.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
