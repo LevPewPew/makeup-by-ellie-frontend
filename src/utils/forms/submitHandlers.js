@@ -6,11 +6,7 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 async function portfolioSubmitHandler(workForm, id) {
   // reduxForm will place values in the workform directly, and in values when initial values are also present. reduxForms is so bad. will try react-hooks-form package in future projects.
-  if (id) {
-    var { category, imageBlobs } = workForm.values;
-  } else {
-    var { category, imageBlobs } = workForm;
-  }
+  const { category, imageBlobs } = id ? workForm.values : workForm;
   
   try {
     if (id) {
@@ -63,11 +59,7 @@ async function portfolioSubmitHandler(workForm, id) {
 
 async function servicesSubmitHandler(serviceForm, id) {
   // reduxForm will place values in the workform directly, and in values when initial values are also present. reduxForms is so bad. will try react-hooks-form package in future projects.
-  if (id) {
-    var { title, description, imageBlobs } = serviceForm.values;
-  } else {
-    var { title, description, imageBlobs } = serviceForm;
-  }
+  const { title, description, imageBlobs } = id ? serviceForm.values : serviceForm;
 
   try {
     if (id) {
