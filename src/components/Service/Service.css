@@ -1,9 +1,11 @@
 .Service {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   border-radius: 30px;
   flex-direction: column;
-  
+  width: 400px;
+  height: 800px;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
+  border: 10px solid turquoise;
 }
