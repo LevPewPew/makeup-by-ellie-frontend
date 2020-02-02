@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Work from '../Work/Work';
 import Masonry from 'react-masonry-component';
-import FilterButtons from '../Portfolio/FilterButtons';
+import Work from '../Work/Work';
+import FilterButtons from '../FilterButtons/FilterButtons';
 
 function PortfolioContainer() {
   const filteredPortfolioData = useSelector((state) => state.portfolioReducer.filteredPortfolioData);
