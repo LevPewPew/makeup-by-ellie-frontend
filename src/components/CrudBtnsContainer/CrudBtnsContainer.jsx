@@ -26,7 +26,7 @@ function CrudBtnsContainer(props) {
         null
       }
     </div>
-  )
+  );
 }
 
 export default CrudBtnsContainer;

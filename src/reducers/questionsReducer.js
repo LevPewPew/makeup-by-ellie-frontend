@@ -5,7 +5,7 @@ const initialState = {
 function questionsReducer(state = initialState, action) {
   let newState = {};
 
-  switch(action.type) {
+  switch (action.type) {
     case 'UPDATE_QUESTIONS_DATA':
       newState = { ...state, questionsData: action.newQuestionsData };
       break;

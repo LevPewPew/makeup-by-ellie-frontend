@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import AttachmentField from '../AttachmentField';
-import DropdownListField from '../DropdownListField';
+import AttachmentField from '../AttachmentField/AttachmentField';
+import DropdownListField from '../DropdownListField/DropdownListField';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
 import './WorkForm.scss';
@@ -23,8 +23,8 @@ function validate(values) {
 
 const categories = [
   { category: 'Beauty', value: 'beauty' },
-  { category: 'Bridal', value: 'bridal' },
-  { category: 'Editorial', value: 'editorial' }
+  { category: 'Editorial', value: 'editorial' },
+  { category: 'Bridal', value: 'bridal' }
 ]
 
 function WorkForm(props) {
@@ -56,7 +56,7 @@ function WorkForm(props) {
           }
         </div>
       </div>
-    )
+    );
   }
 
   function renderAttachmentField({ input, label, meta: { touched, error, warning } }) {
@@ -76,17 +76,16 @@ function WorkForm(props) {
           }
         </div>
       </div>
-    )
+    );
   }
 
   useEffect(() => {
     if (successfulSubmit) {
       setFiles([]);
     }
+
     // Make sure to revoke the data uris to avoid memory leaks
-    return () => {
-      files.forEach((file) => URL.revokeObjectURL(file.preview));
-    }
+    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
     // DO NOT add the files dependency, even though react warning appears, if you add it then you can create infinite loops and crash the browser
   }, [successfulSubmit]);
 
@@ -117,7 +116,7 @@ function WorkForm(props) {
       />
       <BtnCancelForm />
     </form>
-  )
+  );
 }
 
 export default reduxForm({ form: 'WorkForm', validate })(WorkForm);

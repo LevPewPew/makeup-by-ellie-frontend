@@ -11,7 +11,7 @@ function BtnCancelForm() {
 
   return (
     <button className="BtnCancelForm btn" onClick={cancelForm}>Cancel</button>
-  )
+  );
 }
 
 export default BtnCancelForm;
