@@ -50,6 +50,13 @@ function App() {
         console.log(err);
       }
 
+      try {
+        let res = await axios.get(`${backendUrl}/contact`);
+        dispatch({ type: 'UPDATE_CONTACTS_DATA', newContactsData: res.data });
+      } catch (err) {
+        console.log(err);
+      }
+
       dispatch({ type: 'FILTER_PORTFOLIO_DATA_BEAUTY' });
 
       setLoading(false);
