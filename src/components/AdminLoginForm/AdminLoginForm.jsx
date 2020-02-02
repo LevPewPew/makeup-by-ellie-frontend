@@ -48,7 +48,7 @@ class AdminLoginForm extends React.Component {
 }
 
 AdminLoginForm = reduxForm({
-  form: 'adminlogin', validate, warn
+  form: 'AdminLoginForm', validate, warn
 })(AdminLoginForm);
  
 export default AdminLoginForm;

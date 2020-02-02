@@ -23,8 +23,8 @@ function validate(values) {
 
 const categories = [
   { category: 'Beauty', value: 'beauty' },
-  { category: 'Bridal', value: 'bridal' },
-  { category: 'Editorial', value: 'editorial' }
+  { category: 'Editorial', value: 'editorial' },
+  { category: 'Bridal', value: 'bridal' }
 ]
 
 function WorkForm(props) {
