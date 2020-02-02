@@ -1,25 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Contact from '../Contact/Contact';
 import './ContactsContainer.scss';
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
 function ContactsContainer() {
-  const [ contactList, setContactList ] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${backendUrl}/contact`)
-    .then(response => {
-      setContactList(response.data)
-    })
-  }, []);
+  const contactsData = useSelector((state) => state.contactsReducer.contactsData);
 
   return (
     <div className="ContactsContainer">
-      {contactList.map((contact,index)=> {
-        return <Contact key={index} {...contact}/>
-      })}
+      {
+        contactsData ?
+        contactsData.map((contact, index) => {
+          return <Contact
+            key={index}
+            {...contact}
+          />
+        }) :
+        null
+      }
     </div>
   );
 }
