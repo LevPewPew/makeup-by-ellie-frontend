@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoplaceholder from '../../media/logo-placeholder.png';
-import './Navbar.css';
+import './Navbar.scss';
 
 function Navbar() {
   const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-off');

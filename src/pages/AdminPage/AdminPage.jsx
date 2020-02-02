@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import PortfolioContainer from '../../components/PortfolioContainer';
-import QuestionsContainer from '../../components/QuestionsContainer';
-import ServicesContainer from '../../components/ServicesContainer';
+import PortfolioContainer from '../../components/PortfolioContainer/PortfolioContainer';
+import QuestionsContainer from '../../components/QuestionsContainer/QuestionsContainer';
+import ServicesContainer from '../../components/ServicesContainer/ServicesContainer';
 import FormContainer from '../../components/FormContainer/FormContainer';
 
 function AdminPage() {

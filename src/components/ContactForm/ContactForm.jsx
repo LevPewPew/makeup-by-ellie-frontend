@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux'
-import DropdownListField from './DropdownListField';
+import DropdownListField from '../DropdownListField/DropdownListField';
 import './ContactForm.scss';
 
 const categories = [

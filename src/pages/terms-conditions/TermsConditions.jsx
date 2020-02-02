@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TermsConditions.css';
+import './TermsConditions.scss';
 
 class TermsConditions extends Component {
   render() {

@@ -1,8 +1,8 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm';
+import ContactForm from '../../components/ContactForm/ContactForm';
 import axios from 'axios';
 import homepageImage from '../../media/homepage-image.jpg';
-import './ContactPage.css';
+import './ContactPage.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 

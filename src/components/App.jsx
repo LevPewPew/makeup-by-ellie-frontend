@@ -15,7 +15,7 @@ import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from '../pages/terms-conditions/TermsConditions';
 import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 // TESTING, remove before deployment
-import ContactsContainer from './ContactsContainer';
+import ContactsContainer from './ContactsContainer/ContactsContainer';
 // TESTING, remove before deployment
 import './App.scss';
 

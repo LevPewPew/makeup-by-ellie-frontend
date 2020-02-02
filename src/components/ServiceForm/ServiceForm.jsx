@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import AttachmentField from '../AttachmentField';
+import AttachmentField from '../AttachmentField/AttachmentField';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
 import './ServiceForm.scss';
