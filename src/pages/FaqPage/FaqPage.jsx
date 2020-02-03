@@ -1,6 +1,6 @@
 import React from 'react';
-import QuestionsContainer from '../../components/QuestionsContainer';
-import './FaqPage.css'
+import QuestionsContainer from '../../components/QuestionsContainer/QuestionsContainer';
+import './FaqPage.scss';
 
 function FaqPage() {
   return (
@@ -8,7 +8,7 @@ function FaqPage() {
       <h1>FAQ</h1>
       <QuestionsContainer/>
     </div>
-  )
+  );
 }
 
 export default FaqPage;

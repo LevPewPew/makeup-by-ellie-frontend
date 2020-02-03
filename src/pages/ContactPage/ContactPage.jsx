@@ -1,32 +1,33 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm';
+import { useDispatch } from 'react-redux';
+import ContactForm from '../../components/ContactForm/ContactForm';
 import axios from 'axios';
 import homepageImage from '../../media/homepage-image.jpg';
 import { reset } from 'redux-form';
-import { store } from '../../index';
 import './ContactPage.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
-class ContactPage extends React.Component {
+function ContactPage() {
+  const dispatch = useDispatch();
 
-   submit = (values) => {
-      axios.post(`${backendUrl}/contact`,values)
-      .then((res) => {
-        alert(res.data)
-        store.dispatch(reset('ContactForm'));
-      })
-      .catch(err=> console.log(err))
-   }
+  async function submit(values) {
+    try {
+      let res = await axios.post(`${backendUrl}/contact`, values);
+      alert(res.data);
+      dispatch(reset('ContactForm'));
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-  render() {
-    return (
-      <div className="ContactPage" data-testid="ContactPage">
-        <h1>CONTACT</h1>
-        <div className='contactContainer'>
+  return (
+    <div className="ContactPage" data-testid="ContactPage">
+      <h1>CONTACT</h1>
+      <div className='contactContainer'>
         <div className="grid">
           <div className="formContainer">
-          <ContactForm onSubmit={this.submit}/>
+            <ContactForm onSubmit={submit}/>
           </div>
           <div className="infoContainer">
           <img src={homepageImage} alt="hero" style={{width: "100%"}}/>
@@ -41,9 +42,8 @@ class ContactPage extends React.Component {
           </div>
         </div>
       </div>
-      </div>
-    )
-  }
+    </div>
+  );
 }
 
 export default ContactPage;

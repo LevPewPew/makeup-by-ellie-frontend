@@ -18,7 +18,7 @@ function BtnDeleteDoc(props) {
       let res = await axios.get(`${backendUrl}/${collection}`);
       dispatch({ type: `UPDATE_${collection.toUpperCase()}_DATA`, [`new${_.upperFirst(collection)}Data`]: res.data });
       if (category) {
-        dispatch({ type: `${category.toUpperCase()}_PORTFOLIO_DATA` });
+        dispatch({ type: `FILTER_PORTFOLIO_DATA_${category.toUpperCase()}` });
       }
     } catch (err) {
       console.log(err);
@@ -26,8 +26,8 @@ function BtnDeleteDoc(props) {
   }
 
   return (
-    <button className="BtnDeleteDoc btn" type="submit" onClick={handleDelete} data-testid="BtnDeleteDoc" disabled={editingForm || createForm}>Delete</button>
-  )
+    <button className="BtnDeleteDoc btn" type="submit" onClick={handleDelete} disabled={editingForm || createForm} data-testid="BtnDeleteDoc">Delete</button>
+  );
 }
 
 export default BtnDeleteDoc;
