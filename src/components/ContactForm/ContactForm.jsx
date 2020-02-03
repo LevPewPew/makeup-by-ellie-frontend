@@ -58,31 +58,21 @@ function validate(values) {
    return errors;
 }
 
-function warn(values)
-{
-  let warnings = {};
-  
-  if( !values.addedQuestionsOrInfo) {
-     warnings.addedQuestionsOrInfo = 'Are you sure there is nothing else I need to know?';
-   }
-  return warnings;
-}
-
 
 class ContactForm extends React.Component {
    
-  renderField = ({autoFocus,placeholder,input,type,label,meta:{touched,error,warning}}) => {
+  renderField = ({autoFocus,placeholder,input,type,label,meta:{touched,error}}) => {
     return(
         <div>
           <label>{label} *</label>
           <input {...input} type={type} className='myInput' placeholder={placeholder} autoFocus={autoFocus}/>
           {touched && 
-          ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
+          ((error && <div style={{color:"red"}}>{error}</div>))}
         </div>
     )
   }
 
-  renderDropdownListField({placeholder,input, label, meta: {touched, error, warning}}) {
+  renderDropdownListField({placeholder,input, label, meta: {touched, error}}) {
     return (
       <div className='dropdownLabel' >
         <label htmlFor="">{label} </label>
@@ -94,20 +84,20 @@ class ContactForm extends React.Component {
             valueField="value"
             textField="category"
           />
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {touched && ((error && <span>{error}</span>))}
         </div>
       </div>
     )
   }
 
 
-  renderTextArea = ({autoFocus,placeholder,input,type,label,meta:{touched,error,warning}}) => {
+  renderTextArea = ({autoFocus,placeholder,input,type,label,meta:{touched,error}}) => {
   return(
       <div>
         <label>{label} *</label>
-        <textarea {...input} type={type} className='abc' placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="96" />
+        <textarea {...input} type={type} className='textBox' placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
         {touched && 
-        ((error && <div style={{color:"red"}}>{error}</div>)||(warning && <div>{warning}</div>))}
+        ((error && <div style={{color:"red"}}>{error}</div>))}
       </div>
   )
  }
@@ -131,8 +121,8 @@ class ContactForm extends React.Component {
          <Field type="number" component={this.renderField} label="Note: all bookings under 4 people will be held at my private studio in Melbourne. Please specify below, how many people require makeup service and hair and makeup below:" name="totalPeopleJustMakeup" tabIndex="6" placeholder="MAKEUP ONLY" /> 
          <Field type="number" component={this.renderField} label="How many people will require Hair and Makeup?" name="totalPeopleWithHair" tabIndex="7" placeholder="HAIR AND MAKEUP"/>
          <Field type="text" component={this.renderField} label="What time do you need to be ready by?" name="timeToFinish" tabIndex="8"/>
-         {(parseInt(this.props.number1)+parseInt(this.props.number2))>3
-         && <Field type="text" component={this.renderField} label="As your booking is for more than 4 people, please enter the location address below, so that I can come to you:" name="applicationAddress" tabIndex="9" />}
+         {(parseInt(this.props.number1)+parseInt(this.props.number2))>2
+         && <Field type="text" component={this.renderField} label="As your booking is for more than 3 people, please enter the location address below, so that I can come to you:" name="applicationAddress" tabIndex="9" />}
          <Field type="text" component={this.renderField} label="How did you hear about me?" name="howDidYouHear" tabIndex="10" />
          <div id="textBox">
          <Field type="text" component={this.renderTextArea} label="Any additional information or questions?" name="addedQuestionsOrInfo" tabIndex="11" />
@@ -148,11 +138,11 @@ class ContactForm extends React.Component {
 }
 
 ContactForm = reduxForm({
-   form: 'contact',validate,warn
+   form: 'ContactForm',validate
  })(ContactForm)
  
  
- const selector = formValueSelector('contact')
+ const selector = formValueSelector('ContactForm')
  ContactForm = connect(
    state => {
       return {

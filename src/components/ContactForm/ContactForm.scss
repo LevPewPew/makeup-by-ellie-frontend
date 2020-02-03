@@ -1,40 +1,54 @@
+@mixin bp($point) {
+  @if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
 
 .ContactForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: right;
-  width: 600px;
-  font-family: inherit;
-  margin: auto;
+  
+  margin-right: 12px;
 
-  label, .blockInfo {
-    -webkit-appearance: none;
-    appearance: none;
+  label {
     display: block;
     float: left;
-    font-size: 13px;
-    color: rgba(88, 87, 87, 0.75);
-    margin: 15px 15px -6px 15px;
-    width: 586px;
-  }
+    color: black;
+    margin: 15px 15px -4px 15px;
+}
 
+    @include bp(tablet) {
+      width: 95%;
+    }
+
+    @include bp(mobile) {
+      width: 95%;
+    }
+  
+
+  //This controls the placeholder colour in the date field
   input[type="date" i] {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     color: grey !important;
   }
-  .abc {
+
+  .textBox {
     height: 60px;
     margin-left: 6px;
     margin-top: 10px;
-    
+    width: 100%;
+    border-color: #80808059;
+
   }
   .myInput {
-    width: 586px;
+    width: 100%;
     height: 40px;
     margin: 7px;
+    
   }
+
   .rw-dropdown-list-input {
     height: 40px;
   }
@@ -45,12 +59,9 @@
 }
 
 
-// .contactFormSubmit {
-//   width: 120px;
-//   height: 40px;
-//   color: antiquewhite;
-//   background: black;
-// }
+.contactFormSubmit {
+  margin-left: 5px;
+}
 
 .contactFormReset {
   width: 120px;
@@ -59,3 +70,7 @@
   background: white;
   display: none;
 }
+  
+
+
+
