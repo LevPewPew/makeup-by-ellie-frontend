@@ -4,15 +4,23 @@
 
 // categories
 @import '../styles/buttons';
+@import '../styles/links';
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background: $churchCrab;
 }
 
 h1 {
   font-size: 48px;
   font-family: $boujee;
   font-weight: lighter;
+}
+
+.BtnInstagram {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
