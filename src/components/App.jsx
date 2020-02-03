@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
-import BtnInstagram from './BtnInstagram/BtnInstagram';
 import AdminPage from '../pages/AdminPage/AdminPage';
 import HomePage from '../pages/HomePage/HomePage';
 import ContactPage from '../pages/ContactPage/ContactPage';
@@ -67,16 +66,15 @@ function App() {
     getData();
   }, [dispatch]);
 
-  // if (loading) {
-  //   return (
-  //     <LoadingAnimation />
-  //   );
-  // } else {
+  if (loading) {
+    return (
+      <LoadingAnimation />
+    );
+  } else {
     return (
       <div className="App">
         <BrowserRouter>
           <Navbar/>
-          <BtnInstagram />
           <Switch>
             <Route exact path="/">
               <HomePage />
@@ -93,11 +91,10 @@ function App() {
             <Route path="/faq">
               <FaqPage />
             </Route>
-            {/* TESTING, remove before deployment*/}
             <Route exact path="/getcontactlist">
               <ContactsContainer />
             </Route>
-            <Route path="/getcontactlist/:id" component={ContactDetails}/>
+            <Route path="/getcontactlist/:id" component={ContactDetails} />
             <Route path="/privacy-policy">
               <PrivacyPolicy />
             </Route>
@@ -110,13 +107,12 @@ function App() {
             <Route path="/admin-login">
               <AdminLoginPage />
             </Route>
-            {/* TESTING, remove before deployment*/}
           </Switch>
           <Footer/>
         </BrowserRouter>
       </div>
     );
-  // }
+  }
 }
 
 export default App;

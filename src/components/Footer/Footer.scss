@@ -1,27 +1,54 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
 .Footer {
-  height: 70px;
-  background-color: black;
-  
-  .footer-logo {
+  margin: 0 10%;
+  border-top: 1px solid $eerieDepth;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .links {
     display: flex;
     justify-content: center;
     align-items: center;
-    float: left;
-    margin-left: 10px;
+    font-size: 12px;
+    font-family: $classy;
+    
+    .legal {
+      margin: 0 10px;
+      
+      a {
+        margin: 0 10px;
+      }
+    }
+
+    .socials {
+      margin: 0 10px;
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0 10px;
+      }
+
+      .BtnInstagram {
+        display: flex;
+        align-items: center;
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 16px;
+      }
+    }
+
+
   }
-  
-  .footer-links {
-    color: white;
-    float: right;
-    font-size: 15px;
-    margin: 27.5px 27.5px;
-    text-decoration: none;
-    width: auto;
-  }
-  
-  .page-link {
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
+
+  .copyright {
+    margin: 0 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    font-family: $classy;
   }
 }

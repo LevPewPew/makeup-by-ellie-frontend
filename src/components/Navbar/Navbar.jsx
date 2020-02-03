@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoplaceholder from '../../media/mbe-transparent-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
+import BtnInstagram from '../BtnInstagram/BtnInstagram';
 import './Navbar.scss';
 
 function Navbar() {
@@ -34,7 +35,6 @@ function Navbar() {
         <Link to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
         <Link to="/faq" data-testid="nb-link-faq">FAQ</Link>
         <Link to="/contact" data-testid="nb-link-contact">CONTACT</Link>
-        {/* temp dev zone */}
         {
           token ?
           <>
@@ -43,9 +43,9 @@ function Navbar() {
           </> :
           null
         }
-        {/* temp dev zone */}
       </div>
       <BtnBookNow />
+      <BtnInstagram />
       <div id="button">
         <label>
           <div className={`${hamburgerClass}-container`} onClick={animateHamburger}>

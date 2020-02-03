@@ -1,7 +1,6 @@
 @import '../../styles/fonts';
 
 .Navbar {
-  // position: fixed;
   margin: 0 10%;
   display: flex;
   justify-content: space-between;
@@ -29,10 +28,10 @@
     }
   }
 
-  .book-and-insta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .BtnInstagram {
+    position: absolute;
+    top: 0px;
+    right: 0px;
   }
 
   .hamburger-on {
