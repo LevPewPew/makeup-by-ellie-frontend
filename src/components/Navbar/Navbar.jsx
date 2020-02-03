@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {useSelector,useDispatch} from 'react-redux';
 import logoplaceholder from '../../media/logo-placeholder.png';
 import './Navbar.scss';
 
 function Navbar() {
   const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-off');
 
-  const token = localStorage.getItem('token');
+  const token = useSelector((state)=> state.tokenReducer.token);
+  const dispatch = useDispatch();
 
   const logOut = () => {
     localStorage.clear();
+    dispatch({type:"UPDATE_TOKEN_DATA",newToken:""})
   }
   
 
@@ -46,7 +49,7 @@ function Navbar() {
           token ?
           <div className="navbar-link">
             <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
-            <button onClick={logOut}>Logout</button>
+            <Link to="/"><button onClick={logOut}>Logout</button></Link>           
           </div> :
           null
         }
