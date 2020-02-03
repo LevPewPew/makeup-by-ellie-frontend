@@ -19,18 +19,16 @@ function HomePage() {
         <p>
           In 2016 I began my career with Mecca brands working at Mecca has given me the experience to work with many different skin types from fair to darker complexions, young skin to mature skin. I have learned to understand different skin concerns and conditions, and what products work best for different people. Through Mecca I have also had the opportunity to further my education by attending workshops with many international makeup artist such as:
         </p>
-        <p>
-          <ul>
-            <li>Rae Morris</li>
-            <li>Mia Connor</li>
-            <li>Nars Artists, Lena Koro and Jane Richardson</li>
-            <li>Lancômes, Lara Srokowski</li>
-            <li>Too Faced Artist, Elyse Rebeau</li>
-            <li>Urban Decay Global Artist, Steve Kassajikian</li>
-            <li>Mac Global Senior Artist, Nicole Thompson</li>
-            <li>Laura Mercier Global Beauty Director, Jason Hoffman</li>
-          </ul>
-        </p>
+        <ul>
+          <li>Rae Morris</li>
+          <li>Mia Connor</li>
+          <li>Nars Artists, Lena Koro and Jane Richardson</li>
+          <li>Lancômes, Lara Srokowski</li>
+          <li>Too Faced Artist, Elyse Rebeau</li>
+          <li>Urban Decay Global Artist, Steve Kassajikian</li>
+          <li>Mac Global Senior Artist, Nicole Thompson</li>
+          <li>Laura Mercier Global Beauty Director, Jason Hoffman</li>
+        </ul>
         <p>
           These workshops have given me tips and tricks which I now use and apply to my everyday artistry.
           In 2018 I won a Mecca x Smashbox artistry competition which took me to L.A to shoot online content for Mecca using the Smashbox cover shot palettes.
