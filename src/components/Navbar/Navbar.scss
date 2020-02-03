@@ -2,9 +2,11 @@
 @import '../../styles/fonts';
 
 .Navbar {
-  margin: 0 10%;
-  display: flex;
-  justify-content: space-between;
+  .shish-kebab {
+    margin: 0 10%;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .logo-crop {
     height: 180px;
@@ -63,10 +65,12 @@
   }
   
   @media only screen and (max-width: 600px) {
-    
-    .navbar-links {
-      display: none;
+    .shish-kebab {
+      .links {
+        display: none;
+      }
     }
+
     .hamburger-on .navbar-link{
       display: flex;
       justify-content: center;
@@ -76,10 +80,9 @@
       list-style-type: none;
     }
   
-    #button{ 
+    .burger{ 
       display: flex;
       justify-content: center;
-      
     }
   
     /*Animation on Hamburger*/

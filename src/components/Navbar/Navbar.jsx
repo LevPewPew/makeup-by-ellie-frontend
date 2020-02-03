@@ -66,56 +66,58 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-      <Link to="/">
-        <div className="logo-crop">
-          <img className="logo" src={logo} alt="logo" data-testid="nb-link-home" />
+      <div className="shish-kebab">
+        <Link to="/">
+          <div className="logo-crop">
+            <img className="logo" src={logo} alt="logo" data-testid="nb-link-home" />
+          </div>
+        </Link>
+        <div className="links">
+          <Link
+            className={servicesLinkClass}
+            to="/services"
+            onClick={setLinkToActive}
+            data-testid="nb-link-services"
+          >
+            SERVICES
+          </Link>
+          <Link
+            className={portfolioLinkClass}
+            to="/portfolio"
+            onClick={setLinkToActive}
+            data-testid="nb-link-portfolio"
+          >
+            PORTFOLIO
+          </Link>
+          <Link
+            className={faqLinkClass}
+            to="/faq"
+            onClick={setLinkToActive}
+            data-testid="nb-link-faq"
+          >
+            FAQ
+          </Link>
+          <Link
+            className={contactLinkClass}
+            to="/contact"
+            onClick={setLinkToActive}
+            data-testid="nb-link-contact"
+          >
+            CONTACT
+          </Link>
+          {
+            token ?
+            <>
+              <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
+              <Link to="/"><button onClick={logOut}>Logout</button></Link>
+            </> :
+            null
+          }
         </div>
-      </Link>
-      <div className="links">
-        <Link
-          className={servicesLinkClass}
-          to="/services"
-          onClick={setLinkToActive}
-          data-testid="nb-link-services"
-        >
-          SERVICES
-        </Link>
-        <Link
-          className={portfolioLinkClass}
-          to="/portfolio"
-          onClick={setLinkToActive}
-          data-testid="nb-link-portfolio"
-        >
-          PORTFOLIO
-        </Link>
-        <Link
-          className={faqLinkClass}
-          to="/faq"
-          onClick={setLinkToActive}
-          data-testid="nb-link-faq"
-        >
-          FAQ
-        </Link>
-        <Link
-          className={contactLinkClass}
-          to="/contact"
-          onClick={setLinkToActive}
-          data-testid="nb-link-contact"
-        >
-          CONTACT
-        </Link>
-        {
-          token ?
-          <>
-            <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
-            <Link to="/"><button onClick={logOut}>Logout</button></Link>
-          </> :
-          null
-        }
+        <BtnBookNow />
+        <BtnInstagram />
       </div>
-      <BtnBookNow />
-      <BtnInstagram />
-      <div id="button">
+      <div className="burger">
         <label>
           <div className={`${hamburgerClass}-container`} onClick={animateHamburger}>
             <div className="bar1"></div>
