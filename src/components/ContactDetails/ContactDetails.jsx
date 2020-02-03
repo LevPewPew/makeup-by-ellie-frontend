@@ -24,6 +24,7 @@ function ContactById(props) {
       <h3>Time to be ready by:</h3>{contact.timeToFinish}
       <h3>Number of people for makeup:</h3>{contact.totalPeopleJustMakeup}
       <h3>Number of people for hair:</h3>{contact.totalPeopleWithHair}
+      <h3>Address:</h3>{contact.applicationAddress || "Ellie's Home address"}
       <h3>How did you hear about us:</h3>{contact.howDidYouHear}
       <h3>Comments:</h3>{contact.addedQuestionsOrInfo}
     </div>

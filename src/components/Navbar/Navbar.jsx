@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logoplaceholder from '../../media/mbe-transparent-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
@@ -12,10 +13,12 @@ function Navbar() {
   const [ faqLinkClass, setFaqLinkClass ] = useState(null);
   const [ contactLinkClass, setContactLinkClass ] = useState(null);
 
-  const token = localStorage.getItem('token');
+  const token = useSelector((state)=> state.tokenReducer.token);
+  const dispatch = useDispatch();
 
   const logOut = () => {
     localStorage.clear();
+    dispatch({type:"UPDATE_TOKEN_DATA",newToken:""})
   }
 
   const setLinkToActive = (link) => {
@@ -46,7 +49,7 @@ function Navbar() {
           token ?
           <>
             <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
-            <button onClick={logOut}>Logout</button>
+            <Link to="/"><button onClick={logOut}>Logout</button></Link>
           </> :
           null
         }
