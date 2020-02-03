@@ -27,7 +27,7 @@ function ContactPage() {
       <div className='contactContainer'>
         <div className="grid">
           <div className="formContainer">
-            <ContactForm onSubmit={submit}/>
+            <ContactForm onSubmit={submit} />
           </div>
           <div className="infoContainer">
           <img src={homepageImage} alt="hero" style={{width: "100%"}}/>

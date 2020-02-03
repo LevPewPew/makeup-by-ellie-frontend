@@ -58,6 +58,9 @@
   }
 }
 
+input[type="text"]:disabled {
+  background:grey;
+}
 
 .contactFormSubmit {
   margin-left: 5px;
