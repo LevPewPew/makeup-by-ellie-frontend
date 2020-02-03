@@ -25,7 +25,9 @@ function Navbar() {
   return (
     <nav className="Navbar">
       <Link to="/">
-        <img className="logo" src={logoplaceholder} alt="logo" height="100" width="100" data-testid="nb-link-home" />
+        <div className="logo-crop">
+          <img className="logo" src={logoplaceholder} alt="logo" height="225" width="225" data-testid="nb-link-home" />
+        </div>
       </Link>
       <div className="links">
         <Link to="/services" data-testid="nb-link-services">SERVICES</Link>

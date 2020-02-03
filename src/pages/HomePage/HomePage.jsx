@@ -1,18 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import homepageImage from '../../media/homepage-image.jpg';
+import heroImage from '../../media/homepage-hero.jpeg';
 import './HomePage.scss';
 
 function HomePage() {
   return (
     <div className="HomePage" data-testid="HomePage">
-      <div className="heroContainer">
-        <div className="homepage-image">
-          <img src={homepageImage} alt="hero"/>
-        </div>
-      </div>
-      <div className="about">
-        <h2>ABOUT</h2>
+      <img className="hero-banner" src={heroImage} alt="hero banner"/>
+      <section className="about">
+        <h1>ABOUT</h1>
         <p>
           I first started makeup in 2011 after completing a hairdressing course I was naturally drawn to makeup as the pair work hand in hand.
           Once I started my diploma of specialist makeup services I knew that makeup was my true calling.
@@ -42,7 +38,7 @@ function HomePage() {
           I believe that over time I have developed a signature style being a flawless radiant base.
           Enhancing your natural beauty is always my goal.
         </p>
-      </div>
+      </section>
       {/* Just to check the contact component */}
       <Link to='/contact'>Submit your inquiry</Link><br/>
       <Link to='/getcontactlist'>For Admin - To see list of contacts</Link>
