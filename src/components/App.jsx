@@ -16,6 +16,7 @@ import TermsConditions from '../pages/terms-conditions/TermsConditions';
 import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 // TESTING, remove before deployment
 import ContactsContainer from './ContactsContainer/ContactsContainer';
+import ContactDetails from './ContactDetails/ContactDetails';
 // TESTING, remove before deployment
 import './App.scss';
 
@@ -91,9 +92,10 @@ function App() {
               <FaqPage />
             </Route>
             {/* TESTING, remove before deployment*/}
-            <Route path="/getcontactlist">
+            <Route exact path="/getcontactlist">
               <ContactsContainer />
             </Route>
+            <Route path="/getcontactlist/:id" component={ContactDetails}/>
             <Route path="/privacy-policy">
               <PrivacyPolicy />
             </Route>
