@@ -7,11 +7,10 @@
 
   .logo-crop {
     height: 180px;
-    object-fit: cover;
-    object-position: 30% 30px;
-    border: 5px solid black;
-
+    
     .logo {
+      object-fit: cover;
+      object-position: 0 -25px;
       object-fit: cover;
     }
   }
@@ -23,7 +22,7 @@
     
     a {
       margin: 10px;
-      font-size: 20px;
+      font-size: 16px;
       font-family: $classy;
     }
   }
