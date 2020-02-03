@@ -112,7 +112,6 @@ function App() {
             <Route path="/admin-login">
               <AdminLoginPage />
             </Route>
-            {/* TESTING, remove before deployment*/}
           </Switch>
           <Footer/>
         </BrowserRouter>

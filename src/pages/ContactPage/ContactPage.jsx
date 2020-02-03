@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import axios from 'axios';
-import homepageImage from '../../media/homepage-image.jpg';
+import homepageImage from '../../media/contact-page.jpeg';
 import { reset } from 'redux-form';
 import './ContactPage.scss';
 

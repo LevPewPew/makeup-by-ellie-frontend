@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {useSelector,useDispatch} from 'react-redux';
-import logoplaceholder from '../../media/logo-placeholder.png';
+import logoplaceholder from '../../media/mbe-transparent-logo.png';
+import BtnBookNow from '../BtnBookNow/BtnBookNow';
+import BtnInstagram from '../BtnInstagram/BtnInstagram';
 import './Navbar.scss';
 
 function Navbar() {
   const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-off');
+  const [ servicesLinkClass, setServicesLinkClass ] = useState(null);
+  const [ portfolioLinkClass, setPortfolioLinkClass ] = useState(null);
+  const [ faqLinkClass, setFaqLinkClass ] = useState(null);
+  const [ contactLinkClass, setContactLinkClass ] = useState(null);
 
   const token = useSelector((state)=> state.tokenReducer.token);
   const dispatch = useDispatch();
@@ -14,7 +20,10 @@ function Navbar() {
     localStorage.clear();
     dispatch({type:"UPDATE_TOKEN_DATA",newToken:""})
   }
-  
+
+  const setLinkToActive = (link) => {
+    // setActiveLinkClass("")
+  }
 
   const animateHamburger = () => {
     if (hamburgerClass === 'hamburger-off') {
@@ -26,35 +35,27 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-      <div className="navbar-logo">
-        <Link to="/">
-          <img src={logoplaceholder} alt="logo" height="100" width="100" data-testid="nb-link-home" />
-        </Link>
-      </div>
-      <div className="navbar-links">
-        <div className="navbar-link">
-          <Link to="/services" data-testid="nb-link-services">SERVICES</Link>
+      <Link to="/">
+        <div className="logo-crop">
+          <img className="logo" src={logoplaceholder} alt="logo" data-testid="nb-link-home" />
         </div>
-        <div className="navbar-link">
-          <Link to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
-        </div>
-        <div className="navbar-link">
-          <Link to="/faq" data-testid="nb-link-faq">FAQ</Link>
-        </div>
-        <div className="navbar-link">
-          <Link to="/contact" data-testid="nb-link-contact">CONTACT</Link>
-        </div>
-        {/* temp dev zone */}
+      </Link>
+      <div className="links">
+        <Link className={servicesLinkClass} to="/services" data-testid="nb-link-services">SERVICES</Link>
+        <Link className={portfolioLinkClass} to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
+        <Link className={faqLinkClass} to="/faq" data-testid="nb-link-faq">FAQ</Link>
+        <Link className={contactLinkClass} to="/contact" data-testid="nb-link-contact">CONTACT</Link>
         {
           token ?
-          <div className="navbar-link">
+          <>
             <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
-            <Link to="/"><button onClick={logOut}>Logout</button></Link>           
-          </div> :
+            <Link to="/"><button onClick={logOut}>Logout</button></Link>
+          </> :
           null
         }
-        {/* temp dev zone */}
       </div>
+      <BtnBookNow />
+      <BtnInstagram />
       <div id="button">
         <label>
           <div className={`${hamburgerClass}-container`} onClick={animateHamburger}>

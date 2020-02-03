@@ -11,7 +11,7 @@ function BtnSubmit(props) {
         <SubmittingAnimation
           type={"cubes"}
         /> :
-        <button type="submit" disabled={pristine}>{text || 'Submit'}</button>
+        <button className="btn" type="submit" disabled={pristine}>{text || 'Submit'}</button>
       }
     </div>
   );
