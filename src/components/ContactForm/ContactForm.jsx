@@ -47,10 +47,6 @@ function validate(values) {
     errors.timeToFinish='This is a Required Field';
   }
 
-  if(!values.applicationAddress) {
-    errors.applicationAddress='This is a Required Field';
-  }
-
   if(!values.howDidYouHear) {
     errors.howDidYouHear='This is a Required Field';
   }
@@ -61,7 +57,17 @@ function validate(values) {
 
 class ContactForm extends React.Component {
    
-  renderField = ({autoFocus,placeholder,input,type,label,meta:{touched,error}}) => {
+  renderField = ({autoFocus,placeholder,input,type,label,number1,number2,meta:{touched,error}}) => {
+    if (input.name === "applicationAddress") {
+        return(
+          <div>
+            <label>{label} *</label>
+            <input {...input} type={type} className='myInput' placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
+            {touched && 
+            ((error && <div style={{color:"red"}}>{error}</div>))}
+          </div>
+      )
+    }
     return(
         <div>
           <label>{label} *</label>
@@ -118,18 +124,22 @@ class ContactForm extends React.Component {
           label=" What type of service would you like to book?"
           tabIndex="5"
         />
-         <Field type="number" component={this.renderField} label="Note: all bookings under 4 people will be held at my private studio in Melbourne. Please specify below, how many people require makeup service and hair and makeup below:" name="totalPeopleJustMakeup" tabIndex="6" placeholder="MAKEUP ONLY" /> 
+         <Field type="number" component={this.renderField} label="Note: all bookings under 3 people will be held at my private studio in Melbourne. Please specify below, how many people require makeup service and hair and makeup below:" name="totalPeopleJustMakeup" tabIndex="6" placeholder="MAKEUP ONLY" /> 
          <Field type="number" component={this.renderField} label="How many people will require Hair and Makeup?" name="totalPeopleWithHair" tabIndex="7" placeholder="HAIR AND MAKEUP"/>
          <Field type="text" component={this.renderField} label="What time do you need to be ready by?" name="timeToFinish" tabIndex="8"/>
-         {(parseInt(this.props.number1)+parseInt(this.props.number2))>2
-         && <Field type="text" component={this.renderField} label="As your booking is for more than 3 people, please enter the location address below, so that I can come to you:" name="applicationAddress" tabIndex="9" />}
+         
+         <Field type="text" component={this.renderField} label="If you have booked for 3 or more people, please enter your address below so that I can come to you:" name="applicationAddress" placeholder="PLEASE ENTER YOUR LOCATION ADDRESS" tabIndex="9" number1={this.props.number1} number2={this.props.number2} />
+
+
+
+
          <Field type="text" component={this.renderField} label="How did you hear about me?" name="howDidYouHear" tabIndex="10" />
          <div id="textBox">
-         <Field type="text" component={this.renderTextArea} label="Any additional information or questions?" name="addedQuestionsOrInfo" tabIndex="11" />
+          <Field type="text" component={this.renderTextArea} label="Any additional information or questions?" name="addedQuestionsOrInfo" tabIndex="11" />
          </div>
         <div style={{marginRight:20}}>
-        <button type="submit" className="contactFormSubmit btn">Send Enquiry</button>
-        <button disabled={this.props.pristine||this.props.submitting} onClick={this.props.reset} className="contactFormReset">Reset Form</button> 
+          <button type="submit" className="contactFormSubmit btn">Send Enquiry</button>
+          <button disabled={this.props.pristine||this.props.submitting} onClick={this.props.reset} className="contactFormReset">Reset Form</button> 
         </div>
       </form>
   );
@@ -138,7 +148,8 @@ class ContactForm extends React.Component {
 }
 
 ContactForm = reduxForm({
-   form: 'ContactForm',validate
+   form: 'ContactForm',
+   validate
  })(ContactForm)
  
  
