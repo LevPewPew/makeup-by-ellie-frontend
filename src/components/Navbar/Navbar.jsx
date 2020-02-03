@@ -7,13 +7,20 @@ import './Navbar.scss';
 
 function Navbar() {
   const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-off');
+  const [ servicesLinkClass, setServicesLinkClass ] = useState(null);
+  const [ portfolioLinkClass, setPortfolioLinkClass ] = useState(null);
+  const [ faqLinkClass, setFaqLinkClass ] = useState(null);
+  const [ contactLinkClass, setContactLinkClass ] = useState(null);
 
   const token = localStorage.getItem('token');
 
   const logOut = () => {
     localStorage.clear();
   }
-  
+
+  const setLinkToActive = (link) => {
+    // setActiveLinkClass("")
+  }
 
   const animateHamburger = () => {
     if (hamburgerClass === 'hamburger-off') {
@@ -31,10 +38,10 @@ function Navbar() {
         </div>
       </Link>
       <div className="links">
-        <Link to="/services" data-testid="nb-link-services">SERVICES</Link>
-        <Link to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
-        <Link to="/faq" data-testid="nb-link-faq">FAQ</Link>
-        <Link to="/contact" data-testid="nb-link-contact">CONTACT</Link>
+        <Link className={servicesLinkClass} to="/services" data-testid="nb-link-services">SERVICES</Link>
+        <Link className={portfolioLinkClass} to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
+        <Link className={faqLinkClass} to="/faq" data-testid="nb-link-faq">FAQ</Link>
+        <Link className={contactLinkClass} to="/contact" data-testid="nb-link-contact">CONTACT</Link>
         {
           token ?
           <>
