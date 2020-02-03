@@ -4,6 +4,7 @@ import servicesReducer from './servicesReducer';
 import questionsReducer from './questionsReducer';
 import contactsReducer from './contactsReducer';
 import adminDashReducer from './adminDashReducer';
+import tokenReducer from './tokenReducer';
 import { reducer as formReducer } from 'redux-form';
 
 export default combineReducers({
@@ -12,6 +13,7 @@ export default combineReducers({
   questionsReducer,
   contactsReducer,
   adminDashReducer,
+  tokenReducer,
   // redux forms needs the reducer to have the name "form", in order to work, do not change this
   form: formReducer
 });
