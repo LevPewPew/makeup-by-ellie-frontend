@@ -16,16 +16,16 @@ function FormContainer() {
   const createForm = useSelector((state) => state.adminDashReducer.createForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
 
-  function handlePortfolioSubmit() {
-    portfolioSubmitHandler(workForm.values, editingForm);
+  async function handlePortfolioSubmit() {
+    return portfolioSubmitHandler(workForm.values, editingForm);
   }
 
-  function handleServicesSubmit() {
-    servicesSubmitHandler(serviceForm.values, editingForm);
+  async function handleServicesSubmit() {
+    return servicesSubmitHandler(serviceForm.values, editingForm);
   }
 
-  function handleQuestionsSubmit() {
-    questionsSubmitHandler(questionForm.values, editingForm);
+  async function handleQuestionsSubmit() {
+    return questionsSubmitHandler(questionForm.values, editingForm);
   }
 
   return (
@@ -39,9 +39,6 @@ function FormContainer() {
         />
         <BtnCreateDoc
           collection={'questions'}
-        />
-        <BtnCreateDoc
-          collection={'testimonials'}
         />
       </div>
       {
@@ -57,13 +54,10 @@ function FormContainer() {
         <QuestionForm
           onSubmit={handleQuestionsSubmit}
         /> :
-        createForm === 'testimonials' ?
-        <div>TESTIMONIALS PLACEHOLDER</div> :
         null
       }
     </div>
-  )
+  );
 }
 
 export default FormContainer;
-

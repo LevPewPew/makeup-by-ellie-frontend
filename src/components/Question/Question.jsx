@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import QuestionForm from '../components/QuestionForm/QuestionForm';
-import CrudBtnsContainer from '../components/CrudBtnsContainer/CrudBtnsContainer';
-import { questionsSubmitHandler } from '../utils/forms/submitHandlers';
-import './Question.css';
+import QuestionForm from '../QuestionForm/QuestionForm';
+import CrudBtnsContainer from '../CrudBtnsContainer/CrudBtnsContainer';
+import { questionsSubmitHandler } from '../../utils/forms/submitHandlers';
+import './Question.scss';
 
 function Question(props) {
   const { id, question, answer } = props;
@@ -15,7 +15,7 @@ function Question(props) {
   const existingData = {
     question,
     answer
-  }
+  };
 
   function handleSubmit() {
     questionsSubmitHandler(questionForm.values, editingForm);
@@ -39,7 +39,7 @@ function Question(props) {
         </>
       }
     </article>
-  )
+  );
 }
 
-export default Question
+export default Question;
