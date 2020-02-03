@@ -1,28 +1,59 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import logoplaceholder from '../../media/mbe-transparent-logo.png';
+import logo from '../../media/mbe-transparent-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
 import BtnInstagram from '../BtnInstagram/BtnInstagram';
 import './Navbar.scss';
 
 function Navbar() {
   const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-off');
-  const [ servicesLinkClass, setServicesLinkClass ] = useState(null);
-  const [ portfolioLinkClass, setPortfolioLinkClass ] = useState(null);
-  const [ faqLinkClass, setFaqLinkClass ] = useState(null);
-  const [ contactLinkClass, setContactLinkClass ] = useState(null);
+  const [ servicesLinkClass, setServicesLinkClass ] = useState('inactive');
+  const [ portfolioLinkClass, setPortfolioLinkClass ] = useState('inactive');
+  const [ faqLinkClass, setFaqLinkClass ] = useState('inactive');
+  const [ contactLinkClass, setContactLinkClass ] = useState('inactive');
 
   const token = useSelector((state)=> state.tokenReducer.token);
   const dispatch = useDispatch();
 
   const logOut = () => {
     localStorage.clear();
-    dispatch({type:"UPDATE_TOKEN_DATA",newToken:""})
+    dispatch({ type:"UPDATE_TOKEN_DATA", newToken: "" })
   }
 
-  const setLinkToActive = (link) => {
-    // setActiveLinkClass("")
+  const setLinkToActive = (event) => {
+    event.persist();
+    switch (event.target.pathname) {
+      case '/services':
+        setServicesLinkClass('active');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('inactive');
+        break;
+      case '/portfolio':
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('active');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('inactive');
+        break;
+      case '/faq':
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('active');
+        setContactLinkClass('inactive');
+        break;
+      case '/contact':
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('active');
+        break;
+      default:
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('inactive');
+    }
   }
 
   const animateHamburger = () => {
@@ -37,14 +68,42 @@ function Navbar() {
     <nav className="Navbar">
       <Link to="/">
         <div className="logo-crop">
-          <img className="logo" src={logoplaceholder} alt="logo" data-testid="nb-link-home" />
+          <img className="logo" src={logo} alt="logo" data-testid="nb-link-home" />
         </div>
       </Link>
       <div className="links">
-        <Link className={servicesLinkClass} to="/services" data-testid="nb-link-services">SERVICES</Link>
-        <Link className={portfolioLinkClass} to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
-        <Link className={faqLinkClass} to="/faq" data-testid="nb-link-faq">FAQ</Link>
-        <Link className={contactLinkClass} to="/contact" data-testid="nb-link-contact">CONTACT</Link>
+        <Link
+          className={servicesLinkClass}
+          to="/services"
+          onClick={setLinkToActive}
+          data-testid="nb-link-services"
+        >
+          SERVICES
+        </Link>
+        <Link
+          className={portfolioLinkClass}
+          to="/portfolio"
+          onClick={setLinkToActive}
+          data-testid="nb-link-portfolio"
+        >
+          PORTFOLIO
+        </Link>
+        <Link
+          className={faqLinkClass}
+          to="/faq"
+          onClick={setLinkToActive}
+          data-testid="nb-link-faq"
+        >
+          FAQ
+        </Link>
+        <Link
+          className={contactLinkClass}
+          to="/contact"
+          onClick={setLinkToActive}
+          data-testid="nb-link-contact"
+        >
+          CONTACT
+        </Link>
         {
           token ?
           <>

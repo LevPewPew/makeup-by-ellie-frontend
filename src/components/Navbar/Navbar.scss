@@ -32,6 +32,10 @@
     a:hover {
       border-bottom: 1px solid $tepidAngst;
     }
+
+    a.active {
+      border-bottom: 1px solid $faceBusiness;
+    }
   }
 
   .BtnInstagram {
