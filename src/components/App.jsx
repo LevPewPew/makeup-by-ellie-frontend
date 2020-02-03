@@ -67,11 +67,11 @@ function App() {
     getData();
   }, [dispatch]);
 
-  if (loading) {
-    return (
-      <LoadingAnimation />
-    );
-  } else {
+  // if (loading) {
+  //   return (
+  //     <LoadingAnimation />
+  //   );
+  // } else {
     return (
       <div className="App">
         <BrowserRouter>
@@ -116,7 +116,7 @@ function App() {
         </BrowserRouter>
       </div>
     );
-  }
+  // }
 }
 
 export default App;
