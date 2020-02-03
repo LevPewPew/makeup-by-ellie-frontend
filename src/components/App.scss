@@ -14,6 +14,7 @@
 }
 
 h1 {
+  margin: 20px;
   font-size: 48px;
   font-family: $boujee;
   font-weight: lighter;
@@ -25,8 +26,13 @@ h2 {
   font-weight: lighter;
 }
 
+p {
+  margin: 10px 0;
+  font-family: $classy;
+}
+
 .BtnInstagram {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
 }
