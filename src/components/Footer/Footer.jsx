@@ -21,11 +21,6 @@ function Footer() {
       <div className="footer-links">
         <Link to="/terms-and-conditions" id="page-link">TERMS AND CONDITIONS  |  </Link>
         <Link to="/privacy-policy" id="page-link">PRIVACY POLICY  |  </Link>
-        {
-          localStorage.getItem('token') ?
-          null :
-          <Link to="/admin-login" id="page-link">ADMIN LOGIN  |  </Link>
-        }
         Made with <Heart className='heart-logo'/> &copy; MAKEUP BY ELLIE 2019
       </div>
     </footer>

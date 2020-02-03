@@ -43,9 +43,6 @@ function HomePage() {
           Enhancing your natural beauty is always my goal.
         </p>
       </div>
-      {/* Just to check the contact component */}
-      <Link to='/contact'>Submit your inquiry</Link><br/>
-      <Link to='/getcontactlist'>For Admin - To see list of contacts</Link>
     </div>
   );
 }
