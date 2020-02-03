@@ -4,15 +4,35 @@
 
 // categories
 @import '../styles/buttons';
+@import '../styles/links';
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background: $churchCrab;
+  color: $faceBusiness;
 }
 
 h1 {
+  margin: 40px;
   font-size: 48px;
   font-family: $boujee;
   font-weight: lighter;
+  letter-spacing: 0.2em;
+}
+
+h2 {
+  font-size: 36px;
+  font-family: $boujee;
+  font-weight: lighter;
+}
+
+p {
+  margin: 10px 0;
+  font-family: $classy;
+}
+
+ul {
+  padding-left: 40px;
 }

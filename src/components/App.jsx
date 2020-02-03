@@ -91,11 +91,10 @@ function App() {
             <Route path="/faq">
               <FaqPage />
             </Route>
-            {/* TESTING, remove before deployment*/}
             <Route exact path="/getcontactlist">
               <ContactsContainer />
             </Route>
-            <Route path="/getcontactlist/:id" component={ContactDetails}/>
+            <Route path="/getcontactlist/:id" component={ContactDetails} />
             <Route path="/privacy-policy">
               <PrivacyPolicy />
             </Route>
@@ -108,7 +107,6 @@ function App() {
             <Route path="/admin-login">
               <AdminLoginPage />
             </Route>
-            {/* TESTING, remove before deployment*/}
           </Switch>
           <Footer/>
         </BrowserRouter>

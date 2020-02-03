@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Suranna&display=swap');
 
-$boujee: 'Suranna', serif;
-$classy: 'Montserrat', sans-serif;
+@font-face {
+  font-family: "Voga";
+  src: url("./fonts/Voga-Medium.woff2") format("woff2"),
+    url("./fonts/Voga-Medium.woff") format("woff"),
+    url("./fonts/Voga-Medium.ttf") format("truetype"),
+    url("./fonts/Voga-Medium.otf") format("opentype")
+}
+
+$boujee: "Voga", "Suranna", serif;
+$classy: "Montserrat", sans-serif;
