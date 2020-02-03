@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
+import BtnInstagram from './BtnInstagram/BtnInstagram';
 import AdminPage from '../pages/AdminPage/AdminPage';
 import HomePage from '../pages/HomePage/HomePage';
 import ContactPage from '../pages/ContactPage/ContactPage';
@@ -75,6 +76,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Navbar/>
+          <BtnInstagram />
           <Switch>
             <Route exact path="/">
               <HomePage />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoplaceholder from '../../media/logo-placeholder.png';
+import logoplaceholder from '../../media/mbe-transparent-logo.png';
+import BtnBookNow from '../BtnBookNow/BtnBookNow';
 import './Navbar.scss';
 
 function Navbar() {
@@ -23,35 +24,26 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-      <div className="navbar-logo">
-        <Link to="/">
-          <img src={logoplaceholder} alt="logo" height="100" width="100" data-testid="nb-link-home" />
-        </Link>
-      </div>
-      <div className="navbar-links">
-        <div className="navbar-link">
-          <Link to="/services" data-testid="nb-link-services">SERVICES</Link>
-        </div>
-        <div className="navbar-link">
-          <Link to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
-        </div>
-        <div className="navbar-link">
-          <Link to="/faq" data-testid="nb-link-faq">FAQ</Link>
-        </div>
-        <div className="navbar-link">
-          <Link to="/contact" data-testid="nb-link-contact">CONTACT</Link>
-        </div>
+      <Link to="/">
+        <img className="logo" src={logoplaceholder} alt="logo" height="100" width="100" data-testid="nb-link-home" />
+      </Link>
+      <div className="links">
+        <Link to="/services" data-testid="nb-link-services">SERVICES</Link>
+        <Link to="/portfolio" data-testid="nb-link-portfolio">PORTFOLIO</Link>
+        <Link to="/faq" data-testid="nb-link-faq">FAQ</Link>
+        <Link to="/contact" data-testid="nb-link-contact">CONTACT</Link>
         {/* temp dev zone */}
         {
           token ?
-          <div className="navbar-link">
+          <>
             <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
             <button onClick={logOut}>Logout</button>
-          </div> :
+          </> :
           null
         }
         {/* temp dev zone */}
       </div>
+      <BtnBookNow />
       <div id="button">
         <label>
           <div className={`${hamburgerClass}-container`} onClick={animateHamburger}>

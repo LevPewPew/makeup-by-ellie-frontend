@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import logoplaceholder from '../../media/logo-placeholder.png';
+import logoplaceholder from '../../media/mbe-transparent-logo.png';
 import './Footer.scss';
-
-function Heart() {
-  const heartElement = <FontAwesomeIcon icon={faHeart} />
-  return (heartElement);
-}
 
 function Footer() {
   return (
@@ -19,14 +12,14 @@ function Footer() {
         </Link>
       </div>
       <div className="footer-links">
-        <Link to="/terms-and-conditions" id="page-link">TERMS AND CONDITIONS  |  </Link>
-        <Link to="/privacy-policy" id="page-link">PRIVACY POLICY  |  </Link>
+        <Link to="/terms-and-conditions" className="page-link">TERMS AND CONDITIONS  |  </Link>
+        <Link to="/privacy-policy" className="page-link">PRIVACY POLICY  |  </Link>
         {
           localStorage.getItem('token') ?
           null :
-          <Link to="/admin-login" id="page-link">ADMIN LOGIN  |  </Link>
+          <Link to="/admin-login" className="page-link">ADMIN LOGIN  |  </Link>
         }
-        Made with <Heart className='heart-logo'/> &copy; MAKEUP BY ELLIE 2019
+        &copy; MAKEUP BY ELLIE 2019
       </div>
     </footer>
   );
