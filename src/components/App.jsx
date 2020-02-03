@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import AdminPage from '../pages/AdminPage/AdminPage';
 import HomePage from '../pages/HomePage/HomePage';
@@ -25,6 +25,14 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL;
 function App() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+
+  const token = useSelector((state)=>state.tokenReducer.token)
+
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={(props) => (
+      token ? <Component {...props} /> : <Redirect to='/admin-login' />
+    )} />
+  )
 
   useEffect(() => {
     async function getData() {
@@ -92,9 +100,7 @@ function App() {
               <FaqPage />
             </Route>
             {/* TESTING, remove before deployment*/}
-            <Route exact path="/getcontactlist">
-              <ContactsContainer />
-            </Route>
+            <PrivateRoute exact path="/getcontactlist" component={ContactsContainer}/>
             <Route path="/getcontactlist/:id" component={ContactDetails}/>
             <Route path="/privacy-policy">
               <PrivacyPolicy />
@@ -102,9 +108,7 @@ function App() {
             <Route path="/terms-and-conditions">
               <TermsConditions />
             </Route>
-            <Route path="/admin">
-              <AdminPage />
-            </Route>
+            <PrivateRoute path="/admin" component={AdminPage}/>          
             <Route path="/admin-login">
               <AdminLoginPage />
             </Route>
