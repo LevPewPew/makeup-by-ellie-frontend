@@ -16,7 +16,7 @@ import TermsConditions from '../pages/terms-conditions/TermsConditions';
 import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 // TESTING, remove before deployment
 import ContactsContainer from './ContactsContainer/ContactsContainer';
-import ContactDetails from './Contact/ContactDetails';
+import ContactDetails from './ContactDetails/ContactDetails';
 // TESTING, remove before deployment
 import './App.scss';
 
