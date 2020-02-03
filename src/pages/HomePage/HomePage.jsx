@@ -5,9 +5,11 @@ import './HomePage.scss';
 function HomePage() {
   return (
     <div className="HomePage" data-testid="HomePage">
-      <img className="hero-banner" src={heroImage} alt="hero banner"/>
+      <div className="hero-banner-crop">
+        <img className="hero-banner" src={heroImage} alt="hero banner"/>
+      </div>
       <section className="about">
-        <h1>ABOUT</h1>
+        <h1>PROFILE</h1>
         <p>
           I first started makeup in 2011 after completing a hairdressing course I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted to techniques to me.
         </p>
@@ -16,17 +18,20 @@ function HomePage() {
         </p>
         <p>
           In 2016 I began my career with Mecca brands working at Mecca has given me the experience to work with many different skin types from fair to darker complexions, young skin to mature skin. I have learned to understand different skin concerns and conditions, and what products work best for different people. Through Mecca I have also had the opportunity to further my education by attending workshops with many international makeup artist such as:
-          <br />
-          <br />- Rae Morris
-          <br />- Mia Conner
-          <br />- Lena Koro, Jane Richardson from Nars
-          <br />- Lancômes, Lara Srokowski
-          <br />- Too faced Pro Artist Elyse Rebeau
-          <br />- Urban Decay Global artist Steve Kassajikian
-          <br />- Global Mac senior artist Nicole Thompson
-          <br />- Global beauty director Laura Mercier Jason Hoffman
-          <br />
-          <br />
+        </p>
+        <p>
+          <ul>
+            <li>Rae Morris</li>
+            <li>Mia Connor</li>
+            <li>Nars Artists, Lena Koro and Jane Richardson</li>
+            <li>Lancômes, Lara Srokowski</li>
+            <li>Too Faced Artist, Elyse Rebeau</li>
+            <li>Urban Decay Global Artist, Steve Kassajikian</li>
+            <li>Mac Global Senior Artist, Nicole Thompson</li>
+            <li>Laura Mercier Global Beauty Director, Jason Hoffman</li>
+          </ul>
+        </p>
+        <p>
           These workshops have given me tips and tricks which I now use and apply to my everyday artistry.
           In 2018 I won a Mecca x Smashbox artistry competition which took me to L.A to shoot online content for Mecca using the Smashbox cover shot palettes.
         </p>
