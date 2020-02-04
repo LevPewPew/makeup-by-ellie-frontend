@@ -18,9 +18,9 @@ function FilterButtons() {
 
   return (
     <section>
-      <button onClick={filterBeauty}>Beauty</button>
-      <button onClick={filterEditorial}>Editorial</button>
-      <button onClick={filterBridal}>Bridal</button>
+      <button className="btn" onClick={filterBeauty}>Beauty</button>
+      <button className="btn" onClick={filterEditorial}>Editorial</button>
+      <button className="btn" onClick={filterBridal}>Bridal</button>
     </section>
   );
 }
