@@ -43,6 +43,7 @@
 
   .DropdownListField {
     .rw-widget-input {
+      margin-top: 5px;
       box-shadow: none;
     }
     
@@ -56,7 +57,13 @@
       border-bottom: 1px solid $tepidAngst;
 
       .rw-input {
+        padding: none;
+        padding-left: 1%;
+        margin: none;
+        margin: 10px 0;
         background: $churchCrab;
+        font-size: 16px;
+        color: $faceBusiness;
       }
     }
 
@@ -70,4 +77,12 @@
       }
     }
   }
+}
+
+.text-area-field {
+  
+}
+
+input[type="text"]:disabled {
+  background:grey;
 }

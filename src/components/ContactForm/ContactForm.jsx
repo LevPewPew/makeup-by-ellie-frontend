@@ -181,12 +181,12 @@ function ContactForm(props) {
         tabIndex="5"
       />
       <p>
-        Note: All bookings for less than 3 people total will be held at my private studio in Altona Meadows. Please specify below, how many people require makeup service and hair and makeup below:
+        Note: All bookings for less than 3 people in total can only be held at my private studio in Altona Meadows. When a booking is made for 3 or more people total I will travel to your specified address.
       </p>
       <Field
         type="number"
         component={renderField}
-        label="How many people require only their Makeup done?"
+        label="How many people require only their Makeup done (up to 10)?"
         name="totalPeopleJustMakeup"
         tabIndex="6"
         placeholder="ONLY Makeup"
@@ -195,7 +195,7 @@ function ContactForm(props) {
       <Field
         type="number"
         component={renderField}
-        label="How many people require both Hair and Makeup?"
+        label="How many people require both Hair and Makeup (up to 10)?"
         name="totalPeopleWithHair"
         tabIndex="7"
         placeholder="Hair AND Makeup"
