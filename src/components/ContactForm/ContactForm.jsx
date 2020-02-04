@@ -58,77 +58,87 @@ function validate(values) {
   return errors;
 }
 
+const peopleNumLimit = (value) => {
+  if (value < 0) {
+    return 0
+  } else if (value > 10) {
+    return 10
+  } else {
+    return value
+  }
+}
+
+const renderField = ({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) => {
+  if (input.name === 'applicationAddress') {
+    return (
+      <div className="text-field">
+        <FieldLabel
+          touched={touched}
+          label={label}
+          error={error}
+        />
+        <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
+        {touched && 
+        ((error && <div style={{ color: "red" }}>{error}</div>))}
+      </div>
+    )
+  } else {
+    return (
+      <div className="text-field">
+        <FieldLabel
+          touched={touched}
+          label={label}
+          error={error}
+        />
+        <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
+      </div>
+    )
+  }
+}
+
+const renderDropdownListField = ({ placeholder, input, label, meta: { touched, error } }) => {
+  return (
+    <div className="dropdown-list-field">
+      <FieldLabel
+        touched={touched}
+        label={label}
+        error={error}
+      />
+      <div style={{ display: "block", fontSize: "12px", color: "grey", height: "40px" }}>
+        <DropdownListField
+          placeholder={placeholder}
+          input={input}
+          data={categories}
+          valueField="value"
+          textField="category"
+        />
+        {touched && ((error && <span>{error}</span>))}
+      </div>
+    </div>
+  )
+}
+
+const renderTextArea = ({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) => {
+  return (
+    <div className="text-area-field">
+      <FieldLabel
+        touched={touched}
+        label={label}
+        error={error}
+      />
+      <textarea {...input} type={type} className="textBox" placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
+      {touched && 
+      ((error && <div style={{ color: "red" }}>{error}</div>))}
+    </div>
+  )
+}
+
 function ContactForm(props) {
   const { handleSubmit, pristine, submitting, reset } = props;
 
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
 
   const btnText = editingForm ? "Edit Contact Info" : "Send";
-
-  const renderField = ({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) => {
-    if (input.name === 'applicationAddress') {
-      return (
-        <div className="text-field">
-          <FieldLabel
-            touched={touched}
-            label={label}
-            error={error}
-          />
-          <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
-          {touched && 
-          ((error && <div style={{ color: "red" }}>{error}</div>))}
-        </div>
-      )
-    } else {
-      return (
-        <div className="text-field">
-          <FieldLabel
-            touched={touched}
-            label={label}
-            error={error}
-          />
-          <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
-        </div>
-      )
-    }
-  }
-
-  const renderDropdownListField = ({ placeholder, input, label, meta: { touched, error } }) => {
-    return (
-      <div className="dropdown-list-field">
-        <FieldLabel
-          touched={touched}
-          label={label}
-          error={error}
-        />
-        <div style={{ display: "block", fontSize: "12px", color: "grey", height: "40px" }}>
-          <DropdownListField
-            placeholder={placeholder}
-            input={input}
-            data={categories}
-            valueField="value"
-            textField="category"
-          />
-          {touched && ((error && <span>{error}</span>))}
-        </div>
-      </div>
-    )
-  }
-
-  const renderTextArea = ({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) => {
-    return (
-      <div className="text-area-field">
-        <FieldLabel
-          touched={touched}
-          label={label}
-          error={error}
-        />
-        <textarea {...input} type={type} className="textBox" placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
-        {touched && 
-        ((error && <div style={{ color: "red" }}>{error}</div>))}
-      </div>
-    )
-  }
 
   return (
     <form onSubmit={handleSubmit} className="ContactForm">
@@ -180,6 +190,7 @@ function ContactForm(props) {
         name="totalPeopleJustMakeup"
         tabIndex="6"
         placeholder="ONLY Makeup"
+        normalize={peopleNumLimit}
       /> 
       <Field
         type="number"
@@ -188,6 +199,7 @@ function ContactForm(props) {
         name="totalPeopleWithHair"
         tabIndex="7"
         placeholder="Hair AND Makeup"
+        normalize={peopleNumLimit}
       />
       <Field
         type="text"
