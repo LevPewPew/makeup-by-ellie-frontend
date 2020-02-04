@@ -10,7 +10,7 @@ function ServicesContainer() {
       {
         servicesData ?
         servicesData.map((service, index) => {
-          const { _id, title, description, imageUrl } = service;
+          const { _id, title, description, imageUrl, cost, duration, disclaimer } = service;
 
           return (
             <Service
@@ -19,6 +19,9 @@ function ServicesContainer() {
               title={title}
               description={description}
               imageUrl={imageUrl}
+              cost={cost}
+              duration={duration}
+              disclaimer={disclaimer}
             />
           )
         }) :

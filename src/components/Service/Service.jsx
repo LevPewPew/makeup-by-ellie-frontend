@@ -7,7 +7,7 @@ import { servicesSubmitHandler } from '../../utils/forms/submitHandlers';
 import './Service.scss';
 
 function Service(props) {
-  const { id, title, description, imageUrl } = props;
+  const { id, title, description, imageUrl, cost, duration, disclaimer } = props;
 
   const serviceForm = useSelector((state) => state.form.ServiceForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
@@ -16,7 +16,10 @@ function Service(props) {
   const existingData = {
     title,
     description,
-    imageUrl
+    imageUrl,
+    cost,
+    duration,
+    disclaimer
   };
 
   function handleSubmit() {
@@ -43,6 +46,9 @@ function Service(props) {
                 </div>
                 <div className="descriptionContainer">
                   <p>{description}</p>
+                  <p>{duration}</p>
+                  <p>{cost}</p>
+                  <p>{disclaimer}</p>
                   <br/>
                   <BtnBookNow/>
                   <CrudBtnsContainer
