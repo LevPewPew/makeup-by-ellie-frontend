@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Service from '../Service/Service';
-import './ServicesContainer.scss';
 
 function ServicesContainer() {
   const servicesData = useSelector((state) => state.servicesReducer.servicesData);
   
   return (
-    <section className="ServicesContainer">
+    <section className="servicesContainer">
       {
         servicesData ?
         servicesData.map((service, index) => {

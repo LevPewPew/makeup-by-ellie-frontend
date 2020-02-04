@@ -23,7 +23,7 @@ function Service(props) {
   }
 
   return (
-    <article className="Service" data-testid="Service">
+    <article data-testid="Service">
       {
         editingForm === id ?
         <ServiceForm
@@ -31,13 +31,24 @@ function Service(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-          <img style={{ width: "300px", height: "300px", borderRadius: "10px", border: "4px solid grey"}} src={imageUrl} alt="" />
-          <h1>{title}</h1>
-          <p>{description}</p>
-          <CrudBtnsContainer
-            collection={collection}
-            id={id}
-          />
+          <div className="singleServiceContainer">
+            <div className="break"></div>
+              <div className="titleContainer">
+                <h1>{title}</h1>
+              </div>
+              <div className="serviceGrid">
+                <div className="imageContainer">
+                  <img style={{ width: "300px"}} src={imageUrl} alt="" />
+                </div>
+                <div className="descriptionContainer">
+                  <p>{description}</p>
+                  <CrudBtnsContainer
+                    collection={collection}
+                    id={id}
+                  />
+                </div>
+              </div>
+          </div>
         </>
       }
     </article>
