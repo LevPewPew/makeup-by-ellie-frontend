@@ -2,7 +2,8 @@
 @import '../../styles/fonts';
 
 .Footer {
-  margin: 0 10%;
+  width: 80vw;
+  margin: 0 auto;
   border-top: 1px solid $faceBusiness;
   display: flex;
   flex-direction: column;
