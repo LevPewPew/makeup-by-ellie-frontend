@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 function FilterButtons() {
@@ -16,11 +16,55 @@ function FilterButtons() {
     dispatch({ type: 'FILTER_PORTFOLIO_DATA_BRIDAL' });
   }
 
+  const [ beautyLinkClass, setBeautyLinkClass ] = useState('inactive');
+  const [ editorialLinkClass, setEditorialLinkClass ] = useState('inactive');
+  const [ bridalLinkClass, setBridalLinkClass ] = useState('inactive');
+
+  const setFilterToActive = (event) => {
+    event.persist();
+    switch (event.target.pathname) {
+      case {filterBeauty}:
+        setBeautyLinkClass('active');
+        setEditorialLinkClass('inactive');
+        setBridalLinkClass('inactive');
+        break;
+      case filterEditorial():
+        setBeautyLinkClass('inactive');
+        setEditorialLinkClass('active');
+        setBridalLinkClass('inactive');
+        break;
+      case filterBridal():
+        setBeautyLinkClass('inactive');
+        setEditorialLinkClass('inactive');
+        setBridalLinkClass('active');
+        break;
+      default:
+        setBeautyLinkClass('active');
+        setEditorialLinkClass('inactive');
+        setBridalLinkClass('inactive');
+    }
+  }
+
   return (
     <section>
-      <button className="btn" onClick={filterBeauty}>Beauty</button>
-      <button className="btn" onClick={filterEditorial}>Editorial</button>
-      <button className="btn" onClick={filterBridal}>Bridal</button>
+      <button 
+      className={beautyLinkClass} 
+      onClick={ 
+        {setFilterToActive},
+        {filterBeauty}
+      }>Beauty</button>
+      <button 
+      className={editorialLinkClass} 
+      onClick={ 
+        {setFilterToActive},
+        {filterEditorial}
+      }>Editorial</button>
+      <button 
+      className={bridalLinkClass} 
+      onClick={ 
+        {setFilterToActive},
+        {filterBridal}
+      }>Bridal</button>
     </section>
   );
 }
