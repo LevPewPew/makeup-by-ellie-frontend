@@ -15,7 +15,9 @@ function PortfolioContainer() {
 
   return (
     <section className="PortfolioContainer">
+      <div className="buttonContainer">
       <FilterButtons />
+      </div>
       <Masonry
         className={'grid'}
         elementType={'div'}
