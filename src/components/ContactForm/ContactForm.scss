@@ -12,9 +12,21 @@
 .ContactForm {
   display: flex;
   flex-direction: column;
-
+  
   p {
     padding-left: 1%;
+  }
+  
+  // the weird justify and margin settings are because simply doing a justify-content: right refused to work. only change this if you can figure out the bug/issue
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+
+    .reset-btn {
+      margin-left: auto;
+      margin-right: 10px;
+      background: $tepidAngst;
+    }
   }
 }
 

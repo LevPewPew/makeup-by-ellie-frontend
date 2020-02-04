@@ -141,7 +141,7 @@ function ContactForm(props) {
   const btnText = editingForm ? "Edit Contact Info" : "Send";
 
   return (
-    <form onSubmit={handleSubmit} className="ContactForm">
+    <form className="ContactForm" onSubmit={handleSubmit}>
       <Field
         type="text"
         component={renderField}
@@ -211,10 +211,9 @@ function ContactForm(props) {
       <Field
         type="text"
         component={renderField}
-        //TODO redo this place holder etc
-        label="If you have booked for 3 or more people, please enter your address below so that I can come to you:"
+        label="Where are you getting ready?"
         name="applicationAddress"
-        placeholder="PLEASE ENTER YOUR LOCATION ADDRESS"
+        placeholder="Ellie's home studio in Altona Meadows"
         number1={props.number1}
         number2={props.number2}
         tabIndex="9"
@@ -226,23 +225,20 @@ function ContactForm(props) {
         name="howDidYouHear"
         tabIndex="10"
       />
-      <div id="textBox">
-        <Field
-          type="text"
-          component={renderTextArea}
-          label="Any additional information or questions?"
-          name="addedQuestionsOrInfo"
-          tabIndex="11"
-        />
-      </div>
-      <div style={{ marginRight: 20 }}>
-        {/* <button className="contactFormSubmit btn" type="submit">Send Enquiry</button> */}
+      <Field
+        type="text"
+        component={renderTextArea}
+        label="Any additional information or questions?"
+        name="addedQuestionsOrInfo"
+        tabIndex="11"
+      />
+      <div className="btn-container">
+        <button className="reset-btn btn" disabled={pristine || submitting} onClick={reset}>Clear</button> 
         <BtnSubmit
           pristine={pristine}
           submitting={submitting}
           text={btnText}
         />
-        <button className="reset-btn btn" disabled={pristine || submitting} onClick={reset}>Reset Form</button> 
       </div>
     </form>
   ) 
