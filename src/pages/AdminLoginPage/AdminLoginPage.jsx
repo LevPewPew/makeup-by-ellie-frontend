@@ -7,7 +7,7 @@ import axios from 'axios';
 function AdminLoginPage() {
   const [ redirect, setRedirect ] = useState(false);
 
-  const token = useSelector((state)=> state.tokenReducer.token);
+  useSelector((state)=> state.tokenReducer.token);
   const dispatch = useDispatch();
 
   const submit = async (values) => {
