@@ -16,41 +16,41 @@ function validate(values) {
    let errors = {};
 
   if (!values.name) {
-    errors.name = 'This is a Required Field';
+    errors.name = ' - Required';
   }
 
   if (!values.mobile) {
-    errors.mobile = 'This is a Required Field';
+    errors.mobile = ' - Required';
   } 
 
   if (!values.email) {
-    errors.email = 'This is a Required Field';
+    errors.email = ' - Required';
   } else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test( values.email ) ) {
     errors.email  =  'Invalid email address'
   }
 
   if (!values.eventDate) {
-    errors.eventDate = 'This is a Required Field';
+    errors.eventDate = ' - Required';
   } 
 
   if (!values.serviceType) {
-    errors.serviceType = 'This is a Required Field';
+    errors.serviceType = ' - Required';
   } 
   
   if (!values.totalPeopleJustMakeup) {
-    errors.totalPeopleJustMakeup = 'This is a Required Field';
+    errors.totalPeopleJustMakeup = ' - Required';
   }
 
   if (!values.totalPeopleWithHair) {
-    errors.totalPeopleWithHair = 'This is a Required Field';
+    errors.totalPeopleWithHair = ' - Required';
   }
 
   if (!values.timeToFinish) {
-    errors.timeToFinish = 'This is a Required Field';
+    errors.timeToFinish = ' - Required';
   }
 
   if (!values.howDidYouHear) {
-    errors.howDidYouHear = 'This is a Required Field';
+    errors.howDidYouHear = ' - Required';
   }
 
   return errors;
@@ -68,7 +68,7 @@ function ContactForm(props) {
       return (
         <div className="text-field">
           <label>{label}</label>
-          <input {...input} type={type} className="myInput" placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
+          <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
           {touched && 
           ((error && <div style={{ color: "red" }}>{error}</div>))}
         </div>
@@ -76,10 +76,10 @@ function ContactForm(props) {
     } else {
       return (
         <div className="text-field">
-          <label>{label}</label>
-          <input {...input} type={type} className="myInput" placeholder={placeholder} autoFocus={autoFocus}/>
-          {touched && 
-          ((error && <div style={{color:"red"}}>{error}</div>))}
+          <label>{label}{touched && 
+          ((error && <span style={{ color: "red" }}>{error}</span>))}</label>
+          <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
+
         </div>
       )
     }
@@ -89,7 +89,7 @@ function ContactForm(props) {
     return (
       <div className="dropdown-list-field">
         <label htmlFor="">{label}</label>
-        <div className="myInput" style={{display:"block", fontSize:"12px", color:"grey", height: "40px"}}>
+        <div style={{ display: "block", fontSize: "12px", color: "grey", height: "40px" }}>
           <DropdownListField
             placeholder={placeholder}
             input={input}
