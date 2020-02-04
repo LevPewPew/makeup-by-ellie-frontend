@@ -103,8 +103,11 @@ function App() {
             <Route path="/getcontactlist/:id" component={ContactDetails}/>
             <Route
               path="/instagram"
-              component={() => { 
-                window.location.href = 'https://www.instagram.com/makeup.by.ellie/'; 
+              component={() => {
+                let a = document.createElement('a');
+                a.target= '_blank';
+                a.href= 'https://www.instagram.com/makeup.by.ellie/';
+                a.click();
                 return null;
               }}
             />
