@@ -58,7 +58,7 @@ function validate(values) {
   return errors;
 }
 
-const peopleNumLimit = (value) => {
+function peopleNumLimit(value) {
   if (value < 0) {
     return 0
   } else if (value > 10) {
@@ -68,7 +68,7 @@ const peopleNumLimit = (value) => {
   }
 }
 
-const renderField = ({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) => {
+function renderField({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) {
   if (input.name === 'applicationAddress') {
     return (
       <div className="text-field">
@@ -96,7 +96,7 @@ const renderField = ({ autoFocus, placeholder, input, type, label, number1, numb
   }
 }
 
-const renderDropdownListField = ({ placeholder, input, label, meta: { touched, error } }) => {
+function renderDropdownListField ({ placeholder, input, label, meta: { touched, error } }) {
   return (
     <div className="dropdown-list-field">
       <FieldLabel
@@ -118,7 +118,7 @@ const renderDropdownListField = ({ placeholder, input, label, meta: { touched, e
   )
 }
 
-const renderTextArea = ({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) => {
+function renderTextArea({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) {
   return (
     <div className="text-area-field">
       <FieldLabel
