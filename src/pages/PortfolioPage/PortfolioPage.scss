@@ -1,10 +1,48 @@
+@mixin bp($point) {
+  @if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
 .page {
   padding: 20px;
 }
 
-.portfolioGrid  h1 {
+.PortfolioContainer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  width: 70%;
+  margin: auto;
+}
+
+.buttonContainer {
+  margin: 40px auto;
+  
+  .btn {
+    margin: 5px;
+
+    @include bp(tablet) {
+      width: 90%;
+    }
+  
+    @include bp(mobile) {
+      width: 90%;
+    }
+  }
+
+  .inactive {
+    background-color: grey;
+  }
+  
+  @include bp(tablet) {
+    width: 90%;
+  }
+
+  @include bp(mobile) {
+    width: 90%;  }
 }
