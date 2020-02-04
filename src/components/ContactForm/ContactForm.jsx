@@ -4,6 +4,7 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux'
 import DropdownListField from '../DropdownListField/DropdownListField';
 import BtnSubmit from '../../components/BtnSubmit/BtnSubmit';
+import _ from 'lodash';
 import './ContactForm.scss';
 
 const categories = [
@@ -16,41 +17,41 @@ function validate(values) {
    let errors = {};
 
   if (!values.name) {
-    errors.name = ' - Required';
+    errors.name = 'Name - Required';
   }
 
   if (!values.mobile) {
-    errors.mobile = ' - Required';
+    errors.mobile = 'Mobile: - Required';
   } 
 
   if (!values.email) {
-    errors.email = ' - Required';
+    errors.email = 'Email - Required:';
   } else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test( values.email ) ) {
-    errors.email  =  'Invalid email address'
+    errors.email  =  'Email - Invalid email address'
   }
 
   if (!values.eventDate) {
-    errors.eventDate = ' - Required';
+    errors.eventDate = 'What date do you need your makeup? - Required';
   } 
 
   if (!values.serviceType) {
-    errors.serviceType = ' - Required';
+    errors.serviceType = 'What type of service would you like to book? - Required';
   } 
   
   if (!values.totalPeopleJustMakeup) {
-    errors.totalPeopleJustMakeup = ' - Required';
+    errors.totalPeopleJustMakeup = 'How many people require only their Makeup done? - Required';
   }
 
   if (!values.totalPeopleWithHair) {
-    errors.totalPeopleWithHair = ' - Required';
+    errors.totalPeopleWithHair = 'How many people require both Hair and Makeup? - Required';
   }
 
   if (!values.timeToFinish) {
-    errors.timeToFinish = ' - Required';
+    errors.timeToFinish = 'What time do you need to be ready by? - Required';
   }
 
   if (!values.howDidYouHear) {
-    errors.howDidYouHear = ' - Required';
+    errors.howDidYouHear = 'What type of service would you like to book? - Required';
   }
 
   return errors;
@@ -76,8 +77,16 @@ function ContactForm(props) {
     } else {
       return (
         <div className="text-field">
-          <label>{label}{touched && 
-          ((error && <span style={{ color: "red" }}>{error}</span>))}</label>
+          <label>
+            {touched ? null : label}
+            {
+              touched &&
+              (error && <span style={{ color: "red" }}>{error}</span>)
+            }
+            {
+              touched && !error ? label : null
+            }
+          </label>
           <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
 
         </div>
@@ -119,7 +128,7 @@ function ContactForm(props) {
       <Field
         type="text"
         component={renderField}
-        label="Name*"
+        label="Name:"
         name="name"
         tabIndex="1"
         autoFocus
@@ -127,21 +136,21 @@ function ContactForm(props) {
       <Field
         type="text"
         component={renderField}
-        label="Mobile*"
+        label="Mobile:"
         name="mobile"
         tabIndex="2"
       />
       <Field
         type="text"
         component={renderField}
-        label="Email*"
+        label="Email:"
         name="email"
         tabIndex="3"
       />
       <Field
         type="date"
         component={renderField}
-        label="What date is your event?*"
+        label="What date do you need your makeup?"
         name="eventDate"
         tabIndex="4"
       /> 
@@ -151,26 +160,27 @@ function ContactForm(props) {
         data={categories}
         valueField="value"
         textField="category" 
-        label="What type of service would you like to book?*"
+        label="What type of service would you like to book?"
         tabIndex="5"
       />
+      <p>
+        Note: All bookings for less than 3 people total will be held at my private studio in Altona Meadows. Please specify below, how many people require makeup service and hair and makeup below:
+      </p>
       <Field
         type="number"
         component={renderField}
-        label={
-          "Note: all bookings under 3 people will be held at my private studio in Melbourne. Please specify below, how many people require makeup service and hair and makeup below:"
-        }
+        label="How many people require only their Makeup done?"
         name="totalPeopleJustMakeup"
         tabIndex="6"
-        placeholder="MAKEUP ONLY"
+        placeholder="ONLY Makeup"
       /> 
       <Field
         type="number"
         component={renderField}
-        label="How many people will require Hair and Makeup?"
+        label="How many people require both Hair and Makeup?"
         name="totalPeopleWithHair"
         tabIndex="7"
-        placeholder="HAIR AND MAKEUP"
+        placeholder="Hair AND Makeup"
       />
       <Field
         type="text"
@@ -182,6 +192,7 @@ function ContactForm(props) {
       <Field
         type="text"
         component={renderField}
+        //TODO redo this place holder etc
         label="If you have booked for 3 or more people, please enter your address below so that I can come to you:"
         name="applicationAddress"
         placeholder="PLEASE ENTER YOUR LOCATION ADDRESS"
