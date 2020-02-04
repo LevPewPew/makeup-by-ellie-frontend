@@ -55,9 +55,10 @@ function validate(values) {
 }
 
 
-class ContactForm extends React.Component {
-   
-  renderField = ({autoFocus,placeholder,input,type,label,number1,number2,meta:{touched,error}}) => {
+function ContactForm(props) 
+
+{
+  const renderField = ({autoFocus,placeholder,input,type,label,number1,number2,meta:{touched,error}}) => {
     if (input.name === "applicationAddress") {
         return(
           <div>
@@ -78,7 +79,8 @@ class ContactForm extends React.Component {
     )
   }
 
-  renderDropdownListField({placeholder,input, label, meta: {touched, error}}) {
+  const renderDropdownListField = ({placeholder,input, label, meta: {touched, error}}) => 
+  {
     return (
       <div className='dropdownLabel' >
         <label htmlFor="">{label} </label>
@@ -97,7 +99,7 @@ class ContactForm extends React.Component {
   }
 
 
-  renderTextArea = ({autoFocus,placeholder,input,type,label,meta:{touched,error}}) => {
+  const renderTextArea = ({autoFocus,placeholder,input,type,label,meta:{touched,error}}) => {
   return(
       <div>
         <label>{label} *</label>
@@ -108,43 +110,37 @@ class ContactForm extends React.Component {
   )
  }
 
-  render() {
     return (
-      <form onSubmit={this.props.handleSubmit} className="ContactForm">
-        <Field type="text" component={this.renderField} label="Name" name="name" tabIndex="1" autoFocus />
-        <Field type="text" component={this.renderField} label="Mobile" name="mobile" tabIndex="2"/>
-        <Field type="text" component={this.renderField} label="Email" name="email" tabIndex="3"/>
-        <Field type="date" component={this.renderField} label="What date is your event?" name="eventDate" tabIndex="4" /> 
+      <form onSubmit={props.handleSubmit} className="ContactForm">
+        <Field type="text" component={renderField} label="Name" name="name" tabIndex="1" autoFocus />
+        <Field type="text" component={renderField} label="Mobile" name="mobile" tabIndex="2"/>
+        <Field type="text" component={renderField} label="Email" name="email" tabIndex="3"/>
+        <Field type="date" component={renderField} label="What date is your event?" name="eventDate" tabIndex="4" /> 
         <Field
           name="serviceType"
-          component={this.renderDropdownListField}
+          component={renderDropdownListField}
           data={categories}
           valueField="value"
           textField="category" 
           label=" What type of service would you like to book?"
           tabIndex="5"
         />
-         <Field type="number" component={this.renderField} label="Note: all bookings under 3 people will be held at my private studio in Melbourne. Please specify below, how many people require makeup service and hair and makeup below:" name="totalPeopleJustMakeup" tabIndex="6" placeholder="MAKEUP ONLY" /> 
-         <Field type="number" component={this.renderField} label="How many people will require Hair and Makeup?" name="totalPeopleWithHair" tabIndex="7" placeholder="HAIR AND MAKEUP"/>
-         <Field type="text" component={this.renderField} label="What time do you need to be ready by?" name="timeToFinish" tabIndex="8"/>
+         <Field type="number" component={renderField} label="Note: all bookings under 3 people will be held at my private studio in Melbourne. Please specify below, how many people require makeup service and hair and makeup below:" name="totalPeopleJustMakeup" tabIndex="6" placeholder="MAKEUP ONLY" /> 
+         <Field type="number" component={renderField} label="How many people will require Hair and Makeup?" name="totalPeopleWithHair" tabIndex="7" placeholder="HAIR AND MAKEUP"/>
+         <Field type="text" component={renderField} label="What time do you need to be ready by?" name="timeToFinish" tabIndex="8"/>
          
-         <Field type="text" component={this.renderField} label="If you have booked for 3 or more people, please enter your address below so that I can come to you:" name="applicationAddress" placeholder="PLEASE ENTER YOUR LOCATION ADDRESS" tabIndex="9" number1={this.props.number1} number2={this.props.number2} />
+         <Field type="text" component={renderField} label="If you have booked for 3 or more people, please enter your address below so that I can come to you:" name="applicationAddress" placeholder="PLEASE ENTER YOUR LOCATION ADDRESS" tabIndex="9" number1={props.number1} number2={props.number2} />
 
-
-
-
-         <Field type="text" component={this.renderField} label="How did you hear about me?" name="howDidYouHear" tabIndex="10" />
+         <Field type="text" component={renderField} label="How did you hear about me?" name="howDidYouHear" tabIndex="10" />
          <div id="textBox">
-          <Field type="text" component={this.renderTextArea} label="Any additional information or questions?" name="addedQuestionsOrInfo" tabIndex="11" />
+          <Field type="text" component={renderTextArea} label="Any additional information or questions?" name="addedQuestionsOrInfo" tabIndex="11" />
          </div>
         <div style={{marginRight:20}}>
           <button type="submit" className="contactFormSubmit btn">Send Enquiry</button>
-          <button disabled={this.props.pristine||this.props.submitting} onClick={this.props.reset} className="contactFormReset">Reset Form</button> 
+          <button disabled={props.pristine||props.submitting} onClick={props.reset} className="contactFormReset">Reset Form</button> 
         </div>
       </form>
-  );
-  }
-  
+  ) 
 }
 
 ContactForm = reduxForm({
