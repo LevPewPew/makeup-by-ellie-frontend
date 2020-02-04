@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div className="HomePage" data-testid="HomePage">
       <div className="hero-banner-crop">
-        <img className="hero-banner" src={heroImage} alt="hero banner"/>
+        <img className="hero-banner" src={heroImage} alt="two women with makeup"/>
       </div>
       <section className="about">
         <h1>PROFILE</h1>
