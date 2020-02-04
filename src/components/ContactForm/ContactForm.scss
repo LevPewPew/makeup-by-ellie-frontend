@@ -1,78 +1,81 @@
 @mixin bp($point) {
   @if $point == tablet {
     @media (max-width: 768px) { @content; }
-  }
-  @else if $point == mobile {
+  } @else if $point == mobile {
     @media (max-width: 375px) { @content; }
   }
 }
 
 .ContactForm {
-  
-  margin-right: 12px;
-
-  label {
-    display: block;
-    float: left;
-    color: black;
-    margin: 15px 15px -4px 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-    @include bp(tablet) {
-      width: 95%;
-    }
+// .ContactForm {
+//   margin-right: 12px;
 
-    @include bp(mobile) {
-      width: 95%;
-    }
+//   label {
+//     display: block;
+//     float: left;
+//     color: black;
+//     margin: 15px 15px -4px 15px;
+//   }
+
+//   @include bp(tablet) {
+//     width: 95%;
+//   }
+
+//   @include bp(mobile) {
+//     width: 95%;
+//   }
   
 
-  //This controls the placeholder colour in the date field
-  input[type="date" i] {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: grey !important;
-  }
+//   //This controls the placeholder colour in the date field
+//   input[type="date" i] {
+//     -webkit-writing-mode: horizontal-tb !important;
+//     text-rendering: auto;
+//     color: grey !important;
+//   }
 
-  .textBox {
-    height: 60px;
-    margin-left: 6px;
-    margin-top: 10px;
-    width: 100%;
-    border-color: #80808059;
+//   .textBox {
+//     height: 60px;
+//     margin-left: 6px;
+//     margin-top: 10px;
+//     width: 100%;
+//     border-color: #80808059;
 
-  }
-  .myInput {
-    width: 100%;
-    height: 40px;
-    margin: 7px;
+//   }
+//   .myInput {
+//     width: 100%;
+//     height: 40px;
+//     margin: 7px;
     
-  }
+//   }
 
-  .rw-dropdown-list-input {
-    height: 40px;
-  }
-  .dropdownLabel {
-    display: flex;
-    flex-direction: column;
-  }
-}
+//   .rw-dropdown-list-input {
+//     height: 40px;
+//   }
+//   .dropdownLabel {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
 
-input[type="text"]:disabled {
-  background:grey;
-}
+// input[type="text"]:disabled {
+//   background:grey;
+// }
 
-.contactFormSubmit {
-  margin-left: 5px;
-}
+// .contactFormSubmit {
+//   margin-left: 5px;
+// }
 
-.contactFormReset {
-  width: 120px;
-  height: 40px;
-  padding-left: 15px;
-  background: white;
-  display: none;
-}
+// .contactFormReset {
+//   width: 120px;
+//   height: 40px;
+//   padding-left: 15px;
+//   background: white;
+//   display: none;
+// }
   
 
 
