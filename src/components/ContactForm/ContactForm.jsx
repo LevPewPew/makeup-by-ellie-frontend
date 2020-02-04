@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux'
 import DropdownListField from '../DropdownListField/DropdownListField';
-import BtnSubmit from '../../components/BtnSubmit/BtnSubmit';
+import BtnSubmit from '../BtnSubmit/BtnSubmit';
+import FieldLabel from '../FieldLabel/FieldLabel';
 import _ from 'lodash';
 import './ContactForm.scss';
 
@@ -68,7 +69,11 @@ function ContactForm(props) {
     if (input.name === 'applicationAddress') {
       return (
         <div className="text-field">
-          <label>{label}</label>
+          <FieldLabel
+            touched={touched}
+            label={label}
+            error={error}
+          />
           <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
           {touched && 
           ((error && <div style={{ color: "red" }}>{error}</div>))}
@@ -77,18 +82,12 @@ function ContactForm(props) {
     } else {
       return (
         <div className="text-field">
-          <label>
-            {touched ? null : label}
-            {
-              touched &&
-              (error && <span style={{ color: "red" }}>{error}</span>)
-            }
-            {
-              touched && !error ? label : null
-            }
-          </label>
+          <FieldLabel
+            touched={touched}
+            label={label}
+            error={error}
+          />
           <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
-
         </div>
       )
     }
@@ -97,7 +96,11 @@ function ContactForm(props) {
   const renderDropdownListField = ({ placeholder, input, label, meta: { touched, error } }) => {
     return (
       <div className="dropdown-list-field">
-        <label htmlFor="">{label}</label>
+        <FieldLabel
+          touched={touched}
+          label={label}
+          error={error}
+        />
         <div style={{ display: "block", fontSize: "12px", color: "grey", height: "40px" }}>
           <DropdownListField
             placeholder={placeholder}
@@ -114,8 +117,12 @@ function ContactForm(props) {
 
   const renderTextArea = ({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) => {
     return (
-      <div className="text-field">
-        <label>{label}</label>
+      <div className="text-area-field">
+        <FieldLabel
+          touched={touched}
+          label={label}
+          error={error}
+        />
         <textarea {...input} type={type} className="textBox" placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
         {touched && 
         ((error && <div style={{ color: "red" }}>{error}</div>))}
