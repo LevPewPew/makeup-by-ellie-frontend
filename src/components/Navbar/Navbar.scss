@@ -2,11 +2,14 @@
 @import '../../styles/fonts';
 
 .Navbar {
-  margin: 0 10%;
-  display: flex;
-  justify-content: space-between;
+  .shish-kebab {
+    margin: 0 10%;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .logo-crop {
+    width: 140px;
     height: 180px;
   
     .logo {
@@ -32,6 +35,10 @@
     a:hover {
       border-bottom: 1px solid $tepidAngst;
     }
+
+    a.active {
+      border-bottom: 1px solid $faceBusiness;
+    }
   }
 
   .BtnInstagram {
@@ -40,73 +47,79 @@
     right: 0px;
   }
 
-  .hamburger-on {
-    display: block;
-    background: black;
-    width: 100vw;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  
-  .hamburger-on-container {
-    position: absolute;
-  
-  }
-  
-  .hamburger-off {
+  .hamburger {
     display: none;
-    background: green;
   }
+
   
   @media only screen and (max-width: 600px) {
-    
-    .navbar-links {
-      display: none;
+    .shish-kebab {
+      .links {
+        display: none;
+      }
     }
-    .hamburger-on .navbar-link{
+
+    .hamburger { 
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      color: white;
-      text-decoration: none;
-      font-size: 30px;
-      list-style-type: none;
+      align-items: center;
     }
-  
-    #button{ 
-      display: flex;
-      justify-content: center;
-      
-    }
-  
-    /*Animation on Hamburger*/
-    .container {
-      display: inline-block;
-      cursor: pointer;
-    }
-  
-    .bar1, .bar2, .bar3 {
+
+    .bar-1, .bar-2, .bar-3 {
       width: 35px;
-      height: 5px;
+      height: 1px;
       background-color: #333;
-      margin: 6px 0;
+      margin: 12px 0;
       transition: 0.4s;
     }
-  
-    /* Rotate first bar */
-    .hamburger-on-container .bar1 {
-      -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
-      transform: rotate(-45deg) translate(-9px, 6px) ;
+    
+    .hamburger-expanded-btn {
+      /*Animation on Hamburger*/
+
+      /* Rotate first bar */
+      .bar-1 {
+        -webkit-transform: rotate(-45deg) translate(-11.5px, 7px);
+        transform: rotate(-45deg) translate(-11.5px, 7px);
+      }
+    
+      /* Fade out the second bar */
+      .bar-2 {
+        opacity: 0;
+      }
+    
+      /* Rotate last bar */
+      .bar-3 {
+        -webkit-transform: rotate(45deg) translate(-11.5px, -7.5px);
+        transform: rotate(45deg) translate(-11.5px, -7.5px);
+      }
     }
-  
-    /* Fade out the second bar */
-    .hamburger-on-container .bar2 {
-      opacity: 0;
+    
+    .hamburger-contracted {
+      display: none;
     }
-  
-    /* Rotate last bar */
-    .hamburger-on-container .bar3 {
-      -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
-      transform: rotate(45deg) translate(-8px, -8px) ;
+    
+    .hamburger-expanded {
+      display: block;
+      width: 100vw;
+
+      ul {
+        padding: 0px;
+        
+        a {
+          margin: 10px;
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          color: white;
+          text-decoration: none;
+          list-style-type: none;
+    
+          li:before {
+            content: "";
+          }
+        }
+      }
     }
   }
 }

@@ -59,12 +59,12 @@ async function portfolioSubmitHandler(workForm, id) {
 
 async function servicesSubmitHandler(serviceForm, id) {
   // reduxForm will place values in the workform directly, and in values when initial values are also present. reduxForms is so bad. will try react-hooks-form package in future projects.
-  const { title, description, imageBlobs } = id ? serviceForm.values : serviceForm;
+  const { title, description, imageBlobs, cost, duration, disclaimer } = id ? serviceForm.values : serviceForm;
 
   try {
     if (id) {
       let { imageUrl } = serviceForm.initial;
-      let params = { title, description, imageUrl };
+      let params = { title, description, imageUrl, cost, duration, disclaimer };
       await axios.put(`${backendUrl}/services/${id}`, params);
     } else {
       for (let i = 0; i < imageBlobs.length; i++) {
@@ -92,7 +92,7 @@ async function servicesSubmitHandler(serviceForm, id) {
 
         res = await axios.put(signedRequest, file, options)
         
-        let params = { title, description, imageUrl: signedUrl };
+        let params = { title, description, cost, duration, disclaimer, imageUrl: signedUrl };
         
         await axios.post(`${backendUrl}/services`, params);
       }
