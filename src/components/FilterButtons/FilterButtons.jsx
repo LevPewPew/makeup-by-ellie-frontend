@@ -22,7 +22,7 @@ function FilterButtons() {
 
   const setFilterToActive = (event) => {
     event.persist();
-    switch (event.target.pathname) {
+    switch (event.target) {
       case {filterBeauty}:
         setBeautyLinkClass('active');
         setEditorialLinkClass('inactive');
@@ -48,12 +48,12 @@ function FilterButtons() {
   return (
     <section>
       <button 
-      className={beautyLinkClass} 
+      // className={beautyLinkClass} 
       onClick={ 
-        {setFilterToActive},
+        // {setFilterToActive},
         {filterBeauty}
       }>Beauty</button>
-      <button 
+      {/* <button 
       className={editorialLinkClass} 
       onClick={ 
         {setFilterToActive},
@@ -64,7 +64,7 @@ function FilterButtons() {
       onClick={ 
         {setFilterToActive},
         {filterBridal}
-      }>Bridal</button>
+      }>Bridal</button> */}
     </section>
   );
 }
