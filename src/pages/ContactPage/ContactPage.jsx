@@ -27,7 +27,7 @@ function ContactPage() {
       <div className="form-img-info-container">
         <ContactForm onSubmit={submit} />
         <div className="img-info-container">
-          <img src={contactPageImage} alt="woman with makeup" style={{ width: "100%" }}/>
+          <img src={contactPageImage} alt="woman with makeup" />
           <p><strong>Ellie</strong></p>
           <p>
             Sample Information <br /><br />
