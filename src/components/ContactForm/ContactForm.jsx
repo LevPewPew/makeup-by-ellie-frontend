@@ -170,7 +170,7 @@ function ContactForm(props) {
         label="What date do you need your makeup?"
         name="eventDate"
         tabIndex="4"
-      /> 
+      />
       <Field
         name="serviceType"
         component={renderDropdownListField}
@@ -181,7 +181,9 @@ function ContactForm(props) {
         tabIndex="5"
       />
       <p>
-        Note: All bookings for less than 3 people in total can only be held at my private studio in Altona Meadows. When a booking is made for 3 or more people total I will travel to your specified address.
+        <em>
+          Please note: travel is only available for parties of 3 or more, all other bookings will take place at my home studio in Altona Meadows, Melbourne.
+        </em>
       </p>
       <Field
         type="number"
@@ -189,7 +191,7 @@ function ContactForm(props) {
         label="How many people require only their Makeup done (up to 10)?"
         name="totalPeopleJustMakeup"
         tabIndex="6"
-        placeholder="ONLY Makeup"
+        placeholder="only Makeup"
         normalize={peopleNumLimit}
       /> 
       <Field
@@ -198,7 +200,7 @@ function ContactForm(props) {
         label="How many people require both Hair and Makeup (up to 10)?"
         name="totalPeopleWithHair"
         tabIndex="7"
-        placeholder="Hair AND Makeup"
+        placeholder="Hair and Makeup"
         normalize={peopleNumLimit}
       />
       <Field

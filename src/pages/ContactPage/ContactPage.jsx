@@ -28,12 +28,6 @@ function ContactPage() {
         <ContactForm onSubmit={submit} />
         <div className="img-info-container">
           <img src={contactPageImage} alt="woman with makeup" />
-          <p>
-            Please drop me a line by filling in the info on this page, I will get back to you as soon as possible to secure a booking.
-          </p>
-          <p>
-            All appointments for less than 3 people are located at my home studio in Altona Meadows, Melbourne. If your party has 3 or more people, I can travel to your specified location.
-          </p>
         </div>
       </div>
     </div>
