@@ -7,7 +7,7 @@ import BtnInstagram from '../BtnInstagram/BtnInstagram';
 import './Navbar.scss';
 
 function Navbar() {
-  const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-off');
+  const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-contracted');
   const [ servicesLinkClass, setServicesLinkClass ] = useState('inactive');
   const [ portfolioLinkClass, setPortfolioLinkClass ] = useState('inactive');
   const [ faqLinkClass, setFaqLinkClass ] = useState('inactive');
@@ -57,10 +57,10 @@ function Navbar() {
   }
 
   const animateHamburger = () => {
-    if (hamburgerClass === 'hamburger-off') {
-      setHamburgerClass('hamburger-on') ;
+    if (hamburgerClass === 'hamburger-contracted') {
+      setHamburgerClass('hamburger-expanded') ;
     } else {
-      setHamburgerClass('hamburger-off');
+      setHamburgerClass('hamburger-contracted');
     }
   }
 
@@ -108,7 +108,7 @@ function Navbar() {
           {
             token ?
             <>
-              <Link to="/admin" data-testid="nb-link-admin">Admin</Link>
+              <Link to="/admin" data-testid="nb-link-admin">ADMIN</Link>
               <Link to="/"><button onClick={logOut}>Logout</button></Link>
             </> :
             null
@@ -118,20 +118,20 @@ function Navbar() {
         <BtnInstagram />
       </div>
       <div className="hamburger">
-          <div className={`${hamburgerClass}-container`} onClick={animateHamburger}>
-            <div className="bar1"></div>
-            <div className="bar2"></div>
-            <div className="bar3"></div>
-          </div>
-          <div className={`${hamburgerClass}`}> 
-            <ul>
-              <Link to="./services" className="navbar-link" onClick={animateHamburger} ><li>SERVICES</li></Link>
-              <Link to="./portfolio" className="navbar-link" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
-              <Link to="./faq" className="navbar-link" onClick={animateHamburger} ><li>FAQ</li></Link>
-              <Link to="./contact" className="navbar-link" onClick={animateHamburger}><li>CONTACT</li></Link>
-              {token?<Link to="./admin" className="navbar-link" onClick={animateHamburger}><li>ADMIN</li></Link>:null}
-            </ul>
-          </div>
+        <div className={`${hamburgerClass}-btn`} onClick={animateHamburger}>
+          <div className="bar-1"></div>
+          <div className="bar-2"></div>
+          <div className="bar-3"></div>
+        </div>
+        <div className={`${hamburgerClass}`}> 
+          <ul>
+            <Link to="./services" onClick={animateHamburger} ><li>SERVICES</li></Link>
+            <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
+            <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
+            <Link to="./contact" onClick={animateHamburger}><li>CONTACT</li></Link>
+            {token?<Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link>:null}
+          </ul>
+        </div>
       </div>
     </nav>
   );
