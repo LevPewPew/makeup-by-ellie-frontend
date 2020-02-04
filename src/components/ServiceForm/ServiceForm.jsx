@@ -76,6 +76,9 @@ function ServiceForm(props) {
     <form className="ServiceForm form" onSubmit={handleSubmit}>
       <Field type="text" component={renderField} label="Title" name="title" />
       <Field type="text" component={renderField} label="Description" name="description" />
+      <Field type="text" component={renderField} label="Duration" name="duration" />
+      <Field type="text" component={renderField} label="Cost" name="cost" />
+      <Field type="text" component={renderField} label="Disclaimer" name="disclaimer" />
       {
         editingForm ?
         null :

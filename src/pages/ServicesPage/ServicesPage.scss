@@ -10,8 +10,7 @@
 .break {
   border-top: 1px solid black;
   width: 200px;
-  margin: auto;
-  padding: 40px;
+  margin: 40px auto;
 }
 
 .servicesPage {
@@ -58,7 +57,7 @@
         justify-items: center;
         margin: auto;
         justify-content: center;
-        
+        min-width: 1306.670px;
       }
 
       .descriptionContainer {
@@ -67,6 +66,7 @@
         width: 50%;
         margin: auto;
         min-width: 572.986px;
+        min-height: 250.889px;
 
         @include bp(tablet) {
           order: 2; 
@@ -80,9 +80,10 @@
       }
     
       .imageContainer {
-        
+
         padding: 5px;
         width: 30%;
+        min-width: 349.792px;
 
         @include bp(tablet) {
           order: 1; 
