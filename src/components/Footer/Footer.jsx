@@ -18,7 +18,7 @@ function Footer() {
         </div>
       </div>
       <div className="copyright">
-        Copyright &copy; 2020 MAKEUP BY ELLIE Makeup Artist and Hair Stylist Melbourne, Australia. All Rights Reserved.
+        Copyright &copy; 2020 MAKEUP BY ELLIE.&nbsp;&nbsp;Makeup Artist and Hair Stylist.&nbsp;&nbsp;Melbourne, Australia.&nbsp;&nbsp;All Rights Reserved.
       </div>
     </footer>
   );

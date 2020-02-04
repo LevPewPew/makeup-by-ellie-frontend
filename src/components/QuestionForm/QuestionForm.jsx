@@ -41,7 +41,7 @@ function QuestionForm(props) {
   const btnText = editingForm ? "Edit Question" : "Add Question";
 
   return (
-    <form className="QuestionForm form" onSubmit={handleSubmit} >
+    <form className="QuestionForm form" onSubmit={handleSubmit}>
       <Field type="text" component={renderField} label="Question" name="question" />
       <Field type="text" component={renderField} label="Answer" name="answer" />
       <BtnSubmit
