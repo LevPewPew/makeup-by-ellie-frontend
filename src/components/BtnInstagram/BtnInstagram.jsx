@@ -5,7 +5,7 @@ import './BtnInstagram.scss';
 
 function BtnInstagram() {
   return (
-    <Link className="BtnInstagram" to="/contact"><FaInstagram /></Link>
+    <Link className="BtnInstagram" to="/instagram"><FaInstagram /></Link>
   )
 }
 
