@@ -2,11 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ServiceForm from '../ServiceForm/ServiceForm';
 import CrudBtnsContainer from '../CrudBtnsContainer/CrudBtnsContainer';
+import BtnBookNow from '../BtnBookNow/BtnBookNow';
 import { servicesSubmitHandler } from '../../utils/forms/submitHandlers';
 import './Service.scss';
 
 function Service(props) {
-  const { id, title, description, imageUrl } = props;
+  const { id, title, description, imageUrl, cost, duration, disclaimer } = props;
 
   const serviceForm = useSelector((state) => state.form.ServiceForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
@@ -15,7 +16,10 @@ function Service(props) {
   const existingData = {
     title,
     description,
-    imageUrl
+    imageUrl,
+    cost,
+    duration,
+    disclaimer
   };
 
   function handleSubmit() {
@@ -23,7 +27,7 @@ function Service(props) {
   }
 
   return (
-    <article className="Service" data-testid="Service">
+    <article data-testid="Service">
       {
         editingForm === id ?
         <ServiceForm
@@ -31,13 +35,29 @@ function Service(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-          <img style={{ width: "300px", height: "300px", borderRadius: "10px", border: "4px solid grey"}} src={imageUrl} alt="" />
-          <h1>{title}</h1>
-          <p>{description}</p>
-          <CrudBtnsContainer
-            collection={collection}
-            id={id}
-          />
+        <div className="break"></div>
+          <div className="singleServiceContainer">
+              <div className="titleContainer">
+                <h1>{title}</h1>
+              </div>
+              <div className="serviceGrid">
+                <div className="imageContainer">
+                  <img style={{ width: "300px", height: "auto"}} src={imageUrl} alt="" />
+                </div>
+                <div className="descriptionContainer">
+                  <p>{description}</p>
+                  <p>{duration}</p>
+                  <p>{cost}</p>
+                  <p>{disclaimer}</p>
+                  <br/>
+                  <BtnBookNow/>
+                  <CrudBtnsContainer
+                    collection={collection}
+                    id={id}
+                  />
+                </div>
+              </div>
+          </div>
         </>
       }
     </article>
