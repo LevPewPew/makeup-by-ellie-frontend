@@ -18,41 +18,41 @@ function validate(values) {
    let errors = {};
 
   if (!values.name) {
-    errors.name = 'Name - Required';
+    errors.name = 'Name: (Required)';
   }
 
   if (!values.mobile) {
-    errors.mobile = 'Mobile: - Required';
+    errors.mobile = 'Mobile: (Required)';
   } 
 
   if (!values.email) {
-    errors.email = 'Email - Required:';
+    errors.email = 'Email: (Required)';
   } else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test( values.email ) ) {
-    errors.email  =  'Email - Invalid email address'
+    errors.email  =  'Email: (Invalid email address)'
   }
 
   if (!values.eventDate) {
-    errors.eventDate = 'What date do you need your makeup? - Required';
+    errors.eventDate = 'What date do you need your makeup? (Required)';
   } 
 
   if (!values.serviceType) {
-    errors.serviceType = 'What type of service would you like to book? - Required';
+    errors.serviceType = 'What type of service would you like to book? (Required)';
   } 
   
   if (!values.totalPeopleJustMakeup) {
-    errors.totalPeopleJustMakeup = 'How many people require only their Makeup done? - Required';
+    errors.totalPeopleJustMakeup = 'How many people require only their Makeup done? (Required)';
   }
 
   if (!values.totalPeopleWithHair) {
-    errors.totalPeopleWithHair = 'How many people require both Hair and Makeup? - Required';
+    errors.totalPeopleWithHair = 'How many people require both Hair and Makeup? (Required)';
   }
 
   if (!values.timeToFinish) {
-    errors.timeToFinish = 'What time do you need to be ready by? - Required';
+    errors.timeToFinish = 'What time do you need to be ready by? (Required)';
   }
 
   if (!values.howDidYouHear) {
-    errors.howDidYouHear = 'What type of service would you like to book? - Required';
+    errors.howDidYouHear = 'What type of service would you like to book? (Required)';
   }
 
   return errors;

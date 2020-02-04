@@ -40,9 +40,34 @@
     padding-left: 1%;
     font-weight: bolder;
   }
-  
+
   .DropdownListField {
-    background: red;
-    border: 3px dashed red;
+    .rw-widget-input {
+      box-shadow: none;
+    }
+    
+    .rw-widget-input:hover {
+      box-shadow: none;
+    }
+
+    .rw-widget-container {
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid $tepidAngst;
+
+      .rw-input {
+        background: $churchCrab;
+      }
+    }
+
+    .rw-popup-container {
+      ul {
+        border: none;
+
+        li:before {
+          content: "";
+        }
+      }
+    }
   }
 }
