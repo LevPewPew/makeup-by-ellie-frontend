@@ -1,3 +1,4 @@
+@import '../../styles/colors';
 @import '../../styles/fonts';
 
 @mixin bp($point) {
@@ -11,12 +12,6 @@
 .ContactForm {
   display: flex;
   flex-direction: column;
-
-  .text-field {
-    display: flex;
-    flex-direction: column;
-    font-family: $classy;
-  }
 }
 
 // .ContactForm {

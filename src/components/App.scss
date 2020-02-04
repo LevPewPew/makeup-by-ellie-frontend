@@ -5,6 +5,7 @@
 // categories
 @import '../styles/buttons';
 @import '../styles/links';
+@import '../styles/fields';
 
 * {
   box-sizing: border-box;
@@ -31,6 +32,7 @@ h2 {
 
 p {
   margin: 10px 0;
+  font-size: 16px;
   font-family: $classy;
 }
 

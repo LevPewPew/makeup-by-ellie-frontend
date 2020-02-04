@@ -1,0 +1,16 @@
+@import '../styles/colors';
+
+.text-field {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  font-family: $classy;
+
+  input {
+    padding-left: 1%;
+    border: none;
+    border-bottom: 1px solid $tepidAngst;
+    height: 1.8em;
+    font-size: 16px;
+  }
+}
