@@ -1,3 +1,12 @@
+@mixin bp($point) {
+  @if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
 .page {
   padding: 20px;
 }
@@ -13,4 +22,27 @@
 
 .buttonContainer {
   margin: 40px auto;
+  
+  .btn {
+    margin: 5px;
+
+    @include bp(tablet) {
+      width: 90%;
+    }
+  
+    @include bp(mobile) {
+      width: 90%;
+    }
+  }
+
+  .inactive {
+    background-color: grey;
+  }
+  
+  @include bp(tablet) {
+    width: 90%;
+  }
+
+  @include bp(mobile) {
+    width: 90%;  }
 }

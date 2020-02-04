@@ -4,67 +4,37 @@ import { useDispatch } from 'react-redux';
 function FilterButtons() {
   const dispatch = useDispatch();
 
+  const [ beautyClass, setBeautyClass ] = useState('active btn');
+  const [ editorialClass, setEditorialClass ] = useState('inactive btn');
+  const [ bridalClass, setBridalClass ] = useState('inactive btn');
+
   function filterBeauty() {
     dispatch({ type: 'FILTER_PORTFOLIO_DATA_BEAUTY' });
+    setBeautyClass('active btn');
+    setEditorialClass('inactive btn');
+    setBridalClass('inactive btn');
   }
 
   function filterEditorial() {
     dispatch({ type: 'FILTER_PORTFOLIO_DATA_EDITORIAL' });
+    setBeautyClass('inactive btn');
+    setEditorialClass('active btn');
+    setBridalClass('inactive btn');
   }
 
   function filterBridal() {
     dispatch({ type: 'FILTER_PORTFOLIO_DATA_BRIDAL' });
+    setBeautyClass('inactive btn');
+    setEditorialClass('inactive btn');
+    setBridalClass('active btn');
   }
 
-  const [ beautyLinkClass, setBeautyLinkClass ] = useState('inactive');
-  const [ editorialLinkClass, setEditorialLinkClass ] = useState('inactive');
-  const [ bridalLinkClass, setBridalLinkClass ] = useState('inactive');
-
-  const setFilterToActive = (event) => {
-    event.persist();
-    switch (event.target) {
-      case {filterBeauty}:
-        setBeautyLinkClass('active');
-        setEditorialLinkClass('inactive');
-        setBridalLinkClass('inactive');
-        break;
-      case filterEditorial():
-        setBeautyLinkClass('inactive');
-        setEditorialLinkClass('active');
-        setBridalLinkClass('inactive');
-        break;
-      case filterBridal():
-        setBeautyLinkClass('inactive');
-        setEditorialLinkClass('inactive');
-        setBridalLinkClass('active');
-        break;
-      default:
-        setBeautyLinkClass('active');
-        setEditorialLinkClass('inactive');
-        setBridalLinkClass('inactive');
-    }
-  }
 
   return (
     <section>
-      <button 
-      // className={beautyLinkClass} 
-      onClick={ 
-        // {setFilterToActive},
-        {filterBeauty}
-      }>Beauty</button>
-      {/* <button 
-      className={editorialLinkClass} 
-      onClick={ 
-        {setFilterToActive},
-        {filterEditorial}
-      }>Editorial</button>
-      <button 
-      className={bridalLinkClass} 
-      onClick={ 
-        {setFilterToActive},
-        {filterBridal}
-      }>Bridal</button> */}
+      <button onClick={filterBeauty} className={beautyClass}>BEAUTY</button>
+      <button onClick={filterEditorial} className={editorialClass}>EDITORIAL</button>
+      <button onClick={filterBridal} className={bridalClass}>BRIDAL</button>
     </section>
   );
 }
