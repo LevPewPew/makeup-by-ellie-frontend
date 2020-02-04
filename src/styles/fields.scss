@@ -6,11 +6,25 @@
   flex-direction: column;
   font-family: $classy;
 
+  label {
+    display: flex;
+    padding-left: 1%;
+    font-weight: bolder;
+  }
+  
   input {
+    width: 100%;
+    height: 1.8em;
     padding-left: 1%;
     border: none;
     border-bottom: 1px solid $tepidAngst;
-    height: 1.8em;
+    margin: 5px 0;
     font-size: 16px;
+    font-family: $classy;
+    font-weight: lighter;
+  }
+
+  input:focus {
+    outline: 0;
   }
 }
