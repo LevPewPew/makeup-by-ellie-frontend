@@ -5,6 +5,7 @@
 // categories
 @import '../styles/buttons';
 @import '../styles/links';
+@import '../styles/fields';
 
 * {
   box-sizing: border-box;
@@ -20,6 +21,7 @@ h1 {
   font-family: $boujee;
   font-weight: lighter;
   letter-spacing: 0.2em;
+  text-align: center;
 }
 
 h2 {
@@ -30,9 +32,16 @@ h2 {
 
 p {
   margin: 10px 0;
+  font-size: 16px;
   font-family: $classy;
 }
 
 ul {
-  padding-left: 40px;
+  padding-left: 20px;
+  font-family: $classy;
+  list-style-type: none;
+
+  li:before {
+    content: "- ";
+  }
 }
