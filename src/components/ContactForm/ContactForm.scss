@@ -1,3 +1,5 @@
+@import '../../styles/fonts';
+
 @mixin bp($point) {
   @if $point == tablet {
     @media (max-width: 768px) { @content; }
@@ -9,6 +11,12 @@
 .ContactForm {
   display: flex;
   flex-direction: column;
+
+  .text-field {
+    display: flex;
+    flex-direction: column;
+    font-family: $classy;
+  }
 }
 
 // .ContactForm {
