@@ -1,85 +1,23 @@
 @import '../../styles/colors';
 @import '../../styles/fonts';
 
-@mixin bp($point) {
-  @if $point == tablet {
-    @media (max-width: 768px) { @content; }
-  } @else if $point == mobile {
-    @media (max-width: 375px) { @content; }
-  }
-}
-
 .ContactForm {
   display: flex;
   flex-direction: column;
+  
+  p {
+    padding-left: 1%;
+  }
+
+  // the weird justify and margin settings are because simply doing a justify-content: right refused to work. only change this if you can figure out the bug/issue
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+
+    .reset-btn {
+      margin-left: auto;
+      margin-right: 10px;
+      background: $tepidAngst;
+    }
+  }
 }
-
-// .ContactForm {
-//   margin-right: 12px;
-
-//   label {
-//     display: block;
-//     float: left;
-//     color: black;
-//     margin: 15px 15px -4px 15px;
-//   }
-
-//   @include bp(tablet) {
-//     width: 95%;
-//   }
-
-//   @include bp(mobile) {
-//     width: 95%;
-//   }
-  
-
-//   //This controls the placeholder colour in the date field
-//   input[type="date" i] {
-//     -webkit-writing-mode: horizontal-tb !important;
-//     text-rendering: auto;
-//     color: grey !important;
-//   }
-
-//   .textBox {
-//     height: 60px;
-//     margin-left: 6px;
-//     margin-top: 10px;
-//     width: 100%;
-//     border-color: #80808059;
-
-//   }
-//   .myInput {
-//     width: 100%;
-//     height: 40px;
-//     margin: 7px;
-    
-//   }
-
-//   .rw-dropdown-list-input {
-//     height: 40px;
-//   }
-//   .dropdownLabel {
-//     display: flex;
-//     flex-direction: column;
-//   }
-// }
-
-// input[type="text"]:disabled {
-//   background:grey;
-// }
-
-// .contactFormSubmit {
-//   margin-left: 5px;
-// }
-
-// .contactFormReset {
-//   width: 120px;
-//   height: 40px;
-//   padding-left: 15px;
-//   background: white;
-//   display: none;
-// }
-  
-
-
-

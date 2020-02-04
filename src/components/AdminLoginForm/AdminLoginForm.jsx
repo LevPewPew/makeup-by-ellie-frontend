@@ -21,30 +21,28 @@ function warn(values) {
   return warnings;
 }
 
-function AdminLoginForm(props) 
-{
+const renderField = ({ input, type, label, meta: { touched, error, warning } }) => {
+  return (
+    <div>
+      <label>{label}:</label>
+      <input {...input} type={type} className='myInput' />
+      {
+        touched &&
+        ((error && <span style={{ color: "red" }}>{error}</span>) ||
+        (warning && <span style={{ color:"orange" }}>{warning}</span>))
+      }
+    </div>
+  );
+}
 
-  const renderField = ({ input, type, label, meta: { touched, error, warning } }) => {
-    return (
-      <div>
-        <label>{label}:</label>
-        <input {...input} type={type} className='myInput' />
-        {
-          touched &&
-          ((error && <span style={{ color: "red" }}>{error}</span>) ||
-          (warning && <span style={{ color:"orange" }}>{warning}</span>))
-        }
-      </div>
-    );
-  }
-
-    return (
-      <form className="AdminLoginForm" onSubmit={props.handleSubmit}>
-        <Field type="text" component={renderField} label="Username" name="username" />
-        <Field type="password" component={renderField} label="Password" name="password" />
-        <button type="submit">Login</button>
-      </form>
-    );
+function AdminLoginForm(props) {
+  return (
+    <form className="AdminLoginForm" onSubmit={props.handleSubmit}>
+      <Field type="text" component={renderField} label="Username" name="username" />
+      <Field type="password" component={renderField} label="Password" name="password" />
+      <button type="submit">Login</button>
+    </form>
+  );
 }
 
 AdminLoginForm = reduxForm({
