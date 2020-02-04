@@ -21,8 +21,10 @@ function warn(values) {
   return warnings;
 }
 
-class AdminLoginForm extends React.Component {
-  renderField = ({ input, type, label, meta: { touched, error, warning } }) => {
+function AdminLoginForm(props) 
+{
+
+  const renderField = ({ input, type, label, meta: { touched, error, warning } }) => {
     return (
       <div>
         <label>{label}:</label>
@@ -36,15 +38,13 @@ class AdminLoginForm extends React.Component {
     );
   }
 
-  render() {
     return (
-      <form className="AdminLoginForm" onSubmit={this.props.handleSubmit}>
-        <Field type="text" component={this.renderField} label="Username" name="username" />
-        <Field type="password" component={this.renderField} label="Password" name="password" />
+      <form className="AdminLoginForm" onSubmit={props.handleSubmit}>
+        <Field type="text" component={renderField} label="Username" name="username" />
+        <Field type="password" component={renderField} label="Password" name="password" />
         <button type="submit">Login</button>
       </form>
     );
-  }
 }
 
 AdminLoginForm = reduxForm({
