@@ -117,8 +117,7 @@ function Navbar() {
         <BtnBookNow />
         <BtnInstagram />
       </div>
-      <div className="burger">
-        <label>
+      <div className="hamburger">
           <div className={`${hamburgerClass}-container`} onClick={animateHamburger}>
             <div className="bar1"></div>
             <div className="bar2"></div>
@@ -133,7 +132,6 @@ function Navbar() {
               {token?<Link to="./admin" className="navbar-link" onClick={animateHamburger}><li>ADMIN</li></Link>:null}
             </ul>
           </div>
-        </label>
       </div>
     </nav>
   );
