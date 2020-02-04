@@ -1,0 +1,18 @@
+.FaqPage {
+  display: flex;
+  justify-content: center;
+}
+
+.FaqText {
+  flex: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.FaqContainer {
+  flex: 2;
+}
