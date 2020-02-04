@@ -61,12 +61,12 @@
     }
 
     .rw-popup-container {
-      ul {
+      li {
         border: none;
+      }
 
-        li:before {
-          content: "";
-        }
+      li:before {
+        content: "";
       }
     }
   }
