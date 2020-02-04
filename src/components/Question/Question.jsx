@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import QuestionForm from '../QuestionForm/QuestionForm';
 import CrudBtnsContainer from '../CrudBtnsContainer/CrudBtnsContainer';
@@ -7,6 +7,7 @@ import './Question.scss';
 
 function Question(props) {
   const { id, question, answer } = props;
+  const [showAnswer,setShowAnswer] = useState(false);
   
   const questionForm = useSelector((state) => state.form.QuestionForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
@@ -21,6 +22,10 @@ function Question(props) {
     questionsSubmitHandler(questionForm.values, editingForm);
   }
 
+  const handleClick = (e) => {
+    setShowAnswer(!showAnswer)
+  }
+
   return (
     <article className="Question">
       {
@@ -30,8 +35,11 @@ function Question(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-          <h2>Question:{question}</h2>
-          <h3>Answer:{answer}</h3>
+        <div className="ShowQuestion">
+        <button className="ShowAnswer" onClick={handleClick}>{showAnswer?"-":"+"}</button><h2>Question:{question}</h2>
+        </div>
+          
+          {showAnswer?<h3>Answer:{answer}</h3>:null}     
           <CrudBtnsContainer
             collection={collection}
             id={id}

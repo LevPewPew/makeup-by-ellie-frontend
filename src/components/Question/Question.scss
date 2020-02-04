@@ -1,7 +1,22 @@
 .Question {
-  background: rgb(195, 212, 160);
+  background: rgb(177, 180, 170);
   margin: 10px;
-  border: 5px solid rgb(77, 70, 69);
+  border: 5px solid rgb(138, 132, 131);
   border-radius: 10px;
   padding: 10px;
+}
+
+.ShowQuestion {
+  display: flex;
+  align-items: center;
+}
+
+.ShowAnswer {
+  background: rgb(119, 116, 116);
+  text-align: center;
+  font-size: small;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
 }
