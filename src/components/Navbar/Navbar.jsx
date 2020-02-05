@@ -109,7 +109,7 @@ function Navbar() {
             token ?
             <>
               <Link to="/admin" data-testid="nb-link-admin">ADMIN</Link>
-              <Link to="/"><button onClick={logOut}>Logout</button></Link>
+              <Link to="/"><button className="btn" onClick={logOut}>Logout</button></Link>
             </> :
             null
           }

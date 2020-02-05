@@ -5,6 +5,7 @@ import PortfolioContainer from '../../components/PortfolioContainer/PortfolioCon
 import QuestionsContainer from '../../components/QuestionsContainer/QuestionsContainer';
 import ServicesContainer from '../../components/ServicesContainer/ServicesContainer';
 import ContactsContainer from '../../components/ContactsContainer/ContactsContainer';
+import './AdminPage.scss';
 
 function AdminPage() {
   const dispatch = useDispatch();
@@ -19,14 +20,16 @@ function AdminPage() {
     <div className="AdminPage" data-testid="AdminPage">
       <h1>ADMIN DASHBOARD</h1>
       <FormContainer />
-      <h2>Portfolio</h2>
-      <PortfolioContainer />
-      <h2>Services</h2>
-      <ServicesContainer />
-      <h2>Questions</h2>
-      <QuestionsContainer />
-      <h2>Contacts</h2>
-      <ContactsContainer />
+      <div className="container-display">
+        <h2>Portfolio</h2>
+        <PortfolioContainer />
+        <h2>Services</h2>
+        <ServicesContainer />
+        <h2>Questions</h2>
+        <QuestionsContainer />
+        <h2>Contacts</h2>
+        <ContactsContainer />
+      </div>
     </div>
   );
 }
