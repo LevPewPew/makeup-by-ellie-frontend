@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import AttachmentField from '../AttachmentField/AttachmentField';
 import DropdownListField from '../DropdownListField/DropdownListField';
+import FieldLabel from '../FieldLabel/FieldLabel';
 import BtnSubmit from '../BtnSubmit/BtnSubmit';
 import BtnCancelForm from '../BtnCancelForm/BtnCancelForm';
 import './WorkForm.scss';
@@ -11,11 +12,11 @@ function validate(values) {
   let errors = {};
 
   if (!values.category) {
-    errors.category = 'Required';
+    errors.category = 'Category: (Required)';
   }
 
   if (!values.imageBlob) {
-    errors.imageBlob = 'Required';
+    errors.imageBlob = 'Image: (Required)';
   }
 
   return errors;
@@ -26,6 +27,27 @@ const categories = [
   { category: 'Editorial', value: 'editorial' },
   { category: 'Bridal', value: 'bridal' }
 ]
+
+function renderDropdownListField ({ placeholder, input, label, meta: { touched, error } }) {
+  return (
+    <div className="dropdown-list-field">
+      <FieldLabel
+        touched={touched}
+        label={label}
+        error={error}
+      />
+      <div>
+        <DropdownListField
+          placeholder={placeholder}
+          input={input}
+          data={categories}
+          valueField="value"
+          textField="category"
+        />
+      </div>
+    </div>
+  );
+}
 
 function WorkForm(props) {
   const { handleSubmit, pristine, submitting } = props;
@@ -38,42 +60,21 @@ function WorkForm(props) {
 
   const btnText = editingForm ? 'Edit Photo' : 'Add Photo';
 
-  function renderDropdownListField({ input, label, meta: { touched, error, warning } }) {
+  // this function is within the component because it needs the files state as a prop
+  function renderAttachmentField({ input, label, meta: { touched, error } }) {
     return (
-      <div>
-        <label htmlFor="">{label}</label>
-        <div>
-          <DropdownListField
-            input={input}
-            data={categories}
-            valueField="value"
-            textField="category"
-          />
-          {
-            touched &&
-            ((error && <span style={{ color:"red" }}>{error}</span>) ||
-            (warning && <span style={{ color:"orange" }}>{warning}</span>))
-          }
-        </div>
-      </div>
-    );
-  }
-
-  function renderAttachmentField({ input, label, meta: { touched, error, warning } }) {
-    return (
-      <div>
-        <label htmlFor="">{label}</label>
+      <div className="dropzone-field">
+        <FieldLabel
+          touched={touched}
+          label={label}
+          error={error}
+        />
         <div>
           <AttachmentField
             input={input}
             files={files}
             setFiles={setFiles}
           />
-          {
-            touched &&
-            ((error && <span style={{ color:"red" }}>{error}</span>) ||
-            (warning && <span style={{ color:"orange" }}>{warning}</span>))
-          }
         </div>
       </div>
     );
@@ -90,31 +91,34 @@ function WorkForm(props) {
   }, [successfulSubmit]);
 
   return (
-    <form className="WorkForm form" onSubmit={handleSubmit}>
-      <div>
-        <label>Category</label>
-        <Field
-          name="category"
-          component={renderDropdownListField}
-        />
-      </div>
+    <form className="WorkForm" onSubmit={handleSubmit}>
+      <Field
+        name="category"
+        component={renderDropdownListField}
+        data={categories}
+        valueField="value"
+        textField="category" 
+        label="Category:"
+        tabIndex="1"
+      />
       {
         editingForm ?
         null :
-        <div>
-          <label>Image</label>
-          <Field
-            name="imageBlobs"
-            component={renderAttachmentField}
-          />
-        </div>
+        <Field
+          name="imageBlobs"
+          component={renderAttachmentField}
+          label="Image/s:"
+          tabIndex="2"
+        />
       }
-      <BtnSubmit
-        pristine={pristine}
-        submitting={submitting}
-        text={btnText}
-      />
-      <BtnCancelForm />
+      <div className="admin-form-btn-container">
+        <BtnSubmit
+          pristine={pristine}
+          submitting={submitting}
+          text={btnText}
+        />
+        <BtnCancelForm />
+      </div>
     </form>
   );
 }

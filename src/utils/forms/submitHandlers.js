@@ -43,7 +43,6 @@ async function portfolioSubmitHandler(workForm, id) {
 
         await axios.post(`${backendUrl}/portfolio`, params);
       }
-
     }
 
     let res = await axios.get(`${backendUrl}/portfolio`);

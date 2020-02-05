@@ -12,6 +12,7 @@ function Navbar() {
   const [ portfolioLinkClass, setPortfolioLinkClass ] = useState('inactive');
   const [ faqLinkClass, setFaqLinkClass ] = useState('inactive');
   const [ contactLinkClass, setContactLinkClass ] = useState('inactive');
+  const [ adminDashLinkClass, setAdminDashLinkClass ] = useState('inactive');
 
   const token = useSelector((state)=> state.tokenReducer.token);
   const dispatch = useDispatch();
@@ -29,30 +30,42 @@ function Navbar() {
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/portfolio':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('active');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/faq':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('active');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/contact':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('active');
+        setAdminDashLinkClass('inactive');
+        break;
+      case '/admin':
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('inactive');
+        setAdminDashLinkClass('active');
         break;
       default:
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
     }
   }
 
@@ -108,8 +121,15 @@ function Navbar() {
           {
             token ?
             <>
-              <Link to="/admin" data-testid="nb-link-admin">ADMIN</Link>
-              <Link to="/"><button className="btn" onClick={logOut}>Logout</button></Link>
+              <Link
+                className={adminDashLinkClass}
+                to="/admin"
+                onClick={setLinkToActive}
+                data-testid="nb-link-admin"
+              >
+                ADMIN
+              </Link>
+              <Link to="/"><button className="btn logout-btn" onClick={logOut}>Logout</button></Link>
             </> :
             null
           }
