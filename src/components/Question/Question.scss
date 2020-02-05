@@ -10,21 +10,15 @@
 }
 
 .Question {
-  margin: 10px;
-  padding: 10px;
-}
+  h2 {
+    text-align: left;
+  }
 
-.ShowQuestion {
-  display: flex;
-  align-items: center;
-}
+  p {
+    margin: 40px;
+  }
 
-.ShowAnswerBtn {
-  background-color: rgb(138, 135, 135);
-  text-align: center;
-  font-size: small;
-  border-radius: 10px;
-  width: 30px;
-  height: 30px;
-  margin: 5px;
+  .CrudBtnsContainer {
+    margin: 40px;
+  }
 }
