@@ -99,16 +99,25 @@ function App() {
             <Route path="/faq">
               <FaqPage />
             </Route>
-            {/* TESTING, remove before deployment*/}
             <PrivateRoute exact path="/getcontactlist" component={ContactsContainer}/>
             <Route path="/getcontactlist/:id" component={ContactDetails}/>
+            <Route
+              path="/instagram"
+              component={() => {
+                let a = document.createElement('a');
+                a.target= '_blank';
+                a.href= 'https://www.instagram.com/makeup.by.ellie/';
+                a.click();
+                return null;
+              }}
+            />
             <Route path="/privacy-policy">
               <PrivacyPolicy />
             </Route>
             <Route path="/terms-and-conditions">
               <TermsConditions />
             </Route>
-            <PrivateRoute path="/admin" component={AdminPage}/>          
+            <PrivateRoute path="/admin" component={AdminPage}/>
             <Route path="/admin-login">
               <AdminLoginPage />
             </Route>
