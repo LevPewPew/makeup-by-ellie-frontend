@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { store } from '../../index';
+import store from '../../store';
 import { reset } from 'redux-form';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
