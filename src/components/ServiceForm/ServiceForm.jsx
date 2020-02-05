@@ -94,6 +94,11 @@ function ServiceForm(props) {
 
   return (
     <form className="ServiceForm form" onSubmit={handleSubmit}>
+      {
+        editingForm ?
+        <h2>Edit this Service</h2> :
+        <h2>Add a Service</h2>
+      }
       <Field
         type="text"
         component={renderField}

@@ -33,6 +33,19 @@ function renderField({ autoFocus, placeholder, input, type, label, meta: { touch
   );
 }
 
+function renderTextArea({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) {
+  return (
+    <div className="text-area-field">
+      <FieldLabel
+        touched={touched}
+        label={label}
+        error={error}
+      />
+      <textarea {...input} type={type} className="textBox" placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
+    </div>
+  )
+}
+
 function QuestionForm(props) {
   const { handleSubmit, pristine, submitting } = props;
 
@@ -42,6 +55,11 @@ function QuestionForm(props) {
 
   return (
     <form className="QuestionForm form" onSubmit={handleSubmit}>
+      {
+        editingForm ?
+        <h2>Edit this Question and Answer</h2> :
+        <h2>Add a Question and Answer</h2>
+      }
       <Field
         type="text"
         component={renderField}
@@ -51,7 +69,7 @@ function QuestionForm(props) {
       />
       <Field
         type="text"
-        component={renderField}
+        component={renderTextArea}
         label="Answer"
         name="answer"
         tabIndex="2"

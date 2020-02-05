@@ -120,7 +120,7 @@ function Navbar() {
           </Link>
           {
             token ?
-            <>
+            <div className="admin-nav-container">
               <Link
                 className={adminDashLinkClass}
                 to="/admin"
@@ -129,8 +129,8 @@ function Navbar() {
               >
                 ADMIN
               </Link>
-              <Link to="/"><button className="btn logout-btn" onClick={logOut}>Logout</button></Link>
-            </> :
+              <Link className="logout-anchor" to="/"><button className="btn logout-btn" onClick={logOut}>Logout</button></Link>
+            </div> :
             null
           }
         </div>
