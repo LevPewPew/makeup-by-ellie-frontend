@@ -5,7 +5,7 @@ function BtnSubmit(props) {
   const { submitting, pristine, text } = props;
 
   return (
-    <div className="BtnSubmit btn--req-animated">
+    <div className="BtnSubmit btn-req-animated">
       {
         submitting ?
         <SubmittingAnimation

@@ -10,6 +10,7 @@ async function portfolioSubmitHandler(workForm, id) {
   
   try {
     if (id) {
+      // Note: the image cannot be edited as this would have taken a lot of time to implement, time we do not have have in the 3 weeks given for this assignment
       let { imageUrl } = workForm.initial;
       let params = { category, imageUrl };
       await axios.put(`${backendUrl}/portfolio/${id}`, params);
@@ -43,7 +44,6 @@ async function portfolioSubmitHandler(workForm, id) {
 
         await axios.post(`${backendUrl}/portfolio`, params);
       }
-
     }
 
     let res = await axios.get(`${backendUrl}/portfolio`);
@@ -63,6 +63,7 @@ async function servicesSubmitHandler(serviceForm, id) {
 
   try {
     if (id) {
+      // Note: the image cannot be edited as this would have taken a lot of time to implement, time we do not have have in the 3 weeks given for this assignment
       let { imageUrl } = serviceForm.initial;
       let params = { title, description, imageUrl, cost, duration, disclaimer };
       await axios.put(`${backendUrl}/services/${id}`, params);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import './AdminLoginForm.scss';
 
 function validate(values) {
   let errors = {};
@@ -23,7 +24,7 @@ function warn(values) {
 
 const renderField = ({ input, type, label, meta: { touched, error, warning } }) => {
   return (
-    <div>
+    <div className="text-field">
       <label>{label}:</label>
       <input {...input} type={type} className='myInput' />
       {
@@ -40,7 +41,7 @@ function AdminLoginForm(props) {
     <form className="AdminLoginForm" onSubmit={props.handleSubmit}>
       <Field type="text" component={renderField} label="Username" name="username" />
       <Field type="password" component={renderField} label="Password" name="password" />
-      <button type="submit">Login</button>
+      <button className="btn" type="submit">Login</button>
     </form>
   );
 }
