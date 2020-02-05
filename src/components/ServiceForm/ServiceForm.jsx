@@ -38,6 +38,19 @@ function renderField({ autoFocus, placeholder, input, type, label, meta: { touch
   );
 }
 
+function renderTextArea({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) {
+  return (
+    <div className="text-area-field">
+      <FieldLabel
+        touched={touched}
+        label={label}
+        error={error}
+      />
+      <textarea {...input} type={type} className="textBox" placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
+    </div>
+  )
+}
+
 function ServiceForm(props) {
   const { handleSubmit, pristine, submitting } = props;
 
@@ -90,7 +103,7 @@ function ServiceForm(props) {
       />
       <Field
         type="text"
-        component={renderField}
+        component={renderTextArea}
         label="Description:"
         name="description"
         tabIndex="2"
@@ -111,7 +124,7 @@ function ServiceForm(props) {
       />
       <Field
         type="text"
-        component={renderField}
+        component={renderTextArea}
         label="Disclaimer:"
         name="disclaimer"
         tabIndex="5"
