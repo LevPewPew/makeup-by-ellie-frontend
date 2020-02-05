@@ -36,9 +36,10 @@ function Question(props) {
         /> :
         <>
         <div className="ShowQuestion">
-          <button data-testid="ShowButton" className="ShowAnswer" onClick={handleClick}>{showAnswer?"-":"+"}</button><h2>Question:{question}</h2>
+          <button className="ShowAnswerBtn" onClick={handleClick}>{showAnswer?"-":"+"}</button>
+          <p>{question}</p>
         </div>
-          {showAnswer?<h3>Answer:{answer}</h3>:null}     
+          {showAnswer?<p>{answer}</p>:null}     
           <CrudBtnsContainer
             collection={collection}
             id={id}
