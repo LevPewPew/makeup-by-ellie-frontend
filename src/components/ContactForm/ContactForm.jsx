@@ -52,7 +52,7 @@ function validate(values) {
   }
 
   if (!values.howDidYouHear) {
-    errors.howDidYouHear = 'What type of service would you like to book? (Required)';
+    errors.howDidYouHear = 'How did you hear about us? (Required)';
   }
 
   return errors;
@@ -68,7 +68,7 @@ function peopleNumLimit(value) {
   }
 }
 
-function renderField({ autoFocus, placeholder, className, input, type, label, number1, number2, meta: { touched, error } }) {
+function renderField({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) {
   if (input.name === 'applicationAddress') {
     return (
       <div className="text-field">
@@ -78,10 +78,8 @@ function renderField({ autoFocus, placeholder, className, input, type, label, nu
           error={error}
         />
         <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
-        {touched && 
-        ((error && <div style={{ color: "red" }}>{error}</div>))}
       </div>
-    )
+    );
   } else {
     return (
       <div className="text-field">
@@ -90,9 +88,9 @@ function renderField({ autoFocus, placeholder, className, input, type, label, nu
           label={label}
           error={error}
         />
-        <input {...input} type={type} className={className} placeholder={placeholder} autoFocus={autoFocus}/>
+        <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
       </div>
-    )
+    );
   }
 }
 
@@ -104,7 +102,7 @@ function renderDropdownListField ({ placeholder, input, label, meta: { touched, 
         label={label}
         error={error}
       />
-      <div style={{ display: "block", fontSize: "12px", color: "grey", height: "40px" }}>
+      <div>
         <DropdownListField
           placeholder={placeholder}
           input={input}
@@ -112,10 +110,9 @@ function renderDropdownListField ({ placeholder, input, label, meta: { touched, 
           valueField="value"
           textField="category"
         />
-        {touched && ((error && <span>{error}</span>))}
       </div>
     </div>
-  )
+  );
 }
 
 function renderTextArea({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) {
@@ -127,8 +124,6 @@ function renderTextArea({ autoFocus, placeholder, input, type, label, meta: { to
         error={error}
       />
       <textarea {...input} type={type} className="textBox" placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
-      {touched && 
-      ((error && <div style={{ color: "red" }}>{error}</div>))}
     </div>
   )
 }

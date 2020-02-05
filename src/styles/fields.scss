@@ -61,7 +61,7 @@
         padding-left: 1%;
         margin: none;
         margin: 10px 0;
-        background: $churchCrab;
+        background-color: $churchCrab;
         font-size: 16px;
         color: $faceBusiness;
       }
@@ -98,6 +98,7 @@
     border: 1px solid $tepidAngst;
     margin: 5px 0;
     font-size: 16px;
+    font-family: $classy;
     resize: none;
   }
 
@@ -106,8 +107,27 @@
   }
 }
 
+.dropzone-field {
+  height: calc(40vw * 80%);
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  font-family: $classy;
+
+  .FieldLabel {
+    padding-left: 1%;
+    margin-bottom: 10px;
+    display: flex;
+    font-weight: bolder;
+  }
+  
+  .Dropzone {
+    height: 300px;
+  }
+}
+
 input[type="text"]:enabled {
-  background: $churchCrab;
+  background-color: $churchCrab;
 }
 
 input[type="text"]:enabled::placeholder {
@@ -115,7 +135,7 @@ input[type="text"]:enabled::placeholder {
 }
 
 input[type="text"]:disabled {
-  background: $dyingUrchin;
+  background-color: $dyingUrchin;
 }
 
 input[type="number"] {
@@ -127,4 +147,14 @@ input[type="number"] {
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
+}
+
+input#calender::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+input[type=date]::-webkit-inner-spin-button, 
+input[type=date]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

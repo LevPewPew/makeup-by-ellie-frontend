@@ -13,8 +13,9 @@ function Navbar() {
   const [ portfolioLinkClass, setPortfolioLinkClass ] = useState('inactive');
   const [ faqLinkClass, setFaqLinkClass ] = useState('inactive');
   const [ contactLinkClass, setContactLinkClass ] = useState('inactive');
+  const [ adminDashLinkClass, setAdminDashLinkClass ] = useState('inactive');
 
-  const token = useSelector((state)=> state.tokenReducer.token);
+  const token = useSelector((state) => state.tokenReducer.token);
 
   const setLinkToActive = (event) => {
     event.persist();
@@ -24,30 +25,42 @@ function Navbar() {
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/portfolio':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('active');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/faq':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('active');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/contact':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('active');
+        setAdminDashLinkClass('inactive');
+        break;
+      case '/admin':
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('inactive');
+        setAdminDashLinkClass('active');
         break;
       default:
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
     }
   }
 
@@ -102,10 +115,17 @@ function Navbar() {
           </Link>
           {
             token ?
-            <>
-              <Link to="/admin" data-testid="nb-link-admin">ADMIN</Link>
-              <Link to="/"><BtnLogout/></Link>
-            </> :
+            <div className="admin-nav-container">
+              <Link
+                className={adminDashLinkClass}
+                to="/admin"
+                onClick={setLinkToActive}
+                data-testid="nb-link-admin"
+              >
+                ADMIN
+              </Link>
+              <Link className="logout-anchor" to="/"><BtnLogout /></Link>
+            </div> :
             null
           }
         </div>
