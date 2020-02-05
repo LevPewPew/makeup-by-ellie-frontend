@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 @mixin bp($point) {
   @if $point == tablet {
     @media (max-width: 768px) { @content; }
@@ -36,7 +38,7 @@
   }
 
   .inactive {
-    background-color: #92898A;
+    background-color: $tepidAngst;
   }
   
   @include bp(tablet) {
