@@ -25,7 +25,7 @@ function AdminPage() {
         <PortfolioContainer />
         <h2>Services</h2>
         <ServicesContainer />
-        <h2>Questions</h2>
+        <h2>FAQ</h2>
         <QuestionsContainer />
         <h2>Contacts</h2>
         <ContactsContainer />

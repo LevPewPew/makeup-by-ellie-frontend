@@ -92,6 +92,11 @@ function WorkForm(props) {
 
   return (
     <form className="WorkForm" onSubmit={handleSubmit}>
+      {
+        editingForm ?
+        <h2>Edit this Work</h2> :
+        <h2>Add a Work</h2>
+      }
       <Field
         name="category"
         component={renderDropdownListField}

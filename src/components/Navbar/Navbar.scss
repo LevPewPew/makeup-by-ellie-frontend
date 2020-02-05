@@ -42,9 +42,25 @@
     }
   }
 
-  .logout-btn {
-    
+  .admin-nav-container {
+    // padding: 5px;
+    border: 1px solid $faceBusiness;
+    display: flex;
+    justify-content: space-evenly;
+
+    .logout-anchor {
+      margin: 0;
+      width: 77.81px;
+      // need this as some reason doesn't sit flush in container
+      border-bottom: 1px solid $faceBusiness;
+
+      .logout-btn {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
+
 
   .BtnInstagram {
     position: absolute;
