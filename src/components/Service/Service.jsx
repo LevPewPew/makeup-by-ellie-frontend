@@ -43,7 +43,6 @@ function Service(props) {
               <p>{duration}</p>
               <p>{cost}</p>
               <p>{disclaimer}</p>
-              <br/>
               <BtnBookNow/>
               <CrudBtnsContainer
                 collection={collection}
