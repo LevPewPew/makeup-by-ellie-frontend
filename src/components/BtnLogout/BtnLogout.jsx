@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
+import './BtnLogout.scss';
 
 function BtnLogout() {
 
@@ -11,9 +12,7 @@ function BtnLogout() {
   }
 
   return (
-    <div>
-        <button className="btn" onClick={logOut}>LOGOUT</button>
-    </div>
+    <button className="BtnLogout btn" onClick={logOut}>Log out</button>
   );
 }
 

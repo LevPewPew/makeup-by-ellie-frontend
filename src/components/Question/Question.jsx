@@ -22,10 +22,6 @@ function Question(props) {
     questionsSubmitHandler(questionForm.values, editingForm);
   }
 
-  const handleClick = (e) => {
-    setShowAnswer(!showAnswer)
-  }
-
   return (
     <article className="Question">
       {
@@ -35,11 +31,8 @@ function Question(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-        <div className="ShowQuestion">
-          <button data-testid="ShowButton" className="ShowAnswerBtn" onClick={handleClick}>{showAnswer?"-":"+"}</button>
-          <p>{question}</p>
-        </div>
-          {showAnswer?<p>{answer}</p>:null}     
+          <h2>{question}</h2>
+          <p>{answer}</p>
           <CrudBtnsContainer
             collection={collection}
             id={id}
