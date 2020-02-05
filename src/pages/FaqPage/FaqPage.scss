@@ -1,0 +1,32 @@
+@mixin bp($point) {
+  @if $point == tablet {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
+.FaqPage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px 30%;
+
+  @include bp(tablet) {
+   margin: 0px 10px;
+  }
+
+  @include bp(mobile) {
+    margin: 0px 10px;
+  }
+}
+
+.FaqText {
+  flex: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;  
+}
