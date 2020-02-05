@@ -12,7 +12,6 @@ const maxImageSize = maxSizeInMB * (kiloByte ** 2);
 function AttachmentField(props) {
   const { input, files, setFiles } = props;
 
-  const successfulSubmit = useSelector((state) => state.adminDashReducer.successfulSubmit);
   const dispatch = useDispatch();
 
   const { getRootProps, getInputProps, rejectedFiles } = useDropzone({
