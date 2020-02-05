@@ -1,12 +1,17 @@
+@import '../../styles/colors';
+
 .Contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 8px solid rgb(124, 119, 118);
-  width: 400px;
-  height: 300px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: rgb(231, 105, 83);
+  border: 1px solid $faceBusiness;
+  width: calc(25% - 40px);
+  margin: 20px;
+
+  h2 {
+    margin: 20px;
+    text-align: left;
+  }
+
+  p {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
