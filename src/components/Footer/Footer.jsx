@@ -9,7 +9,9 @@ function Footer() {
       <div className="links">
         <div className="socials">
           <BtnInstagram />
-          <p>INSTAGRAM</p>
+          <a href="https://www.instagram.com/makeup.by.ellie/" target="_blank">
+            <p>INSTAGRAM</p>
+          </a>
         </div>
         <div>|</div>
         <div className="legal">
