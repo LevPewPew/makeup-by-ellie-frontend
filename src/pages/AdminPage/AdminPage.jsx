@@ -17,7 +17,7 @@ function AdminPage() {
 
   return (
     <div className="AdminPage" data-testid="AdminPage">
-      <h1>Admin Dashboard</h1>
+      <h1>ADMIN DASHBOARD</h1>
       <FormContainer />
       <h2>Portfolio</h2>
       <PortfolioContainer />
