@@ -13,7 +13,11 @@ function AdminPage() {
   useEffect(() => {
     dispatch({ type: 'UPDATE_ON_ADMIN_DASH', newOnAdminDash: true });
 
-    return () => dispatch({ type: 'UPDATE_ON_ADMIN_DASH', newOnAdminDash: false });
+    return () => {
+      dispatch({ type: 'UPDATE_ON_ADMIN_DASH', newOnAdminDash: false });
+      dispatch({ type: 'DISABLE_CREATE_FORM' });
+      dispatch({ type: 'DISABLE_EDITING_FORM' });
+    }
   }, [dispatch]);
 
   return (

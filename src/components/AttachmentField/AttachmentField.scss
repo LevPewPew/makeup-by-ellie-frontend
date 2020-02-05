@@ -1,6 +1,10 @@
 .AttachmentField {
   .Dropzone {
     border: 1px dashed grey;
+
+    p {
+      margin-left: 1%;
+    }
   }
   
   .thumbs-container {
