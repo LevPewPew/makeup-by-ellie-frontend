@@ -1,7 +1,30 @@
+@import '../../styles/colors';
+
+@mixin bp($point) {
+  @if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
 .Question {
-  background: rgb(195, 212, 160);
   margin: 10px;
-  border: 5px solid rgb(77, 70, 69);
-  border-radius: 10px;
   padding: 10px;
+}
+
+.ShowQuestion {
+  display: flex;
+  align-items: center;
+}
+
+.ShowAnswerBtn {
+  background-color: rgb(138, 135, 135);
+  text-align: center;
+  font-size: small;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
 }

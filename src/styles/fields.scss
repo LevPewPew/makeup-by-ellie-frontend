@@ -61,7 +61,7 @@
         padding-left: 1%;
         margin: none;
         margin: 10px 0;
-        background: $churchCrab;
+        background-color: $churchCrab;
         font-size: 16px;
         color: $faceBusiness;
       }
@@ -128,7 +128,7 @@
 
 
 input[type="text"]:enabled {
-  background: $churchCrab;
+  background-color: $churchCrab;
 }
 
 input[type="text"]:enabled::placeholder {
@@ -136,7 +136,7 @@ input[type="text"]:enabled::placeholder {
 }
 
 input[type="text"]:disabled {
-  background: $dyingUrchin;
+  background-color: $dyingUrchin;
 }
 
 input[type="number"] {
