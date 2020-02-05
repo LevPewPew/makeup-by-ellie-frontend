@@ -68,7 +68,7 @@ function peopleNumLimit(value) {
   }
 }
 
-function renderField({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) {
+function renderField({ autoFocus, placeholder, className, input, type, label, number1, number2, meta: { touched, error } }) {
   if (input.name === 'applicationAddress') {
     return (
       <div className="text-field">
@@ -90,7 +90,7 @@ function renderField({ autoFocus, placeholder, input, type, label, number1, numb
           label={label}
           error={error}
         />
-        <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
+        <input {...input} type={type} className={className} placeholder={placeholder} autoFocus={autoFocus}/>
       </div>
     )
   }

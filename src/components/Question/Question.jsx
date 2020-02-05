@@ -36,7 +36,7 @@ function Question(props) {
         /> :
         <>
         <div className="ShowQuestion">
-          <button className="ShowAnswerBtn" onClick={handleClick}>{showAnswer?"-":"+"}</button>
+          <button data-testid="ShowButton" className="ShowAnswerBtn" onClick={handleClick}>{showAnswer?"-":"+"}</button>
           <p>{question}</p>
         </div>
           {showAnswer?<p>{answer}</p>:null}     
