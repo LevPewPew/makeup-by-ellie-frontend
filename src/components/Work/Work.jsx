@@ -30,7 +30,7 @@ function Work(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-          <img src={imageUrl} alt="" style={{width: "300px"}}/>
+          <img src={imageUrl} alt=""/>
           <CrudBtnsContainer
             collection={collection}
             id={id}

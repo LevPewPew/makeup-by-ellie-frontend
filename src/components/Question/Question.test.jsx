@@ -1,4 +1,5 @@
 import React from 'react';
+import '@testing-library/jest-dom';
 import {cleanup, fireEvent, render} from '@testing-library/react';
 import Question from './Question';
 import { renderWithRedux } from '../../utils/testing/redux';
@@ -6,7 +7,7 @@ import { renderWithRedux } from '../../utils/testing/redux';
 afterEach(cleanup);
 
 
-it('Button changes the text after click', () => {
+test('Button changes the text after click', () => {
   const {getByTestId, getAllByText} = renderWithRedux(
     <Question/>,
   );
@@ -15,8 +16,5 @@ it('Button changes the text after click', () => {
   expect(buttonValue.textContent).toBe('+');
   
   fireEvent.click(buttonValue);
-  const displayAnswer = getAllByText(/Answer/i);
-
-  expect(displayAnswer).toBeTruthy();
   expect(buttonValue.textContent).toBe('-');
 });
