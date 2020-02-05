@@ -1,6 +1,8 @@
 .FormContainer {
   .select-form-btns {
     margin: 10px auto;
+    display: flex;
+    justify-content: center;
 
     .btn {
       margin: 0px 10px;
