@@ -1,13 +1,13 @@
 @import '../styles/colors';
 @import '../styles/fonts';
 
-.btn--req-animated {
+.btn-req-animated {
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-.btn--req-animated:focus {
+.btn-req-animated:focus {
   outline: none;
 }
 
@@ -24,4 +24,15 @@
 
 .btn:focus {
   outline: none;
+}
+
+.admin-form-btn-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  .btn {
+    margin-right: 5px;
+  }
 }

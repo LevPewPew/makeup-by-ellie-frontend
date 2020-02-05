@@ -1,4 +1,6 @@
 .FormContainer {
+  margin: 10px auto;
+
   .select-form-btns {
     margin: 10px auto;
     display: flex;
@@ -8,9 +10,5 @@
       margin: 0px 5px;
       font-size: 14px;
     }
-  }
-
-  .form {
-    margin: 10px;
   }
 }

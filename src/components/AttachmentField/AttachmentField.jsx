@@ -58,11 +58,7 @@ function AttachmentField(props) {
         </p>
       </div>
       <aside className="thumbs-container">
-        {
-          successfulSubmit ?
-          <p>{"File Uploaded!"}</p> :
-          thumbs
-        }
+        {thumbs}
       </aside>
     </div>
   );

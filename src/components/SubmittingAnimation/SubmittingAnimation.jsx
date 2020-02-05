@@ -9,7 +9,7 @@ function SubmittingAnimation() {
     <div className="SubmittingAnimation">
       <ReactLoading
         type={"cubes"}
-        color={colors.churchCrab}
+        color={colors.faceBusiness}
         height={"100px"}
         width={"100px"}
       />
