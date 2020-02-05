@@ -40,8 +40,16 @@ function Service(props) {
             <img src={imageUrl} alt="woman in makeup" />
             <div className="description-container">
               <p>{description}</p>
-              <p>{duration}</p>
-              <p>{cost}</p>
+              {
+                duration ?
+                <p className="duration"><strong>Duration: </strong>{duration}</p> :
+                null
+              }
+              {
+                cost ?
+                <p className="cost"><strong>Cost: </strong>{cost}</p> :
+                null
+              }
               <p>{disclaimer}</p>
               <BtnBookNow/>
               <CrudBtnsContainer
