@@ -20,6 +20,7 @@ import ContactDetails from './ContactDetails/ContactDetails';
 // TESTING, remove before deployment
 import './App.scss';
 
+
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
