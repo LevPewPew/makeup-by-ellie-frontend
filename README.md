@@ -1,17 +1,18 @@
 <!-- delete this before submit -->
 
-R10	A link (URL) to your deployed website
+R10	A link (URL) to your deployed website - DONE
 
-R11	A link to your GitHub repository (repo)
+R11	A link to your GitHub repository (repo) - DONE
 
-Ensure the repo is accessible by your educators!
-R12	The contents of your README.md as submitted for Real World App - Part A
+Ensure the repo is accessible by your educators! - DONE
 
-Documentation: PRG1006-2.2 Employ and utilise project management methodology
+R12	The contents of your README.md as submitted for Real World App - Part A - DONE
 
-Documentation: PRG1006-2.3 Employ and utilise task delegation methodology
+Documentation: PRG1006-2.2 Employ and utilise project management methodology - DONE
 
-Documentation: PRG1006-7.1 Development testing
+Documentation: PRG1006-2.3 Employ and utilise task delegation methodology - DONE
+
+Documentation: PRG1006-7.1 Development testing - Evidence of extensive user-testing of development site
 
 Documentation: PRG1006-7.2 Production testing
 
@@ -169,16 +170,16 @@ We also added two additional lanes, "Info to Know" and "Credentials and ENV". Th
 
 Tasks delegated as seen by avatar icons, chosen by strengths and weaknesses of team members and project/team conditions. Difficulty of each task placed into card title. Task delegation worked well so as to ensure we didn't accidentally do any overlapping work by checking who has picked up what card.
 
-![Project Management](docs/Trello-1.png)
+![Project Management](docs/Trello-5.png)
 
-Completed tasks marked with link to github commit that merges the relevent branch into master.
+Completed tasks marked with link to github commit that merges the relevant branch into master.
 
-![Project Management](docs/Trello-2.png)
-![Project Management](docs/Trello-3.png)
+![Project Management](docs/Trello-6.png)
+![Project Management](docs/Trello-7.png)
 
 When a task is complete, if a Github Pull Request has been made that includes that task, we used labels to indicate that so that we would be aware of what needs an approval before being merged. This was useful as it can be easy to miss a Github notification, where as we were constantly looking at and using our Kanban board. We also had a label to indicate a branch that covers a task has been merged, so that we could pull the latest changes and use them.
 
-![Project Management](docs/Trello-4.png)
+![Project Management](docs/Trello-8.png)
 
 ### General processes
 
@@ -240,6 +241,27 @@ When a task is complete, if a Github Pull Request has been made that includes th
   ## React-dom, version: 16.12.0
   This package is the 'entry-point' to the DOM enabling efficient management of DOM elements in a web page by utilising the built in methods.
 
+  ## Yarn clean
+  Yarn clean was used to remove unused js files within dependent libraries.
+
+# Testing
+  Both development testing as well as production testing has been recorded on the respective tabs in the below Google Sheet:
+  https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing
+  As can be seen, almost all tests have returned a pass, leaving the Update functionality (the failed tests) to future development updates.
+
+  ## Production testing - developers
+  The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. Please use the below link to access a screenshot with some of the expected behaviours:
+  https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing
+  
+  ## Production testing - client
+  The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link:
+  https://drive.google.com/file/d/1A26MZEpKGgeom_bmrxlzjl582Q5vAIrE/view?usp=sharing
+
+  ## Development testing 
+  The below link highlights some of the development tests completed:
+  https://drive.google.com/file/d/16w348VooCssp0kgiq3Z2oyEgm0Lws263/view?usp=sharing
+  
+  
   #Hooks?
   
   # I'm pretty sure we don't need these anymore TBC once we run depcheck
@@ -256,4 +278,3 @@ When a task is complete, if a Github Pull Request has been made that includes th
   Testing-library/user-event": "^8.0.3" 
 
   
-write detailed description about what packafges u used and why and how
