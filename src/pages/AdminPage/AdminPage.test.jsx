@@ -9,6 +9,8 @@ import { PORTFOLIO_DUMMY_DATA } from '../../utils/testing/dummyData';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
+jest.setTimeout(10000);
+
 beforeEach(() => {
   let mock = new MockAdapter(axios);
   mock.onGet(`${backendUrl}/portfolio`).reply(200, PORTFOLIO_DUMMY_DATA);
@@ -21,5 +23,5 @@ test('AdminPage document components have CRUD button components rendered', async
 
   await wait(() => getAllByTestId('Work'));
 
-  expect(getAllByTestId('BtnDeleteDoc'));
+  expect(getAllByTestId('BtnDeleteDoc')).toBeInTheDocument();
 });

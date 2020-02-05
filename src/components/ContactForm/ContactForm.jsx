@@ -69,8 +69,6 @@ function peopleNumLimit(value) {
 }
 
 function renderField({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) {
-  let dateClass = type === 'date' ? 'calender' : null;
-
   if (input.name === 'applicationAddress') {
     return (
       <div className="text-field">
@@ -90,7 +88,7 @@ function renderField({ autoFocus, placeholder, input, type, label, number1, numb
           label={label}
           error={error}
         />
-        <input className={dateClass} {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
+        <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
       </div>
     );
   }
