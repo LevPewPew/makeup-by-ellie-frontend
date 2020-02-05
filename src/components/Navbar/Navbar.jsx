@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../media/mbe-transparent-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
 import BtnInstagram from '../BtnInstagram/BtnInstagram';
+import BtnLogout from '../BtnLogout/BtnLogout';
 import './Navbar.scss';
 
 function Navbar() {
@@ -14,13 +15,7 @@ function Navbar() {
   const [ contactLinkClass, setContactLinkClass ] = useState('inactive');
   const [ adminDashLinkClass, setAdminDashLinkClass ] = useState('inactive');
 
-  const token = useSelector((state)=> state.tokenReducer.token);
-  const dispatch = useDispatch();
-
-  const logOut = () => {
-    localStorage.clear();
-    dispatch({ type:"UPDATE_TOKEN_DATA", newToken: "" })
-  }
+  const token = useSelector((state) => state.tokenReducer.token);
 
   const setLinkToActive = (event) => {
     event.persist();
@@ -129,7 +124,7 @@ function Navbar() {
               >
                 ADMIN
               </Link>
-              <Link className="logout-anchor" to="/"><button className="btn logout-btn" onClick={logOut}>Logout</button></Link>
+              <Link className="logout-anchor" to="/"><BtnLogout /></Link>
             </div> :
             null
           }
@@ -149,7 +144,7 @@ function Navbar() {
             <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
             <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
             <Link to="./contact" onClick={animateHamburger}><li>CONTACT</li></Link>
-            {token?<Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link>:null}
+            {token?<><Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link><Link to="/"><BtnLogout/></Link></>:null}
           </ul>
         </div>
       </div>
