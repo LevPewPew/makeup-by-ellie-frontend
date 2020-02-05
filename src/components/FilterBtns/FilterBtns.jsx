@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import './FilterBtns.scss';
 
-function FilterButtons() {
+function FilterBtns() {
   const dispatch = useDispatch();
 
   const [ beautyClass, setBeautyClass ] = useState('active btn');
@@ -31,7 +32,7 @@ function FilterButtons() {
 
 
   return (
-    <section>
+    <section className="FilterBtns">
       <button onClick={filterBeauty} className={beautyClass}>BEAUTY</button>
       <button onClick={filterEditorial} className={editorialClass}>EDITORIAL</button>
       <button onClick={filterBridal} className={bridalClass}>BRIDAL</button>
@@ -39,4 +40,4 @@ function FilterButtons() {
   );
 }
 
-export default FilterButtons;
+export default FilterBtns;

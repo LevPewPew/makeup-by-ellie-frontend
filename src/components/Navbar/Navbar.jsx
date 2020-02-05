@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../media/mbe-transparent-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
 import BtnInstagram from '../BtnInstagram/BtnInstagram';
+import BtnLogout from '../BtnLogout/BtnLogout';
 import './Navbar.scss';
 
 function Navbar() {
@@ -12,14 +13,9 @@ function Navbar() {
   const [ portfolioLinkClass, setPortfolioLinkClass ] = useState('inactive');
   const [ faqLinkClass, setFaqLinkClass ] = useState('inactive');
   const [ contactLinkClass, setContactLinkClass ] = useState('inactive');
+  const [ adminDashLinkClass, setAdminDashLinkClass ] = useState('inactive');
 
-  const token = useSelector((state)=> state.tokenReducer.token);
-  const dispatch = useDispatch();
-
-  const logOut = () => {
-    localStorage.clear();
-    dispatch({ type:"UPDATE_TOKEN_DATA", newToken: "" })
-  }
+  const token = useSelector((state) => state.tokenReducer.token);
 
   const setLinkToActive = (event) => {
     event.persist();
@@ -29,30 +25,42 @@ function Navbar() {
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/portfolio':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('active');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/faq':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('active');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
         break;
       case '/contact':
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('active');
+        setAdminDashLinkClass('inactive');
+        break;
+      case '/admin':
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('inactive');
+        setAdminDashLinkClass('active');
         break;
       default:
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
         setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
     }
   }
 
@@ -107,10 +115,17 @@ function Navbar() {
           </Link>
           {
             token ?
-            <>
-              <Link to="/admin" data-testid="nb-link-admin">ADMIN</Link>
-              <Link to="/"><button onClick={logOut}>Logout</button></Link>
-            </> :
+            <div className="admin-nav-container">
+              <Link
+                className={adminDashLinkClass}
+                to="/admin"
+                onClick={setLinkToActive}
+                data-testid="nb-link-admin"
+              >
+                ADMIN
+              </Link>
+              <Link className="logout-anchor" to="/"><BtnLogout /></Link>
+            </div> :
             null
           }
         </div>
@@ -129,7 +144,7 @@ function Navbar() {
             <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
             <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
             <Link to="./contact" onClick={animateHamburger}><li>CONTACT</li></Link>
-            {token?<Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link>:null}
+            {token?<><Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link><Link to="/"><BtnLogout/></Link></>:null}
           </ul>
         </div>
       </div>

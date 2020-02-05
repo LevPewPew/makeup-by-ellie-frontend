@@ -1,0 +1,9 @@
+.AdminLoginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .AdminLoginForm {
+    margin: 40px auto;
+  }
+}

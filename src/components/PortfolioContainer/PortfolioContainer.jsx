@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Masonry from 'react-masonry-component';
 import Work from '../Work/Work';
-import FilterButtons from '../FilterButtons/FilterButtons';
+import FilterBtns from '../FilterBtns/FilterBtns';
+import './PortfolioContainer.scss';
 
 function PortfolioContainer() {
   const filteredPortfolioData = useSelector((state) => state.portfolioReducer.filteredPortfolioData);
@@ -15,8 +16,8 @@ function PortfolioContainer() {
 
   return (
     <section className="PortfolioContainer">
-      <div className="buttonContainer">
-      <FilterButtons />
+      <div className="button-container">
+        <FilterBtns />
       </div>
       <Masonry
         className={'grid'}
