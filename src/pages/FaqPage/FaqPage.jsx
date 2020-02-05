@@ -7,7 +7,7 @@ function FaqPage() {
   return (
     <div className="FaqPage" data-testid="FaqPage">
       <div  className="FaqText">
-        <h1>Frequently Asked Questions</h1>
+        <h1>FAQ</h1>
         <p>Here you will find answers to the questions i get asked most.</p>
       </div>
       <div>
