@@ -43,7 +43,6 @@
   }
 
   .admin-nav-container {
-    // padding: 5px;
     border: 1px solid $faceBusiness;
     display: flex;
     justify-content: space-evenly;
@@ -61,7 +60,6 @@
     }
   }
 
-
   .BtnInstagram {
     position: absolute;
     top: 0px;
@@ -71,7 +69,6 @@
   .hamburger {
     display: none;
   }
-
   
   @media only screen and (max-width: 600px) {
     .shish-kebab {
