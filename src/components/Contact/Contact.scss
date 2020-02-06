@@ -1,17 +1,48 @@
 @import '../../styles/colors';
 
-.Contact {
-  border: 1px solid $faceBusiness;
-  width: calc(25% - 40px);
-  margin: 20px;
+@mixin bp($point) {
+  @if $point == totalCols3 {
+    @media (max-width: 1400px) { @content; }
+  }
+  @else if $point == totalCols2 {
+    @media (max-width: 1000px) { @content; }
+  }
+  @else if $point == totalCols1 {
+    @media (max-width: 600px) { @content; }
+  }
+}
 
-  h2 {
-    margin: 20px;
-    text-align: left;
+.Contact {
+  width: calc(25% - 40px);
+  padding: 20px;
+  border: 1px solid $faceBusiness;
+  margin: 20px;
+  background-color: $dyingUrchin;
+
+  @include bp(totalCols3) {
+    width: calc(33.333% - 40px);
   }
 
-  p {
-    margin-left: 20px;
-    margin-right: 20px;
+  @include bp(totalCols2) {
+    width: calc(50% - 40px);
+  }
+
+  @include bp(totalCols1) {
+    width: calc(100% - 40px);
+  }
+
+  h2 {
+    margin: 0;
+    text-align: left;
+    background-color: $dyingUrchin;
+  }
+
+  p, strong {
+    background-color: $dyingUrchin;
+  }
+
+  .btn {
+    width: 150px;
+    height: 25px;
   }
 }
