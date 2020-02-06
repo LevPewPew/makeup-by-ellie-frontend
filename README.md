@@ -1,29 +1,10 @@
-<!-- delete this before submit -->
-
-R10	A link (URL) to your deployed website - DONE
-
-R11	A link to your GitHub repository (repo) - DONE
-
-Ensure the repo is accessible by your educators! - DONE
-
-R12	The contents of your README.md as submitted for Real World App - Part A - DONE
-
-Documentation: PRG1006-2.2 Employ and utilise project management methodology - DONE
-
-Documentation: PRG1006-2.3 Employ and utilise task delegation methodology - DONE
-
-Documentation: PRG1006-7.1 Development testing - Evidence of extensive user-testing of development site
-
-Documentation: PRG1006-7.2 Production testing
-
-<!-- delete this before submit -->
-
 # Makeup by Ellie
 
 ## A business website for Ellie Tseriotis, a freelance makeup artist
 
 ### By Martyna Krawczyk, Pankaj Pawar and Levente Toth
 
+# PART A
 # Purpose
 This MERN stack website is for the Makeup by Ellie business, a freelance makeup artistry business. It provides a place for potential clients to view what services the business provides, past work done, and a way to contact the makeup artist, Ellie, in a streamlined formal process so as to cut down on back and forth unclear communication that can arise from emails and social media messaging.
 
@@ -70,10 +51,10 @@ React - React is a javascript library which allows us to create front-end/client
 - macOS - Operating system in which the development is done
 
 # Data Flow Diagram
-![DFD](docs/data_flow_diagram.png)
+[Data Flow Diagram](https://drive.google.com/file/d/1mz9UkszbE4CRHUAmNn79l5UGiYbxwLjG/view?usp=sharing)
 
 # Application Architecture Diagram
-![AAD](docs/application_architecture.png)
+[Application Architecture Diagram](https://drive.google.com/file/d/1lcwEJWHx9y1FD0vgzG9CVY_CebF3nko0/view?usp=sharing)
 
 # User Stories
 ## Personas
@@ -107,54 +88,50 @@ As Ellie, I would like my instagram feeds to be published to my website so that 
 As Ellie, I would like to amend the Services list to add/edit/delete services and/or prices as my business changes.
 
 # Wireframes
-![Homepage](docs/home.png)
-![Services](docs/services.png)
-![Portfolio](docs/portfolio.png)
-![FAQ](docs/faq.png)
-![Contact](docs/contact.png)
-![Admin Login](docs/admin_login.png)
-![Admin Add Content](docs/admin_add_content.png)
-![Admin View Content](docs/admin_view_content.png)
-![Terms and Conditions](docs/terms_conditions.png)
-![Privacy Policy](docs/privacy_policy.png)
+[Home Page](https://drive.google.com/open?id=1uXTfD7TTsDMeWOJ9zIyGjYEUcwYsgoma)<br/>
+[Services Page](https://drive.google.com/open?id=1DbVKyINSs1cL_H383DxYAu6BVK137R8q)<br/>
+[Portfolio](https://drive.google.com/open?id=1Tx_jS8MH8Zy-R8HpD1aWhmvVRxgHHVaV)<br/>
+[FAQ](https://drive.google.com/open?id=1tjR0LJ36bTXkfE9qgJMSimehvB12vSOc)<br/>
+[Contact](https://drive.google.com/open?id=1_1CjidtFVKjTo9FK6JljHtCzPrz53_iE)<br/>
+[Admin Login](https://drive.google.com/open?id=1EL17mEsU3Bcz3N7_HNIuQFYJUlvaZ_n4)<br/>
+[Admin Add Content](https://drive.google.com/open?id=1-DHAwOJ05y4iC0K9duyWlZeJbBZSM5E7)<br/>
+[Admin View Content](https://drive.google.com/open?id=16MkHqC1sXxXfHXN1rBwijBSN6wsMhOQE)<br/>
+[Terms and Conditions](https://drive.google.com/open?id=16_VzrhUFyo5j3AQhaXisgppi-R3In5NO)<br/>
+[Privacy Policy](https://drive.google.com/open?id=1Uqjgzf3Rw3NPugNlma7k1leAPR-eKBi7)<br/>
 ## Wireframes - Prototype
-The above wireframes have been used to create a prototype to assist in highlighting the relationships between each page, and to enable the client to see how the site will perform.
-https://www.figma.com/proto/GXFgKroKtluFNoofxl7lPE/Feel-the-MERN?node-id=29%3A584&scaling=contain
+The above wireframes have been used to create a prototype to assist in highlighting the relationships between each page, and to enable the client to see how the site will perform.<br/>
+[Prototype](https://www.figma.com/proto/GXFgKroKtluFNoofxl7lPE/Feel-the-MERN?node-id=29%3A584&scaling=contain)
 
-# Trello Project Management Boards
-![Board 1](docs/trello_1.png)
-![Board 2](docs/trello_2.png)
-![Board 3](docs/trello_3.png)
-![Board 4](docs/trello_4.png)
+## Trello Project Management Boards
+[Project Management Board 1](https://drive.google.com/open?id=1LyqY2sBNjAdVmfVmG_5S7fDJ5ng_8iEZ)<br/>
+[Project Management Board 2](https://drive.google.com/open?id=1_pOgj8uHZdejNCwAx8GbShlMx6xEytd1)<br/>
+[Project Management Board 3](https://drive.google.com/open?id=1BlO-0l9TnXkiNCtVGfLTUuw6GNsM3k6v)<br/>
+[Project Management Board 4](https://drive.google.com/open?id=1ahN5IcEJQoLZn4Akbl9x6ld6opMcBu7n)<br/>
 
-
-## Deployment
+# PART B
+# Deployment
 
 ### Frontend
 
 #### Deployed website
-
+The website has been deployed using Netlify with a custom domain name as can be seen here ([Deployment - Custom Domain Name](https://drive.google.com/open?id=14qcHZdty2oNGqy84oSpbJz1DNkR1NqEF)) and can be accessed using the below link:
 https://makeupbyellie.netlify.com
-
-#### Custom Domain Name of frontend
-
-![Deployment](docs/frontend-deploy-cli.png)
 
 #### Environment variables
 
-![Deployment](docs/frontend-env.png)
+[Deployment - Environment variables](https://drive.google.com/open?id=1TXQbejD9ISY88XpWKvD04y1cy0aRAfms)
 
 ### Deployed Backend
 
-![Deployment](docs/backend-deploy-cli.png)
+[Deployment - Deployed Backend](https://drive.google.com/open?id=1EKC831yTNmg0u9KTyWHGNgZ1-8nQ7AhF)
 
 #### Environment variables
 
-![Deployment](docs/backend-heroku-dashboard.png)
-![Deployment](docs/backend-heroku-env.png)
+[Deployment](https://drive.google.com/open?id=1SW7JiKS2P-JroeX7lM1yfu0Nzmf_4Y86)<br/>
+[Deployment](https://drive.google.com/open?id=17V-l6q-z3gbiQ35eBUgQCR-ozxLbzlhi)
 
 ## Source Control
-
+Github has been used for source control, with two repositories, the frontend and backend - they can be accessed below:
 https://github.com/LevPewPew/makeup-by-ellie-frontend
 
 https://github.com/LevPewPew/makeup-by-ellie-backend
@@ -168,27 +145,21 @@ https://www.atlassian.com/agile/tutorials/how-to-do-kanban-with-jira-software
 
 We also added two additional lanes, "Info to Know" and "Credentials and ENV". These lanes provide a common source of truth for general information we all need to be aware of, without the need to use yet another app such as Google Sheets, or having to wade through Slack conversation history.
 
-Tasks delegated as seen by avatar icons, chosen by strengths and weaknesses of team members and project/team conditions. Difficulty of each task placed into card title. Task delegation worked well so as to ensure we didn't accidentally do any overlapping work by checking who has picked up what card.
+Tasks delegated as seen by avatar icons, chosen by strengths and weaknesses of team members and project/team conditions. Difficulty of each task placed into card title. Task delegation worked well so as to ensure we didn't accidentally do any overlapping work by checking who has picked up what card. This can be seen using this link: [Project Management - Board 5](https://drive.google.com/open?id=1VH3Qve9jZAMcHWO1utA4G9ge8ArU4s08)
 
-![Project Management](docs/Trello-5.png)
+Completed tasks marked with link to github commit that merges the relevant branch into master can be seen using the links below:
 
-Completed tasks marked with link to github commit that merges the relevant branch into master.
+[Project Management - Board 6](https://drive.google.com/open?id=1K9YqzVeVDAJWCBtThQFmKYxeH40e0FKG)<br/>
+[Project Management - Board 7](https://drive.google.com/open?id=1bc4py1C8uT8_O0JBme9-n84PrUzsYLaD)
 
-![Project Management](docs/Trello-6.png)
-![Project Management](docs/Trello-7.png)
-
-When a task is complete, if a Github Pull Request has been made that includes that task, we used labels to indicate that so that we would be aware of what needs an approval before being merged. This was useful as it can be easy to miss a Github notification, where as we were constantly looking at and using our Kanban board. We also had a label to indicate a branch that covers a task has been merged, so that we could pull the latest changes and use them.
-
-![Project Management](docs/Trello-8.png)
-
-### General processes
+When a task is complete, if a Github Pull Request has been made that includes that task, we used labels to indicate that so that we would be aware of what needs an approval before being merged. This was useful as it can be easy to miss a Github notification, where as we were constantly looking at and using our Kanban board. We also had a label to indicate a branch that covers a task has been merged, so that we could pull the latest changes and use them, as can be seen here: [Project Management - Board 8](https://drive.google.com/open?id=1K77plthI8tjziXcN8laFWPUa0IIr7qei)
 
 ### Packages used
   ## Testing-library/react, version: 9.4.0
   The React Testing Library is used for testing React components. It includes utility functions on top of react-dom and react-dom/test-utils, in order to guide better testing practices. It is designed to run tests which resemble the way that software is used 
   We have used this library's render and fireEvent methods to test that the navbar links render the appropriate page, for example. 
 
-  ## testing-library/jest-dom, version: 5.0.2
+  ## Jest, with testing-library/jest-dom, version: 5.0.2
   Jest is used for unit tests of logic and components and not the dom, running tests in the node environment instead of the browser in order to run tests at speed and avoid unreliable results. The library includes a set of custom jest matchers which are used to provide the expected results, such as toBe, or toEqual, making tests clear to read and maintain.
   We have used this library in our unit tests including our Service.test file for example, to ensure that our dummyData has been rendered to the screen.
 
@@ -198,6 +169,9 @@ When a task is complete, if a Github Pull Request has been made that includes th
 
   ## Axios-mock-adapter, version: 1.17.0
   With Axios-mock-adapter in place, any GET request made to the database within our test code will be intercepted, and instead of actually making a request to the API, it is going to return the data we put into the dummyData. Without the Axios Mock Adapter, the test would run slow, could potentially be unreliable and can result in a network error that may crash the test.
+  
+  ## Cypress, version: 3.8.3
+  Cypress is an automated testing package used for front end development, providing it's own browser-based dashboard, showing exactly what's happening as the test is running, with the added benefit of being able to use the browser's dev tools.
 
   ## Fix-image-rotation, version: 2.0.0
   The Fix Image Rotation package rotates images based on their EXIF value (the image metadata which identifies the image orientation), to ensure that all images uploaded by the client are rendering in the right direction.  This package has been implemented with the Dropzone library as described below.
@@ -233,40 +207,61 @@ When a task is complete, if a Github Pull Request has been made that includes th
   React Widgets are a library of reusable components made for React.  This website utilises a dropdown field within the redux forms.
   
   ## Xxhashjs, version: 0.2.2
-  xxHashjs is a hashing package containing an algorithm which has been utilised in this website to hash file names of uploaded images.
+  xxHashjs is a hashing package containing an algorithm which has been utilised in this website to hash file names of uploaded images, avoiding any name conflicts the user may have encountered.
 
   ## Node-sass, version: 4.13.1
   Node Sass is used to compile scss to css in a react project, enabling scss to be used in a create-react-app.
+
+  ## Nodemailer, version: 6.4.2
+  Nodemailer works with nodejs to send emails from contact form submissions. Emails can be styled and populated with information submitted as can be seen in this example:[Nodemailer Email Screenshot]()
 
   ## React-dom, version: 16.12.0
   This package is the 'entry-point' to the DOM enabling efficient management of DOM elements in a web page by utilising the built in methods.
 
   ## Yarn clean
-  Yarn clean was used to remove unused js files within dependent libraries.
+  Yarn clean was used to remove unused (prune) js files within dependent libraries, saving over 19 MB. To ensure that the pruning didn't damage any of the functionality of the application, a full user experience run-through was done, testing all active links, rendering of collections, as well as CRUD functionality in the Admin pages before it was implemented <br/>
+  [Yarn Cleanup Screenshot](https://drive.google.com/open?id=1Dr0MpHxHa4WTfdUO7fKPBCq-ghTFjD_S)
+  
+  ## Aws-sdk, version: 2.606.0
+  The AWS SDK is a library which is used to connect services such as Amazon S3 to an application.
+
+  ## Cors, version: 2.8.5
+  Cross Origin Resource Sharing (CORS) is a mechanism that allows restricted resources to be shared to external domains.
+
+  ## Backend
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.6",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
 
 # Testing
-  Both development testing as well as production testing has been recorded on the respective tabs in the below Google Sheet:
-  https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing
+  Both development testing as well as production testing has been recorded on the respective tabs in the below Google Sheet:<br/>
+  [Manual Tests - Google Sheet](https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing)
   As can be seen, almost all tests have returned a pass, leaving the Update functionality (the failed tests) to future development updates.
 
   ## Production testing - developers
-  The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. Please use the below link to access a screenshot with some of the expected behaviours:
-  https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing
+  The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. Please use the below link to access a screenshot with some of the expected behaviours:<br/>
+  [Production Testing Screenshot - Developers](https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing)
+  ### 
   
   ## Production testing - client
-  The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link:
-  https://drive.google.com/file/d/1A26MZEpKGgeom_bmrxlzjl582Q5vAIrE/view?usp=sharing
+  The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link: <br/>
+  [Production Testing Screenshot - Client](https://drive.google.com/file/d/1A26MZEpKGgeom_bmrxlzjl582Q5vAIrE/view?usp=sharing)
+
+  ## Production testing - screen recording of deployed website
+  [Production Testing Screen Recording]()
 
   ## Development testing 
-  The below link highlights some of the development tests completed:
-  https://drive.google.com/file/d/16w348VooCssp0kgiq3Z2oyEgm0Lws263/view?usp=sharing
+  The below link highlights some of the development tests completed:<br/>
+  [Development Testing Screenshot](https://drive.google.com/file/d/16w348VooCssp0kgiq3Z2oyEgm0Lws263/view?usp=sharing)
   
-  
-  #Hooks?
+
   
   # I'm pretty sure we don't need these anymore TBC once we run depcheck
-  react-bootstrap": "^1.0.0-beta.16"
-  bootstrap": "^4.4.1"
+
   fortawesome/fontawesome-free": "^5.12.0"
   @fortawesome/fontawesome-svg-core": "^1.2.26"
   @fortawesome/free-solid-svg-icons": "^5.12.0"
