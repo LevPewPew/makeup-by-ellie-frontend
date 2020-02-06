@@ -21,7 +21,7 @@ This MERN stack website is for the Makeup by Ellie business, a freelance makeup 
 * Dynamic Contact Form (Changes based on the requirements of the customer, with some fields being hidden or revealed as required)
 * Database for gallery images, testimonials, services as well as client contact / requirements information
 * Cloud storage (AWS)
-* Admin dashboard with CRUD features for gallery images, testimonials and services
+* Admin dashboard with CRUD features for gallery images, testimonials and services (credentials, username: admin, password: test)
 
 # Target audience
 As a makeup artist, knowing particular target audience is about offering services to a specific group of clients based on your previous experience, education and overall skill set as a makeup artist.
