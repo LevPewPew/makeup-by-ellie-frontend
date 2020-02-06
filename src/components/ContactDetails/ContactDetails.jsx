@@ -65,17 +65,6 @@ function ContactById(props) {
           <td>{contact.mobile}</td>
         </tr>
       </table>
-
-      {/* <p><strong>Name: </strong>{contact.name}</p>
-      <p><strong>Mobile: </strong>{contact.mobile}</p>
-      <p><strong>Event Date: </strong>{contact.eventDate}</p>
-      <p><strong>Type of Service: </strong>{contact.serviceType}</p>
-      <p><strong>Time to be ready by: </strong>{contact.timeToFinish}</p>
-      <p><strong>Number of people for makeup: </strong>{contact.totalPeopleJustMakeup}</p>
-      <p><strong>Number of people for hair: </strong>{contact.totalPeopleWithHair}</p>
-      <p><strong>Address: </strong>{contact.applicationAddress || "Ellie's Home address"}</p>
-      <p><strong>How did you hear about us: </strong>{contact.howDidYouHear}</p>
-      <p><strong>Additional info/questions: </strong>{contact.addedQuestionsOrInfo}</p> */}
     </div>
   );
 }
