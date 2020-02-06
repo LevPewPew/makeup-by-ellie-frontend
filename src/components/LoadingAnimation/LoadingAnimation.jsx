@@ -8,7 +8,7 @@ function LoadingAnimation() {
     <div className="LoadingAnimation">
       <ReactLoading
         type={"spinningBubbles"}
-        color={colors.churchCrab}
+        color={colors.faceBusiness}
         height={"220px"}
         width={"220px"}
       />
