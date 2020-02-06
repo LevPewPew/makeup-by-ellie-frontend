@@ -1,7 +1,16 @@
 describe('Check navbar links are working', () => {
 
-  it('Check if contact form accepts input', async () => {
 
+  it('Check if navigation to all the pages is working and contact form accepts input', async () => {
+
+    await cy.visit('http://localhost:3000/');
+    cy.wait(2000)
+    await cy.visit('http://localhost:3000/services');
+    cy.wait(2000)
+    await cy.visit('http://localhost:3000/portfolio');
+    cy.wait(2000)
+    await cy.visit('http://localhost:3000/faq');
+    cy.wait(2000)
     await cy.visit('http://localhost:3000/contact');
     cy.wait(2000)
 
@@ -55,3 +64,5 @@ describe('Check navbar links are working', () => {
       cy.wait(2000)
   })
 })
+
+
