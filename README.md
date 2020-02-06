@@ -113,7 +113,7 @@ The above wireframes have been used to create a prototype to assist in highlight
 
 ## Frontend
 ### Deployed website
-The website has been deployed using Netlify with a custom domain name as can be seen here ([Deployment - Custom Domain Name](https://drive.google.com/open?id=14qcHZdty2oNGqy84oSpbJz1DNkR1NqEF)) and can be accessed using the below link:
+The website has been deployed using Netlify with a custom domain name as can be seen here ([Deployment - Custom Domain Name](https://drive.google.com/open?id=14qcHZdty2oNGqy84oSpbJz1DNkR1NqEF)) and can be accessed using the link:
 https://makeupbyellie.netlify.com
 
 Please use this link to view the [Deployment - Frontend Environment Variables](https://drive.google.com/open?id=1TXQbejD9ISY88XpWKvD04y1cy0aRAfms) for the frontend.
@@ -121,7 +121,7 @@ Please use this link to view the [Deployment - Frontend Environment Variables](h
 ### Deployed Backend
 The backend has been deployed using heroku. Please use this link to view a screenshot of the deployed Backend: [Deployment - Deployed Backend](https://drive.google.com/open?id=1EKC831yTNmg0u9KTyWHGNgZ1-8nQ7AhF)
 
-The below links are screenshots of the backend environment variables:
+The below links are screenshots of the backend environment variables:<br/>
 [Deployment - Backend Environment Variables](https://drive.google.com/open?id=1SW7JiKS2P-JroeX7lM1yfu0Nzmf_4Y86)<br/>
 [Deployment - Backend Environment Variables](https://drive.google.com/open?id=17V-l6q-z3gbiQ35eBUgQCR-ozxLbzlhi)
 
@@ -165,7 +165,7 @@ We have used this library to make GET and POST requests to our external database
 With Axios-mock-adapter in place, any GET request made to the database within our test code will be intercepted, and instead of actually making a request to the API, it is going to return the data we put into the dummyData. Without the Axios Mock Adapter, the test would run slow, could potentially be unreliable and can result in a network error that may crash the test.
 
 ### Cypress, version: 3.8.3
-Cypress is an automated testing package used for front end development, providing it's own browser-based dashboard, showing exactly what's happening as the test is running, with the added benefit of being able to use the browser's dev tools.
+Cypress is an automated testing package used for frontend development, providing it's own browser-based dashboard, showing exactly what's happening as the test is running, with the added benefit of being able to use the browser's dev tools.
 
 ### Fix-image-rotation, version: 2.0.0
 The Fix Image Rotation package rotates images based on their EXIF value (the image metadata which identifies the image orientation), to ensure that all images uploaded by the client are rendering in the right direction.  This package has been implemented with the Dropzone library as described below.
@@ -212,8 +212,8 @@ Nodemailer works with node.js to send emails from contact form submissions. Emai
 ### React-dom, version: 16.12.0
 This package is the 'entry-point' to the DOM enabling efficient management of DOM elements in a web page by utilising the built in methods.
 
-### Yarn Cleanup
-Yarn clean was used to remove unused (prune) js files within dependent libraries, saving over 19 MB. To ensure that the pruning didn't damage any of the functionality of the application, a full user experience run-through was done, testing all active links, rendering of collections, as well as CRUD functionality in the Admin pages before it was implemented <br/>
+### Yarn Autoclean
+Yarn autoclean was used to remove unused (prune) js files within dependent libraries, saving over 19 MB. To ensure that the pruning didn't damage any of the functionality of the application, a full user experience run-through was done, testing all active links, rendering of collections, as well as CRUD functionality in the Admin pages before it was implemented <br/>
 [Yarn Cleanup Screenshot](https://drive.google.com/open?id=1Dr0MpHxHa4WTfdUO7fKPBCq-ghTFjD_S)
 
 ### Aws-sdk, version: 2.606.0
@@ -241,7 +241,6 @@ Nodemon automatically restarts your server as it monitors your code for any chan
 Supertest is a react library that is used to test node.js http servers or endpoints. 
 
 ## Testing
-
 Both development testing as well as production testing has been recorded on the respective tabs in the below Google Sheet:<br/>
 [Manual Tests - Google Sheet](https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing)
 As can be seen, almost all tests have returned a pass, leaving the Update functionality (the failed tests) to future development updates.
@@ -249,14 +248,17 @@ As can be seen, almost all tests have returned a pass, leaving the Update functi
 ### Production testing - developers
 The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. Please use the below link to access a screenshot with some of the expected behaviours:<br/>
 [Production Testing Screenshot - Developers](https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing)
-
+<br/>
+Cypress automated tests have been carried out to test the navbar, contact form, and admin form.  The below links are screen recordings showing the tests run and pass:<br/> 
+([Cypress Navbar Test ](https://drive.google.com/open?id=1x6iDqevdQka3m4nxhBXE1CcNC6e0nZK-))<br/>
+([Cypress Contact Form Test](https://drive.google.com/open?id=1kW50P3PR8cnfMSBVdTy8ZqptcXIqMJRZ))<br/>
+([Cypress Admin Form Test](https://drive.google.com/open?id=1evyevIL-DPGpp8jzQeqhbSk4GB2X1W1C))
 
 ### Production testing - client
 The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link: <br/>
 [Production Testing Screenshot - Client](https://drive.google.com/file/d/1A26MZEpKGgeom_bmrxlzjl582Q5vAIrE/view?usp=sharing)
 
-### Production testing - screen recording of deployed website
-To view live user testing on the deployed website, please use the below link:
+To view live user testing on the deployed website, please use this link:
 [Production Test Screen Recording of Deployed Site](https://drive.google.com/open?id=1Gr6mSnWXBeQs0AwydFEioJEKnEM_xIn4)
 
 ### Development testing 
