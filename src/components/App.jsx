@@ -11,15 +11,12 @@ import PortfolioPage from '../pages/PortfolioPage/PortfolioPage'
 import FaqPage from '../pages/FaqPage/FaqPage';
 import AdminLoginPage from '../pages/AdminLoginPage/AdminLoginPage';
 import Footer from './Footer/Footer';
-import PrivacyPolicy from '../pages/privacy-policy/PrivacyPolicy';
-import TermsConditions from '../pages/terms-conditions/TermsConditions';
+import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
+import TermsConditions from '../pages/TermsConditions/TermsConditions';
 import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
-// TESTING, remove before deployment
 import ContactsContainer from './ContactsContainer/ContactsContainer';
 import ContactDetails from './ContactDetails/ContactDetails';
-// TESTING, remove before deployment
 import './App.scss';
-
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -27,7 +24,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const token = useSelector((state)=>state.tokenReducer.token)
+  const token = useSelector((state) => state.tokenReducer.token)
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
