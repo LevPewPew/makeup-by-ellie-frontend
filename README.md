@@ -119,14 +119,14 @@ https://makeupbyellie.netlify.com
 Please use this link to view the [Deployment - Frontend Environment Variables](https://drive.google.com/open?id=1TXQbejD9ISY88XpWKvD04y1cy0aRAfms) for the frontend.
 
 ### Deployed Backend
-The backend has been deployed using heroku. Please use this link to view a screenshot of the deployed Backend: [Deployment - Deployed Backend](https://drive.google.com/open?id=1EKC831yTNmg0u9KTyWHGNgZ1-8nQ7AhF)
+The backend has been deployed using Heroku. Please use this link to view a screenshot of the deployed Backend: [Deployment - Deployed Backend](https://drive.google.com/open?id=1EKC831yTNmg0u9KTyWHGNgZ1-8nQ7AhF)
 
 The below links are screenshots of the backend environment variables:<br/>
 [Deployment - Backend Environment Variables](https://drive.google.com/open?id=1SW7JiKS2P-JroeX7lM1yfu0Nzmf_4Y86)<br/>
 [Deployment - Backend Environment Variables](https://drive.google.com/open?id=17V-l6q-z3gbiQ35eBUgQCR-ozxLbzlhi)
 
 ## Source Control
-Github has been used for source control, with two repositories, the frontend and backend - they can be accessed below:
+Github has been used for source control, with two repositories, the frontend and backend - they can be accessed below:<br/>
 https://github.com/LevPewPew/makeup-by-ellie-frontend
 
 https://github.com/LevPewPew/makeup-by-ellie-backend
@@ -213,7 +213,7 @@ Nodemailer works with node.js to send emails from contact form submissions. Emai
 This package is the 'entry-point' to the DOM enabling efficient management of DOM elements in a web page by utilising the built in methods.
 
 ### Yarn Autoclean
-Yarn autoclean was used to remove unused (prune) js files within dependent libraries, saving over 19 MB. To ensure that the pruning didn't damage any of the functionality of the application, a full user experience run-through was done, testing all active links, rendering of collections, as well as CRUD functionality in the Admin pages before it was implemented <br/>
+Yarn Autoclean was used to remove unused (prune) js files within dependent libraries, saving over 19 MB. To ensure that the pruning didn't damage any of the functionality of the application, a full user experience run-through was done, testing all active links, rendering of collections, as well as CRUD functionality in the Admin pages before it was implemented. <br/>
 [Yarn Cleanup Screenshot](https://drive.google.com/open?id=1Dr0MpHxHa4WTfdUO7fKPBCq-ghTFjD_S)
 
 ### Aws-sdk, version: 2.606.0
@@ -242,7 +242,7 @@ Supertest is a react library that is used to test node.js http servers or endpoi
 
 ## Testing
 Both development testing as well as production testing has been recorded on the respective tabs in the below Google Sheet:<br/>
-[Manual Tests - Google Sheet](https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing)
+[Manual Tests - Google Sheet](https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing)<br/>
 As can be seen, almost all tests have returned a pass, leaving the Update functionality (the failed tests) to future development updates.
 
 ### Production testing - developers
@@ -250,9 +250,9 @@ The developer team have tested the deployed website, ensuring that all database 
 [Production Testing Screenshot - Developers](https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing)
 <br/>
 Cypress automated tests have been carried out to test the navbar, contact form, and admin form.  The below links are screen recordings showing the tests run and pass:<br/> 
-([Cypress Navbar Test ](https://drive.google.com/open?id=1x6iDqevdQka3m4nxhBXE1CcNC6e0nZK-))<br/>
-([Cypress Contact Form Test](https://drive.google.com/open?id=1kW50P3PR8cnfMSBVdTy8ZqptcXIqMJRZ))<br/>
-([Cypress Admin Form Test](https://drive.google.com/open?id=1evyevIL-DPGpp8jzQeqhbSk4GB2X1W1C))
+[Cypress Navbar Test ](https://drive.google.com/open?id=1x6iDqevdQka3m4nxhBXE1CcNC6e0nZK-)<br/>
+[Cypress Contact Form Test](https://drive.google.com/open?id=1kW50P3PR8cnfMSBVdTy8ZqptcXIqMJRZ)<br/>
+[Cypress Admin Form Test](https://drive.google.com/open?id=1evyevIL-DPGpp8jzQeqhbSk4GB2X1W1C)
 
 ### Production testing - client
 The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link: <br/>
