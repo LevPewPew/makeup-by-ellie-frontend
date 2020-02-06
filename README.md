@@ -246,13 +246,61 @@ Both development testing as well as production testing has been recorded on the 
 As can be seen, almost all tests have returned a pass, leaving the Update functionality (the failed tests) to future development updates.
 
 ### Production testing - developers
-The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. Please use the below link to access a screenshot with some of the expected behaviours:<br/>
+The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. 
+Please use the below link to access a screenshot with some of the expected behaviours:<br/>
 [Production Testing Screenshot - Developers](https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing)
 <br/>
+
+### Cypress
 Cypress automated tests have been carried out to test the navbar, contact form, and admin form.  The below links are screen recordings showing the tests run and pass:<br/> 
 [Cypress Navbar Test ](https://drive.google.com/open?id=1x6iDqevdQka3m4nxhBXE1CcNC6e0nZK-)<br/>
 [Cypress Contact Form Test](https://drive.google.com/open?id=1kW50P3PR8cnfMSBVdTy8ZqptcXIqMJRZ)<br/>
 [Cypress Admin Form Test](https://drive.google.com/open?id=1evyevIL-DPGpp8jzQeqhbSk4GB2X1W1C)
+
+### Jest
+Jest is a testing framework that we have used to test our backend functionality. All the test files for backend are placed inside of a directory named _tests_. Each test file has ‘.test.js’ extension, indicating that when we run the test, those files are executed for testing
+Command to run the tests:
+```
+npm test
+```
+
+### Supertest
+Supertest was used in the backend to test node.js http endpoints.
+The below code is our server setup file:
+```
+const app = require("../server"); 
+const supertest = require("supertest");  
+const request = supertest(app);
+```
+The below is a sample test to check for correct status response from backend route:
+```
+describe('Tests for question route',() => {
+  it("Checking for status:200 response from /question route", async done => {
+  const response = await request.get("/questions"); 
+  expect(response.status).toBe(200);
+  done();
+});
+})
+```
+Sample test to check whether login form works
+```
+describe('Tests for admin-login route',() => {
+  it("Check for correct admin login - Should return 200 OK response", async done => {
+  const response = await request.post("/admin-login").send({
+    username: process.env.ADMIN_LOGIN,
+    password: process.env.ADMIN_PASSWORD
+  });
+  expect(response.status).toBe(200);
+  done();
+});
+```
+### @testing-library/react
+React’s inbuilt testing library was used to accomplish unit testing of our react components.
+The command to run the test:
+```
+yarn test
+```
+This will run all the tests written for our components. In order for components to be tested, the test files should have ‘.test.js’ suffix extension.
 
 ### Production testing - client
 The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link: <br/>
