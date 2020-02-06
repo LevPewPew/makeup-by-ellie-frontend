@@ -10,8 +10,8 @@ function SubmittingAnimation() {
       <ReactLoading
         type={"cubes"}
         color={colors.faceBusiness}
-        height={"100px"}
-        width={"100px"}
+        width={"150px"}
+        height={"50px"}
       />
     </div>
   );
