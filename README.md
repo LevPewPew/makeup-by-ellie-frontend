@@ -102,7 +102,7 @@ As Ellie, I would like to amend the Services list to add/edit/delete services an
 The above wireframes have been used to create a prototype to assist in highlighting the relationships between each page, and to enable the client to see how the site will perform.<br/>
 [Prototype](https://www.figma.com/proto/GXFgKroKtluFNoofxl7lPE/Feel-the-MERN?node-id=29%3A584&scaling=contain)
 
-## Trello Project Management Boards
+# Trello Project Management Boards
 [Project Management Board 1](https://drive.google.com/open?id=1LyqY2sBNjAdVmfVmG_5S7fDJ5ng_8iEZ)<br/>
 [Project Management Board 2](https://drive.google.com/open?id=1_pOgj8uHZdejNCwAx8GbShlMx6xEytd1)<br/>
 [Project Management Board 3](https://drive.google.com/open?id=1BlO-0l9TnXkiNCtVGfLTUuw6GNsM3k6v)<br/>
@@ -111,24 +111,19 @@ The above wireframes have been used to create a prototype to assist in highlight
 # PART B
 # Deployment
 
-### Frontend
-
-#### Deployed website
-The website has been deployed using Netlify with a custom domain name as can be seen here ([Deployment - Custom Domain Name](https://drive.google.com/open?id=14qcHZdty2oNGqy84oSpbJz1DNkR1NqEF)) and can be accessed using the below link:
+## Frontend
+### Deployed website
+The website has been deployed using Netlify with a custom domain name as can be seen here ([Deployment - Custom Domain Name](https://drive.google.com/open?id=14qcHZdty2oNGqy84oSpbJz1DNkR1NqEF)) and can be accessed using the link:
 https://makeupbyellie.netlify.com
 
-#### Environment variables
-
-[Deployment - Environment variables](https://drive.google.com/open?id=1TXQbejD9ISY88XpWKvD04y1cy0aRAfms)
+Please use this link to view the [Deployment - Frontend Environment Variables](https://drive.google.com/open?id=1TXQbejD9ISY88XpWKvD04y1cy0aRAfms) for the frontend.
 
 ### Deployed Backend
+The backend has been deployed using heroku. Please use this link to view a screenshot of the deployed Backend: [Deployment - Deployed Backend](https://drive.google.com/open?id=1EKC831yTNmg0u9KTyWHGNgZ1-8nQ7AhF)
 
-[Deployment - Deployed Backend](https://drive.google.com/open?id=1EKC831yTNmg0u9KTyWHGNgZ1-8nQ7AhF)
-
-#### Environment variables
-
-[Deployment](https://drive.google.com/open?id=1SW7JiKS2P-JroeX7lM1yfu0Nzmf_4Y86)<br/>
-[Deployment](https://drive.google.com/open?id=17V-l6q-z3gbiQ35eBUgQCR-ozxLbzlhi)
+The below links are screenshots of the backend environment variables:<br/>
+[Deployment - Backend Environment Variables](https://drive.google.com/open?id=1SW7JiKS2P-JroeX7lM1yfu0Nzmf_4Y86)<br/>
+[Deployment - Backend Environment Variables](https://drive.google.com/open?id=17V-l6q-z3gbiQ35eBUgQCR-ozxLbzlhi)
 
 ## Source Control
 Github has been used for source control, with two repositories, the frontend and backend - they can be accessed below:
@@ -137,8 +132,6 @@ https://github.com/LevPewPew/makeup-by-ellie-frontend
 https://github.com/LevPewPew/makeup-by-ellie-backend
 
 ## Project Management and Task Delegation
-
-### Kanban board
 
 A Kanban board was used for agile project management and task delegation with a common lane setup as described here:
 https://www.atlassian.com/agile/tutorials/how-to-do-kanban-with-jira-software
@@ -154,122 +147,124 @@ Completed tasks marked with link to github commit that merges the relevant branc
 
 When a task is complete, if a Github Pull Request has been made that includes that task, we used labels to indicate that so that we would be aware of what needs an approval before being merged. This was useful as it can be easy to miss a Github notification, where as we were constantly looking at and using our Kanban board. We also had a label to indicate a branch that covers a task has been merged, so that we could pull the latest changes and use them, as can be seen here: [Project Management - Board 8](https://drive.google.com/open?id=1K77plthI8tjziXcN8laFWPUa0IIr7qei)
 
-### Packages used
-  ## Testing-library/react, version: 9.4.0
-  The React Testing Library is used for testing React components. It includes utility functions on top of react-dom and react-dom/test-utils, in order to guide better testing practices. It is designed to run tests which resemble the way that software is used 
-  We have used this library's render and fireEvent methods to test that the navbar links render the appropriate page, for example. 
 
-  ## Jest, with testing-library/jest-dom, version: 5.0.2
-  Jest is used for unit tests of logic and components and not the dom, running tests in the node environment instead of the browser in order to run tests at speed and avoid unreliable results. The library includes a set of custom jest matchers which are used to provide the expected results, such as toBe, or toEqual, making tests clear to read and maintain.
-  We have used this library in our unit tests including our Service.test file for example, to ensure that our dummyData has been rendered to the screen.
+## Packages used
+### Testing-library/react, version: 9.4.0
+The React Testing Library is used for testing React components. It includes utility functions on top of react-dom and react-dom/test-utils, in order to guide better testing practices. It is designed to run tests which resemble the way that software is used 
+We have used this library's render and fireEvent methods to test that the navbar links render the appropriate page, for example. 
 
-  ## Axios, version: 0.19.1
-  Axios is a library that helps to make http requests to external resources.  
-  We have used this library to make GET and POST requests to our external database collections within Mongo Atlas DB and Amazon.  The website makes multiple GET requests from the root file App.jsx, to access and data from the portfolio, services, contact and faq collections, as well as POST requests to handle form submissions for posts and updates to data.
+### Jest, with testing-library/jest-dom, version: 5.0.2
+Jest is used for unit tests of logic and components and not the dom, running tests in the node environment instead of the browser in order to run tests at speed and avoid unreliable results. The library includes a set of custom jest matchers which are used to provide the expected results, such as toBe, or toEqual, making tests clear to read and maintain.
+We have used this library in our unit tests including our Service.test file for example, to ensure that our dummyData has been rendered to the screen.
 
-  ## Axios-mock-adapter, version: 1.17.0
-  With Axios-mock-adapter in place, any GET request made to the database within our test code will be intercepted, and instead of actually making a request to the API, it is going to return the data we put into the dummyData. Without the Axios Mock Adapter, the test would run slow, could potentially be unreliable and can result in a network error that may crash the test.
+### Axios, version: 0.19.1
+Axios is a library that helps to make http requests to external resources.  
+We have used this library to make GET and POST requests to our external database collections within Mongo Atlas DB and Amazon.  The website makes multiple GET requests from the root file App.jsx, to access and data from the portfolio, services, contact and faq collections, as well as POST requests to handle form submissions for posts and updates to data.
+
+### Axios-mock-adapter, version: 1.17.0
+With Axios-mock-adapter in place, any GET request made to the database within our test code will be intercepted, and instead of actually making a request to the API, it is going to return the data we put into the dummyData. Without the Axios Mock Adapter, the test would run slow, could potentially be unreliable and can result in a network error that may crash the test.
+
+### Cypress, version: 3.8.3
+Cypress is an automated testing package used for frontend development, providing it's own browser-based dashboard, showing exactly what's happening as the test is running, with the added benefit of being able to use the browser's dev tools.
+
+### Fix-image-rotation, version: 2.0.0
+The Fix Image Rotation package rotates images based on their EXIF value (the image metadata which identifies the image orientation), to ensure that all images uploaded by the client are rendering in the right direction.  This package has been implemented with the Dropzone library as described below.
+
+### Lodash, version: 4.17.15
+Lodash works with javascript, making it easier to iterate through arrays, objects and strings by utilising lodash methods and functions.
+
+### React-dropzone, version: 10.2.1
+The Dropzone library is used to create a drag-and-drop box (with the added ability to click and select files) for file uploads.  This website uses dropzone for image uploads across the services and portfolio admin dashboard.
+
+### React-icons: 3.9.0
+React Icons are an icon library which we have used to render an instagram icon in the navbar which links to the external instagram url.
+
+### React-loading, version: 2.0.3
+React Loading is a library of loading animations being utilised site-wide, to display a loading bubbles animation whilst the user waits for the page to render data.
+
+### React-masonry-component, version: 6.2.1
+The React Masonry Component library contains the required responsive styling to render a masonry-style portfolio grid.
+
+### Redux, version: 7.1.3
+Redux is a 'state container' which the website uses with React to enable the storage of data that has been retrieved, as well as storage of state. This website utilises the store at the root level in order to make the store data available to child components site-wide. The respective reducers change state in the store response to any actions taken, enabling faster website performance and therefore a better user experience.
+
+### Redux-form, version: 8.2.6
+Redux Form is a form library which works with redux store, enabling easier creation of forms which enable instant validation, easy control of the input value formatting, conditional functionality including the ability to enable, disable, show or hide components given the state, handle dynamic inputs
+
+### React-router-dom, version: 5.1.2
+React Router Dom is a package containing dom binders which handle routing dynamic requests.  This website utilises React Router Dom to set the page url routes for the website.
+
+### React-scripts, version: 3.3.0
+React Scripts is a set of scripts set up during the create react app process which includes development elements, enabling developers to run their app without needing to configure the development environment.
+
+### react-widgets": "^4.4.11"
+React Widgets are a library of reusable components made for React.  This website utilises a dropdown field within the redux forms.
+
+### Xxhashjs, version: 0.2.2
+xxHashjs is a hashing package containing an algorithm which has been utilised in this website to hash file names of uploaded images, avoiding any name conflicts the user may have encountered.
+
+### Node-sass, version: 4.13.1
+Node Sass is used to compile scss to css in a react project, enabling scss to be used in a create-react-app.
+
+### Nodemailer, version: 6.4.2
+Nodemailer works with node.js to send emails from contact form submissions. Emails can be styled and populated with information submitted as can be seen in these examples:[Nodemailer Email Screenshot 1](https://drive.google.com/open?id=1p4PR0-E5KhIIvQX-FkygjzOnhIBjeWLE),[Nodemailer Email Screenshot 2](https://drive.google.com/open?id=1rRs-PVMA096EoQzMTw0HXhYWYQHmka5z)
+
+### React-dom, version: 16.12.0
+This package is the 'entry-point' to the DOM enabling efficient management of DOM elements in a web page by utilising the built in methods.
+
+### Yarn Autoclean
+Yarn autoclean was used to remove unused (prune) js files within dependent libraries, saving over 19 MB. To ensure that the pruning didn't damage any of the functionality of the application, a full user experience run-through was done, testing all active links, rendering of collections, as well as CRUD functionality in the Admin pages before it was implemented <br/>
+[Yarn Cleanup Screenshot](https://drive.google.com/open?id=1Dr0MpHxHa4WTfdUO7fKPBCq-ghTFjD_S)
+
+### Aws-sdk, version: 2.606.0
+The AWS SDK is a library which is used to connect services such as Amazon S3 to an application.
+
+### Cors, version: 2.8.5
+Cross Origin Resource Sharing (CORS) is a mechanism that allows restricted resources to be shared to external domains. The cors package provides Express middleware that enables CORS.
+
+### Dotenv, version: 8.2.0
+Dotenv is a module that loads .env file environment variables into the process.env file, so that environment configuration is kept separate from other code.
+
+### Jsonwebtoken, version: 8.5.1
+Jsonwebtoken is a package that creates a token against a signed in user and assigns personal details against the token. This package is a part of our user authentication process.
+
+### Mongoose, version: 5.8.6
+Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It has a number of uses, including the management of relationships between data, schema validation, and is used to bridge the gap between objects in the code and MongoDB database objects.
   
-  ## Cypress, version: 3.8.3
-  Cypress is an automated testing package used for front end development, providing it's own browser-based dashboard, showing exactly what's happening as the test is running, with the added benefit of being able to use the browser's dev tools.
+### Morgan, version: 1.9.1
+Morgan is a middleware 'logging' package which logs http requests to an application.
 
-  ## Fix-image-rotation, version: 2.0.0
-  The Fix Image Rotation package rotates images based on their EXIF value (the image metadata which identifies the image orientation), to ensure that all images uploaded by the client are rendering in the right direction.  This package has been implemented with the Dropzone library as described below.
+### Nodemon, version: 2.0.2
+Nodemon automatically restarts your server as it monitors your code for any changes, making the development process easier.
 
-  ## Lodash, version: 4.17.15
-  Lodash works with javascript, making it easier to iterate through arrays, objects and strings by utilising lodash methods and functions.
+### Supertest: 4.0.2
+Supertest is a react library that is used to test node.js http servers or endpoints. 
 
-  ## React-dropzone, version: 10.2.1
-  The Dropzone library is used to create a drag-and-drop box (with the added ability to click and select files) for file uploads.  This website uses dropzone for image uploads across the services and portfolio admin dashboard.
+## Testing
+Both development testing as well as production testing has been recorded on the respective tabs in the below Google Sheet:<br/>
+[Manual Tests - Google Sheet](https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing)
+As can be seen, almost all tests have returned a pass, leaving the Update functionality (the failed tests) to future development updates.
 
-  ## React-icons: 3.9.0
-  React Icons are an icon library which we have used to render an instagram icon in the navbar which links to the external instagram url.
-  
-  ## React-loading, version: 2.0.3
-  React Loading is a library of loading animations being utilised site-wide, to display a loading bubbles animation whilst the user waits for the page to render data.
+### Production testing - developers
+The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. Please use the below link to access a screenshot with some of the expected behaviours:<br/>
+[Production Testing Screenshot - Developers](https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing)
+<br/>
+Cypress automated tests have been carried out to test the navbar, contact form, and admin form.  The below links are screen recordings showing the tests run and pass:<br/> 
+([Cypress Navbar Test ](https://drive.google.com/open?id=1x6iDqevdQka3m4nxhBXE1CcNC6e0nZK-))<br/>
+([Cypress Contact Form Test](https://drive.google.com/open?id=1kW50P3PR8cnfMSBVdTy8ZqptcXIqMJRZ))<br/>
+([Cypress Admin Form Test](https://drive.google.com/open?id=1evyevIL-DPGpp8jzQeqhbSk4GB2X1W1C))
 
-  ## React-masonry-component, version: 6.2.1
-  The React Masonry Component library contains the required responsive styling to render a masonry-style portfolio grid.
-  
-  ## Redux, version: 7.1.3
-  Redux is a 'state container' which the website uses with React to enable the storage of data that has been retrieved, as well as storage of state. This website utilises the store at the root level in order to make the store data available to child components site-wide. The respective reducers change state in the store response to any actions taken, enabling faster website performance and therefore a better user experience.
+### Production testing - client
+The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link: <br/>
+[Production Testing Screenshot - Client](https://drive.google.com/file/d/1A26MZEpKGgeom_bmrxlzjl582Q5vAIrE/view?usp=sharing)
 
-  ## Redux-form, version: 8.2.6
-  Redux Form is a form library which works with redux store, enabling easier creation of forms which enable instant validation, easy control of the input value formatting, conditional functionality including the ability to enable, disable, show or hide components given the state, handle dynamic inputs
+To view live user testing on the deployed website, please use this link:
+[Production Test Screen Recording of Deployed Site](https://drive.google.com/open?id=1Gr6mSnWXBeQs0AwydFEioJEKnEM_xIn4)
 
-  ## React-router-dom, version: 5.1.2
-  React Router Dom is a package containing dom binders which handle routing dynamic requests.  This website utilises React Router Dom to set the page url routes for the website.
+### Development testing 
+The below link highlights some of the development tests completed:<br/>
+[Development Testing Screenshot](https://drive.google.com/file/d/16w348VooCssp0kgiq3Z2oyEgm0Lws263/view?usp=sharing)
 
-  ## React-scripts, version: 3.3.0
-  React Scripts is a set of scripts set up during the create react app process which includes development elements, enabling developers to run their app without needing to configure the development environment.
 
-  ## react-widgets": "^4.4.11"
-  React Widgets are a library of reusable components made for React.  This website utilises a dropdown field within the redux forms.
-  
-  ## Xxhashjs, version: 0.2.2
-  xxHashjs is a hashing package containing an algorithm which has been utilised in this website to hash file names of uploaded images, avoiding any name conflicts the user may have encountered.
-
-  ## Node-sass, version: 4.13.1
-  Node Sass is used to compile scss to css in a react project, enabling scss to be used in a create-react-app.
-
-  ## Nodemailer, version: 6.4.2
-  Nodemailer works with nodejs to send emails from contact form submissions. Emails can be styled and populated with information submitted as can be seen in this example:[Nodemailer Email Screenshot]()
-
-  ## React-dom, version: 16.12.0
-  This package is the 'entry-point' to the DOM enabling efficient management of DOM elements in a web page by utilising the built in methods.
-
-  ## Yarn clean
-  Yarn clean was used to remove unused (prune) js files within dependent libraries, saving over 19 MB. To ensure that the pruning didn't damage any of the functionality of the application, a full user experience run-through was done, testing all active links, rendering of collections, as well as CRUD functionality in the Admin pages before it was implemented <br/>
-  [Yarn Cleanup Screenshot](https://drive.google.com/open?id=1Dr0MpHxHa4WTfdUO7fKPBCq-ghTFjD_S)
-  
-  ## Aws-sdk, version: 2.606.0
-  The AWS SDK is a library which is used to connect services such as Amazon S3 to an application.
-
-  ## Cors, version: 2.8.5
-  Cross Origin Resource Sharing (CORS) is a mechanism that allows restricted resources to be shared to external domains.
-
-  ## Backend
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.8.6",
-    "morgan": "^1.9.1",
-    "nodemon": "^2.0.2",
-    "supertest": "^4.0.2"
-
-# Testing
-  Both development testing as well as production testing has been recorded on the respective tabs in the below Google Sheet:<br/>
-  [Manual Tests - Google Sheet](https://docs.google.com/spreadsheets/d/1bdjo3juClD3FP0EAukDG6XudPqAOK2Vc7sK3Fj_M8-g/edit?usp=sharing)
-  As can be seen, almost all tests have returned a pass, leaving the Update functionality (the failed tests) to future development updates.
-
-  ## Production testing - developers
-  The developer team have tested the deployed website, ensuring that all database collections are rendering to the respective pages, admin functionality is only available to the logged in user, and the CRUD functionality for admin is fully functioning. Please use the below link to access a screenshot with some of the expected behaviours:<br/>
-  [Production Testing Screenshot - Developers](https://drive.google.com/file/d/1rA82qlumb0TdIesi9gyxa_ECIGvU3Hn6/view?usp=sharing)
-  ### 
-  
-  ## Production testing - client
-  The client was asked to visit the deployed website at https://www.makeupbyellie.netlify.com to test the website, and fill in the table, under the User column to comment on any discrepancies from our results.  They completed the requested tests and sent an email with their findings. To view the email sent back by the client, please click the below link: <br/>
-  [Production Testing Screenshot - Client](https://drive.google.com/file/d/1A26MZEpKGgeom_bmrxlzjl582Q5vAIrE/view?usp=sharing)
-
-  ## Production testing - screen recording of deployed website
-  [Production Testing Screen Recording]()
-
-  ## Development testing 
-  The below link highlights some of the development tests completed:<br/>
-  [Development Testing Screenshot](https://drive.google.com/file/d/16w348VooCssp0kgiq3Z2oyEgm0Lws263/view?usp=sharing)
-  
-
-  
-  # I'm pretty sure we don't need these anymore TBC once we run depcheck
-
-  fortawesome/fontawesome-free": "^5.12.0"
-  @fortawesome/fontawesome-svg-core": "^1.2.26"
-  @fortawesome/free-solid-svg-icons": "^5.12.0"
-  @fortawesome/react-fontawesome": "^0.1.8"
-  filterizr": "^2.2.3"
-  yup": "^0.28.0"
-  formik": "^2.1.2"
-  react-infinite-scroller": "^1.2.4"
-  Testing-library/user-event": "^8.0.3" 
 
   
