@@ -5,9 +5,10 @@ import './HomePage.scss';
 function HomePage() {
   return (
     <div className="HomePage" data-testid="HomePage">
-      <div className="hero-banner-crop">
-        <img className="hero-banner" src={heroImage} alt="two women with makeup"/>
-      </div>
+      {/* <div className="hero-banner-crop"> */}
+        <div className="hero-banner"></div>
+        {/* <img className="hero-banner" src={heroImage} alt="two women with makeup"/> */}
+      {/* </div> */}
       <section className="about">
         <h1>PROFILE</h1>
         <p>

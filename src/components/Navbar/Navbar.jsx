@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from '../../media/mbe-transparent-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
@@ -17,6 +17,7 @@ function Navbar() {
 
   const token = useSelector((state) => state.tokenReducer.token);
 
+  // there are better ways to do this but ran out of time
   const setLinkToActive = (event) => {
     event.persist();
     switch (event.target.pathname) {
@@ -76,7 +77,7 @@ function Navbar() {
     <nav className="Navbar">
       <div className="shish-kebab">
         <Link to="/">
-          <div className="logo-crop">
+          <div className="logo-container">
             <img className="logo" src={logo} alt="logo" data-testid="nb-link-home" />
           </div>
         </Link>

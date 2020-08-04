@@ -19,14 +19,12 @@
     }
   }
 
-  .hero-banner-crop {
-    height: 800px;
-    
-    .hero-banner {
-      width: 100vw;
-      height: 100%;
-      object-fit: cover;
-      object-position: 0 0;
-    }
+  .hero-banner {
+    background-image: url("../../media/homepage-hero.jpeg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
