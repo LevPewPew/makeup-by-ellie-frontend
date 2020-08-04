@@ -12,12 +12,13 @@
   // the weird justify and margin settings are because simply doing a justify-content: right refused to work. only change this if you can figure out the bug/issue
   .btn-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     .reset-btn {
-      margin-left: auto;
       margin-right: 10px;
-      background-color: $tepidAngst;
+      border: 1px solid $faceBusiness;
+      background-color: transparent;
+      color: $faceBusiness;
     }
   }
 }
