@@ -14,34 +14,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
     font-family: $classy;
-    
-    .legal {
-      margin: 0 10px;
-      
-      a {
-        margin: 0 10px;
-      }
+
+    span {
+      font-size: 12px;
     }
 
-    .socials {
-      margin: 0 10px;
+    .icon-link {
       display: flex;
       align-items: center;
 
-      p {
-        padding: 0 10px;
-        font-size: 12px;
+      a {
+        padding-left: 3px;
       }
 
       .BtnInstagram {
         display: flex;
         align-items: center;
-        margin-left: 0px;
-        margin-right: 0px;
+        margin: 0px;
+        padding-right: 3px;
         font-size: 16px;
       }
+    }
+
+    a {
+      padding: 20px;
     }
   }
 
