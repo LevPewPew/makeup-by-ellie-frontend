@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useDropzone } from 'react-dropzone';
 import { blobsToUniqueFiles } from '../../utils/files/general';
 import { rotatedImageBlobsWithExif } from '../../utils/files/images';
@@ -17,7 +17,7 @@ function AttachmentField(props) {
   const { getRootProps, getInputProps, rejectedFiles } = useDropzone({
     accept: 'image/*',
     maxSize: maxImageSize,
-    onDrop: async (acceptedFiles,rejectedFiles) => {
+    onDrop: async (acceptedFiles, rejectedFiles) => {
       if (rejectedFiles.length > 0) {
         alert(`Maximum file size is ${maxSizeInMB}MB. Please try again`);
       } else {

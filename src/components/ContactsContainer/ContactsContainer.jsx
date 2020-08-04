@@ -16,7 +16,7 @@ function ContactsContainer() {
             {...contact}
           />
         }) :
-        null
+        <p>You have no contacts yet</p>
       }
     </div>
   );
