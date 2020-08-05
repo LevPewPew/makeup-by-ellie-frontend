@@ -15,8 +15,6 @@ function Footer() {
         </div>
         <span>|</span>
         <Link to="/terms-and-conditions"><span>TERMS AND CONDITIONS</span></Link>
-        <span>|</span>
-        <Link to="/privacy-policy"><span>PRIVACY POLICY</span></Link>
       </div>
       <div className="copyright">
         Copyright &copy; 2020 MAKEUP BY ELLIE.&nbsp;&nbsp;Makeup Artist and Hair Stylist.&nbsp;&nbsp;Melbourne, Australia.&nbsp;&nbsp;All Rights Reserved.
