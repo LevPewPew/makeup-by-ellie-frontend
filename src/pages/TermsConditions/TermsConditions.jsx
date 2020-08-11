@@ -1,21 +1,38 @@
 import React from 'react';
 import './TermsConditions.scss';
-function TermsConditions(){
+
+function TermsConditions() {
   return (
     <div className="TermsConditions">
       <h2>Terms and Conditions</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla labore eaque optio obcaecati tempora rem ipsam placeat natus perferendis quam libero iure neque, inventore quasi quas voluptates facilis, vel sequi!<br /><br />
-        Perspiciatis obcaecati modi, vitae voluptatum harum officia deleniti maiores minima eveniet. Iusto cupiditate delectus porro, odio, corrupti maiores optio, quos non ipsum temporibus ratione quis eum in itaque. Recusandae, quibusdam.<br /><br />
-        Aliquam temporibus officiis quis rerum inventore tempora, alias ad expedita facere porro ea soluta enim deleniti ut quae veniam repudiandae est illum adipisci. Vero dolores explicabo dolorem corrupti amet enim.<br /><br />
-        Neque, culpa. Delectus corrupti, sit ea facilis eaque veniam vero accusamus quasi tempora nihil aliquam officia incidunt labore nemo qui nulla voluptates. Ut ducimus atque in facilis cum neque debitis!<br /><br />
-        Pariatur, quis corporis ut nulla error alias! Reiciendis deserunt sit vel quisquam incidunt perspiciatis sed sunt culpa possimus molestias, optio, veniam, ad nobis! Vitae adipisci eaque saepe expedita aut dolorum!<br /><br />
-        Commodi quidem, dolor quisquam modi, quia perspiciatis, aliquam minima at soluta a culpa nemo in iste veniam! Voluptas neque natus, beatae sint, quod expedita porro, rem illum accusamus perferendis veritatis.<br /><br />
-        Deleniti consequuntur numquam non necessitatibus exercitationem, eveniet harum, temporibus et quasi, repellat repellendus culpa? Exercitationem ratione ullam nesciunt iure, odit nam dolore officiis inventore, quaerat in autem, nemo dolorem dolores.<br /><br />
-        Aliquid molestias distinctio architecto, accusantium dignissimos vel autem quis tempore iste in nisi ad illum, exercitationem rerum iure error ipsam quas molestiae suscipit neque saepe eum quod similique dolore. Iusto.<br /><br />
-        Eius voluptatum, tenetur quae dolor fugit cumque? Nam quibusdam quod numquam similique perferendis magni eaque. Molestias, doloremque. Fugiat harum mollitia error, eaque magnam eius nesciunt, eveniet fugit iusto delectus molestiae.<br /><br />
-        Aliquam earum iste fugiat natus, quia possimus nostrum voluptatem similique cumque itaque rerum odit ea, ab fuga. Facere vel, recusandae sit asperiores ipsum temporibus illo beatae neque cum modi harum!
-      </p>
+      <div class="tnc-container">
+        <h3>Payment</h3>
+        <ul>
+          <li>You agree to pay for the trial on the day of the trial by cash.</li>
+          <li>Minimum call out of 3 makeup services is required for travel.</li>
+          <li>A Non-refundable/non-transferable booking fee of $100 is required to secure your event/wedding date.</li>
+          <li>The event/wedding date booking will not be secured until a booking fee is paid. In some cases, the booking fee may need to be paid before your trial to ensure your wedding date is secured.</li>
+          <li>Final payment of your invoice is due on your event or wedding day and is payable in cash.</li>
+          <li>Payment for extra services is due on the day and is payable in cash or bank transfer (e.g. extra people).</li>
+          <li>A 10% surcharge will be applied to the total for early morning start times of 6.30am or earlier.</li>
+          <li>Travel fee’s will apply for travel that exceeds a 20km radius from the CBD, travel will be quoted on enquiry.</li>
+          <li>You will need to ensure that parking is readily available at the location. Parking fees may apply and are payable upon arrival by cash or bank transfer.</li>
+          <li>Bookings made on public holidays will incur a 15% surcharge to the total.</li>
+        </ul>
+        <h3>Cancellations and Changes</h3>
+        <ul>
+          <li>Any reductions in the booked number of people for you wedding will still need to be paid for in full, if less than 1 months’ notice is given. If your booking is for an event only, less than 1 weeks’ notice will require full payment. This is to prevent cancellations close to or on the date which will otherwise result in a loss of other potential work that could have been booked.</li>
+          <li>If reductions in numbers fall below minimum call out you will be required to travel to my studio for your services or pay the minimum services required for travel.</li>
+          <li>Please notify me of any location changes as soon as possible, this may change your quote due to travel fee’s/early start etc. I will send you a revised quote if this is the case.</li>
+          <li>On occasion I may have other bookings before or after your event, so it is imperative that you and your party are on time to receive their services. For each 15 minutes that I am held up I will charge $25. This will be paid immediately once the job is done via cash or bank transfer.</li>
+        </ul>
+        <h3>Miscellaneous</h3>
+        <ul>
+          <li>At the trial you will be given instructions on what is required regarding hair and makeup preparation during the weeks/months before and on the day. If this advice is not followed then additional costs may be charged on the day (e.g. if hair is still wet and needs a full blow dry prior to an upstyle/downstyle).</li>
+          <li>You acknowledge that I may use your photographs on my website, social media portfolio and promotional material.</li>
+          <li>You will ensure that my place of work on your behalf is a smoke free zone to ensure that myself and my working kit are kept smoke free and ready for my next clients. I will refuse to work in a smoking environment.</li>
+        </ul>
+      </div>
     </div>
   );
 }
