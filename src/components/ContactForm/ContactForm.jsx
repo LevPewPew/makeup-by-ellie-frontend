@@ -60,11 +60,11 @@ function validate(values) {
 
 function peopleNumLimit(value) {
   if (value < 0) {
-    return 0
+    return 0;
   } else if (value > 10) {
-    return 10
+    return 10;
   } else {
-    return value
+    return value;
   }
 }
 
@@ -129,10 +129,9 @@ function renderTextArea({ autoFocus, placeholder, input, type, label, meta: { to
 }
 
 function ContactForm(props) {
-  const { handleSubmit, pristine, submitting, reset } = props;
-
+  const { handleSubmit, number1, number2, pristine, submitting, reset } = props;
+  const addressPlaceHolder = "Ellie's home studio in Altona Meadows";
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
-
   const btnText = editingForm ? "Edit Contact Info" : "Send";
 
   return (
@@ -210,9 +209,9 @@ function ContactForm(props) {
         component={renderField}
         label="Where are you getting ready?"
         name="applicationAddress"
-        placeholder="Ellie's home studio in Altona Meadows"
-        number1={props.number1}
-        number2={props.number2}
+        placeholder={addressPlaceHolder}
+        number1={number1}
+        number2={number2}
         tabIndex="9"
       />
       <Field

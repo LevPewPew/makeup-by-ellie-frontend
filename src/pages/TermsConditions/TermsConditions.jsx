@@ -5,7 +5,7 @@ function TermsConditions() {
   return (
     <div className="TermsConditions">
       <h2>Terms and Conditions</h2>
-      <div class="tnc-container">
+      <div className="tnc-container">
         <h3>Payment</h3>
         <ul>
           <li>You agree to pay for the trial on the day of the trial by cash.</li>
