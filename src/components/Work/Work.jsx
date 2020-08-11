@@ -6,7 +6,7 @@ import { portfolioSubmitHandler } from '../../utils/forms/submitHandlers';
 import './Work.scss';
 
 function Work(props) {
-  const { id, category, imageUrl } = props;
+  const { id, category, imageUrl, handleClick } = props;
 
   const workForm = useSelector((state) => state.form.WorkForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
@@ -30,7 +30,7 @@ function Work(props) {
           onSubmit={handleSubmit}
         /> :
         <>
-          <img src={imageUrl} alt=""/>
+          <img src={imageUrl} alt="" onClick={handleClick}/>
           <CrudBtnsContainer
             collection={collection}
             id={id}

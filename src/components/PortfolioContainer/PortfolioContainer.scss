@@ -1,3 +1,5 @@
+@import '../../styles/fonts';
+
 @mixin bp($point) {
   @if $point == tablet {
     @media (max-width: 768px) { @content; }
@@ -37,4 +39,19 @@
     @include bp(mobile) {
       width: 90%;  }
   }
+}
+
+.react-images__view {
+  height: 80vh !important;
+}
+
+.react-images__header, .react-images__navigation {
+  span, svg {
+    background-color: transparent;
+  }
+}
+
+.react-images__footer__count {
+  font-family: $classy;
+  background-color: transparent;
 }
