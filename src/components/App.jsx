@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import AdminPage from '../pages/AdminPage/AdminPage';
 import HomePage from '../pages/HomePage/HomePage';
+import AboutMePage from '../pages/AboutMePage/AboutMePage';
 import ContactPage from '../pages/ContactPage/ContactPage';
 import ServicePage from '../pages/ServicesPage/ServicesPage';
 import PortfolioPage from '../pages/PortfolioPage/PortfolioPage'
@@ -91,6 +92,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <HomePage />
+            </Route>
+            <Route path="/about-me">
+              <AboutMePage />
             </Route>
             <Route path="/contact">
               <ContactPage />

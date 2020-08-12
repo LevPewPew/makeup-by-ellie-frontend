@@ -9,6 +9,7 @@ import './Navbar.scss';
 
 function Navbar() {
   const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-contracted');
+  const [ aboutMeLinkClass, setAboutMeLinkClass ] = useState('inactive');
   const [ servicesLinkClass, setServicesLinkClass ] = useState('inactive');
   const [ portfolioLinkClass, setPortfolioLinkClass ] = useState('inactive');
   const [ faqLinkClass, setFaqLinkClass ] = useState('inactive');
@@ -21,7 +22,16 @@ function Navbar() {
   const setLinkToActive = (event) => {
     event.persist();
     switch (event.target.pathname) {
+      case '/about-me':
+        setAboutMeLinkClass('active');
+        setServicesLinkClass('inactive');
+        setPortfolioLinkClass('inactive');
+        setFaqLinkClass('inactive');
+        setContactLinkClass('inactive');
+        setAdminDashLinkClass('inactive');
+        break;
       case '/services':
+        setAboutMeLinkClass('inactive');
         setServicesLinkClass('active');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
@@ -29,6 +39,7 @@ function Navbar() {
         setAdminDashLinkClass('inactive');
         break;
       case '/portfolio':
+        setAboutMeLinkClass('inactive');
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('active');
         setFaqLinkClass('inactive');
@@ -36,6 +47,7 @@ function Navbar() {
         setAdminDashLinkClass('inactive');
         break;
       case '/faq':
+        setAboutMeLinkClass('inactive');
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('active');
@@ -43,6 +55,7 @@ function Navbar() {
         setAdminDashLinkClass('inactive');
         break;
       case '/contact':
+        setAboutMeLinkClass('inactive');
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
@@ -50,6 +63,7 @@ function Navbar() {
         setAdminDashLinkClass('inactive');
         break;
       case '/admin':
+        setAboutMeLinkClass('inactive');
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
@@ -57,6 +71,7 @@ function Navbar() {
         setAdminDashLinkClass('active');
         break;
       default:
+        setAboutMeLinkClass('inactive');
         setServicesLinkClass('inactive');
         setPortfolioLinkClass('inactive');
         setFaqLinkClass('inactive');
@@ -82,6 +97,14 @@ function Navbar() {
           </div>
         </Link>
         <div className="links">
+          <Link
+            className={aboutMeLinkClass}
+            to="/about-me"
+            onClick={setLinkToActive}
+            data-testid="nb-link-services"
+          >
+            ABOUT
+          </Link>
           <Link
             className={servicesLinkClass}
             to="/services"
