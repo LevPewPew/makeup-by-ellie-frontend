@@ -1,5 +1,14 @@
 @import '../../styles/colors';
 
+@mixin bp($point) {
+  @if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
 .HomePage {
   .about, .about * {
     background-color: $churchCrab;
@@ -27,5 +36,9 @@
     background-position: center 150px;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include bp(tablet) {
+      background-attachment: scroll;
+    }
   }
 }

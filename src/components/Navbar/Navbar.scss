@@ -60,6 +60,10 @@
       width: 77.81px;
       // need this as for some reason doesn't sit flush in container, don't know why
       border-bottom: 1px solid $faceBusiness;
+
+      &:hover {
+        border-bottom: none;
+      }
     }
   }
 
