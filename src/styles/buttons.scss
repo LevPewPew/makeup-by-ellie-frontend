@@ -20,6 +20,18 @@
   font-size: 90%;
   color: $passiveCrane;
   cursor: pointer;
+
+  &:hover {
+    color: $dyingUrchin;
+  }
+
+  &:active {
+    color: $tepidAngst;
+  }
+
+  &:disabled {
+    color: $passiveCrane;
+  }
 }
 
 .btn:focus {

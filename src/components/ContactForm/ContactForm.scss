@@ -18,6 +18,14 @@
       border: 1px solid $faceBusiness;
       background-color: transparent;
       color: $faceBusiness;
+
+      &:hover {
+        border-width: 2px;
+      }
+    
+      &:active {
+        border-width: 3px;
+      }
     }
   }
 }
