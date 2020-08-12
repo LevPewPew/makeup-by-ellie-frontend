@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Question from '../Question/Question';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 import './QuestionsContainer.scss';
 
 function QuestionsContainer() {
@@ -9,7 +10,7 @@ function QuestionsContainer() {
   return (
     <section className="QuestionsContainer">
       {
-        questionsData ?
+        questionsData.length > 0 ?
         questionsData.map((qna, index) => {
           const { _id, question, answer } = qna;
 
@@ -22,7 +23,7 @@ function QuestionsContainer() {
             />
           )
         }) :
-        null
+        <LoadingAnimation />
       }
     </section>
   );

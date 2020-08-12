@@ -11,7 +11,6 @@ import PortfolioPage from '../pages/PortfolioPage/PortfolioPage'
 import FaqPage from '../pages/FaqPage/FaqPage';
 import AdminLoginPage from '../pages/AdminLoginPage/AdminLoginPage';
 import Footer from './Footer/Footer';
-import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
 import TermsConditions from '../pages/TermsConditions/TermsConditions';
 import LoadingAnimation from '../components/LoadingAnimation/LoadingAnimation';
 import ContactsContainer from './ContactsContainer/ContactsContainer';
@@ -72,6 +71,14 @@ function App() {
     getData();
   }, [dispatch]);
 
+  // prevent use from sitting at loading spinner for too long if free heroku
+  // dyno starting from sleeping state
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => setLoading(false), 1500);
+    }
+  }, [loading]);
+
   if (loading) {
     return (
       <LoadingAnimation />
@@ -109,9 +116,6 @@ function App() {
                 return null;
               }}
             />
-            <Route path="/privacy-policy">
-              <PrivacyPolicy />
-            </Route>
             <Route path="/terms-and-conditions">
               <TermsConditions />
             </Route>

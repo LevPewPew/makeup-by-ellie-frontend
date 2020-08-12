@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-component';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import Work from '../Work/Work';
 import FilterBtns from '../FilterBtns/FilterBtns';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 import './PortfolioContainer.scss';
 
 function PortfolioContainer() {
@@ -29,48 +30,53 @@ function PortfolioContainer() {
 
   return (
     <section className="PortfolioContainer">
-      <div className="button-container">
-        <FilterBtns />
-      </div>
-      <Masonry
-        className={'grid'}
-        elementType={'div'}
-        options={masonryOptions}
-        disableImagesLoaded={false}
-        updateOnEachImageLoad={false}
-      >
       {
-        filteredPortfolioData ?
-        filteredPortfolioData.map((work, index) => {
-          const { _id, imageUrl, category } = work;
+        filteredPortfolioData.length > 0 ?
+        <>
+          <div className="button-container">
+            <FilterBtns />
+          </div>
+          <Masonry
+            className={'grid'}
+            elementType={'div'}
+            options={masonryOptions}
+            disableImagesLoaded={false}
+            updateOnEachImageLoad={false}
+          >
+          {
+            filteredPortfolioData.map((work, index) => {
+              const { _id, imageUrl, category } = work;
 
-          return (
-            <Work
-              key={index}
-              id={_id}
-              imageUrl={imageUrl}
-              category={category}
-              handleClick={() => openLightbox(index)}
-            />
-          )
-        }) :
-        null
+              return (
+                <Work
+                  key={index}
+                  id={_id}
+                  imageUrl={imageUrl}
+                  category={category}
+                  handleClick={() => openLightbox(index)}
+                />
+              )
+            })
+
+          }
+          </Masonry>
+          <ModalGateway>
+            {
+              viewerIsOpen ?
+              <Modal onClose={closeLightbox}>
+                <Carousel
+                  currentIndex={currentImageIndex}
+                  views={filteredPortfolioData.map((work) => ({
+                    src: work.imageUrl
+                  }))}
+                />
+              </Modal> : 
+              null
+            }
+          </ModalGateway> 
+        </> :
+        <LoadingAnimation />
       }
-      </Masonry>
-      <ModalGateway>
-        {
-          viewerIsOpen ?
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImageIndex}
-              views={filteredPortfolioData.map((work) => ({
-                src: work.imageUrl
-              }))}
-            />
-          </Modal> : 
-          null
-        }
-      </ModalGateway>
     </section>
   );
 }

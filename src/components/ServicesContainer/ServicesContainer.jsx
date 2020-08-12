@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Service from '../Service/Service';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 import './ServicesContainer.scss';
 
 function ServicesContainer() {
@@ -9,7 +10,7 @@ function ServicesContainer() {
   return (
     <section className="ServicesContainer">
       {
-        servicesData ?
+        servicesData.length > 0 ?
         servicesData.map((service, index) => {
           const { _id, title, description, imageUrl, cost, duration, disclaimer } = service;
 
@@ -33,7 +34,7 @@ function ServicesContainer() {
             </>
           )
         }) :
-        null
+        <LoadingAnimation />
       }
     </section>
   );
