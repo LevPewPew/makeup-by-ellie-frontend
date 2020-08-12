@@ -1,14 +1,13 @@
 import React from 'react';
-import heroImage from '../../media/homepage-hero.jpeg';
+import mainImg from '../../media/homepage-hero.jpeg';
 import './HomePage.scss';
 
 function HomePage() {
   return (
     <div className="HomePage" data-testid="HomePage">
-      {/* <div className="hero-banner-crop"> */}
-        <div className="hero-banner"></div>
-        {/* <img className="hero-banner" src={heroImage} alt="two women with makeup"/> */}
-      {/* </div> */}
+      <div className="main-img-container">
+        <img className="main-img" src={mainImg} alt="woman with makeup"/>
+      </div>
       <section className="about">
         <h1>PROFILE</h1>
         <p>
