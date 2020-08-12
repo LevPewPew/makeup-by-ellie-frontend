@@ -13,11 +13,14 @@ function AdminLoginPage() {
   const submit = async (values) => {
     try {
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/admin-login`, { username: values.username, password: values.password });
+      if (!response.data.success) {
+        throw new Error(response.data.message);
+      }
       localStorage.setItem('token', response.data.token);
       dispatch({ type: "UPDATE_TOKEN_DATA", newToken: response.data.token });
       setRedirect(true);
-    } catch {
-      alert("Incorrect credentials. Please try again");
+    } catch (err) {
+      alert(err);
     }
   }
 
