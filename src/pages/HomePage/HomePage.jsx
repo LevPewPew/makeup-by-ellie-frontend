@@ -1,5 +1,5 @@
 import React from 'react';
-import mainImg from '../../media/homepage-hero.jpeg';
+import mainImg from '../../media/IMG_2412croppedmore.jpeg';
 import './HomePage.scss';
 
 function HomePage() {
