@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import VizSens from 'react-visibility-sensor';
 import mainImg from '../../media/IMG_2412croppedmore.jpeg';
+import eventImg from '../../media/home-event2.jpeg';
+import editorialImg from '../../media/home-editorial.jpeg';
+import bridalImg from '../../media/home-bridal.jpeg';
 import './HomePage.scss';
+import { useEffect } from 'react';
 
 function HomePage() {
   return (
@@ -8,44 +13,30 @@ function HomePage() {
       <div className="main-img-container">
         <img className="main-img" src={mainImg} alt="woman with makeup"/>
       </div>
-      <section className="about">
-        <h1>PROFILE</h1>
-        <p>
-          I first started makeup in 2011 after completing a hairdressing course I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted to techniques to me.
-        </p>
-        <p>
-          Continuing my education has always been important to me. To further my education I attended workshops hosted by other inspiring artists such as Rae Morris and Mia Conner.
-        </p>
-        <p>
-          In 2016 I began my career with Mecca brands working at Mecca has given me the experience to work with many different skin types from fair to darker complexions, young skin to mature skin. I have learned to understand different skin concerns and conditions, and what products work best for different people. Through Mecca I have also had the opportunity to further my education by attending workshops with many international makeup artist such as:
-        </p>
-        <ul>
-          <li>Rae Morris</li>
-          <li>Mia Connor</li>
-          <li>Nars Artists, Lena Koro and Jane Richardson</li>
-          <li>Lancômes, Lara Srokowski</li>
-          <li>Too Faced Artist, Elyse Rebeau</li>
-          <li>Urban Decay Global Artist, Steve Kassajikian</li>
-          <li>Mac Global Senior Artist, Nicole Thompson</li>
-          <li>Laura Mercier Global Beauty Director, Jason Hoffman</li>
-        </ul>
-        <p>
-          These workshops have given me tips and tricks which I now use and apply to my everyday artistry.
-          In 2018 I won a Mecca x Smashbox artistry competition which took me to L.A to shoot online content for Mecca using the Smashbox cover shot palettes.
-        </p>
-        <p>
-          Fashion and beauty have always been an interest and I have had the pleasure to work with amazing teams for runway shows including
-          Fred hates fashion
-          Melbourne fashion week and
-          The Global indigenous runway
-          I have also had the opportunity to work as an artist backstage at Meccaland.
-        </p>
-        <p>
-          Understanding facial features and being able to adapt a look you choose to suit your unique features is something I specialise in.
-          I’m known for being a perfectionist and this comes with fine attention to detail.
-          I believe that over time I have developed a signature style being a flawless radiant base.
-          Enhancing your natural beauty is always my goal.
-        </p>
+      <section className="summaries">
+        <article className={`summary-img-text-container ${isVisible ? "fade-in-slide-in-anim" : null}`}>
+          <div className="summary-img-container">
+            <img className="summary-img" src={eventImg} alt="woman with makeup"/>
+          </div>
+          <h1>EVENTS &#38; SPECIAL OCCASIONS</h1>
+        </article>
+        // TODO LEFT OFF give these other articles VizSens too, and fix so that they start off invisible isntead of viz >inviz > viz
+        <VizSens>
+          {({isVisible}) =>
+            <article className={`summary-img-text-container ${isVisible ? "fade-in-slide-in-anim" : null}`}>
+              <h1>EDITORIAL</h1>
+              <div className="summary-img-container">
+                <img className="summary-img" src={editorialImg} alt="woman with makeup"/>
+              </div>
+            </article>
+          }
+        </VizSens>
+        <article className={`summary-img-text-container ${isVisible ? "fade-in-slide-in-anim" : null}`}>
+          <div className="summary-img-container">
+            <img className="summary-img" src={bridalImg} alt="woman with makeup"/>
+          </div>
+          <h1>BRIDAL</h1>
+        </article>
       </section>
     </div>
   );
