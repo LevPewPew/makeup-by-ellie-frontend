@@ -1,51 +1,115 @@
-import React from 'react';
+import React, { useState } from 'react';
+import VizSens from 'react-visibility-sensor';
+import BtnBookNow from '../../components/BtnBookNow/BtnBookNow';
 import mainImg from '../../media/IMG_2412croppedmore.jpeg';
+import eventImg from '../../media/home-event2.jpeg';
+import editorialImg from '../../media/home-editorial.jpeg';
+import bridalImg from '../../media/home-bridal.jpeg';
 import './HomePage.scss';
 
 function HomePage() {
+  const vizOffset = 400;
+  // these states is a workaround for react-visibility-sensor bug
+  // delayedCall does not actually work, it just stops 1 of 2 calls,
+  // and so is useless in this scenario
+  const [ isVisible1, setIsVisible1 ] = useState(false);
+  const [ isVisible2, setIsVisible2 ] = useState(false);
+  const [ isVisible3, setIsVisible3 ] = useState(false);
+  const [ vizzedOnce1, setVizzedOnce1 ] = useState(false);
+  const [ vizzedOnce2, setVizzedOnce2 ] = useState(false);
+  const [ vizzedOnce3, setVizzedOnce3 ] = useState(false);
+
+  const disableAnim1 = () => {
+    if (!vizzedOnce1) {
+      setVizzedOnce1(true);
+      return;
+    }
+
+    setIsVisible1(true);
+  }
+
+  const disableAnim2 = () => {
+    if (!vizzedOnce2) {
+      setVizzedOnce2(true);
+      return;
+    }
+
+    setIsVisible2(true);
+  }
+
+  const disableAnim3 = () => {
+    if (!vizzedOnce3) {
+      setVizzedOnce3(true);
+      return;
+    }
+
+    setIsVisible3(true);
+  }
+
   return (
     <div className="HomePage" data-testid="HomePage">
       <div className="main-img-container">
         <img className="main-img" src={mainImg} alt="woman with makeup"/>
       </div>
-      <section className="about">
-        <h1>PROFILE</h1>
-        <p>
-          I first started makeup in 2011 after completing a hairdressing course I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted to techniques to me.
-        </p>
-        <p>
-          Continuing my education has always been important to me. To further my education I attended workshops hosted by other inspiring artists such as Rae Morris and Mia Conner.
-        </p>
-        <p>
-          In 2016 I began my career with Mecca brands working at Mecca has given me the experience to work with many different skin types from fair to darker complexions, young skin to mature skin. I have learned to understand different skin concerns and conditions, and what products work best for different people. Through Mecca I have also had the opportunity to further my education by attending workshops with many international makeup artist such as:
-        </p>
-        <ul>
-          <li>Rae Morris</li>
-          <li>Mia Connor</li>
-          <li>Nars Artists, Lena Koro and Jane Richardson</li>
-          <li>Lancômes, Lara Srokowski</li>
-          <li>Too Faced Artist, Elyse Rebeau</li>
-          <li>Urban Decay Global Artist, Steve Kassajikian</li>
-          <li>Mac Global Senior Artist, Nicole Thompson</li>
-          <li>Laura Mercier Global Beauty Director, Jason Hoffman</li>
-        </ul>
-        <p>
-          These workshops have given me tips and tricks which I now use and apply to my everyday artistry.
-          In 2018 I won a Mecca x Smashbox artistry competition which took me to L.A to shoot online content for Mecca using the Smashbox cover shot palettes.
-        </p>
-        <p>
-          Fashion and beauty have always been an interest and I have had the pleasure to work with amazing teams for runway shows including
-          Fred hates fashion
-          Melbourne fashion week and
-          The Global indigenous runway
-          I have also had the opportunity to work as an artist backstage at Meccaland.
-        </p>
-        <p>
-          Understanding facial features and being able to adapt a look you choose to suit your unique features is something I specialise in.
-          I’m known for being a perfectionist and this comes with fine attention to detail.
-          I believe that over time I have developed a signature style being a flawless radiant base.
-          Enhancing your natural beauty is always my goal.
-        </p>
+      <section className="summaries">
+        <VizSens
+          offset={{top: vizOffset}}
+          partialVisibility={'top'}
+          onChange={disableAnim1}
+          active={!isVisible1}
+          delayedCall={true}
+        >
+          <div className={"article-background"}>
+            <article className={`summary-img-text-container ${isVisible1 ? "fade-in-anim" : null}`}>
+              <div className={`summary-img-container ${isVisible1 ? "slide-in-rev-anim" : null}`}>
+                <img className="summary-img" src={eventImg} alt="woman with makeup"/>
+              </div>
+              <div className={`long-title ${isVisible1 ? "slide-in-anim" : null}`}>
+                <h1>EVENTS &#38;</h1>
+                <h1>SPECIAL OCCASIONS</h1>
+              </div>
+            </article>
+          </div>
+        </VizSens>
+        <VizSens
+          offset={{top: vizOffset}}
+          partialVisibility={'top'}
+          onChange={disableAnim2}
+          active={!isVisible2}
+          delayedCall={true}
+        >
+          <div className={"article-background"}>
+            <article className={`summary-img-text-container ${isVisible2 ? "fade-in-anim" : null}`}>
+              <h1 className={`${isVisible2 ? "slide-in-rev-anim" : null}`}>EDITORIAL</h1>
+              <div className={`summary-img-container ${isVisible2 ? "slide-in-anim" : null}`}>
+                <img className="summary-img" src={editorialImg} alt="woman with makeup"/>
+              </div>
+            </article>
+          </div>
+        </VizSens>
+        <VizSens
+          offset={{top: vizOffset}}
+          partialVisibility={'top'}
+          onChange={disableAnim3}
+          active={!isVisible3}
+          delayedCall={true}
+        >
+          <div className={"article-background"}>
+            <article className={`summary-img-text-container ${isVisible3 ? "fade-in-anim" : null}`}>
+              <div className={`summary-img-container ${isVisible3 ? "slide-in-rev-anim" : null}`}>
+                <img className="summary-img" src={bridalImg} alt="woman with makeup"/>
+              </div>
+              <h1 className={`${isVisible3 ? "slide-in-anim" : null}`}>BRIDAL</h1>
+            </article>
+          </div>
+        </VizSens>
+        <div className="call-to-action">
+          <h1>BOOKING</h1>
+          <h3>
+            Let Ellie's diverse experience and keen eye for detail enhance your natural beauty. Book for your professional makeup service today. Contact now and Ellie will get back to you soon.
+          </h3>
+          <BtnBookNow />
+        </div>
       </section>
     </div>
   );

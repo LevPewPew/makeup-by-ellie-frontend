@@ -3,10 +3,12 @@
 // don't give color names specifics such as "somethingPink" or "coolNameBlue", because then if we decide to change color pallete at all in the future, we can just change the hex code of the color, but not worry about all of that color variable not relating to the actual hexcode
 
 $faceBusiness: #1E1E1E;
-$churchCrab: #f6f2ec;
+$churchCrab: #e6dddd;
 $tepidAngst: #92898A;
 $passiveCrane: #EDE3E4;
 $dyingUrchin: #CBBBB9;
+$burningHarpy: #f6f2ec;
+$cloningWitch: #f6f2ec;
 
 :export {
   faceBusiness: $faceBusiness;
@@ -14,4 +16,6 @@ $dyingUrchin: #CBBBB9;
   tepidAngst: $tepidAngst;
   passiveCrane: $passiveCrane;
   dyingUrchin: $dyingUrchin;
+  burningHarpy: $burningHarpy;
+  cloningWitch: $cloningWitch;
 }

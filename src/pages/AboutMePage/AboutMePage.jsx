@@ -12,7 +12,7 @@ function AboutMePage() {
         </div>
         <section className="about">
           <p>
-            I first started makeup in 2011 after completing a hairdressing course I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted to techniques to me.
+            Having just completed a hairdressing in 2011 course I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted the techniques to me.
           </p>
           <p>
             Continuing my education has always been important to me. To further my education I attended workshops hosted by other inspiring artists such as Rae Morris and Mia Conner.
@@ -35,10 +35,14 @@ function AboutMePage() {
             In 2018 I won a Mecca x Smashbox artistry competition which took me to L.A to shoot online content for Mecca using the Smashbox cover shot palettes.
           </p>
           <p>
-            Fashion and beauty have always been an interest and I have had the pleasure to work with amazing teams for runway shows including
-            Fred hates fashion
-            Melbourne fashion week and
-            The Global indigenous runway
+            Fashion and beauty have always been an interest and I have had the pleasure to work with amazing teams for runway shows including:
+          </p>
+            <ul>
+              <li>Fred hates fashion</li>
+              <li>Melbourne fashion week</li>
+              <li>The Global indigenous runway</li>
+            </ul>
+          <p>
             I have also had the opportunity to work as an artist backstage at Meccaland.
           </p>
           <p>
