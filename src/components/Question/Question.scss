@@ -11,12 +11,15 @@
 
 .Question {
   h2 {
+    margin: 15px;
     text-align: left;
+    text-align: center;
   }
-
+  
   p {
-    margin: 40px;
+    margin: 15px;
     white-space: pre-wrap;
+    text-align: center;
   }
 
   .CrudBtnsContainer {

@@ -80,9 +80,9 @@ function HomePage() {
         >
           <div className={"article-background"}>
             <article className={`summary-img-text-container ${isVisible2 ? "fade-in-anim" : null}`}>
-              <h1 className={`${isVisible2 ? "slide-in-rev-anim" : null}`}>EDITORIAL</h1>
+              <h1 className={`${isVisible2 ? "slide-in-rev-anim" : null}`}>BRIDAL</h1>
               <div className={`summary-img-container ${isVisible2 ? "slide-in-anim" : null}`}>
-                <img className="summary-img" src={editorialImg} alt="woman with makeup"/>
+                <img className="summary-img" src={bridalImg} alt="woman with makeup"/>
               </div>
             </article>
           </div>
@@ -97,17 +97,17 @@ function HomePage() {
           <div className={"article-background"}>
             <article className={`summary-img-text-container ${isVisible3 ? "fade-in-anim" : null}`}>
               <div className={`summary-img-container ${isVisible3 ? "slide-in-rev-anim" : null}`}>
-                <img className="summary-img" src={bridalImg} alt="woman with makeup"/>
+                <img className="summary-img" src={editorialImg} alt="woman with makeup"/>
               </div>
-              <h1 className={`${isVisible3 ? "slide-in-anim" : null}`}>BRIDAL</h1>
+              <h1 className={`${isVisible3 ? "slide-in-anim" : null}`}>EDITORIAL</h1>
             </article>
           </div>
         </VizSens>
         <div className="call-to-action">
           <h1>BOOKING</h1>
-          <h3>
+          <p>
             Let Ellie's diverse experience and keen eye for detail enhance your natural beauty. Book for your professional makeup service today. Contact now and Ellie will get back to you soon.
-          </h3>
+          </p>
           <BtnBookNow />
         </div>
       </section>
