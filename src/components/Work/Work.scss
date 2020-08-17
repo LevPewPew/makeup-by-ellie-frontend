@@ -1,3 +1,15 @@
+@mixin bp($point) {
+  @if $point == smallScreen {
+    @media (max-width: 1200px) { @content; }
+  } @else if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  } @else if $point == mobile {
+    @media (max-width: 520px) { @content; }
+  } @else if $point == smallMobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
 .Work {
   .WorkForm {
     width: 90%;
@@ -6,6 +18,14 @@
   img {
     width: 300px;
     cursor: pointer;
+
+    @include bp(mobile) {
+      width: 250px;
+    }
+
+    @include bp(smallMobile) {
+      width: 200px;
+    }
   }
 
   .CrudBtnsContainer {

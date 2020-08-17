@@ -155,21 +155,22 @@ function Navbar() {
         </div>
         <BtnBookNow />
         <BtnInstagram />
-      </div>
-      <div className="hamburger">
-        <div className={`${hamburgerClass}-btn`} onClick={animateHamburger}>
-          <div className="bar-1"></div>
-          <div className="bar-2"></div>
-          <div className="bar-3"></div>
-        </div>
-        <div className={`${hamburgerClass}`}> 
-          <ul>
-            <Link to="./services" onClick={animateHamburger} ><li>SERVICES</li></Link>
-            <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
-            <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
-            <Link to="./contact" onClick={animateHamburger}><li>CONTACT</li></Link>
-            {token?<><Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link><Link to="/"><BtnLogout/></Link></>:null}
-          </ul>
+        <div className="hamburger">
+          <div className={`${hamburgerClass}-btn`} onClick={animateHamburger}>
+            <div className="bar-1"></div>
+            <div className="bar-2"></div>
+            <div className="bar-3"></div>
+          </div>
+          <div className={`${hamburgerClass}`}> 
+            <ul>
+              <Link to="./services" onClick={animateHamburger} ><li>SERVICES</li></Link>
+              <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
+              <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
+              <Link to="./contact" onClick={animateHamburger}><li>CONTACT</li></Link>
+              <BtnBookNow />
+              {token?<><Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link><Link to="/"><BtnLogout/></Link></>:null}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

@@ -1,6 +1,34 @@
 @import '../../styles/colors';
 
+@mixin bp($point) {
+  @if $point == smallScreen {
+    @media (max-width: 1200px) { @content; }
+  } @else if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  } @else if $point == mobile {
+    @media (max-width: 520px) { @content; }
+  } @else if $point == smallMobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
 .FilterBtns {
+  @include bp(tablet) {
+    display: flex;
+  }
+  
+  @include bp(mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    @include bp(tablet) {
+      max-width: 150px;
+    }
+  }
+
   .inactive {
     background-color: $tepidAngst;
   }

@@ -106,19 +106,19 @@
 
       &.slide-in-anim {
         position: relative;
-        -webkit-animation: slidein 2s; /* Safari, Chrome and Opera > 12.1 */
-        -moz-animation: slidein 2s; /* Firefox < 16 */
-        -ms-animation: slidein 2s; /* Internet Explorer */
-        -o-animation: slidein 2s; /* Opera < 12.1 */
+        -webkit-animation: slidein 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: slidein 1s; /* Firefox < 16 */
+        -ms-animation: slidein 1s; /* Internet Explorer */
+        -o-animation: slidein 1s; /* Opera < 12.1 */
         animation: slidein 1s;
       }
 
       &.slide-in-rev-anim {
         position: relative;
-        -webkit-animation: slidein 2s; /* Safari, Chrome and Opera > 12.1 */
-        -moz-animation: slidein 2s; /* Firefox < 16 */
-        -ms-animation: slidein 2s; /* Internet Explorer */
-        -o-animation: slidein 2s; /* Opera < 12.1 */
+        -webkit-animation: slidein 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: slidein 1s; /* Firefox < 16 */
+        -ms-animation: slidein 1s; /* Internet Explorer */
+        -o-animation: slidein 1s; /* Opera < 12.1 */
         animation: slideinrev 1s;
       }
     }
@@ -144,7 +144,7 @@
 
     h1 {
       // can't figure out why this is needed to get it centered.
-      //can't fix with flexbox or text-align...
+      // can't fix with flexbox or text-align...
       padding-left: 9px;
     }
 

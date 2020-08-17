@@ -17,6 +17,14 @@
   width: 70%;
   margin: auto;
 
+  .masonry-on {
+    display: initial;
+  }
+
+  .masonry-off {
+    display: none;
+  }
+
   .button-container {
     margin: 40px auto;
     
