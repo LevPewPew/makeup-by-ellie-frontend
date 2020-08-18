@@ -1,10 +1,13 @@
 @import '../../styles/colors';
 
 @mixin bp($point) {
-  @if $point == tablet {
+  @if $point == smallScreen {
+    @media (max-width: 1200px) { @content; }
+  } @else if $point == tablet {
     @media (max-width: 768px) { @content; }
-  }
-  @else if $point == mobile {
+  } @else if $point == mobile {
+    @media (max-width: 520px) { @content; }
+  } @else if $point == smallMobile {
     @media (max-width: 375px) { @content; }
   }
 }
@@ -12,10 +15,25 @@
 .HomePage {
   .main-img-container {
     width: 100%;
-    padding: 0 25vw;
-    padding-top: 200px;
+    padding: 200px 23vw 0 23vw;
     display: flex;
     justify-content: center;
+
+    @include bp(smallScreen) {
+      padding: 200px 15vw 0 15vw;
+    }
+
+    @include bp(tablet) {
+      padding: 200px 10vw 0 10vw;
+    }
+
+    @include bp(mobile) {
+      padding: 200px 7vw 0 7vw;
+    }
+
+    @include bp(smallMobile) {
+      padding: 200px 5vw 0 5vw;
+    }
     
     .main-img {
       width: 100%;
@@ -24,13 +42,55 @@
   }
 
   .article-background {
-    padding: 5vw 20vw;
+    padding: 5vw 18vw;
+
+    @include bp(smallScreen) {
+      padding: 5vw 18vw;
+    }
+
+    @include bp(tablet) {
+      padding: 5vw 15vw;
+    }
+
+    @include bp(mobile) {
+      padding: 5vw 10vw;
+    }
+
+    @include bp(smallMobile) {
+      padding: 5vw 8vw;
+    }
     
     &:nth-of-type(2n+1) {
       background-color: $burningHarpy;
       
       * {
         background-color: $burningHarpy;
+      }
+
+
+      .summary-img-text-container {
+        justify-content: flex-start;
+      }
+    }
+    
+    &:nth-of-type(2n) {
+      .summary-img-text-container {
+        justify-content: flex-end;
+
+        @include bp(mobile) {
+          flex-direction: column;
+        }
+      }
+    }
+
+    &:nth-of-type(2) {
+      h1 {
+        margin: 0;
+        margin-right: 40px;
+
+        @include bp(mobile) {
+          margin: 0;
+        }
       }
     }
 
@@ -45,9 +105,12 @@
 
   .summary-img-text-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     opacity: 0;
+
+    @include bp(mobile) {
+      flex-direction: column-reverse;
+    }
 
     &.fade-in-anim {
       -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -74,6 +137,21 @@
 
     h1 {
       margin: 0;
+      margin-left: 40px;
+      text-align: left;
+
+      @include bp(tablet) {
+        font-size: 36px;
+      }
+
+      @include bp(mobile) {
+        margin: 0;
+        font-size: 32px;
+      }
+
+      @include bp(smallMobile) {
+        font-size: 28px;
+      }
 
       &.slide-in-anim {
         position: relative;
@@ -98,6 +176,15 @@
       width: 480px;
       display: flex;
       justify-content: center;
+
+      @include bp(smallScreen) {
+        width: 400px;
+      }
+
+      @include bp(mobile) {
+        margin-top: 20px;
+        width: 100%;
+      }
       
       .summary-img {
         width: 100%;
@@ -134,18 +221,51 @@
     flex-direction: column;
     align-items: center;
 
+    @include bp(smallScreen) {
+      padding: 8vw 20vw;
+    }
+
+    @include bp(tablet) {
+      padding: 7vw 15vw;
+    }
+
+    @include bp(mobile) {
+      padding: 6vw 11vw;
+    }
+
+    @include bp(smallMobile) {
+      padding: 5vw 9vw;
+    }
+
     h1, p {
       text-align: center;
     }
 
     p {
       font-size: 20px;
+
+      @include bp(mobile) {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      @include bp(smallMobile) {
+        font-size: 16px;
+      }
     }
 
     h1 {
       // can't figure out why this is needed to get it centered.
       // can't fix with flexbox or text-align...
-      padding-left: 9px;
+      padding-left: 15px;
+
+      @include bp(smallScreen) {
+        padding-left: 11px;
+      }
+
+      @include bp(tablet) {
+        padding-left: 9px;
+      }
     }
 
     .BtnBookNow {
