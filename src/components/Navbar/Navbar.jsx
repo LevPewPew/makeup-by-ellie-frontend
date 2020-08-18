@@ -167,7 +167,10 @@ function Navbar() {
               <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
               <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
               <Link to="./contact" onClick={animateHamburger}><li>CONTACT</li></Link>
-              <BtnBookNow />
+              <div className={"book-insta-container"}>
+                <BtnBookNow />
+                <BtnInstagram />
+              </div>
               {token?<><Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link><Link to="/"><BtnLogout/></Link></>:null}
             </ul>
           </div>
