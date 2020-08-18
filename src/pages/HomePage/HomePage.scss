@@ -257,10 +257,10 @@
     h1 {
       // can't figure out why this is needed to get it centered.
       // can't fix with flexbox or text-align...
-      padding-left: 15px;
+      padding-left: 11px;
 
       @include bp(smallScreen) {
-        padding-left: 11px;
+        padding-left: 10px;
       }
 
       @include bp(tablet) {

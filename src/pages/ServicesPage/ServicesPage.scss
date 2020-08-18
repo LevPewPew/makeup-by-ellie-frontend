@@ -3,4 +3,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  // can't figure out why this is needed to get it centered.
+  // can't fix with flexbox or text-align...
+  h1 {
+    padding-left: 9px;
+  }
 }

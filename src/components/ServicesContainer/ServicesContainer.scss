@@ -1,9 +1,33 @@
+@mixin bp($point) {
+  @if $point == smallScreen {
+    @media (max-width: 1200px) { @content; }
+  } @else if $point == tablet {
+    @media (max-width: 768px) { @content; }
+  } @else if $point == mobile {
+    @media (max-width: 520px) { @content; }
+  } @else if $point == smallMobile {
+    @media (max-width: 375px) { @content; }
+  }
+}
+
 .ServicesContainer {
   width: 70vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include bp(smallScreen) {
+    width: 80vw;
+  }
+
+  @include bp(tablet) {
+    width: 90vw;
+  }
+
+  @include bp(mobile) {
+    width: 95vw;
+  }
 
   .break {
     border-top: 1px solid black;

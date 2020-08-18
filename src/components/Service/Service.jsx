@@ -37,7 +37,9 @@ function Service(props) {
         <>
           <h2>{title}</h2>
           <div className="img-description-btn-container">
-            <img src={imageUrl} alt="woman in makeup" />
+            <div className={"img-container"}>
+              <img src={imageUrl} alt="woman in makeup" />
+            </div>
             <div className="description-container">
               <p>{description}</p>
               {

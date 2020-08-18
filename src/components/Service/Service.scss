@@ -1,8 +1,11 @@
 @mixin bp($point) {
-  @if $point == tablet {
+  @if $point == smallScreen {
+    @media (max-width: 1200px) { @content; }
+  } @else if $point == tablet {
     @media (max-width: 768px) { @content; }
-  }
-  @else if $point == mobile {
+  } @else if $point == mobile {
+    @media (max-width: 520px) { @content; }
+  } @else if $point == smallMobile {
     @media (max-width: 375px) { @content; }
   }
 }
@@ -14,25 +17,39 @@
   flex-direction: column;
   align-items: center;
 
+  @include bp(mobile) {
+    margin-bottom: 0px;
+  }
+
   .img-description-btn-container {
     display: flex;
 
-    @include bp(tablet) {
+    @include bp(mobile) {
       flex-direction: column;
       align-items: center;
       order: 1;
     }
 
-    img {
+    .img-container {
       width: 300px;
-      height: auto;
-  
-      @include bp(tablet) {
-        width: 200px;
+
+      @include bp(smallMobile) {
+        width: 270px;
       }
+
+      img {
+        width: 100%;
+        
+
+
     
-      @include bp(mobile) {
-        width: 120px;
+        // @include bp(tablet) {
+        //   // width: 200px;
+        // }
+      
+        // @include bp(mobile) {
+        //   width: 120px;
+        // }
       }
     }
   }
@@ -41,25 +58,48 @@
     width: 55%;
     margin: 0 auto;
     position: relative;
+  
+    @include bp(smallScreen) {
+      margin: 0 20px;
+    }
 
     @include bp(tablet) {
-      order: 2; 
+      margin: 0;
+      margin-left: 20px;
+      width: 100%;
     }
   
     @include bp(mobile) {
       order: 2;
+      margin-left: 0px;
     }
 
     p {
       white-space: pre-wrap;
     }
 
+    p:nth-of-type(1) {
+      margin-top: 0px;
+
+      @include bp(mobile) {
+        margin-top: 20px;
+      }
+    }
+
     .BtnBookNow {
       margin: 40px 0;
       margin-right: 40px;
 
+      @include bp(mobile) {
+        margin-right: 0px;
+      }
+
       .btn {
         margin-left: auto;
+
+        @include bp(mobile) {
+          margin-left: initial;
+        }
       }
     }
 
