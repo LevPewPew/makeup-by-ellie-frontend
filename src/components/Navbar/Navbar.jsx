@@ -171,7 +171,12 @@ function Navbar() {
                 <BtnBookNow />
                 <BtnInstagram />
               </div>
-              {token?<><Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link><Link to="/"><BtnLogout/></Link></>:null}
+              {token ?
+                <>
+                  <Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link>
+                  <Link to="/"><BtnLogout/></Link>
+                </> :
+              null}
             </ul>
           </div>
         </div>

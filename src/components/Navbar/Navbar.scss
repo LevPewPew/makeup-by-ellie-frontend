@@ -44,6 +44,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        @include bp(mobile) {
+          padding-bottom: 57px;
+        }
+
+        @include bp(smallMobile) {
+          padding-bottom: 75px;
+        }
       }
   
       .bar-1, .bar-2, .bar-3 {
@@ -95,6 +103,14 @@
         -ms-animation: slidedown 0.4s;
         -o-animation: slidedown 0.4s;
         animation: slidedown 0.4s;
+
+        @include bp(mobile) {
+          padding: 30px 0;
+        }
+
+        @include bp(smallMobile) {
+          padding: 20px 0;
+        }
   
         ul {
           padding: 0px;
@@ -107,6 +123,11 @@
             color: white;
             text-decoration: none;
             list-style-type: none;
+            margin-left: 50px;
+
+            @include bp(mobile) {
+              justify-content: flex-start;
+            }
       
             li:before {
               content: "";
@@ -119,6 +140,10 @@
           display: flex;
           justify-content: center;
           align-items: center;
+
+          @include bp(mobile) {
+            justify-content: flex-start;
+          }
 
           .BtnBookNow {
             font-size: 18px;
