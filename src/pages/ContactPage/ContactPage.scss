@@ -1,7 +1,11 @@
 @mixin bp($point) {
-  @if $point == tablet {
+  @if $point == smallScreen {
+    @media (max-width: 1200px) { @content; }
+  } @else if $point == tablet {
     @media (max-width: 768px) { @content; }
   } @else if $point == mobile {
+    @media (max-width: 520px) { @content; }
+  } @else if $point == smallMobile {
     @media (max-width: 375px) { @content; }
   }
 }
@@ -37,7 +41,11 @@
       }
     
       @include bp(mobile) {
-        width: 80%;
+        width: 92%;
+      }
+    
+      @include bp(smallMobile) {
+        width: 95%;
       }
     }
     
@@ -52,7 +60,11 @@
       }
     
       @include bp(mobile) {
-        width: 80%;
+        width: 92%;
+      }
+    
+      @include bp(smallMobile) {
+        width: 95%;
       }
 
       img {

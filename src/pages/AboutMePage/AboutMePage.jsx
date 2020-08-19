@@ -47,8 +47,12 @@ function AboutMePage() {
           </p>
           <p>
             Understanding facial features and being able to adapt a look you choose to suit your unique features is something I specialise in.
+          </p>
+          <p>
             I’m known for being a perfectionist and this comes with fine attention to detail.
             I believe that over time I have developed a signature style being a flawless radiant base.
+          </p>
+          <p>
             Enhancing your natural beauty is always my goal.
           </p>
         </section>

@@ -163,6 +163,7 @@ function Navbar() {
           </div>
           <div className={`${hamburgerClass}`}> 
             <ul>
+              <Link to="./about-me" onClick={animateHamburger} ><li>ABOUT</li></Link>
               <Link to="./services" onClick={animateHamburger} ><li>SERVICES</li></Link>
               <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
               <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
