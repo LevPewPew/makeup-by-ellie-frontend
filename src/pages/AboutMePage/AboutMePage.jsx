@@ -12,13 +12,13 @@ function AboutMePage() {
         </div>
         <section className="about">
           <p>
-            Having just completed a hairdressing in 2011 course I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted the techniques to me.
+            Having just completed a hairdressing course in 2011 I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted the techniques to me.
           </p>
           <p>
             Continuing my education has always been important to me. To further my education I attended workshops hosted by other inspiring artists such as Rae Morris and Mia Conner.
           </p>
           <p>
-            In 2016 I began my career with Mecca brands working at Mecca has given me the experience to work with many different skin types from fair to darker complexions, young skin to mature skin. I have learned to understand different skin concerns and conditions, and what products work best for different people. Through Mecca I have also had the opportunity to further my education by attending workshops with many international makeup artist such as:
+            In 2016 I began my career with Mecca brands. Working at Mecca has given me experience with many different skin types from fair to darker complexions, young skin to mature skin. I have learned to understand different skin concerns and conditions, and what products work best for different people. Through Mecca I have also had the opportunity to further my education by attending workshops with many international makeup artist such as:
           </p>
           <ul>
             <li>Rae Morris</li>
