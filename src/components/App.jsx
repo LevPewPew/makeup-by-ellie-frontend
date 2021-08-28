@@ -88,11 +88,12 @@ function App() {
   } else {
     return (
       <div className="App">
-        <>
+        {/* under maintenance placeholder */}
+        {/* <>
           <div style={{ fontSize: "128px" }}>UNDER MAINTENANCE</div>
           <div style={{ fontSize: "128px" }}>CHECK BACK SOON</div>
-        </>
-        {/* <BrowserRouter>
+        </> */}
+        <BrowserRouter>
           <Navbar />
           <Switch>
             <Route exact path="/">
@@ -138,7 +139,7 @@ function App() {
             </Route>
           </Switch>
           <Footer />
-        </BrowserRouter> */}
+        </BrowserRouter>
       </div>
     );
   }

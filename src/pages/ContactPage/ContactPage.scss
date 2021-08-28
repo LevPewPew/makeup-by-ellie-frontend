@@ -1,12 +1,20 @@
 @mixin bp($point) {
   @if $point == smallScreen {
-    @media (max-width: 1200px) { @content; }
+    @media (max-width: 1200px) {
+      @content;
+    }
   } @else if $point == tablet {
-    @media (max-width: 768px) { @content; }
+    @media (max-width: 768px) {
+      @content;
+    }
   } @else if $point == mobile {
-    @media (max-width: 520px) { @content; }
+    @media (max-width: 520px) {
+      @content;
+    }
   } @else if $point == smallMobile {
-    @media (max-width: 375px) { @content; }
+    @media (max-width: 375px) {
+      @content;
+    }
   }
 }
 
@@ -22,6 +30,8 @@
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
+    // flex-direction: column;
+    // align-items: center;
 
     @include bp(tablet) {
       flex-direction: column;
@@ -29,40 +39,42 @@
       width: 90%;
     }
 
-    .ContactForm, .img-info-container {
+    .ContactForm,
+    .ContactInfo,
+    .img-info-container {
       width: 50%;
       margin: 2%;
     }
 
     .ContactForm {
       @include bp(tablet) {
-        order: 2; 
+        order: 2;
         width: 90%;
       }
-    
+
       @include bp(mobile) {
         width: 92%;
       }
-    
+
       @include bp(smallMobile) {
         width: 95%;
       }
     }
-    
+
     .img-info-container {
       display: flex;
       flex-direction: column;
       align-items: center;
 
       @include bp(tablet) {
-        order: 1; 
+        order: 1;
         width: 90%;
       }
-    
+
       @include bp(mobile) {
         width: 92%;
       }
-    
+
       @include bp(smallMobile) {
         width: 95%;
       }
