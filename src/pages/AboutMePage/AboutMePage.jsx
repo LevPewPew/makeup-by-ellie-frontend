@@ -1,59 +1,56 @@
-import React from 'react';
-import mainImg from '../../media/ellie.jpeg';
-import './AboutMePage.scss';
+import React from "react";
+import mainImg from "../../media/ellie.jpeg";
+import "./AboutMePage.scss";
 
 function AboutMePage() {
   return (
     <div className="AboutMePage" data-testid="AboutMePage">
       <h1>ABOUT</h1>
       <div className="about-main-img-container">
-        <div className="main-img-container">
-          <img className="main-img" src={mainImg} alt="woman with makeup"/>
-        </div>
+        {/* add photo back in if ellie ever finds one that she likes */}
+        {/* <div className="main-img-container">
+          <img className="main-img" src={mainImg} alt="woman with makeup" />
+        </div> */}
         <section className="about">
           <p>
-            Having just completed a hairdressing course in 2011 I was naturally drawn to makeup as the pair work hand in hand. Once I started my diploma of specialist makeup services I knew that makeup was my true calling. Makeup became the perfect medium for my creativity and I quickly adapted the techniques to me.
+            Soon after completing a hairdressing course, Ellie became interested
+            in the creativity and freedom within makeup. She decided to embrace
+            the world of makeup and completed a specialist makeup course in
+            2011.
           </p>
           <p>
-            Continuing my education has always been important to me. To further my education I attended workshops hosted by other inspiring artists such as Rae Morris and Mia Conner.
+            Always looking to grow and learn as an artist, she began to attend
+            many workshops hosted by other inspiring artists such as Rae Morris
+            and Mia Conner.
           </p>
           <p>
-            In 2016 I began my career with Mecca brands. Working at Mecca has given me experience with many different skin types from fair to darker complexions, young skin to mature skin. I have learned to understand different skin concerns and conditions, and what products work best for different people. Through Mecca I have also had the opportunity to further my education by attending workshops with many international makeup artist such as:
-          </p>
-          <ul>
-            <li>Rae Morris</li>
-            <li>Mia Connor</li>
-            <li>Nars Artists, Lena Koro and Jane Richardson</li>
-            <li>Lancômes, Lara Srokowski</li>
-            <li>Too Faced Artist, Elyse Rebeau</li>
-            <li>Urban Decay Global Artist, Steve Kassajikian</li>
-            <li>Mac Global Senior Artist, Nicole Thompson</li>
-            <li>Laura Mercier Global Beauty Director, Jason Hoffman</li>
-          </ul>
-          <p>
-            These workshops have given me tips and tricks which I now use and apply to my everyday artistry.
-            In 2018 I won a Mecca x Smashbox artistry competition which took me to L.A to shoot online content for Mecca using the Smashbox cover shot palettes.
+            Ellie began her career with Mecca brands in 2016. Working with Mecca
+            has given her the experience to work with a variety of people. She
+            has learned to understand different skin concerns and conditions,
+            knowing what products will work best for your individual needs.
+            Ellie is comfortable and confident applying makeup on all
+            complexions.
           </p>
           <p>
-            Fashion and beauty have always been an interest and I have had the pleasure to work with amazing teams for runway shows including:
-          </p>
-            <ul>
-              <li>Fred hates fashion</li>
-              <li>Melbourne fashion week</li>
-              <li>The Global indigenous runway</li>
-            </ul>
-          <p>
-            I have also had the opportunity to work as an artist backstage at Meccaland.
+            Through Mecca, Ellie also had the opportunity to further her
+            education and upskill by attending workshops with many international
+            makeup artists and brand ambassadors. This has allowed her to keep
+            up with current trends and new products. These workshops have given
+            her tips and tricks which she now uses and applies to her everyday
+            artistry.
           </p>
           <p>
-            Understanding facial features and being able to adapt a look you choose to suit your unique features is something I specialise in.
+            Fashion and beauty have always been an interest. Ellie has had the
+            pleasure to work with amazing artistry teams for runway shows
+            including Fred Hates Fashion, Melbourne Fashion Week and The Global
+            Indigenous Runway, as well as working as an artist backstage at
+            Meccaland.
           </p>
           <p>
-            I’m known for being a perfectionist and this comes with fine attention to detail.
-            I believe that over time I have developed a signature style being a flawless radiant base.
-          </p>
-          <p>
-            Enhancing your natural beauty is always my goal.
+            Ellie has specialised in bridal for the last 3 years and enjoys
+            helping brides feel like the best version of themselves on their
+            special day, she is well known for her great attention to detail.
+            Enhancing your natural beauty is always her goal.
           </p>
         </section>
       </div>

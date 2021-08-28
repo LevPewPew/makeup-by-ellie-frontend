@@ -1,9 +1,12 @@
-@import '../../styles/colors';
+@import "../../styles/colors";
 
 .BtnBookNow {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* use this padding to componsate for logo width,
+   to keep nav items in centre of page */
+  padding: 0 40px;
 
   button:hover {
     color: $dyingUrchin;

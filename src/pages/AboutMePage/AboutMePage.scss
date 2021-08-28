@@ -1,12 +1,20 @@
 @mixin bp($point) {
   @if $point == smallScreen {
-    @media (max-width: 1200px) { @content; }
+    @media (max-width: 1200px) {
+      @content;
+    }
   } @else if $point == tablet {
-    @media (max-width: 768px) { @content; }
+    @media (max-width: 768px) {
+      @content;
+    }
   } @else if $point == mobile {
-    @media (max-width: 520px) { @content; }
+    @media (max-width: 520px) {
+      @content;
+    }
   } @else if $point == smallMobile {
-    @media (max-width: 375px) { @content; }
+    @media (max-width: 375px) {
+      @content;
+    }
   }
 }
 
@@ -29,26 +37,55 @@
       width: 90%;
     }
 
-    .about, .main-img-container {
-      width: 50%;
+    .about,
+    .main-img-container {
+      width: 55%;
+
+      @include bp(smallScreen) {
+        order: 2;
+        width: 85%;
+      }
+
+      @include bp(tablet) {
+        order: 2;
+        width: 90%;
+      }
+
+      @include bp(mobile) {
+        width: 92%;
+      }
+
+      @include bp(smallMobile) {
+        width: 95%;
+      }
+      // use below width if an image added back in
+      // width: 50%;
       margin: 2%;
     }
 
     .about {
+      p {
+        text-align: center;
+
+        &:not(:last-of-type) {
+          margin-bottom: 25px;
+        }
+      }
+
       @include bp(tablet) {
-        order: 2; 
+        order: 2;
         width: 90%;
       }
-    
+
       @include bp(mobile) {
         width: 92%;
       }
-    
+
       @include bp(smallMobile) {
         width: 95%;
       }
     }
-    
+
     .main-img-container {
       margin-top: 27.625px;
       display: flex;
@@ -56,14 +93,14 @@
       align-items: center;
 
       @include bp(tablet) {
-        order: 1; 
+        order: 1;
         width: 90%;
       }
-    
+
       @include bp(mobile) {
         width: 92%;
       }
-    
+
       @include bp(smallMobile) {
         width: 95%;
       }
