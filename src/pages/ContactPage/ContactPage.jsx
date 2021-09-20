@@ -9,7 +9,7 @@ import "./ContactPage.scss";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 // Contact Service is Available (CSA)
-const CSA_FLAG = false;
+const CSA_FLAG = true;
 
 function ContactPage() {
   const dispatch = useDispatch();

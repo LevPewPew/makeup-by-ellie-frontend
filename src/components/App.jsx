@@ -19,6 +19,8 @@ import ContactDetails from "./ContactDetails/ContactDetails";
 import "./App.scss";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
+// Not Under Maintenance (NUM)
+const NUM_FLAG = true;
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -88,70 +90,75 @@ function App() {
   } else {
     return (
       <div className="App">
-        {/* under maintenance placeholder */}
-        <>
-          <div style={{ fontSize: "128px" }}>UNDER MAINTENANCE</div>
-          <div style={{ fontSize: "128px" }}>CHECK BACK SOON</div>
-        </>
-        <BrowserRouter>
-          <Switch>
-            <PrivateRoute path="/admin" component={AdminPage} />
-            <Route path="/admin-login">
-              <AdminLoginPage />
-            </Route>
-          </Switch>
-          <Footer />
-        </BrowserRouter>
-        {/* <BrowserRouter>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route path="/about-me">
-              <AboutMePage />
-            </Route>
-            <Route path="/contact">
-              <ContactPage />
-            </Route>
-            <Route path="/services">
-              <ServicePage />
-            </Route>
-            <Route path="/portfolio">
-              <PortfolioPage />
-            </Route>
-            <Route path="/faq">
-              <FaqPage />
-            </Route>
-            <PrivateRoute
-              exact
-              path="/getcontactlist"
-              component={ContactsContainer}
-            />
-            <Route path="/getcontactlist/:id" component={ContactDetails} />
-            <Route
-              path="/instagram"
-              component={() => {
-                let a = document.createElement("a");
-                a.target = "_blank";
-                a.href = "https://www.instagram.com/makeup.by.ellie/";
-                a.click();
-                return null;
-              }}
-            />
-            <Route path="/terms-and-conditions">
-              <TermsConditions />
-            </Route>
-            <PrivateRoute path="/admin" component={AdminPage} />
-            <Route path="/admin-login">
-              <AdminLoginPage />
-            </Route>
-          </Switch>
-          <Footer />
-        </BrowserRouter> */}
+        {NUM_FLAG ? (
+          <BrowserRouter>
+            <Navbar />
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route path="/about-me">
+                <AboutMePage />
+              </Route>
+              <Route path="/contact">
+                <ContactPage />
+              </Route>
+              <Route path="/services">
+                <ServicePage />
+              </Route>
+              <Route path="/portfolio">
+                <PortfolioPage />
+              </Route>
+              <Route path="/faq">
+                <FaqPage />
+              </Route>
+              <PrivateRoute
+                exact
+                path="/getcontactlist"
+                component={ContactsContainer}
+              />
+              <Route path="/getcontactlist/:id" component={ContactDetails} />
+              <Route
+                path="/instagram"
+                component={() => {
+                  let a = document.createElement("a");
+                  a.target = "_blank";
+                  a.href = "https://www.instagram.com/makeup.by.ellie/";
+                  a.click();
+                  return null;
+                }}
+              />
+              <Route path="/terms-and-conditions">
+                <TermsConditions />
+              </Route>
+              <PrivateRoute path="/admin" component={AdminPage} />
+              <Route path="/admin-login">
+                <AdminLoginPage />
+              </Route>
+            </Switch>
+            <Footer />
+          </BrowserRouter>
+        ) : (
+          <>
+            <>
+              <div style={{ fontSize: "128px" }}>UNDER MAINTENANCE</div>
+              <div style={{ fontSize: "128px" }}>CHECK BACK SOON</div>
+            </>
+            <BrowserRouter>
+              <Switch>
+                <PrivateRoute path="/admin" component={AdminPage} />
+                <Route path="/admin-login">
+                  <AdminLoginPage />
+                </Route>
+              </Switch>
+              <Footer />
+            </BrowserRouter>
+          </>
+        )}
       </div>
     );
   }
 }
 
 export default App;
+// NEXT merge editorial and beauty in portfolio

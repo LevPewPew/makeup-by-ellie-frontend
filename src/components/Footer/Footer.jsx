@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import BtnInstagram from '../BtnInstagram/BtnInstagram';
-import './Footer.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import BtnInstagram from "../BtnInstagram/BtnInstagram";
+import "./Footer.scss";
 
 function Footer() {
   return (
@@ -14,10 +14,13 @@ function Footer() {
           </a>
         </div>
         <span>|</span>
-        <Link to="/terms-and-conditions"><span>TERMS AND CONDITIONS</span></Link>
+        {/* NEXT update TnCs */}
+        {/* <Link to="/terms-and-conditions"><span>TERMS AND CONDITIONS</span></Link> */}
       </div>
       <div className="copyright">
-        Copyright &copy; 2020 MAKEUP BY ELLIE.&nbsp;&nbsp;Makeup Artist and Hair Stylist.&nbsp;&nbsp;Melbourne, Australia.&nbsp;&nbsp;All Rights Reserved.
+        Copyright &copy; 2020 MAKEUP BY ELLIE.&nbsp;&nbsp;Makeup Artist and Hair
+        Stylist.&nbsp;&nbsp;Melbourne, Australia.&nbsp;&nbsp;All Rights
+        Reserved.
       </div>
     </footer>
   );

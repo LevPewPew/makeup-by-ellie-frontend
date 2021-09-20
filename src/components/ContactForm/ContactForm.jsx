@@ -1,58 +1,61 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
-import { connect } from 'react-redux'
-import DropdownListField from '../DropdownListField/DropdownListField';
-import BtnSubmit from '../BtnSubmit/BtnSubmit';
-import FieldLabel from '../FieldLabel/FieldLabel';
-import _ from 'lodash';
-import './ContactForm.scss';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Field, reduxForm, formValueSelector } from "redux-form";
+import { connect } from "react-redux";
+import DropdownListField from "../DropdownListField/DropdownListField";
+import BtnSubmit from "../BtnSubmit/BtnSubmit";
+import FieldLabel from "../FieldLabel/FieldLabel";
+import _ from "lodash";
+import "./ContactForm.scss";
 
 const categories = [
-  { category: 'Beauty', value: 'beauty' },
-  { category: 'Editorial', value: 'editorial' },
-  { category: 'Bridal', value: 'bridal' }
+  { category: "Beauty", value: "beauty" },
+  { category: "Editorial", value: "editorial" },
+  { category: "Bridal", value: "bridal" },
 ];
 
 function validate(values) {
-   let errors = {};
+  let errors = {};
 
   if (!values.name) {
-    errors.name = 'Name: (Required)';
+    errors.name = "Name: (Required)";
   }
 
   if (!values.mobile) {
-    errors.mobile = 'Mobile: (Required)';
-  } 
+    errors.mobile = "Mobile: (Required)";
+  }
 
   if (!values.email) {
-    errors.email = 'Email: (Required)';
-  } else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test( values.email ) ) {
-    errors.email  =  'Email: (Invalid email address)'
+    errors.email = "Email: (Required)";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = "Email: (Invalid email address)";
   }
 
   if (!values.eventDate) {
-    errors.eventDate = 'What date do you need your makeup? (Required)';
-  } 
+    errors.eventDate = "What date do you need your makeup? (Required)";
+  }
 
   if (!values.serviceType) {
-    errors.serviceType = 'What type of service would you like to book? (Required)';
-  } 
-  
+    errors.serviceType =
+      "What type of service would you like to book? (Required)";
+  }
+
   if (!values.totalPeopleJustMakeup) {
-    errors.totalPeopleJustMakeup = 'How many people require only their Makeup done? (Required)';
+    errors.totalPeopleJustMakeup =
+      "How many people require only their Makeup done? (Required)";
   }
 
   if (!values.totalPeopleWithHair) {
-    errors.totalPeopleWithHair = 'How many people require both Hair and Makeup? (Required)';
+    errors.totalPeopleWithHair =
+      "How many people require both Hair and Makeup? (Required)";
   }
 
   if (!values.timeToFinish) {
-    errors.timeToFinish = 'What time do you need to be ready by? (Required)';
+    errors.timeToFinish = "What time do you need to be ready by? (Required)";
   }
 
   if (!values.howDidYouHear) {
-    errors.howDidYouHear = 'How did you hear about us? (Required)';
+    errors.howDidYouHear = "How did you hear about us? (Required)";
   }
 
   return errors;
@@ -68,40 +71,53 @@ function peopleNumLimit(value) {
   }
 }
 
-function renderField({ autoFocus, placeholder, input, type, label, number1, number2, meta: { touched, error } }) {
-  if (input.name === 'applicationAddress') {
+function renderField({
+  autoFocus,
+  placeholder,
+  input,
+  type,
+  label,
+  number1,
+  number2,
+  meta: { touched, error },
+}) {
+  if (input.name === "applicationAddress") {
     return (
       <div className="text-field">
-        <FieldLabel
-          touched={touched}
-          label={label}
-          error={error}
+        <FieldLabel touched={touched} label={label} error={error} />
+        <input
+          {...input}
+          type={type}
+          placeholder={placeholder}
+          autoFocus={autoFocus}
+          disabled={parseInt(number1) + parseInt(number2) > 2 ? false : true}
         />
-        <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus} disabled={(parseInt(number1) + parseInt(number2)) > 2 ? false : true }/>
       </div>
     );
   } else {
     return (
       <div className="text-field">
-        <FieldLabel
-          touched={touched}
-          label={label}
-          error={error}
+        <FieldLabel touched={touched} label={label} error={error} />
+        <input
+          {...input}
+          type={type}
+          placeholder={placeholder}
+          autoFocus={autoFocus}
         />
-        <input {...input} type={type} placeholder={placeholder} autoFocus={autoFocus}/>
       </div>
     );
   }
 }
 
-function renderDropdownListField ({ placeholder, input, label, meta: { touched, error } }) {
+function renderDropdownListField({
+  placeholder,
+  input,
+  label,
+  meta: { touched, error },
+}) {
   return (
     <div className="dropdown-list-field">
-      <FieldLabel
-        touched={touched}
-        label={label}
-        error={error}
-      />
+      <FieldLabel touched={touched} label={label} error={error} />
       <div>
         <DropdownListField
           placeholder={placeholder}
@@ -115,23 +131,37 @@ function renderDropdownListField ({ placeholder, input, label, meta: { touched, 
   );
 }
 
-function renderTextArea({ autoFocus, placeholder, input, type, label, meta: { touched, error } }) {
+function renderTextArea({
+  autoFocus,
+  placeholder,
+  input,
+  type,
+  label,
+  meta: { touched, error },
+}) {
   return (
     <div className="text-area-field">
-      <FieldLabel
-        touched={touched}
-        label={label}
-        error={error}
+      <FieldLabel touched={touched} label={label} error={error} />
+      <textarea
+        {...input}
+        type={type}
+        className="textBox"
+        placeholder={placeholder}
+        autoFocus={autoFocus}
+        rows="10"
+        cols="50"
       />
-      <textarea {...input} type={type} className="textBox" placeholder={placeholder} autoFocus={autoFocus} rows="10" cols="50" />
     </div>
-  )
+  );
 }
 
+// NEXT redo this form to not be confusing lols
 function ContactForm(props) {
   const { handleSubmit, number1, number2, pristine, submitting, reset } = props;
   const addressPlaceHolder = "Ellie's home studio in Altona Meadows";
-  const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
+  const editingForm = useSelector(
+    (state) => state.adminDashReducer.editingForm
+  );
   const btnText = editingForm ? "Edit Contact Info" : "Send";
 
   return (
@@ -170,13 +200,15 @@ function ContactForm(props) {
         component={renderDropdownListField}
         data={categories}
         valueField="value"
-        textField="category" 
+        textField="category"
         label="What type of service would you like to book?"
         tabIndex="5"
       />
       <p>
         <em>
-          Please note: travel is only available for parties of 3 or more, all other bookings will take place at my home studio in Altona Meadows, Melbourne.
+          Please note: travel is only available for parties of 3 or more, all
+          other bookings will take place at my home studio in Altona Meadows,
+          Melbourne.
         </em>
       </p>
       <Field
@@ -187,7 +219,7 @@ function ContactForm(props) {
         tabIndex="6"
         placeholder="only Makeup"
         normalize={peopleNumLimit}
-      /> 
+      />
       <Field
         type="number"
         component={renderField}
@@ -229,30 +261,30 @@ function ContactForm(props) {
         tabIndex="11"
       />
       <div className="btn-container">
-        <button className="reset-btn btn" disabled={pristine || submitting} onClick={reset}>Clear</button> 
-        <BtnSubmit
-          pristine={pristine}
-          submitting={submitting}
-          text={btnText}
-        />
+        <button
+          className="reset-btn btn"
+          disabled={pristine || submitting}
+          onClick={reset}
+        >
+          Clear
+        </button>
+        <BtnSubmit pristine={pristine} submitting={submitting} text={btnText} />
       </div>
     </form>
-  ) 
+  );
 }
 
 ContactForm = reduxForm({
-   form: 'ContactForm',
-   validate
- })(ContactForm);
- 
- const selector = formValueSelector('ContactForm')
- ContactForm = connect(
-   state => {
-      return {
-         number1: selector(state, 'totalPeopleJustMakeup'),
-         number2: selector(state, 'totalPeopleWithHair'),
-       }
-   }
- )(ContactForm);
+  form: "ContactForm",
+  validate,
+})(ContactForm);
 
- export default ContactForm;
+const selector = formValueSelector("ContactForm");
+ContactForm = connect((state) => {
+  return {
+    number1: selector(state, "totalPeopleJustMakeup"),
+    number2: selector(state, "totalPeopleWithHair"),
+  };
+})(ContactForm);
+
+export default ContactForm;
