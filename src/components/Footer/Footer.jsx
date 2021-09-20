@@ -14,8 +14,9 @@ function Footer() {
           </a>
         </div>
         <span>|</span>
-        {/* NEXT update TnCs */}
-        {/* <Link to="/terms-and-conditions"><span>TERMS AND CONDITIONS</span></Link> */}
+        <Link to="/terms-and-conditions">
+          <span>TERMS AND CONDITIONS</span>
+        </Link>
       </div>
       <div className="copyright">
         Copyright &copy; 2020 MAKEUP BY ELLIE.&nbsp;&nbsp;Makeup Artist and Hair
