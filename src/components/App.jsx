@@ -161,4 +161,3 @@ function App() {
 }
 
 export default App;
-// NEXT merge editorial and beauty in portfolio

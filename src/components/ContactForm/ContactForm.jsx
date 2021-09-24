@@ -8,7 +8,6 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import _ from "lodash";
 import "./ContactForm.scss";
 
-// NEXT test if changing the value event even changed anything
 const categories = [
   { category: "Event", value: "event" },
   { category: "Bridal", value: "bridal" },
@@ -269,6 +268,11 @@ function ContactForm(props) {
         name="addedQuestionsOrInfo"
         tabIndex="11"
       />
+      <p className="editorial-contact-instruction">
+        <em>
+          For shoots or editorial work please email info@makeupbyellie.com
+        </em>
+      </p>
       <div className="btn-container">
         <button
           className="reset-btn btn"
