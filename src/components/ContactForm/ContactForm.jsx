@@ -8,9 +8,9 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import _ from "lodash";
 import "./ContactForm.scss";
 
+// NEXT test if changing the value event even changed anything
 const categories = [
-  { category: "Beauty", value: "beauty" },
-  { category: "Editorial", value: "editorial" },
+  { category: "Event", value: "event" },
   { category: "Bridal", value: "bridal" },
 ];
 
@@ -18,54 +18,65 @@ function validate(values) {
   let errors = {};
 
   if (!values.name) {
-    errors.name = "Name: (Required)";
+    errors.name = "Name - Required:";
   }
 
   if (!values.mobile) {
-    errors.mobile = "Mobile: (Required)";
+    errors.mobile = "Mobile - Required:";
   }
 
   if (!values.email) {
-    errors.email = "Email: (Required)";
+    errors.email = "Email - Required:";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Email: (Invalid email address)";
+    errors.email = "Email - Invalid email address:";
   }
 
   if (!values.eventDate) {
-    errors.eventDate = "What date do you need your makeup? (Required)";
+    errors.eventDate = "Date of event/wedding - Required:";
   }
 
   if (!values.serviceType) {
-    errors.serviceType =
-      "What type of service would you like to book? (Required)";
+    errors.serviceType = "Service you're booking - Required:";
   }
 
-  if (!values.totalPeopleJustMakeup) {
-    errors.totalPeopleJustMakeup =
-      "How many people require only their Makeup done? (Required)";
+  if (!values.totalPeopleMakeup) {
+    errors.totalPeopleMakeup = "Number of people for makeup (1-10) - Required:";
   }
 
-  if (!values.totalPeopleWithHair) {
-    errors.totalPeopleWithHair =
-      "How many people require both Hair and Makeup? (Required)";
+  if (!values.totalPeopleHair) {
+    errors.totalPeopleHair = "Number of people for hair (0-5) - Required:";
   }
 
   if (!values.timeToFinish) {
-    errors.timeToFinish = "What time do you need to be ready by? (Required)";
+    errors.timeToFinish = "Time you need to be ready - Required:";
   }
 
-  if (!values.howDidYouHear) {
-    errors.howDidYouHear = "How did you hear about us? (Required)";
+  if (values.totalPeopleMakeup > 2 && !values.applicationAddress) {
+    errors.applicationAddress = "Location for service - Required:";
   }
 
   return errors;
 }
 
-function peopleNumLimit(value) {
-  if (value < 0) {
-    return 0;
+function peopleNumLimitMakeup(value) {
+  if (value === "") {
+    return "";
+  } else if (value < 1) {
+    return 1;
   } else if (value > 10) {
     return 10;
+  } else {
+    return value;
+  }
+}
+
+function peopleNumLimitHair(value) {
+  if (value === "") {
+    return "";
+  } else if (value < 0) {
+    return 0;
+  } else if (value > 5) {
+    return 5;
   } else {
     return value;
   }
@@ -78,7 +89,6 @@ function renderField({
   type,
   label,
   number1,
-  number2,
   meta: { touched, error },
 }) {
   if (input.name === "applicationAddress") {
@@ -90,7 +100,7 @@ function renderField({
           type={type}
           placeholder={placeholder}
           autoFocus={autoFocus}
-          disabled={parseInt(number1) + parseInt(number2) > 2 ? false : true}
+          disabled={!(parseInt(number1) > 2)}
         />
       </div>
     );
@@ -155,7 +165,6 @@ function renderTextArea({
   );
 }
 
-// NEXT redo this form to not be confusing lols
 function ContactForm(props) {
   const { handleSubmit, number1, number2, pristine, submitting, reset } = props;
   const addressPlaceHolder = "Ellie's home studio in Altona Meadows";
@@ -191,7 +200,7 @@ function ContactForm(props) {
       <Field
         type="date"
         component={renderField}
-        label="What date do you need your makeup?"
+        label="Date of event/wedding:"
         name="eventDate"
         tabIndex="4"
       />
@@ -201,45 +210,45 @@ function ContactForm(props) {
         data={categories}
         valueField="value"
         textField="category"
-        label="What type of service would you like to book?"
+        label="Service you're booking:"
         tabIndex="5"
       />
       <p>
         <em>
-          Please note: travel is only available for parties of 3 or more, all
-          other bookings will take place at my home studio in Altona Meadows,
-          Melbourne.
+          Please note: travel is only available for 3 or more makeup services,
+          all other bookings will take place at my home studio in Altona
+          Meadows, Melbourne.
         </em>
       </p>
       <Field
         type="number"
         component={renderField}
-        label="How many people require only their Makeup done (up to 10)?"
-        name="totalPeopleJustMakeup"
+        label="Number of people for makeup (1-10):"
+        name="totalPeopleMakeup"
         tabIndex="6"
-        placeholder="only Makeup"
-        normalize={peopleNumLimit}
+        placeholder="Makeup"
+        normalize={peopleNumLimitMakeup}
       />
       <Field
         type="number"
         component={renderField}
-        label="How many people require both Hair and Makeup (up to 10)?"
-        name="totalPeopleWithHair"
+        label="Number of people for hair (0-5):"
+        name="totalPeopleHair"
         tabIndex="7"
-        placeholder="Hair and Makeup"
-        normalize={peopleNumLimit}
+        placeholder="Hair"
+        normalize={peopleNumLimitHair}
       />
       <Field
         type="text"
         component={renderField}
-        label="What time do you need to be ready by?"
+        label="Time you need to be ready:"
         name="timeToFinish"
         tabIndex="8"
       />
       <Field
         type="text"
         component={renderField}
-        label="Where are you getting ready?"
+        label="Location for service:"
         name="applicationAddress"
         placeholder={addressPlaceHolder}
         number1={number1}
@@ -256,7 +265,7 @@ function ContactForm(props) {
       <Field
         type="text"
         component={renderTextArea}
-        label="Any additional information or questions?"
+        label="Any additional information or questions:"
         name="addedQuestionsOrInfo"
         tabIndex="11"
       />
@@ -282,8 +291,8 @@ ContactForm = reduxForm({
 const selector = formValueSelector("ContactForm");
 ContactForm = connect((state) => {
   return {
-    number1: selector(state, "totalPeopleJustMakeup"),
-    number2: selector(state, "totalPeopleWithHair"),
+    number1: selector(state, "totalPeopleMakeup"),
+    number2: selector(state, "totalPeopleHair"),
   };
 })(ContactForm);
 

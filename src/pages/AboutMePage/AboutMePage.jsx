@@ -1,5 +1,5 @@
 import React from "react";
-import mainImg from "../../media/ellie.jpeg";
+// import mainImg from "../../media/ellie.jpeg";
 import "./AboutMePage.scss";
 
 function AboutMePage() {
