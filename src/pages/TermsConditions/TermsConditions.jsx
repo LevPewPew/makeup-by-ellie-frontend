@@ -11,7 +11,7 @@ function TermsConditions() {
           <li>
             You agree to pay for the trial on the day of the trial by cash.
           </li>
-          <li>Minimum call out of 3 makeup services is required for travel.</li>
+          <li>Minimum call out of 4 makeup services is required for travel.</li>
           <li>
             A Non-refundable/non-transferable booking fee of $100 is required to
             secure your event/wedding date.

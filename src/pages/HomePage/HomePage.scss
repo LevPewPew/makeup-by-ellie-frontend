@@ -1,18 +1,34 @@
-@import '../../styles/colors';
+@import "../../styles/colors";
 
 @mixin bp($point) {
   @if $point == smallScreen {
-    @media (max-width: 1200px) { @content; }
+    @media (max-width: 1200px) {
+      @content;
+    }
   } @else if $point == tablet {
-    @media (max-width: 768px) { @content; }
+    @media (max-width: 768px) {
+      @content;
+    }
   } @else if $point == mobile {
-    @media (max-width: 520px) { @content; }
+    @media (max-width: 520px) {
+      @content;
+    }
   } @else if $point == smallMobile {
-    @media (max-width: 375px) { @content; }
+    @media (max-width: 375px) {
+      @content;
+    }
   }
 }
 
 .HomePage {
+  // LEFTOFF
+  // - chop off top so always starts at that point
+  // - get rid of that cream padding
+  // - chop off some of bottom too
+  // - add logo
+  // - add email icon next to top right insta icon
+  // - edit beauty photos (reupload all in exact order + remove the shit one and replace with another of that blonde chick)
+
   .main-img-container {
     width: 100%;
     padding: 200px 23vw 0 23vw;
@@ -34,10 +50,9 @@
     @include bp(smallMobile) {
       padding: 200px 5vw 0 5vw;
     }
-    
+
     .main-img {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
     }
   }
 
@@ -59,20 +74,19 @@
     @include bp(smallMobile) {
       padding: 5vw 8vw;
     }
-    
-    &:nth-of-type(2n+1) {
+
+    &:nth-of-type(2n + 1) {
       background-color: $burningHarpy;
-      
+
       * {
         background-color: $burningHarpy;
       }
-
 
       .summary-img-text-container {
         justify-content: flex-start;
       }
     }
-    
+
     &:nth-of-type(2n) {
       .summary-img-text-container {
         justify-content: flex-end;
@@ -97,7 +111,7 @@
     &:first-of-type {
       margin-top: 50px;
     }
-    
+
     &:last-of-type {
       margin-bottom: 50px;
     }
@@ -185,7 +199,7 @@
         margin-top: 20px;
         width: 100%;
       }
-      
+
       .summary-img {
         width: 100%;
         height: 100%;
@@ -211,10 +225,6 @@
     }
   }
 
-  .summaries {
-    padding: 5vw 0;
-  }
-
   .call-to-action {
     padding: 10vw 30vw;
     display: flex;
@@ -237,7 +247,8 @@
       padding: 5vw 9vw;
     }
 
-    h1, p {
+    h1,
+    p {
       text-align: center;
     }
 
@@ -275,59 +286,99 @@
 }
 
 @keyframes slidein {
-  from { right: -25px; }
-  to   { right: 0px; }
+  from {
+    right: -25px;
+  }
+  to {
+    right: 0px;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes slidein {
-  from { right: -25px; }
-  to   { right: 0px; }
+  from {
+    right: -25px;
+  }
+  to {
+    right: 0px;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes slidein {
-  from { right: -25px; }
-  to   { right: 0px; }
+  from {
+    right: -25px;
+  }
+  to {
+    right: 0px;
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes slidein {
-  from { right: -25px; }
-  to   { right: 0px; }
+  from {
+    right: -25px;
+  }
+  to {
+    right: 0px;
+  }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes slidein {
-  from { right: -25px; }
-  to   { right: 0px; }
+  from {
+    right: -25px;
+  }
+  to {
+    right: 0px;
+  }
 }
 
 @keyframes slideinrev {
-  from { left: -25px; }
-  to   { left: 0px; }
+  from {
+    left: -25px;
+  }
+  to {
+    left: 0px;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes slideinrev {
-  from { left: -25px; }
-  to   { left: 0px; }
+  from {
+    left: -25px;
+  }
+  to {
+    left: 0px;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes slideinrev {
-  from { left: -25px; }
-  to   { left: 0px; }
+  from {
+    left: -25px;
+  }
+  to {
+    left: 0px;
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes slideinrev {
-  from { left: -25px; }
-  to   { left: 0px; }
+  from {
+    left: -25px;
+  }
+  to {
+    left: 0px;
+  }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes slideinrev {
-  from { left: -25px; }
-  to   { left: 0px; }
+  from {
+    left: -25px;
+  }
+  to {
+    left: 0px;
+  }
 }

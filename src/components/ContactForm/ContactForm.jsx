@@ -8,6 +8,8 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import _ from "lodash";
 import "./ContactForm.scss";
 
+const MINIMUM_FOR_TRAVEL = 4;
+
 const categories = [
   { category: "Event", value: "event" },
   { category: "Bridal", value: "bridal" },
@@ -50,7 +52,10 @@ function validate(values) {
     errors.timeToFinish = "Time you need to be ready - Required:";
   }
 
-  if (values.totalPeopleMakeup > 2 && !values.applicationAddress) {
+  if (
+    values.totalPeopleMakeup > MINIMUM_FOR_TRAVEL - 1 &&
+    !values.applicationAddress
+  ) {
     errors.applicationAddress = "Location for service - Required:";
   }
 
@@ -81,6 +86,9 @@ function peopleNumLimitHair(value) {
   }
 }
 
+// NEXT get rid of 1-10 and 0-5 wording and logic
+// - ad in brackets to hair "events and special occasions only"
+
 function renderField({
   autoFocus,
   placeholder,
@@ -99,7 +107,7 @@ function renderField({
           type={type}
           placeholder={placeholder}
           autoFocus={autoFocus}
-          disabled={!(parseInt(number1) > 2)}
+          disabled={!(parseInt(number1) > MINIMUM_FOR_TRAVEL - 1)}
         />
       </div>
     );
@@ -214,9 +222,9 @@ function ContactForm(props) {
       />
       <p>
         <em>
-          Please note: travel is only available for 3 or more makeup services,
-          all other bookings will take place at my home studio in Altona
-          Meadows, Melbourne.
+          Please note: travel is only available for {MINIMUM_FOR_TRAVEL} or more
+          makeup services, all other bookings will take place at my home studio
+          in Altona Meadows, Melbourne.
         </em>
       </p>
       <Field

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import VizSens from "react-visibility-sensor";
 import BtnBookNow from "../../components/BtnBookNow/BtnBookNow";
-import mainImg from "../../media/IMG_2412croppedmore.jpeg";
+import mainImg from "../../media/hp1.jpeg";
 import eventImg from "../../media/home-event2.jpeg";
 import editorialImg from "../../media/home-editorial.jpeg";
 import bridalImg from "../../media/home-bridal.jpeg";

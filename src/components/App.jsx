@@ -19,8 +19,8 @@ import ContactDetails from "./ContactDetails/ContactDetails";
 import "./App.scss";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
-// Not Under Maintenance (NUM)
-const NUM_FLAG = true;
+// Ready For Public (RFP)
+const RFP_FLAG = true;
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -90,7 +90,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        {NUM_FLAG ? (
+        {RFP_FLAG ? (
           <BrowserRouter>
             <Navbar />
             <Switch>

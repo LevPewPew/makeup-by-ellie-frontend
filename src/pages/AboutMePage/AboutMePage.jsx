@@ -47,7 +47,7 @@ function AboutMePage() {
             Meccaland.
           </p>
           <p>
-            Ellie has specialised in bridal for the last 3 years and enjoys
+            Ellie has specialised in bridal for the last 6 years and enjoys
             helping brides feel like the best version of themselves on their
             special day, she is well known for her great attention to detail.
             Enhancing your natural beauty is always her goal.
