@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import logo from '../../media/mbe-transparent-logo.png';
+import logo from '../../media/mbe-new-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
 import BtnInstagram from '../BtnInstagram/BtnInstagram';
 import BtnLogout from '../BtnLogout/BtnLogout';
