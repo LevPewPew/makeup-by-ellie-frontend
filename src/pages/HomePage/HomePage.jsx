@@ -145,7 +145,7 @@ function HomePage() {
             </article>
           </div>
         </VizSens>
-        <div className="call-to-action">
+        <div className="article-background call-to-action">
           <h1>BOOKING</h1>
           <p>
             Let Ellie's diverse experience and keen eye for detail enhance your

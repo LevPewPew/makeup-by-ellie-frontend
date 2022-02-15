@@ -80,22 +80,6 @@
     justify-content: center;
     align-items: center;
 
-    // @include bp(smallScreen) {
-    //   padding: 5vw 18vw;
-    // }
-
-    // @include bp(tablet) {
-    //   padding: 5vw 15vw;
-    // }
-
-    // @include bp(mobile) {
-    //   padding: 5vw 10vw;
-    // }
-
-    // @include bp(smallMobile) {
-    //   padding: 5vw 8vw;
-    // }
-
     &:nth-of-type(2n + 1) {
       background-color: $burningHarpy;
 
@@ -127,10 +111,6 @@
           margin: 0;
         }
       }
-    }
-
-    &:last-of-type {
-      margin-bottom: 50px;
     }
   }
 
@@ -257,24 +237,34 @@
 
   .call-to-action {
     padding: 10vw 30vw;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: -110px;
 
     @include bp(smallScreen) {
       padding: 8vw 20vw;
+      padding-top: 0;
+      padding-bottom: 15vw;
     }
 
     @include bp(tablet) {
       padding: 7vw 15vw;
+      padding-top: 0;
+      padding-bottom: 20vw;
     }
 
     @include bp(mobile) {
       padding: 6vw 11vw;
+      padding-top: 0;
+      padding-bottom: 30vw;
     }
 
     @include bp(smallMobile) {
       padding: 5vw 9vw;
+      padding-top: 0;
+      padding-bottom: 35vw;
     }
 
     h1,
@@ -311,6 +301,18 @@
 
     .BtnBookNow {
       margin-top: 70px;
+
+      @include bp(tablet) {
+        margin-top: 50px;
+      }
+
+      @include bp(mobile) {
+        margin-top: 30px;
+      }
+
+      @include bp(smallMobile) {
+        margin-top: 20px;
+      }
     }
   }
 }
