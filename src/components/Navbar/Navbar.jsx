@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../media/mbe-new-logo.png';
 import BtnBookNow from '../BtnBookNow/BtnBookNow';
 import BtnInstagram from '../BtnInstagram/BtnInstagram';
+import BtnEmail from '../BtnEmail/BtnEmail';
 import BtnLogout from '../BtnLogout/BtnLogout';
 import './Navbar.scss';
 
@@ -155,6 +156,7 @@ function Navbar() {
         </div>
         <BtnBookNow />
         <BtnInstagram />
+        {/* <BtnEmail /> */}
         <div className="hamburger">
           <div className={`${hamburgerClass}-btn`} onClick={animateHamburger}>
             <div className="bar-1"></div>
@@ -171,6 +173,7 @@ function Navbar() {
               <div className={"book-insta-container"}>
                 <BtnBookNow />
                 <BtnInstagram />
+                {/* <BtnEmail /> */}
               </div>
               {token ?
                 <>
