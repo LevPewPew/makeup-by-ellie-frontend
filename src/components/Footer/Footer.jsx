@@ -15,7 +15,8 @@ function Footer() {
         </div>
         <span>|</span>
         <Link to="/terms-and-conditions">
-          <span>TERMS AND CONDITIONS</span>
+          <span className="full-tnc">TERMS AND CONDITIONS</span>
+          <span className="small-tnc">T &#38; C</span>
         </Link>
       </div>
       <div className="copyright">

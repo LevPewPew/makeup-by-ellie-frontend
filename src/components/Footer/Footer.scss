@@ -1,6 +1,14 @@
 @import '../../styles/colors';
 @import '../../styles/fonts';
 
+@mixin bp($point) {
+  @if $point == mobile {
+    @media (max-width: 520px) {
+      @content;
+    }
+  }
+}
+
 .Footer {
   width: 80vw;
   margin: 0 auto;
@@ -48,5 +56,21 @@
     font-size: 12px;
     font-family: $classy;
     text-align: center;
+  }
+
+  .full-tnc {
+    display: inline;
+
+    @include bp(mobile) {
+      display: none;
+    }
+  }
+  
+  .small-tnc {
+    display: none;
+
+    @include bp(mobile) {
+      display: inline;
+    }
   }
 }
