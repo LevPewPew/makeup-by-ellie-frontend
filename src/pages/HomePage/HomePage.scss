@@ -22,7 +22,7 @@
       @content;
     }
   } @else if $point == sortOfSmallMobile {
-    @media (max-width: 520px) {
+    @media (max-width: 450px) {
       @content;
     }
   } @else if $point == smallMobile {
@@ -40,6 +40,7 @@
   // - see if i should chop off some of hero image at bigger sizes, and expand it as it goes to mobile so that it fits entire mobile ???
   // - add email icon next to top right insta icon
   // - edit beauty photos (reupload all in exact order + remove the shit one and replace with another of that blonde chick) (consult ellie i think i forgotten exactly what this is meant to be)
+  // - HomePage each section doesn't seem to have even height? or not aligned well? should be aligned to pageheight - navbar height
 
   .main-img-container {
     width: 100vw;

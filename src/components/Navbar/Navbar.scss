@@ -2,14 +2,34 @@
 @import '../../styles/fonts';
 
 @mixin bp($point) {
-  @if $point == smallScreen {
-    @media (max-width: 1200px) { @content; }
+  @if $point == sortOfSmall {
+    @media (max-width: 1480px) {
+      @content;
+    }
+  } @else if $point == smallScreen {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $point == bigTablet {
+    @media (max-width: 900px) {
+      @content;
+    }
   } @else if $point == tablet {
-    @media (max-width: 768px) { @content; }
+    @media (max-width: 768px) {
+      @content;
+    }
   } @else if $point == mobile {
-    @media (max-width: 520px) { @content; }
+    @media (max-width: 520px) {
+      @content;
+    }
+  } @else if $point == sortOfSmallMobile {
+    @media (max-width: 450px) {
+      @content;
+    }
   } @else if $point == smallMobile {
-    @media (max-width: 375px) { @content; }
+    @media (max-width: 375px) {
+      @content;
+    }
   }
 }
 
@@ -29,12 +49,12 @@
         margin-left: 20px;
       }
 
-      @include bp(tablet) {
+      @include bp(bigTablet) {
         display: none;
       }
     }
 
-    @include bp(tablet) {
+    @include bp(bigTablet) {
       .links {
         display: none;
       }
@@ -169,9 +189,7 @@
 
   .logo-container {
     width: 200px;
-    // height: 150px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    margin-top: -5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,7 +197,6 @@
   
     .logo {
       width: 100px;
-      // height: 230px;
     }
   }
 
@@ -234,7 +251,7 @@
     top: 0px;
     right: 0px;
 
-    @include bp(tablet) {
+    @include bp(bigTablet) {
       display: none;
     }
   }
