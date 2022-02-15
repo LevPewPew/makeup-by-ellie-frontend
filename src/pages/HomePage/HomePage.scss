@@ -21,6 +21,10 @@
     @media (max-width: 520px) {
       @content;
     }
+  } @else if $point == sortOfSmallMobile {
+    @media (max-width: 520px) {
+      @content;
+    }
   } @else if $point == smallMobile {
     @media (max-width: 375px) {
       @content;
@@ -31,8 +35,7 @@
 .HomePage {
   // LEFTOFF
   // - fix the navbar sizing at different break points
-  // - fix some of the odd alignment
-  // - fix the weird gap between hero image and the next section
+  // - add a bouncing downward arrow prompt to indicate need for scroll
   // - adjust .main-img breakpoints to have img in a good spot
   // - see if i should chop off some of hero image at bigger sizes, and expand it as it goes to mobile so that it fits entire mobile ???
   // - add email icon next to top right insta icon
@@ -42,7 +45,6 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-
     
     .main-img {
       margin-top: -17vw;
@@ -64,7 +66,11 @@
       }
   
       @include bp(mobile) {
-        margin-top: 25vws;
+        margin-top: 25vw;
+      }
+  
+      @include bp(sortOfSmallMobile) {
+        margin-top: 30vw;
       }
   
       @include bp(smallMobile) {
@@ -125,10 +131,6 @@
           margin: 0;
         }
       }
-    }
-
-    &:first-of-type {
-      margin-top: 50px;
     }
 
     &:last-of-type {

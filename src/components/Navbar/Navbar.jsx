@@ -82,7 +82,7 @@ function Navbar() {
 
   const animateHamburger = () => {
     if (hamburgerClass === 'hamburger-contracted') {
-      setHamburgerClass('hamburger-expanded') ;
+      setHamburgerClass('hamburger-expanded');
     } else {
       setHamburgerClass('hamburger-contracted');
     }
