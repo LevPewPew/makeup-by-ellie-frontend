@@ -64,14 +64,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        @include bp(mobile) {
-          padding-bottom: 57px;
-        }
-
-        @include bp(smallMobile) {
-          padding-bottom: 75px;
-        }
       }
   
       .bar-1, .bar-2, .bar-3 {
@@ -84,8 +76,9 @@
       
       .hamburger-expanded-btn {
         z-index: 1000;
+
         /*Animation on Hamburger*/
-  
+        
         /* Rotate first bar */
         .bar-1 {
           -webkit-transform: rotate(-45deg) translate(-11.5px, 7px);

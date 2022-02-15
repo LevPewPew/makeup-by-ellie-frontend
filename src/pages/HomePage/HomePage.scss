@@ -34,13 +34,10 @@
 
 .HomePage {
   // LEFTOFF
-  // - fix the navbar sizing at different break points
   // - add a bouncing downward arrow prompt to indicate need for scroll
-  // - adjust .main-img breakpoints to have img in a good spot
   // - see if i should chop off some of hero image at bigger sizes, and expand it as it goes to mobile so that it fits entire mobile ???
   // - add email icon next to top right insta icon
   // - edit beauty photos (reupload all in exact order + remove the shit one and replace with another of that blonde chick) (consult ellie i think i forgotten exactly what this is meant to be)
-  // - HomePage each section doesn't seem to have even height? or not aligned well? should be aligned to pageheight - navbar height
 
   .main-img-container {
     width: 100vw;
@@ -67,15 +64,11 @@
       }
   
       @include bp(mobile) {
-        margin-top: 25vw;
+        margin-top: 20vw;
       }
   
       @include bp(sortOfSmallMobile) {
-        margin-top: 30vw;
-      }
-  
-      @include bp(smallMobile) {
-        margin-top: 33vw;
+        margin-top: 23vw;
       }
 
       width: 100%;
@@ -83,23 +76,26 @@
   }
 
   .article-background {
-    padding: 5vw 18vw;
+    height: calc(100vh - 95px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    @include bp(smallScreen) {
-      padding: 5vw 18vw;
-    }
+    // @include bp(smallScreen) {
+    //   padding: 5vw 18vw;
+    // }
 
-    @include bp(tablet) {
-      padding: 5vw 15vw;
-    }
+    // @include bp(tablet) {
+    //   padding: 5vw 15vw;
+    // }
 
-    @include bp(mobile) {
-      padding: 5vw 10vw;
-    }
+    // @include bp(mobile) {
+    //   padding: 5vw 10vw;
+    // }
 
-    @include bp(smallMobile) {
-      padding: 5vw 8vw;
-    }
+    // @include bp(smallMobile) {
+    //   padding: 5vw 8vw;
+    // }
 
     &:nth-of-type(2n + 1) {
       background-color: $burningHarpy;
@@ -143,6 +139,19 @@
     display: flex;
     align-items: center;
     opacity: 0;
+    width: 60vw;
+    
+    @include bp(smallScreen) {
+      width: 70vw;
+    }
+
+    @include bp(bigTablet) {
+      width: 78vw;
+    }
+
+    @include bp(tablet) {
+      width: 85vw;
+    }
 
     @include bp(mobile) {
       flex-direction: column-reverse;
