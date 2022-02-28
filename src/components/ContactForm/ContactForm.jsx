@@ -41,11 +41,11 @@ function validate(values) {
   }
 
   if (!values.totalPeopleMakeup) {
-    errors.totalPeopleMakeup = "Number of people for makeup (1-10) - Required:";
+    errors.totalPeopleMakeup = "Number of people for makeup - Required:";
   }
 
   if (!values.totalPeopleHair) {
-    errors.totalPeopleHair = "Number of people for hair (0-5) - Required:";
+    errors.totalPeopleHair = "Number of people for hair - Required:";
   }
 
   if (!values.timeToFinish) {
@@ -65,10 +65,10 @@ function validate(values) {
 function peopleNumLimitMakeup(value) {
   if (value === "") {
     return "";
-  } else if (value < 1) {
-    return 1;
-  } else if (value > 10) {
-    return 10;
+  } else if (value < 0) {
+    return 0;
+  } else if (value > 1000) {
+    return 1000;
   } else {
     return value;
   }
@@ -79,15 +79,15 @@ function peopleNumLimitHair(value) {
     return "";
   } else if (value < 0) {
     return 0;
-  } else if (value > 5) {
-    return 5;
+  } else if (value > 1000) {
+    return 1000;
   } else {
     return value;
   }
 }
 
 // NEXT get rid of 1-10 and 0-5 wording and logic
-// - ad in brackets to hair "events and special occasions only"
+// - add in brackets to hair "events and special occasions only"
 
 function renderField({
   autoFocus,
@@ -230,7 +230,7 @@ function ContactForm(props) {
       <Field
         type="number"
         component={renderField}
-        label="Number of people for makeup (1-10):"
+        label="Number of people for makeup:"
         name="totalPeopleMakeup"
         tabIndex="6"
         placeholder="Makeup"
@@ -239,7 +239,7 @@ function ContactForm(props) {
       <Field
         type="number"
         component={renderField}
-        label="Number of people for hair (0-5):"
+        label="Number of people for hair:"
         name="totalPeopleHair"
         tabIndex="7"
         placeholder="Hair"

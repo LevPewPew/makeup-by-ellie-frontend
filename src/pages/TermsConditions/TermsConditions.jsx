@@ -79,7 +79,7 @@ function TermsConditions() {
             At the trial you will be given instructions on what is required
             regarding hair and makeup preparation during the weeks/months before
             and on the day. If this advice is not followed then additional costs
-            may be charged on the day (eg. if hair is still wet and I need to do
+            may be charged on the day (e.sg. if hair is still wet and I need to do
             a full blow dry prior to an upstyle/downstyle)
           </li>
           <li>

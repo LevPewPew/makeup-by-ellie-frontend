@@ -20,7 +20,7 @@ function Footer() {
         </Link>
       </div>
       <div className="copyright">
-        Copyright &copy; 2021 MAKEUP BY ELLIE.&nbsp;&nbsp;Makeup Artist and Hair
+        Copyright &copy; 2022 MAKEUP BY ELLIE.&nbsp;&nbsp;Makeup Artist and Hair
         Stylist.&nbsp;&nbsp;Melbourne, Australia.&nbsp;&nbsp;All Rights
         Reserved.
       </div>
