@@ -86,9 +86,6 @@ function peopleNumLimitHair(value) {
   }
 }
 
-// NEXT get rid of 1-10 and 0-5 wording and logic
-// - add in brackets to hair "events and special occasions only"
-
 function renderField({
   autoFocus,
   placeholder,
@@ -272,7 +269,7 @@ function ContactForm(props) {
       <Field
         type="text"
         component={renderTextArea}
-        label="Any additional information or questions:"
+        label="Any additional information:"
         name="addedQuestionsOrInfo"
         tabIndex="11"
       />
