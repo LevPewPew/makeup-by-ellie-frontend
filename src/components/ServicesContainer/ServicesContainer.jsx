@@ -6,21 +6,20 @@ import './ServicesContainer.scss';
 
 function ServicesContainer() {
   const servicesData = useSelector((state) => state.servicesReducer.servicesData);
-  
+  // hacky work around to sort based on direct mongo atlas db manipulated sortId field
+  const sortedServicesData = servicesData ? servicesData.sort(() => {}) : null;
+
+  console.log({ servicesData });
+
   return (
     <section className="ServicesContainer">
-      {
-        servicesData.length > 0 ?
+      {servicesData.length > 0 ? (
         servicesData.map((service, index) => {
-          const { _id, title, description, imageUrl, cost, duration, disclaimer } = service;
+          const { _id, title, description, imageUrl, cost, duration, disclaimer, sortId } = service;
 
           return (
             <>
-              {
-                index === 0 ?
-                null :
-                <div className="break"></div>
-              }
+              {index === 0 ? null : <div className="break"></div>}
               <Service
                 key={index}
                 id={_id}
@@ -32,10 +31,11 @@ function ServicesContainer() {
                 disclaimer={disclaimer}
               />
             </>
-          )
-        }) :
+          );
+        })
+      ) : (
         <LoadingAnimation />
-      }
+      )}
     </section>
   );
 }
