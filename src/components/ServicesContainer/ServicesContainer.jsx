@@ -6,16 +6,12 @@ import './ServicesContainer.scss';
 
 function ServicesContainer() {
   const servicesData = useSelector((state) => state.servicesReducer.servicesData);
-  // hacky work around to sort based on direct mongo atlas db manipulated sortId field
-  const sortedServicesData = servicesData ? servicesData.sort(() => {}) : null;
-
-  console.log({ servicesData });
 
   return (
     <section className="ServicesContainer">
       {servicesData.length > 0 ? (
         servicesData.map((service, index) => {
-          const { _id, title, description, imageUrl, cost, duration, disclaimer, sortId } = service;
+          const { _id, title, description, imageUrl, cost, duration, disclaimer } = service;
 
           return (
             <>
@@ -29,6 +25,10 @@ function ServicesContainer() {
                 cost={cost}
                 duration={duration}
                 disclaimer={disclaimer}
+                customButtonText={title === 'Bridal Makeup' ? 'ENQUIRE' : undefined}
+                customButtonLink={
+                  title !== 'Bridal Makeup' ? 'https://makeupbyellie.as.me/schedule.php' : undefined
+                }
               />
             </>
           );

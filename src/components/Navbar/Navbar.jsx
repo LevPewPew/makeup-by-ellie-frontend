@@ -8,13 +8,13 @@ import BtnLogout from '../BtnLogout/BtnLogout';
 import './Navbar.scss';
 
 function Navbar() {
-  const [ hamburgerClass, setHamburgerClass ] = useState('hamburger-contracted');
-  const [ aboutMeLinkClass, setAboutMeLinkClass ] = useState('inactive');
-  const [ servicesLinkClass, setServicesLinkClass ] = useState('inactive');
-  const [ portfolioLinkClass, setPortfolioLinkClass ] = useState('inactive');
-  const [ faqLinkClass, setFaqLinkClass ] = useState('inactive');
-  const [ contactLinkClass, setContactLinkClass ] = useState('inactive');
-  const [ adminDashLinkClass, setAdminDashLinkClass ] = useState('inactive');
+  const [hamburgerClass, setHamburgerClass] = useState('hamburger-contracted');
+  const [aboutMeLinkClass, setAboutMeLinkClass] = useState('inactive');
+  const [servicesLinkClass, setServicesLinkClass] = useState('inactive');
+  const [portfolioLinkClass, setPortfolioLinkClass] = useState('inactive');
+  const [faqLinkClass, setFaqLinkClass] = useState('inactive');
+  const [contactLinkClass, setContactLinkClass] = useState('inactive');
+  const [adminDashLinkClass, setAdminDashLinkClass] = useState('inactive');
 
   const token = useSelector((state) => state.tokenReducer.token);
 
@@ -78,7 +78,7 @@ function Navbar() {
         setContactLinkClass('inactive');
         setAdminDashLinkClass('inactive');
     }
-  }
+  };
 
   const animateHamburger = () => {
     if (hamburgerClass === 'hamburger-contracted') {
@@ -86,7 +86,7 @@ function Navbar() {
     } else {
       setHamburgerClass('hamburger-contracted');
     }
-  }
+  };
 
   return (
     <nav className="Navbar">
@@ -137,8 +137,7 @@ function Navbar() {
           >
             CONTACT
           </Link>
-          {
-            token ?
+          {token ? (
             <div className="admin-nav-container">
               <Link
                 className={adminDashLinkClass}
@@ -148,38 +147,51 @@ function Navbar() {
               >
                 ADMIN
               </Link>
-              <Link className="logout-anchor" to="/"><BtnLogout /></Link>
-            </div> :
-            null
-          }
+              <Link className="logout-anchor" to="/">
+                <BtnLogout />
+              </Link>
+            </div>
+          ) : null}
         </div>
-        <BtnBookNow />
+        <BtnBookNow customLink={'https://makeupbyellie.as.me/schedule.php'} />
         <BtnInstagram />
-        {/* <BtnEmail /> */}
         <div className="hamburger">
           <div className={`${hamburgerClass}-btn`} onClick={animateHamburger}>
             <div className="bar-1"></div>
             <div className="bar-2"></div>
             <div className="bar-3"></div>
           </div>
-          <div className={`${hamburgerClass}`}> 
+          <div className={`${hamburgerClass}`}>
             <ul>
-              <Link to="./about-me" onClick={animateHamburger} ><li>ABOUT</li></Link>
-              <Link to="./services" onClick={animateHamburger} ><li>SERVICES</li></Link>
-              <Link to="./portfolio" onClick={animateHamburger} ><li>PORTFOLIO</li></Link>
-              <Link to="./faq" onClick={animateHamburger} ><li>FAQ</li></Link>
-              <Link to="./contact" onClick={animateHamburger}><li>CONTACT</li></Link>
-              <div className={"book-insta-container"}>
+              <Link to="./about-me" onClick={animateHamburger}>
+                <li>ABOUT</li>
+              </Link>
+              <Link to="./services" onClick={animateHamburger}>
+                <li>SERVICES</li>
+              </Link>
+              <Link to="./portfolio" onClick={animateHamburger}>
+                <li>PORTFOLIO</li>
+              </Link>
+              <Link to="./faq" onClick={animateHamburger}>
+                <li>FAQ</li>
+              </Link>
+              <Link to="./contact" onClick={animateHamburger}>
+                <li>CONTACT</li>
+              </Link>
+              <div className={'book-insta-container'}>
                 <BtnBookNow />
                 <BtnInstagram />
-                {/* <BtnEmail /> */}
               </div>
-              {token ?
+              {token ? (
                 <>
-                  <Link to="./admin" onClick={animateHamburger}><li>ADMIN</li></Link>
-                  <Link to="/"><BtnLogout/></Link>
-                </> :
-              null}
+                  <Link to="./admin" onClick={animateHamburger}>
+                    <li>ADMIN</li>
+                  </Link>
+                  <Link to="/">
+                    <BtnLogout />
+                  </Link>
+                </>
+              ) : null}
             </ul>
           </div>
         </div>

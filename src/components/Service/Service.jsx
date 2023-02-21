@@ -7,7 +7,17 @@ import { servicesSubmitHandler } from '../../utils/forms/submitHandlers';
 import './Service.scss';
 
 function Service(props) {
-  const { id, title, description, imageUrl, cost, duration, disclaimer } = props;
+  const {
+    id,
+    title,
+    description,
+    imageUrl,
+    cost,
+    duration,
+    disclaimer,
+    customButtonText,
+    customButtonLink,
+  } = props;
 
   const serviceForm = useSelector((state) => state.form.ServiceForm);
   const editingForm = useSelector((state) => state.adminDashReducer.editingForm);
@@ -19,7 +29,7 @@ function Service(props) {
     imageUrl,
     cost,
     duration,
-    disclaimer
+    disclaimer,
   };
 
   function handleSubmit() {
@@ -28,40 +38,36 @@ function Service(props) {
 
   return (
     <article className="Service" data-testid="Service">
-      {
-        editingForm === id ?
-        <ServiceForm
-          initialValues={existingData}
-          onSubmit={handleSubmit}
-        /> :
+      {editingForm === id ? (
+        <ServiceForm initialValues={existingData} onSubmit={handleSubmit} />
+      ) : (
         <>
           <h2>{title}</h2>
           <div className="img-description-btn-container">
-            <div className={"img-container"}>
+            <div className={'img-container'}>
               <img src={imageUrl} alt="woman in makeup" />
             </div>
             <div className="description-container">
               <p>{description}</p>
-              {
-                duration ?
-                <p className="duration"><strong>Duration: </strong>{duration}</p> :
-                null
-              }
-              {
-                cost ?
-                <p className="cost"><strong>Cost: </strong>{cost}</p> :
-                null
-              }
+              {duration ? (
+                <p className="duration">
+                  <strong>Duration: </strong>
+                  {duration}
+                </p>
+              ) : null}
+              {cost ? (
+                <p className="cost">
+                  <strong>Cost: </strong>
+                  {cost}
+                </p>
+              ) : null}
               <p>{disclaimer}</p>
-              <BtnBookNow/>
-              <CrudBtnsContainer
-                collection={collection}
-                id={id}
-              />
+              <BtnBookNow customText={customButtonText} customLink={customButtonLink} />
+              <CrudBtnsContainer collection={collection} id={id} />
             </div>
           </div>
         </>
-      }
+      )}
     </article>
   );
 }
